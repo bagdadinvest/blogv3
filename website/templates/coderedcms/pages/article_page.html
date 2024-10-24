@@ -1,0 +1,132 @@
+{% extends "coderedcms/pages/web_page.html" %}
+
+{% load wagtailadmin_tags wagtailcore_tags wagtailimages_tags coderedcms_tags i18n %}
+
+
+{% block content %}
+
+<div class="blog-entries">
+    <div class="container">
+        <!-- Add a row to wrap both columns -->
+        <div class="row">
+            <div class="col-md-9">
+                <div class="blog-posts">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-blog-post">
+                                {% if self.cover_image %}
+                                    {% image self.cover_image fill-765x325 as cover_image %}
+                                    <img src="{{ cover_image.url }}" alt="{% trans 'Blog Image' %}">
+                                {% endif %}
+                                <div class="text-content">
+                                    <h1>{{ self.title }}</h1>
+                                    <span><a href="#">DentiDelil Editorials</a> / <a href="#">{{ self.seo_published_at }}</a> / <a href="#">Branding</a></span>
+
+                                    <div class="container mx-auto article-body">
+                                        {% if self.body %}
+                                            {% for block in self.body %}
+                                                {% include_block block with settings=settings %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    </div>
+                                    <div class="simple-btn">
+                                        <a href="{% if self.blog_index %}{% pageurl self.blog_index %}{% else %}#(Missing Blog Index){% endif %}" style="color: gold;">{% trans "Back to Blog" %}</a>
+                                    </div>
+                                </div>
+
+                                <div class="tags-share">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="tags">
+                                                {% with self.tags.all as tags %}
+                                                {% if tags %}
+                                                <li>{% trans "Tags:" %}</li>
+                                                {% for tag in tags.all %}
+                                                    <li><a href="{% if self.blog_index %}{% pageurl self.blog_index %}{% else %}#(Missing Blog Index){% endif %}?tag={% if tag %}{{ tag }}{% else %}(Missing Tag){% endif %}">{% if tag %}{{ tag }}{% else %}(Missing Tag){% endif %}</a></li>
+                                                {% endfor %}
+                                                {% endif %}
+                                                {% endwith %}
+                                            </ul>
+                                        </div>
+                                        <!-- Social share include -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add the column size for the sidebar -->
+            <div class="col-md-3">
+                <div class="side-bar">
+                    <div class="search">
+                        <fieldset>
+                            <input name="search" type="text" class="form-control" id="search" placeholder="{% trans 'Search...' %}" required="">
+                        </fieldset>
+                    </div>
+                    <div class="archives">
+                        <div class="sidebar-heding">
+                            <h2>{% trans 'Quick Links' %}</h2>
+                        </div>
+                        <ul>
+                            <li><a href="/">&gt; {% trans 'Home' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'About Us' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'Denti-Board' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'Top Blogs' %}</a></li>
+                        </ul>
+                    </div>
+                    <div class="recent-posts">
+                        <div class="sidebar-heding">
+                            <h2>{% trans 'Recent Posts' %}</h2>
+                        </div>
+                        <ul>
+                            {% if blogs %}
+                                {% for post in blogs|slice:":6" %}
+                                    <li>
+                                        <a href="{% if post.url %}{{ post.url }}{% else %}#(Missing URL){% endif %}">
+                                            {% if post.cover_image %}
+                                                {% if post.cover_image %}{% image post.cover_image fill-60x60 as feed_image %}{% else %}(Missing Cover Image){% endif %}
+                                                <img src="{{ feed_image.url }}" alt="{% if post.title %}{{ post.title }}{% else %}(Missing Title){% endif %}">
+                                            {% else %}
+                                                <img src="" alt="Missing Image">
+                                            {% endif %}
+                                            <div class="text">
+                                                <h6>{% if post.title %}{{ post.title }}{% else %}(Missing Title){% endif %}</h6>
+                                                <span>{% if post.seo_published_at %}{% if post.seo_published_at %}{{ post.seo_published_at }}{% else %}(Missing Date){% endif %}{% else %}{{ "Missing Date" }}{% endif %}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li style="color: white;">{% trans 'No recent posts available.' %}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+
+                    <div class="latest-gallery">
+                        <div class="sidebar-heding">
+                            <h2>{% trans 'Latest Gallery' %}</h2>
+                        </div>
+                        <ul class="gallery-list">
+                            {% for post in blogs %}
+                                {% if post.cover_image %}
+                                    {% if post.cover_image %}{% image post.cover_image fill-120x120 as feed_image %}{% else %}(Missing Cover Image){% endif %}
+                                    <li>
+                                        <a href="{% if post.url %}{{ post.url }}{% else %}#(Missing URL){% endif %}">
+                                            <img src="{{ feed_image.url }}" alt="{% if post.title %}{{ post.title }}{% else %}(Missing Title){% endif %}">
+                                        </a>
+                                    </li>
+                                {% else %}
+                                    <li><a href="{% if post.url %}{{ post.url }}{% else %}#(Missing URL){% endif %}">{% if post.title %}{{ post.title }}{% else %}(Missing Title){% endif %}</a></li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End row -->
+    </div> <!-- End container -->
+</div> <!-- End blog-entries -->
+
+{% endblock %}

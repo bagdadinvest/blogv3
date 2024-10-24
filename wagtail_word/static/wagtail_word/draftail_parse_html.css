@@ -1,0 +1,15 @@
+/* Custom styles for the Parse HTML button in Draftail */
+.Draftail-ToolbarButton__parse-html {
+    color: #007bff; /* You can adjust this to your preferred color */
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.Draftail-ToolbarButton__parse-html:hover {
+    color: #0056b3; /* Change on hover */
+    background-color: #e9ecef;
+    border-radius: 4px;
+}

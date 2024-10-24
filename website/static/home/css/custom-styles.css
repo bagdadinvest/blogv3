@@ -1,0 +1,144 @@
+.flag-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    width: 48px; /* Adjust the size of the flag */
+    height: 48px; /* Ensure height matches width for a perfect circle */
+    border-radius: 50%; /* Make the flag image circular */
+    object-fit: cover; /* Ensure the flag image covers the entire circle */
+
+    transition: transform 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flag-button img {
+    display: block;
+    width: 48px; /* Adjust the size of the flag */
+    height: 48px; /* Ensure height matches width for a perfect circle */
+    border-radius: 50%; /* Make the flag image circular */
+    object-fit: cover; /* Ensure the flag image covers the entire circle */
+}
+
+.flag-button:hover {
+    transform: rotate(360deg);
+}
+
+.flag-button.active {
+    animation: rolling 1s forwards;
+}
+
+.flag-button.active:hover {
+    transform: none; /* Disable hover effect while animating */
+}
+
+/* MENU */
+.hamburger-menu-wrapper {
+    position: fixed; /* Fixed position to make it stay in place while scrolling */
+    top: 30px; /* Adjust as needed to place it at the top */
+    left: 50%; /* Position it at the horizontal center */    
+    z-index: 1010; /* Ensure it stays on top of other elements */
+    background: transparent; /* Ensure no background is shown */
+    padding: 10px;
+    display: inline-block;
+    border-radius: 50%; /* Optional: adds a slight rounding to the wrapper */
+    transform: translate(-50%, -50%); /* Adjust to center it perfectly */
+    
+}
+
+.hamburger-menu-wrapper.bounce-effect {
+    animation: bounce 0.3s ease 1;
+}
+
+.menu-overlay {
+    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    display: none;
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1111;
+}
+
+.menu {
+    position: relative;
+    min-width: 220px;
+    text-align: center;
+}
+
+.hamburger-menu {
+    border: none;
+    margin: 0;
+    display: block;
+    padding: 0;
+    width: 48px; /* Set width to fit the flag icon */
+    height: 48px; /* Set height to fit the flag icon */
+    cursor: pointer;
+    background: transparent; /* Ensure no background is shown */
+    z-index: 1001; /* Keep it above other elements */
+    text-align: center;
+}
+
+.hamburger-menu:focus {
+    outline: none;
+}
+
+.hamburger-menu .flag-icon {
+    display: block;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%; /* Round flag icon */
+    object-fit: cover; /* Ensure the flag image covers the entire circle */
+}
+
+.menu-list {
+    display: none;
+    position: fixed; /* Use fixed positioning to center in the viewport */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust the position to be perfectly centered */
+    width: auto; /* Adjust width if needed */
+    text-align: center;
+    z-index: 9999;
+}
+    
+.menu-list a {
+    color: #C6D2D6;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    margin: 15px 0;
+    transition: all 0.5s ease;
+}
+
+.menu-list a:hover {
+    color: #02D5FD;
+}
+
+.hamburger-menu span {
+    display: block; /* Hide the span used for the icon animation */
+}
+
+.hamburger-menu.active .flag-icon {
+    /* Additional styles if needed when the menu is active */
+}
+
+@keyframes bounce {
+    0% {
+        transform: rotate(0);
+    }
+    45% {
+        transform: rotate(15deg);
+    }
+    90% {
+        transform: rotate(-7deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}

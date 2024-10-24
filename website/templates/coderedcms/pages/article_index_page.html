@@ -1,0 +1,120 @@
+{% extends "coderedcms/pages/web_page_notitle.html" %}
+{% load wagtailcore_tags wagtailimages_tags coderedcms_tags %}
+{% block index_filters %}{% endblock %}
+{% block index_content %}
+{% if page.index_show_subpages %}
+<div class="page-heading">
+    <div class="container">
+        <div class="heading-content">
+      <h1>{{page.title}}</h1>
+    </div>
+  </div>
+</div>
+
+<div class="blog-entries">
+    <div class="container">
+        <!-- Add a row to wrap both the blog posts and sidebar -->
+        <div class="row">
+            <div class="col-md-9">
+                <div class="blog-posts">
+                    <div class="row">
+                        {% for article in index_paginated %}
+                        <div class="col-md-12">
+                            <div class="blog-post">
+                                {% if article.specific.cover_image %}
+                                <a href="{% pageurl article %}">
+                                    {% image article.specific.cover_image fill-900x400 format-webp preserve-svg as feed_image %}
+                                    <img src="{{ feed_image.url }}" alt="{{ article.title }}"></a>
+                                {% endif %}
+
+                                <div class="text-content">
+                                    <span><a href="#">{{ article.specific.seo_author }}</a> / <a href="#">{{ article.specific.seo_published_at }}</a> / <a href="#">Dentil Delil Team</a></span>
+                                    <h2>{{ article.title }}</h2>
+                                    <p>{{ article.specific.body_preview|safe }}</p>
+                                    <div class="simple-btn">
+                                        <a href="{% pageurl article %}">continue reading</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- Pagination -->
+                        {% include "coderedcms/includes/pagination.html" with items=index_paginated %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="side-bar">
+                    <div class="search">
+                        <fieldset>
+                            <input name="search" type="text" class="form-control" id="search" placeholder="Search..." required="">
+                        </fieldset>
+                    </div>
+                    <div class="archives">
+                            <div class="sidebar-heding">
+                                <h2>Quick Links</h2>
+                            </div>
+                            <ul>
+                                <li><a href="/">&gt; Home</a></li>
+                                <li><a href="#">&gt; About Us </a></li>
+                                <li><a href="#">&gt; Denti-Board </a></li>
+                                <li><a href="#">&gt; Top Blogs</a></li>
+                            </ul>
+                        </div>
+                    <div class="recent-posts">
+                        <div class="sidebar-heding">
+                            <h2>Recent Posts</h2>
+                        </div>
+                        <ul>
+                            {% for article in index_paginated %}
+                                <li><a href="{% pageurl article %}">
+                                    {% if article.specific.cover_image %}
+                                        {% image article.specific.cover_image fill-140x60 format-webp as feed_image %}
+                                        <img src="{{ feed_image.url }}" alt="{{ article.title }}">
+                                    {% endif %}
+                                    <div class="text">
+                                        <h6>{{ article.title }}</h6>
+                                        <span>{{ article.specific.seo_published_at }}</span>
+                                    </div>
+                                </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="categories">
+                        <div class="sidebar-heding">
+                            <h2>Quick Links</h2>
+                        </div>
+                        <ul>
+                            <li><a href="/">&gt; Home</a></li>
+                            <li><a href="#">&gt; About Us </a></li>
+                            <li><a href="#">&gt; Denti-Board </a></li>
+                            <li><a href="#">&gt; Top Blogs</a></li>
+                        </ul>
+                    </div>
+                    <div class="latest-gallery">
+                        <div class="sidebar-heding">
+                            <h2>Latest Gallery</h2>
+                        </div>
+                        <ul class="gallery-list">
+                            {% for article in index_paginated %}
+                                {% if article.specific.cover_image %}
+                                    {% image article.specific.cover_image fill-120x120 as feed_image %}
+                                    <li>
+                                        <a href="{% pageurl article %}">
+                                            <img src="{{ feed_image.url }}" alt="{{ article.title }}">
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End row -->
+    </div> <!-- End container -->
+</div>
+                                {% endif %}
+{% endblock %}
