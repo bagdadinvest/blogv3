@@ -6,13 +6,13 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # Define the commands to run
-        django_server_cmd = ["python", "manage.py", "runserver", "0.0.0.0:8000"]
+        django_server_cmd = ["python", "manage.py", "runserver", "0.0.0.0:30000"]
         browser_sync_cmd = [
             "browser-sync",
             "start",
-            "--proxy", "127.0.0.1:8000",
-            "--files", "/home/lofa/Desktop/beyond-website/cms/**/*",  # Update the path here
-            "--serveStatic", "/home/lofa/Desktop/beyond-website/cms/website/static/website/",  # Update the path here
+            "--proxy", "127.0.0.1:300000",
+            "--files", "/home/lotfikan/blogv3/**/*",  # Update the path here
+            "--serveStatic", "/home/lotfikan/blogv3/website/static/",  # Update the path here
             "--port", "3000",
         ]
 

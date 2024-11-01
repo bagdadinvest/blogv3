@@ -1,5 +1,5 @@
 from django import template
-from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet
+from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet, Doctor
 
 register = template.Library()
 
@@ -27,3 +27,9 @@ def get_patient_journeys():
 def get_pricing_items():
     """Returns all pricing snippets"""
     return PricingSnippet.objects.all()
+
+@register.simple_tag
+def get_doctors():
+    """Returns all doctor snippets ordered by number"""
+    return Doctor.objects.all().order_by('number')
+

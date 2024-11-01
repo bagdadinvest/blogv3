@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 
 import os
+from dotenv import load_dotenv
+load_dotenv()
+
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
@@ -53,7 +56,9 @@ INSTALLED_APPS = [
     'django_extensions',
     'wagtailmedia',
     'wagtail_word',
-
+    'wagtail_unsplash',
+    "wagtail_jotform",
+    "wagtail.contrib.routable_page",
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -72,7 +77,6 @@ MIDDLEWARE = [
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.common.CommonMiddleware",
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
     # Security
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -83,6 +87,8 @@ MIDDLEWARE = [
     "wagtail.contrib.redirects.middleware.RedirectMiddleware",
     # Fetch from cache. Must be LAST.
     "wagtailcache.cache.FetchFromCacheMiddleware",
+    'cms.middleware.CustomDebugToolbarMiddleware',  # Add this line
+    'cms.middleware.SuperuserDebugMiddleware',
 ]
 INTERNAL_IPS = [
     '127.0.0.1',
@@ -206,59 +212,45 @@ WAGTAIL_AI = {
             "CLASS": "wagtail_ai.ai.openai.OpenAIBackend",
             "CONFIG": {
                 "MODEL_ID": "gpt-4o",
+                "TOKEN_LIMIT": 15096,
             },
         },
     },
 }
+
 # Hardcoded Configuration for Azure Translator
 
-AZURE_TRANSLATOR_KEY = '106c8f6b95a4460fae580599a6c74348'  # Replace with your actual key
-
-AZURE_TRANSLATOR_ENDPOINT = 'https://api.cognitive.microsofttranslator.com/'
-
+# Azure Translator
+AZURE_TRANSLATOR_KEY = os.getenv("AZURE_TRANSLATOR_KEY")
+AZURE_TRANSLATOR_ENDPOINT = os.getenv("AZURE_TRANSLATOR_ENDPOINT")
 
 WAGTAILLOCALIZE_MACHINE_TRANSLATOR = {
     "CLASS": "translations.azure.AzureTranslator",
     "OPTIONS": {
-        'subscription_key': '106c8f6b95a4460fae580599a6c74348',  # Replace with your actual subscription key
+        'subscription_key': os.getenv("AZURE_TRANSLATOR_KEY"),
         'region': 'uaenorth',
     }
 }
 
+# Unsplash API
+WAGTAIL_UNSPLASH = {
+    "CLIENT_ID": os.getenv("WAGTAIL_UNSPLASH_CLIENT_ID"),
+    "CLIENT_SECRET": os.getenv("WAGTAIL_UNSPLASH_CLIENT_SECRET")
+}
 
-WAGTAIL_AI_PROMPTS = [
-    {
-        "label": "AI Correction",
-        "description": "Correct grammar and spelling",
-        "prompt": """You are assisting a user in writing content for their website.
-            The user has provided some text (following the colon).
-            Return the provided text but with corrected grammar, spelling, and punctuation.
-            Do not add additional punctuation, quotation marks or change any words:""",
-        "method": "replace",
-    },
-    {
-    "label": "Engaging Dental Blog Completion",
-    "description": "Generate an engaging blog post related to dental health without rigid sections",
-    "prompt": """You are assisting a user in writing engaging, SEO-optimized content for their website.
-        The user has provided a topic (following the colon) and some initial text.
-        Your job is to complete the blog post by writing detailed, flowing paragraphs that cover the topic in an informative yet natural way.
-        Focus on delivering value to readers by explaining the topic thoroughly, using SEO-friendly keywords, but do not overuse headings or make it feel rigid.
-        Make sure the content flows well, has a friendly tone, and avoids sounding too technical or generic.
+# JotForm
+WAGTAIL_JOTFORM = {
+    "API_KEY": os.getenv("WAGTAIL_JOTFORM_API_KEY"),
+    "API_URL": "https://api.jotform.com",
+    "LIMIT": 50,
+}
 
-        Here's an example structure:
-        - Write a friendly and engaging introduction (3-4 sentences).
-        - Explain the topic in detail without labeling sections like 'Causes' or 'Stages' too rigidly.
-        - Mention relevant facts or common misconceptions where appropriate.
-        - Conclude with a helpful summary that gives readers something actionable to take away.
+import os
 
-        Ensure the writing flows naturally, with well-integrated SEO keywords related to the topic.""",
-    "method": "append",
-    },
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    {
-        "label": "Custom Prompt",  # Your custom prompt
-        "description": "This is my custom prompt",
-        "prompt": """Your custom instructions for the AI""",
-        "method": "replace",
-    },
-]
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
+
+

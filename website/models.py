@@ -314,6 +314,36 @@ class CustomHomePage(CoderedWebPage):
         FieldPanel("scroll_icon_url"),
     ]
 
+class doctorspage(CoderedWebPage):
+    """
+    Custom model for the homepage that includes a background video
+    selected from uploaded media using the Wagtail media extension.
+    """
+
+    class Meta:
+        verbose_name = "Our doctors"
+        abstract = False
+
+    template = "coderedcms/pages/doctors.html"
+
+    # Video-related fields
+    background_video = models.ForeignKey(
+        Media,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text="Background video to be displayed in the video container."
+    )
+    scroll_link = models.URLField(null=True, blank=True, help_text="Link for the scroll icon.")
+    scroll_icon_url = models.URLField(null=True, blank=True, help_text="URL for the scroll icon image.")
+
+    # Panels for video-related fields
+    content_panels = CoderedWebPage.content_panels + [
+        FieldPanel("background_video"),
+        FieldPanel("scroll_link"),
+        FieldPanel("scroll_icon_url"),
+    ]
 
 @register_snippet
 class PortfolioSnippet(models.Model):
@@ -337,3 +367,30 @@ class PortfolioSnippet(models.Model):
     class Meta:
         verbose_name = "Portfolio Item"
         verbose_name_plural = "Portfolio Items"
+
+
+@register_snippet
+class Doctor(models.Model):
+    number = models.IntegerField("Order Number", help_text="Number to control the order of display")
+    name = models.CharField(max_length=255)
+    specialty = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    photo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    panels = [
+        FieldPanel('number'),
+        FieldPanel('name'),
+        FieldPanel('specialty'),
+        FieldPanel('description'),
+        FieldPanel('photo'),
+    ]
+
+    def __str__(self):
+        return f"{self.number} - {self.name}"
+

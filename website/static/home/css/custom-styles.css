@@ -1,53 +1,55 @@
+/* Flag Button Styles */
 .flag-button {
     background: none;
     border: none;
     padding: 0;
-    margin: 0;
     cursor: pointer;
-    width: 48px; /* Adjust the size of the flag */
-    height: 48px; /* Ensure height matches width for a perfect circle */
-    border-radius: 50%; /* Make the flag image circular */
-    object-fit: cover; /* Ensure the flag image covers the entire circle */
-
-    transition: transform 0.5s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .flag-button img {
     display: block;
-    width: 48px; /* Adjust the size of the flag */
-    height: 48px; /* Ensure height matches width for a perfect circle */
-    border-radius: 50%; /* Make the flag image circular */
-    object-fit: cover; /* Ensure the flag image covers the entire circle */
 }
+.language-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-.flag-button:hover {
+  .flag-button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .flag-button:hover {
     transform: rotate(360deg);
-}
+  }
 
-.flag-button.active {
+  @keyframes rolling {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .flag-button.active {
     animation: rolling 1s forwards;
-}
+  }
 
-.flag-button.active:hover {
+  .flag-button.active:hover {
     transform: none; /* Disable hover effect while animating */
-}
+  }
+
 
 /* MENU */
 .hamburger-menu-wrapper {
-    position: fixed; /* Fixed position to make it stay in place while scrolling */
-    top: 30px; /* Adjust as needed to place it at the top */
-    left: 50%; /* Position it at the horizontal center */    
-    z-index: 1010; /* Ensure it stays on top of other elements */
-    background: transparent; /* Ensure no background is shown */
+    margin-top: 10px;
+    background: transparent;
     padding: 10px;
     display: inline-block;
-    border-radius: 50%; /* Optional: adds a slight rounding to the wrapper */
-    transform: translate(-50%, -50%); /* Adjust to center it perfectly */
-    
-}
+    border-radius: 10px; /* Optional: adds a slight rounding to the wrapper */
+ }
 
 .hamburger-menu-wrapper.bounce-effect {
     animation: bounce 0.3s ease 1;
@@ -73,16 +75,18 @@
 
 .hamburger-menu {
     border: none;
-    margin: 0;
+    margin: 0; /* Reset margin */
     display: block;
+    position: relative;
+    overflow: visible;
     padding: 0;
-    width: 48px; /* Set width to fit the flag icon */
-    height: 48px; /* Set height to fit the flag icon */
+    width: 28px; /* Set width to fit the flag icon */
+    height: 28px; /* Set height to fit the flag icon */
+    font-size: 0;
     cursor: pointer;
-    background: transparent; /* Ensure no background is shown */
-    z-index: 1001; /* Keep it above other elements */
-    text-align: center;
-}
+    background: transparent;
+    z-index: 1010;
+    text-align: center;}
 
 .hamburger-menu:focus {
     outline: none;
@@ -90,23 +94,25 @@
 
 .hamburger-menu .flag-icon {
     display: block;
-    width: 48px;
-    height: 48px;
-    border-radius: 50%; /* Round flag icon */
-    object-fit: cover; /* Ensure the flag image covers the entire circle */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%; /* Optional: round flag icon */
+    overflow: visible;
 }
 
 .menu-list {
     display: none;
-    position: fixed; /* Use fixed positioning to center in the viewport */
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust the position to be perfectly centered */
-    width: auto; /* Adjust width if needed */
+    position: absolute;
+    top: calc(100% + 40px);
+    width: 100%;
     text-align: center;
     z-index: 9999;
 }
-    
+
 .menu-list a {
     color: #C6D2D6;
     text-decoration: none;
@@ -140,5 +146,94 @@
     }
     100% {
         transform: rotate(0);
+    }
+}
+
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+    height: 70px;
+    transition: transform 0.5s ease; /* For sliding animation */
+}
+
+/* Initially visible */
+.mobile-bottom-nav.show {
+    transform: translateY(0); /* Slide into view */
+}
+
+/* Hidden state */
+.mobile-bottom-nav.hide {
+    transform: translateY(100%); /* Slide out of view */
+}
+
+/* Arrow to show navigation */
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2E2E2E; /* Soft, distinct grey */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+    height: 50px;
+    border-radius: 12px 12px 0 0; /* Subtle rounded top corners */
+    transition: transform 0.5s ease;
+}
+
+/* Show/Hide Animation */
+.mobile-bottom-nav.show {
+    transform: translateY(0); /* Slide into view */
+}
+.mobile-bottom-nav.hide {
+    transform: translateY(100%); /* Slide out of view */
+}
+
+
+/* Company Logo in the Center */
+/* Logo Centered with Flexible Size */
+.mobile-bottom-nav .nav-logo {
+    width: 50px;
+    height: auto;
+    max-height: 50px;
+    object-fit: contain;
+}
+
+/* Icon styling */
+.mobile-bottom-nav i {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 5px;
+    color: #DDD; /* Light grey for icons */
+}
+
+/* Ensure flex behavior of the links */
+.mobile-bottom-nav a {
+    flex: 1;
+    text-align: center;
+    color: #f0f0f0; /* Light text for readability */
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* Media query to hide the nav on larger screens */
+@media (min-width: 769px) {
+    .mobile-bottom-nav, .mobile-nav-arrow {
+        display: none;
     }
 }

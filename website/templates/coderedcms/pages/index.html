@@ -1,0 +1,31 @@
+{% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar %}
+{% get_settings %}
+{% get_current_language as LANGUAGE_CODE %}
+{% wagtail_site as site %}
+{% django_setting "CRX_DISABLE_ANALYTICS" as disable_analytics %}
+{% django_setting "CRX_DISABLE_LAYOUT" as disable_layout %}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Diagonal Slideshow | Codrops</title>
+		<meta name="description" content="A triple view diagonal slideshow with content preview." />
+		<meta name="keywords" content="" />
+		<meta name="author" content="Codrops" />
+		<link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" type="text/css" href="{%  static 'doc/css/base.css' %}" />
+		<script>
+		document.documentElement.className = "js";
+		var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e };
+		supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables.");
+		</script>
+	</head>
+
+
+	<body class="loading">
+	{% block content %}
+    {% endblock %}
+
+	</body>
+</html>

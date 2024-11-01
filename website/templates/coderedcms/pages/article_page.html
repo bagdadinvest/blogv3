@@ -55,7 +55,38 @@
                         </div>
                     </div>
                 </div>
+
+            <div class="grid-portfolio" id="portfolio">
+                <div class="container">
+                    <div class="row">
+
+                        <div class="col-md-4 col-sm-6">
+                            <div class="portfolio-item">
+                                <div class="thumb">
+                                    <a href="{{ portfolio_item.big_image.url }}" data-lightbox="image-{{ forloop.counter }}">
+                                        <div class="hover-effect">
+                                            <div class="hover-content">
+
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="image">
+                                        <img src="{% if portfolio_item.image %}{{ portfolio_item.image.file.url }}{% else %}/static/img/default-portfolio.jpg{% endif %}" alt="{{ portfolio_item.title }}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="load-more-button">
+                                <a href="#">Load More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
+    </div>
 
             <!-- Add the column size for the sidebar -->
             <div class="col-md-3">

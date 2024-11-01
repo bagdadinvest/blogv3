@@ -23,7 +23,7 @@ django-bootstrap5==24.2
 django-debug-toolbar==4.4.6
 django-eventtools==1.0.3
 django-extensions==3.2.3
-django-filter==24.3
+django-filter==23.5
 django-modelcluster==6.3
 django-permissionedforms==0.1
 django-taggit==5.0.1
@@ -38,6 +38,7 @@ future==1.0.0
 geocoder==1.38.1
 greenlet==3.1.1
 h11==0.14.0
+html5lib==1.1
 httpcore==1.0.6
 httpx==0.27.2
 icalendar==5.0.13
@@ -71,9 +72,12 @@ pydantic==2.9.2
 pydantic_core==2.23.4
 python-dateutil==2.9.0.post0
 python-docx==1.1.2
+python-dotenv==1.0.1
 python-ulid==3.0.0
+python-unsplash==1.2.5
 pytz==2024.2
 PyYAML==6.0.2
+queryish==0.2
 ratelim==0.1.6
 regex==2024.9.11
 requests==2.32.3
@@ -98,9 +102,11 @@ wagtail==6.2.2
 wagtail-ai==2.1.0
 wagtail-airtable==0.7.0
 wagtail-cache==2.5.1
+wagtail-jotform==2.2.0
 wagtail-localize==1.10
 wagtail-markdown==0.12.1
 wagtail-seo==2.5.0
+wagtail-unsplash==1.0.1
 wagtail_word==1.1.3
 wagtailmedia==0.15.2
 webencodings==0.5.1

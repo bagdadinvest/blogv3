@@ -60,14 +60,13 @@
 
 
   {% block custom_assets %}
-      <link rel="stylesheet" href="{%  static 'home/css/templatemo-style.css' %}">
-
   <link rel="stylesheet" href="{% static 'home/css/fontAwesome.min.css' %}">
-  <link id="custom-style" rel="stylesheet" href="{% static 'home/css/custom-styles.min.css' %}" type="text/css">
   <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/bootstrap-theme.min.css' %}">
   <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>{% endblock %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+  <link rel="stylesheet" href="{%  static 'home/css/new.css' %}">
+  {% endblock %}
 
   {% block favicon %}
   {% if not disable_layout and settings.coderedcms.LayoutSettings.favicon %}
@@ -176,13 +175,6 @@
   {% endblock %}
 
   {% block custom_scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-<script src="{% static 'home/js/vendor/bootstrap.min.js' %}"></script>
-<script src="{% static 'home/js/plugins.js' %}"></script>
-<script src="{% static 'home/js/main.js' %}"></script>
-
-  <script src="{% static 'coderedcms/vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}?v={% coderedcms_version %}"></script>
   {% endblock %}
 
   {% block struct_seo %}
@@ -203,7 +195,139 @@
   {% endif %}
   {% endif %}
   {% endblock %}
+  <!-- Bottom Navigation Bar (Mobile Only) -->
+<div class="mobile-bottom-nav" id="mobileNavBar">
+<a href="https://wa.me/+905461026200?text={% trans 'hello i would like to have a free consultation' %}" target="_blank">
+    <img src="{% static 'home/img/mobnavbar/wsp.png' %}" alt="whatsapp" class="nav-logo">
+</a>
 
+    <!-- Configuration Cog Button (instead of attendance) -->
+    <a href="#" class="mobile-nav-button" id="modBtn">
+        <img src="{% static 'home/img/mobnavbar/schedule.png' %}" alt="schedule" class="nav-logo">
+    </a>
+
+    <!-- Company Logo in the Center -->
+    <a href="/">
+        <img src="{% static 'home/img/mobnavbar/logo-ct-dark.png' %}" alt="Company Logo" class="nav-logo">
+    </a>
+
+    <a href="#">
+        <img src="{% static 'home/img/mobnavbar/signup.png' %}" alt="signup" class="nav-logo">
+    </a>
+
+    <a href="#">
+        <img src="{% static 'home/img/mobnavbar/info.png' %}" alt="info" class="nav-logo">
+    </a>
+</div>
+
+<!-- Arrow Icon to Show Navigation -->
+<div class="mobile-nav-arrow" id="mobileNavArrow" style="display: none;">
+        <img src="{% static 'home/img/mobnavbar/arrow.png' %}" alt="scrollup" class="nav-logo">
+</div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+      <!-- Modal Content -->
+      <div class="modal-content">
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h3 class="header-title">Say hello to <em>Denti Delil</em></h3>
+          <div class="close-btn"><img src="img/close_contact.png" alt=""></div>
+        </div>
+        <!-- Modal Body -->
+        <div class="modal-body">
+          <div class="col-md-6 col-md-offset-3">
+            <form id="contact" action="" method="post">
+                <div class="row">
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="name" type="text" class="form-control" id="name" placeholder="Your name..." required="">
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="email" type="email" class="form-control" id="email" placeholder="Your email..." required="">
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <textarea name="message" rows="6" class="form-control" id="message" placeholder="Your message..." required=""></textarea>
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="btn">get FREE consultation now</button>
+                      </fieldset>
+                    </div>
+                </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+       <script>
+
+// Get references to the navbar and arrow elements
+var mobileNavBar = document.getElementById('mobileNavBar');
+var mobileNavArrow = document.getElementById('mobileNavArrow');
+
+// Function to show the navbar
+function showNavBar() {
+    mobileNavBar.classList.add('show');
+    mobileNavBar.classList.remove('hide');
+    mobileNavArrow.classList.remove('show');
+    mobileNavArrow.classList.add('hide');
+}
+
+// Function to hide the navbar
+function hideNavBar() {
+    mobileNavBar.classList.add('hide');
+    mobileNavBar.classList.remove('show');
+    mobileNavArrow.classList.add('show');
+    mobileNavArrow.classList.remove('hide');
+}
+
+// Automatically hide navbar after 5 seconds of inactivity
+let inactivityTimeout;
+function resetInactivityTimer() {
+    clearTimeout(inactivityTimeout);
+    inactivityTimeout = setTimeout(hideNavBar, 25000); // 5 seconds of inactivity
+}
+
+// Show navbar when the arrow is clicked
+mobileNavArrow.addEventListener('click', showNavBar);
+
+// Listen for swipe-up gesture (touchstart and touchend events)
+let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', function(event) {
+    touchStartY = event.changedTouches[0].screenY;
+}, false);
+
+document.addEventListener('touchend', function(event) {
+    touchEndY = event.changedTouches[0].screenY;
+    if (touchStartY - touchEndY > 50) { // Detect swipe up
+        showNavBar();
+    }
+}, false);
+
+// Reset the inactivity timer whenever there is user interaction
+document.addEventListener('mousemove', resetInactivityTimer);
+document.addEventListener('keydown', resetInactivityTimer);
+document.addEventListener('touchstart', resetInactivityTimer);
+
+// Start the inactivity timer
+resetInactivityTimer();
+
+        </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+<script src="{% static 'home/js/vendor/bootstrap.min.js' %}"></script>
+<script src="{% static 'home/js/plugins.js' %}"></script>
+<script src="{% static 'home/js/main.js' %}"></script>
+<script src="https://app.stammer.ai/static/chatbot/js/chatbubble.js" data-id="505b8b87-4725-4335-bddb-35618a2dfa61" data-domain="https://app.stammer.ai" ></script>
 </body>
 
 </html>
