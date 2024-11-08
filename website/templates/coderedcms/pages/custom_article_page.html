@@ -1,0 +1,123 @@
+{% extends "coderedcms/pages/web_page.html" %}
+{% load wagtailadmin_tags wagtailcore_tags wagtailimages_tags coderedcms_tags i18n %}
+
+{% block content %}
+
+<div class="custom-article-entry">
+    <div class="container">
+        <div class="row">
+            <!-- Main Content Column -->
+            <div class="col-md-9">
+                <div class="article-post">
+                    <div class="single-article-post">
+
+                        <!-- Cover Image -->
+                        {% if page.cover_image %}
+                            {% image page.cover_image fill-765x325 as cover_image %}
+                            <img src="{{ cover_image.url }}" alt="{{ page.title }} Cover Image">
+                        {% endif %}
+
+                        <!-- Article Content -->
+                        <div class="article-text-content">
+                            <h1>{{ page.title }}</h1>
+                            <span>
+                                <a href="#">DentiDelil Editorials</a> /
+                                <a href="#">{{ page.first_published_at|date:"F d, Y" }}</a> /
+                                <a href="#">{{ page.author_display }}</a>
+                            </span>
+
+                            <!-- Content Body -->
+                            <div class="container article-body mt-4">
+                                {{ page.content_body|richtext }}
+                            </div>
+                        </div>
+
+                        <!-- Back to Blog Button -->
+                        <div class="simple-btn mt-5">
+                            <a href="{% if page.blog_index %}{% pageurl page.blog_index %}{% else %}#(Missing Blog Index){% endif %}" style="color: gold;">
+                                {% trans "Back to Blog" %}
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Tags Section -->
+                    <div class="tags-share mt-4">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="tags">
+                                    {% with page.tags.all as tags %}
+                                    {% if tags %}
+                                        <li>{% trans "Tags:" %}</li>
+                                        {% for tag in tags %}
+                                            <li>
+                                                <a href="{% if page.blog_index %}{% pageurl page.blog_index %}{% else %}#(Missing Blog Index){% endif %}?tag={{ tag }}">{{ tag }}</a>
+                                            </li>
+                                        {% endfor %}
+                                    {% endif %}
+                                    {% endwith %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div> <!-- End single-article-post -->
+            </div> <!-- End Main Content Column -->
+
+            <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="side-bar">
+                    <!-- Search Form -->
+                    <div class="search mb-4">
+                        <fieldset>
+                            <input name="search" type="text" class="form-control" id="search" placeholder="{% trans 'Search...' %}" required="">
+                        </fieldset>
+                    </div>
+
+                    <!-- Quick Links Section -->
+                    <div class="archives mb-4">
+                        <div class="sidebar-heading">
+                            <h2>{% trans 'Quick Links' %}</h2>
+                        </div>
+                        <ul>
+                            <li><a href="/">&gt; {% trans 'Home' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'About Us' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'Denti-Board' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'Top Blogs' %}</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Recent Posts Section -->
+                    <div class="recent-posts mb-4">
+                        <div class="sidebar-heading">
+                            <h2>{% trans 'Recent Posts' %}</h2>
+                        </div>
+                        <ul>
+                            {% if blogs %}
+                                {% for post in blogs|slice:":6" %}
+                                    <li>
+                                        <a href="{% if post.url %}{{ post.url }}{% else %}#(Missing URL){% endif %}">
+                                            {% if post.cover_image %}
+                                                {% image post.cover_image fill-60x60 as feed_image %}
+                                                <img src="{{ feed_image.url }}" alt="{{ post.title }}">
+                                            {% else %}
+                                                <img src="/static/img/default-image.jpg" alt="Missing Image">
+                                            {% endif %}
+                                            <div class="text">
+                                                <h6>{{ post.title }}</h6>
+                                                <span>{{ post.first_published_at|date:"F d, Y" }}</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li>{% trans 'No recent posts available.' %}</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div> <!-- End Sidebar -->
+            </div> <!-- End Sidebar Column -->
+        </div> <!-- End Row -->
+    </div> <!-- End Container -->
+</div> <!-- End custom-article-entry -->
+
+{% endblock %}

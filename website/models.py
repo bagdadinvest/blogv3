@@ -44,7 +44,7 @@ class ArticleIndexPage(CoderedArticleIndexPage):
     index_query_pagemodel = None
 
     # Only allow ArticlePages beneath this page.
-    subpage_types = ["website.ArticlePage","wagtail_word.BaseWordDocumentPage"]
+    subpage_types = ["website.ArticlePage","wagtail_word.BaseWordDocumentPage","CustomArticlePage"]
 
     template = "coderedcms/pages/article_index_page.html"
 
@@ -394,3 +394,35 @@ class Doctor(models.Model):
     def __str__(self):
         return f"{self.number} - {self.name}"
 
+from coderedcms.models import CoderedArticlePage
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel
+
+# Make sure to properly extend from CoderedArticlePage
+class CustomArticlePage(CoderedArticlePage):
+    # Adding custom body field or any other custom fields as needed
+    content_body = RichTextField(
+        blank=True,
+        null=True,
+        features=[
+            "h1", "h2", "h3", "h4", "h5", "h6",
+            "bold", "italic", "ol", "ul", "link",
+            "document-link", "image", "embed",
+            "code", "blockquote", "superscript",
+            "subscript", "strikethrough",
+            "hr", "ai"  # Custom AI feature
+        ]
+    )
+
+    # Custom panels to be shown in the admin
+    content_panels = CoderedArticlePage.content_panels + [
+        FieldPanel('content_body'),
+    ]
+
+    class Meta:
+        verbose_name = "Custom Article Page"
+        verbose_name_plural = "Custom Article Pages"
+
+    template = "coderedcms/pages/custom_article_page.html"
+    search_template = "coderedcms/pages/article_page.search.html"
+    parent_page_types = ["website.ArticleIndexPage"]
