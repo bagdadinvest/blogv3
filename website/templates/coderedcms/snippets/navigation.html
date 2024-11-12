@@ -7,6 +7,10 @@
         <!-- Dynamic Logo or Site Name -->
         <div class="logo">
             <a href="/">
+                            <!-- Language Switcher -->
+
+
+
                 {% if settings.coderedcms.LayoutSettings.logo %}
                 {% image settings.coderedcms.LayoutSettings.logo original format-webp preserve-svg as logo %}
                 <img src="{{logo.url}}" alt="{{site.site_name}}">
@@ -15,6 +19,14 @@
                 {% endif %}
             </a>
         </div>
+{% if page %}
+    {% for translation in page.get_translations.live %}
+        {% get_language_info for translation.locale.language_code as lang %}
+        <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}">
+            {{ lang.name_local }}
+        </a>
+    {% endfor %}
+{% endif %}
         <!-- Menu Icon (Preserved from Original) -->
         <div class="menu-icon">
             <span></span>

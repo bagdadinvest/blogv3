@@ -1,4 +1,5 @@
-{% extends "coderedcms/pages/web_page.html" %}
+{% extends "coderedcms/pages/formframe.html" %}
+{% block form %}
 {% load wagtailcore_tags coderedcms_tags django_bootstrap5 %}
 {% block content_body %}
 {{ block.super }}
@@ -25,4 +26,5 @@
   </form>
 </div>
 {% endif %}
+{% endblock %}
 {% endblock %}

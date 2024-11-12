@@ -150,16 +150,20 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "America/New_York"
+TIME_ZONE = "Europe/Istanbul"
+
 
 USE_I18N = True
-WAGTAIL_I18N_ENABLED = True
-WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
-    ("en", "English"),
-    ("fr", "French"),
-]
 
 USE_TZ = True
+
+WAGTAIL_I18N_ENABLED = True
+
+WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
+    ('en', 'English'),
+    ('tr', 'Turkish'),
+    ('fr', 'French'),
+]
 
 
 # Static files (CSS, JavaScript, Images)

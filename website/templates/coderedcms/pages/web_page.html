@@ -4,10 +4,10 @@
 {% block content_pre_body %}
 {% if self.cover_image %}
 {% image page.cover_image fill-1600x900 format-webp preserve-svg as cover_image %}
-<div class="page-heading">
-    <div class="container">
+  <div class="page-heading"
+         style="background-image: url('{{ cover_image.url }}'); background-size: cover; background-position: center; ">    <div class="container">
         <div class="heading-content">
-      <h1>{{page.title}}</h1>
+      <h2>{{page.title}}</h2>
     </div>
   </div>
 </div>
@@ -15,7 +15,7 @@
 <div class="page-heading">
     <div class="container">
         <div class="heading-content">
-      <h1>{{page.title}}</h1>
+      <h2>{{page.title}}</h2>
     </div>
   </div>
 </div>

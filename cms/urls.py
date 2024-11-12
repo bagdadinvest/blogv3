@@ -17,7 +17,6 @@ urlpatterns = [
     path("docs/", include(wagtaildocs_urls)),
     # Search view placeholder if needed
     path("search/", include(crx_search_urls)),
-    path('canva/callback/', canva_callback, name='canva_callback'),
 ]
 
 # Add i18n patterns

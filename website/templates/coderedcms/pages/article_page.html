@@ -29,9 +29,12 @@
                                             {% endfor %}
                                         {% endif %}
                                     </div>
-                                    <div class="simple-btn">
-                                        <a href="{% if self.blog_index %}{% pageurl self.blog_index %}{% else %}#(Missing Blog Index){% endif %}" style="color: gold;">{% trans "Back to Blog" %}</a>
-                                    </div>
+<div class="simple-btn">
+    <a href="/blogs/" style="color: gold;">
+        {% trans "Back to Blog" %}
+    </a>
+</div>
+</div>
                                 </div>
 
                                 <div class="tags-share">

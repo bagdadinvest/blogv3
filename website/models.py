@@ -368,6 +368,15 @@ class PortfolioSnippet(models.Model):
         verbose_name = "Portfolio Item"
         verbose_name_plural = "Portfolio Items"
 
+import uuid
+from wagtail.models import TranslatableMixin, Locale
+from wagtail.snippets.models import register_snippet
+from wagtail.admin.panels import FieldPanel
+from django.db import models
+
+from wagtail.snippets.models import register_snippet
+from wagtail.admin.panels import FieldPanel
+from django.db import models
 
 @register_snippet
 class Doctor(models.Model):
@@ -393,7 +402,6 @@ class Doctor(models.Model):
 
     def __str__(self):
         return f"{self.number} - {self.name}"
-
 from coderedcms.models import CoderedArticlePage
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
@@ -426,3 +434,60 @@ class CustomArticlePage(CoderedArticlePage):
     template = "coderedcms/pages/custom_article_page.html"
     search_template = "coderedcms/pages/article_page.search.html"
     parent_page_types = ["website.ArticleIndexPage"]
+
+
+from wagtail.fields import StreamField, RichTextField
+from wagtail import blocks
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.admin.panels import FieldPanel
+from coderedcms.models import CoderedLocationPage
+
+class CustomLocationPage(CoderedLocationPage):
+    description = RichTextField(
+        blank=True,
+        help_text="Add a detailed description of the location."
+    )
+
+    images = StreamField(
+        [
+            ('image', ImageChooserBlock()),
+        ],
+        blank=True,
+        help_text="Add multiple images."
+    )
+
+    content_panels = CoderedLocationPage.content_panels + [
+        FieldPanel('description'),
+        FieldPanel('images'),
+    ]
+
+    class Meta:
+        verbose_name = "Hotel Page"
+
+    template = "coderedcms/pages/custom_location_page.html"
+    parent_page_types = ["website.CustomLocationIndexPage"]
+
+class CustomLocationIndexPage(CoderedWebPage):
+    """
+    A custom index page for managing and displaying CustomLocationPage instances.
+    """
+    intro = RichTextField(
+        blank=True,
+        help_text="Optional introduction text for this index page."
+    )
+
+    content_panels = CoderedWebPage.content_panels + [
+        FieldPanel('intro'),
+    ]
+
+    subpage_types = ['CustomLocationPage']  # Replace 'yourapp' with the actual app name
+
+    class Meta:
+        verbose_name = "Custom Location Index Page"
+
+    template = "coderedcms/pages/custom_location_index_page.html"
+    def get_locations(self):
+        """
+        Returns all published CustomLocationPage instances beneath this index page.
+        """
+        return self.get_children().specific().live().order_by('-first_published_at')

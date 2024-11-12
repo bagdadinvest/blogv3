@@ -1,0 +1,311 @@
+{% extends "coderedcms/pages/base2.html" %}
+
+{% load static i18n %}
+{% block content %}
+
+{% block stylesheets %}
+<!-- Shepherd.js CSS -->
+    <link type="text/css" rel="stylesheet" href="{% static 'main.css' %}">
+<style>
+  /* Main responsive container */
+  .responsive-animation-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Prevents content overflow */
+  }
+
+  .animation-wrapper {
+    width: 100%;
+    height: 100%; /* Make it take the full space of the container */
+    max-width: 1200px; /* Limit max width */
+    aspect-ratio: 16/9; /* Maintain aspect ratio */
+    border: 2px solid #ccc; /* Optional border for visualization */
+  }
+
+  /* Fixed size for text, buttons, and navigation */
+  #error-overlay {
+    position: absolute;
+    width: 400px; /* Fixed width */
+    padding: 20px;
+    top: 10%;
+    left: 10%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    z-index: 100;
+    text-align: center;
+  }
+
+  .error-button {
+    display: block;
+    margin: 10px auto;
+    padding: 12px 20px;
+    width: 150px; /* Fixed width */
+  }
+
+  /* Responsive design adjustments */
+  @media (max-width: 768px) {
+    .responsive-animation-container {
+      height: 70vh; /* Smaller container on small screens */
+    }
+
+    #error-overlay {
+      width: 80%; /* Make text container width responsive */
+      left: 50%;
+      transform: translateX(-50%); /* Center on small screens */
+    }
+
+    .animation-wrapper {
+      max-width: 100%;
+      height: 50vh; /* Reduce height on small screens */
+    }
+  }
+
+  @media (max-width: 480px) {
+    .responsive-animation-container {
+      height: 60vh; /* Further reduction */
+    }
+
+    .animation-wrapper {
+      height: 40vh; /* Further reduce height */
+    }
+  }
+</style>
+
+{% endblock stylesheets %}
+
+<body class="error-page">
+
+<div class="container position-sticky z-index-sticky top-0">
+<div class="row">
+<div class="col-12">
+<!--  -->
+    <div id="info" style="display: none;">
+        <a href="https://threejs.org" target="_blank" rel="noopener">three.js webgpu</a> - earth
+        <br>
+        Based on <a href="https://threejs-journey.com/lessons/earth-shaders" target="_blank" rel="noopener">Three.js Journey</a> lesson
+        <br>
+        Earth textures from <a href="https://www.solarsystemscope.com/textures/" target="_blank" rel="noopener">Solar System Scope</a> (resized and merged)
+    </div>
+
+    <div id="popup">
+        We are here
+        <br>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12034.65793729536!2d28.82723928217671!3d41.05446572248011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa541c60f960b%3A0xff53e79679b30e8b!2zRGVudGkgRGVsaWwgQcSfxLF6IHZlIERpxZ8gU2HEn2zEscSfxLEgUG9saWtsaW5pxJ9pIEJhxJ9jxLFsYXIgxZ91YmVzaQ!5e0!3m2!1sen!2str!4v1728192228143!5m2!1sen!2str" width="350" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    </div>
+
+    <div id="error-overlay" class="col-12 col-md-4 col-lg-4">
+            {% block form %}
+            {% endblock %}
+
+    </div>
+
+</div>
+</div>
+</div>
+
+
+{% block javascripts %}
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "{% static 'build/three.webgpu.js' %}",
+                "three/tsl": "{% static 'build/three.webgpu.js' %}",
+                "three/addons/": "{% static 'jsm/' %}"
+            }
+        }
+    </script>
+
+    <script type="module">
+
+        import * as THREE from 'three';
+        import { step, normalWorld, output, texture, vec3, vec4, normalize, positionWorld, bumpMap, cameraPosition, color, uniform, mix, uv, max } from 'three/tsl';
+
+        import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+        let camera, scene, renderer, controls, globe, clock, marker;
+
+        init();
+
+        function init() {
+
+            clock = new THREE.Clock();
+
+            camera = new THREE.PerspectiveCamera( 25, window.innerWidth / window.innerHeight, 0.1, 100 );
+            camera.position.set( 4.5, 2, 3 );
+
+            scene = new THREE.Scene();
+
+            // sun
+
+            const sun = new THREE.DirectionalLight( '#ffffff', 2 );
+            sun.position.set( 0, 0, 3 );
+            scene.add( sun );
+
+            // uniforms
+
+            const atmosphereDayColor = uniform( color( '#4db2ff' ) );
+            const atmosphereTwilightColor = uniform( color( '#bc490b' ) );
+            const roughnessLow = uniform( 0.25 );
+            const roughnessHigh = uniform( 0.35 );
+
+            // textures
+
+            const textureLoader = new THREE.TextureLoader();
+
+            const dayTexture = textureLoader.load( '{% static 'textures/planets/earth_day_4096.jpg' %}' );
+            dayTexture.colorSpace = THREE.SRGBColorSpace;
+            dayTexture.anisotropy = 8;
+
+            const nightTexture = textureLoader.load( '{% static 'textures/planets/earth_night_4096.jpg' %}' );
+            nightTexture.colorSpace = THREE.SRGBColorSpace;
+            nightTexture.anisotropy = 8;
+
+            const bumpRoughnessCloudsTexture = textureLoader.load( '{% static 'textures/planets/earth_bump_roughness_clouds_4096.jpg' %}' );
+            bumpRoughnessCloudsTexture.anisotropy = 8;
+
+            // fresnel
+
+            const viewDirection = positionWorld.sub( cameraPosition ).normalize();
+            const fresnel = viewDirection.dot( normalWorld ).abs().oneMinus().toVar();
+
+            // sun orientation
+
+            const sunOrientation = normalWorld.dot( normalize( sun.position ) ).toVar();
+
+            // atmosphere color
+
+            const atmosphereColor = mix( atmosphereTwilightColor, atmosphereDayColor, sunOrientation.smoothstep( - 0.25, 0.75 ) );
+
+            // globe
+
+            const globeMaterial = new THREE.MeshStandardNodeMaterial();
+
+            const cloudsStrength = texture( bumpRoughnessCloudsTexture, uv() ).b.smoothstep( 0.2, 1 );
+
+            globeMaterial.colorNode = mix( texture( dayTexture ), vec3( 1 ), cloudsStrength.mul( 2 ) );
+
+            const roughness = max(
+                texture( bumpRoughnessCloudsTexture ).g,
+                step( 0.01, cloudsStrength )
+            );
+            globeMaterial.roughnessNode = roughness.remap( 0, 1, roughnessLow, roughnessHigh );
+
+            const night = texture( nightTexture );
+            const dayStrength = sunOrientation.smoothstep( - 0.25, 0.5 );
+
+            const atmosphereDayStrength = sunOrientation.smoothstep( - 0.5, 1 );
+            const atmosphereMix = atmosphereDayStrength.mul( fresnel.pow( 2 ) ).clamp( 0, 1 );
+
+            let finalOutput = mix( night.rgb, output.rgb, dayStrength );
+            finalOutput = mix( finalOutput, atmosphereColor, atmosphereMix );
+
+            globeMaterial.outputNode = vec4( finalOutput, output.a );
+
+            const bumpElevation = max(
+                texture( bumpRoughnessCloudsTexture ).r,
+                cloudsStrength
+            );
+            globeMaterial.normalNode = bumpMap( bumpElevation );
+
+            const sphereGeometry = new THREE.SphereGeometry( 1, 64, 64 );
+            globe = new THREE.Mesh( sphereGeometry, globeMaterial );
+            scene.add( globe );
+
+            // atmosphere
+
+            const atmosphereMaterial = new THREE.MeshBasicNodeMaterial( { side: THREE.BackSide, transparent: true } );
+            let alpha = fresnel.remap( 0.73, 1, 1, 0 ).pow( 3 );
+            alpha = alpha.mul( sunOrientation.smoothstep( - 0.5, 1 ) );
+            atmosphereMaterial.outputNode = vec4( atmosphereColor, alpha );
+
+            const atmosphere = new THREE.Mesh( sphereGeometry, atmosphereMaterial );
+            atmosphere.scale.setScalar( 1.04 );
+            scene.add( atmosphere );
+
+            // renderer
+
+            renderer = new THREE.WebGPURenderer();
+            renderer.setPixelRatio( window.devicePixelRatio );
+            renderer.setSize( window.innerWidth, window.innerHeight );
+            renderer.setAnimationLoop( animate );
+            document.body.appendChild( renderer.domElement );
+
+            // controls
+
+            controls = new OrbitControls( camera, renderer.domElement );
+            controls.enableDamping = true;
+            controls.minDistance = 0.1;
+            controls.maxDistance = 50;
+
+            window.addEventListener( 'resize', onWindowResize );
+
+            // Add marker for Istanbul
+            const markerPosition = latLonToVector3(41.0082, 28.9784, 1.08);
+            const markerGeometry = new THREE.SphereGeometry(0.02, 16, 16);
+            const markerMaterial = new THREE.MeshBasicMaterial({ color: '#ff0000' });
+            marker = new THREE.Mesh(markerGeometry, markerMaterial);
+            marker.position.copy(markerPosition);
+            scene.add(marker);
+
+            // Button Event Listeners
+            document.getElementById('dismiss-button').addEventListener('click', () => {
+                document.getElementById('error-overlay').style.display = 'none';
+            });
+
+            document.getElementById('home-button').addEventListener('click', () => {
+                window.location.href = "{websites:home}";
+            });
+        }
+
+        function latLonToVector3(latitude, longitude, radius) {
+            const phi = (90 - latitude) * (Math.PI / 180);
+            const theta = (longitude + 180) * (Math.PI / 180);
+
+            const x = -(radius * Math.sin(phi) * Math.cos(theta));
+            const y = radius * Math.cos(phi);
+            const z = radius * Math.sin(phi) * Math.sin(theta);
+
+            return new THREE.Vector3(x, y, z);
+        }
+
+        function onWindowResize() {
+
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+
+            renderer.setSize( window.innerWidth, window.innerHeight );
+
+        }
+
+        async function animate() {
+
+            const delta = clock.getDelta();
+            globe.rotation.y += delta * 0.025;
+
+            controls.update();
+
+            // Update marker position to follow globe rotation
+            const markerPosition = latLonToVector3(41.0082, 28.9784, 1.08);
+            marker.position.copy(markerPosition.applyQuaternion(globe.quaternion));
+
+            // Update popup position
+            const vector = marker.position.clone().project(camera);
+            const popup = document.getElementById('popup');
+            const x = (vector.x * 0.5 + 0.5) * window.innerWidth;
+            const y = (vector.y * -0.5 + 0.5) * window.innerHeight;
+            popup.style.transform = `translate(-50%, -50%) translate(${x}px,${y - 20}px)`;
+            popup.style.display = 'block';
+
+            renderer.render( scene, camera );
+
+        }
+
+    </script>
+
+
+{% endblock javascripts %}
+{% endblock content %}

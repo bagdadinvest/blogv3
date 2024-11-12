@@ -63,9 +63,10 @@
   <link rel="stylesheet" href="{% static 'home/css/fontAwesome.min.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/bootstrap-theme.min.css' %}">
-  <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <link rel="stylesheet" href="{%  static 'home/css/new.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
   {% endblock %}
 
   {% block favicon %}
@@ -105,7 +106,6 @@
     {% endblock %}
 
 
-    {% block content_pre_body %}{% endblock %}
 
     {% block content_body %}
     {% for block in page.body %}

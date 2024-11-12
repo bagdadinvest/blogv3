@@ -1,0 +1,188 @@
+{% extends "coderedcms/pages/web_page.html" %}
+{% load wagtailcore_tags wagtailimages_tags coderedcms_tags i18n %}
+
+{% block content %}
+<style>
+  .swiper-container {
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center;    /* Vertically center */
+    height: 400px; /* Set a fixed height for the slide, adjust as needed */
+  }
+
+  .swiper-slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Ensures the image fits within the slide without cropping */
+    display: block;
+  }
+</style>
+
+<div class="blog-entries">
+    <div class="container">
+        <!-- Add a row to wrap both columns -->
+        <div class="row">
+            <!-- Main content area -->
+            <div class="col-md-9">
+                <div class="blog-posts">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-blog-post">
+                                {% if page.cover_image %}
+                                    {% image page.cover_image fill-765x325 as cover_image %}
+                                    <img src="{{ cover_image.url }}" alt="{% trans 'Location Image' %}">
+                                {% endif %}
+                                <div class="text-content">
+                                    <h1>{{ page.title }}</h1>
+                                    <span><a href="#">DentiDelil Locations</a> / <a href="#">{{ page.seo_published_at }}</a> / <a href="#">Travel</a></span>
+
+                                    <div class="container mx-auto article-body">
+                                        {% if page.description %}
+                                            <p>{{ page.description|richtext }}</p>
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <!-- Tags and Sharing Section -->
+                                <div class="tags-share">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <ul class="tags">
+                                                {% if page.tags %}
+                                                    <li>{% trans "Tags:" %}</li>
+                                                    {% for tag in page.tags.all %}
+                                                        <li>
+                                                            <a href="?tag={{ tag }}">{{ tag }}</a>
+                                                        </li>
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Image Gallery using Swiper.js -->
+                                {% if page.images %}
+                                <div class="grid-portfolio">
+                                    <div class="container">
+                                        <div class="swiper-container">
+                                            <div class="swiper-wrapper">
+                                                {% for image in page.images %}
+                                                <div class="swiper-slide">
+                                                    <a href="{{ image.value.url }}" data-lightbox="gallery">
+                                                        <img src="{{ image.value.file.url }}" alt="{{ image.value.title }}" class="img-fluid">
+                                                    </a>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                            <!-- Pagination and Navigation -->
+                                            <div class="swiper-pagination"></div>
+                                            <div class="swiper-button-next"></div>
+                                            <div class="swiper-button-prev"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %}
+                            </div>
+<div class="d-flex justify-content-center my-4">
+  <div style="width: 100%; max-width: 600px;">
+    {% block map %}
+    {% include "coderedcms/includes/iframe_gmap.html" with address=page.address %}
+    {% endblock %}
+  </div>
+</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar Section -->
+            <div class="col-md-3">
+                <div class="side-bar">
+                    <div class="search">
+                        <fieldset>
+                            <input name="search" type="text" class="form-control" id="search" placeholder="{% trans 'Search...' %}" required="">
+                        </fieldset>
+                    </div>
+                    <div class="archives">
+                        <div class="sidebar-heding">
+                            <h2>{% trans 'Quick Links' %}</h2>
+                        </div>
+                        <ul>
+                            <li><a href="/">&gt; {% trans 'Home' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'About Us' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'Denti-Board' %}</a></li>
+                            <li><a href="#">&gt; {% trans 'Top Locations' %}</a></li>
+                        </ul>
+                    </div>
+                    <div class="recent-posts">
+                        <div class="sidebar-heding">
+                            <h2>{% trans 'Recent Locations' %}</h2>
+                        </div>
+                        <ul>
+                            {% for recent in recent_locations %}
+                                <li>
+                                    <a href="{{ recent.url }}">
+                                        {% if recent.cover_image %}
+                                            {% image recent.cover_image fill-60x60 as feed_image %}
+                                            <img src="{{ feed_image.url }}" alt="{{ recent.title }}">
+                                        {% endif %}
+                                        <div class="text">
+                                            <h6>{{ recent.title }}</h6>
+                                            <span>{{ recent.seo_published_at }}</span>
+                                        </div>
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End row -->
+    </div> <!-- End container -->
+</div> <!-- End blog-entries -->
+
+{% block extra_js %}
+{{ block.super }}
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var swiper = new Swiper('.swiper-container', {
+    effect: 'coverflow',
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: 'auto',
+    autoHeight: true, // Enable auto-height
+    coverflowEffect: {
+      rotate: 50,
+      stretch: 0,
+      depth: 100,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    loop: true,
+  });
+});
+
+</script>
+{% endblock %}
+
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+{% endblock %}
+{% endblock %}

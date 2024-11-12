@@ -1,0 +1,101 @@
+{% extends "coderedcms/pages/base2.html" %}
+{% load wagtailcore_tags wagtailimages_tags coderedcms_tags i18n %}
+{% block index_filters %}{% endblock %}
+{% block index_content %}
+{% if page.index_show_subpages %}
+{% block content %}
+{% if page.cover_image %}
+    {% image page.cover_image fill-765x325 as cover_image %}
+    <div class="page-heading"
+         style="background-image: url('{{ cover_image.url }}'); background-size: cover; background-position: center; ">
+{% else %}
+    <div class="page-heading" style="background-color: #f5f5f5; height: 400px;"> <!-- Fallback style -->
+{% endif %}
+        <div class="container">
+            <div class="heading-content">
+                <h2>{{ page.title }}</h2>
+            </div>
+        </div>
+    </div>
+
+<div class="blog-entries">
+    <div class="container">
+        <!-- Add a row to wrap both the blog posts and sidebar -->
+        <div class="row">
+            <!-- Main content area -->
+            <div class="col-md-9">
+                <div class="blog-posts">
+                    <div class="row">
+                        {% for location in self.get_locations %}
+                        <div class="col-md-12">
+                            <div class="blog-post">
+                                {% if location.cover_image %}
+                                <a href="{% pageurl location %}">
+                                    {% image location.cover_image fill-900x400 format-webp preserve-svg as feed_image %}
+                                    <img src="{{ feed_image.url }}" alt="{{ location.title }}"></a>
+                                {% endif %}
+
+                                <div class="text-content">
+                                    <h2>{{ location.title }}</h2>
+                                    {% if location.description %}
+                                    <p>{{ location.description|truncatewords:30|richtext }}</p>
+                                    {% endif %}
+                                    <div class="simple-btn">
+                                        <a href="{% pageurl location %}">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                        <!-- Pagination -->
+                        {% include "coderedcms/includes/pagination.html" with items=index_paginated %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="side-bar">
+                    <div class="search">
+                        <fieldset>
+                            <input name="search" type="text" class="form-control" id="search" placeholder="Search..." required="">
+                        </fieldset>
+                    </div>
+                    <div class="archives">
+                        <div class="sidebar-heding">
+                            <h2>Quick Links</h2>
+                        </div>
+                        <ul>
+                            <li><a href="/">&gt; Home</a></li>
+                            <li><a href="#">&gt; About Us</a></li>
+                            <li><a href="#">&gt; Denti-Board</a></li>
+                            <li><a href="#">&gt; Top Locations</a></li>
+                        </ul>
+                    </div>
+                    <div class="recent-posts">
+                        <div class="sidebar-heding">
+                            <h2>Recent Locations</h2>
+                        </div>
+                        <ul>
+                            {% for location in self.get_locations|slice:":6" %}
+                            <li><a href="{% pageurl location %}">
+                                {% if location.cover_image %}
+                                    {% image location.cover_image fill-140x60 format-webp as feed_image %}
+                                    <img src="{{ feed_image.url }}" alt="{{ location.title }}">
+                                {% endif %}
+                                <div class="text">
+                                    <h6>{{ location.title }}</h6>
+                                </div>
+                            </a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- End row -->
+    </div> <!-- End container -->
+</div> {% endblock %}
+
+{% endif %}
+{% endblock %}

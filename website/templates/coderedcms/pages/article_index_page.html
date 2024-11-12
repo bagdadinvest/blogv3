@@ -1,15 +1,8 @@
-{% extends "coderedcms/pages/web_page_notitle.html" %}
+{% extends "coderedcms/pages/web_page.html" %}
 {% load wagtailcore_tags wagtailimages_tags coderedcms_tags %}
 {% block index_filters %}{% endblock %}
 {% block index_content %}
 {% if page.index_show_subpages %}
-<div class="page-heading">
-    <div class="container">
-        <div class="heading-content">
-      <h1>{{page.title}}</h1>
-    </div>
-  </div>
-</div>
 
 <div class="blog-entries">
     <div class="container">
