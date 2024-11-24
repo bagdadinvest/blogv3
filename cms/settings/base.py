@@ -163,6 +163,8 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ('en', 'English'),
     ('tr', 'Turkish'),
     ('fr', 'French'),
+    ('es', 'Spanish'),
+
 ]
 
 
@@ -231,10 +233,11 @@ AZURE_TRANSLATOR_ENDPOINT = os.getenv("AZURE_TRANSLATOR_ENDPOINT")
 WAGTAILLOCALIZE_MACHINE_TRANSLATOR = {
     "CLASS": "translations.azure.AzureTranslator",
     "OPTIONS": {
-        'subscription_key': os.getenv("AZURE_TRANSLATOR_KEY"),
+        'subscription_key': 'DyKiBjFhkd79pVIavqRKuguK8gEf43LoCoKGFKLyVhol0O0U1KnhJQQJ99AKACF24PCXJ3w3AAAbACOGWjz4',  # Replace with your actual subscription key
         'region': 'uaenorth',
     }
 }
+
 
 # Unsplash API
 WAGTAIL_UNSPLASH = {

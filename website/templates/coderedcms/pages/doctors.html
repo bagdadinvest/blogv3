@@ -1,5 +1,5 @@
 {% extends "coderedcms/pages/basedoc.html" %}
-{% load static wagtailadmin_tags wagtailcore_tags wagtailimages_tags coderedcms_tags i18n wagtailsnippets_tags %}
+{% load static wagtailadmin_tags wagtailcore_tags wagtailimages_tags coderedcms_tags i18n %}
 
 {% block content %}
 		<svg class="hidden">
@@ -22,20 +22,20 @@
 			</symbol>
 		</svg>
 		<main>
+		  {% if self.hoca_section %}
 			<div class="slideshow">
 				<div class="slideshow__deco"></div>
-				    {% get_doctors as doctors %}
-				{% for doctor in doctors %}
+      {% for block in self.hoca_section %}
 				<div class="slide">
 					<div class="slide__img-wrap">
-						{% image doctor.photo max-800x600 as img %}
-						<div class="slide__img" style="background-image: url({{ img.url }});"></div>
+						{% image block.value.photo max-800x600 as img %}
+						<div class="slide__img" style="background-image: url(https://dentidelil-international.com{{ img.url }});"></div>
 					</div>
 					<div class="slide__side">Denti Delil</div>
 					<div class="slide__title-wrap">
-						<span class="slide__number">{{ doctor.number }}</span>
-						<h3 class="slide__title">{{ doctor.name }}</h3>
-						<h4 class="slide__subtitle">{{ doctor.specialty }}</h4>
+						<span class="slide__number">{{ block.value.number }}</span>
+						<h3 class="slide__title">{{ block.value.name }}</h3>
+						<h4 class="slide__subtitle">{{ block.value.specialty }}</h4>
 					</div>
 				</div>
 				{% endfor %}
@@ -53,13 +53,12 @@
 			</div>
 
 			<div class="content">
-			    {% get_doctors as doctors %}
-				{% for doctor in doctors %}
+      {% for block in self.hoca_section %}
 				<div class="content__item">
-					<span class="content__number">{{ doctor.number }}</span>
-					<h3 class="content__title">{{ doctor.name }}</h3>
-					<h4 class="content__subtitle">{{ doctor.specialty }}</h4>
-					<div class="content__text">{{ doctor.description }}</div>
+					<span class="content__number">{{ block.value.number }}</span>
+					<h3 class="content__title">{{ block.value.name }}</h3>
+					<h4 class="content__subtitle">{{ block.value.specialty }}</h4>
+					<div class="content__text">{{ block.value.description }}</div>
 				</div>
 				{% endfor %}
 				<button class="content__close">
@@ -68,8 +67,10 @@
 					</svg>
 				</button>
 			</div>
+    {% endif %}
 
 		</main>
+
   <script src="{% static 'doc/js/imagesloaded.pkgd.min.js' %}"></script>
   <script src="{% static 'doc/js/charming.min.js' %}"></script>
   <script src="{% static 'doc/js/TweenMax.min.js' %}"></script>

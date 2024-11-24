@@ -1,5 +1,3 @@
-# translations/azure.py
-
 import requests
 from wagtail_localize.machine_translators.base import BaseMachineTranslator
 from wagtail_localize.strings import StringValue
@@ -14,15 +12,15 @@ class AzureTranslator(BaseMachineTranslator):
         Args:
             options (dict): A dictionary of configuration options passed from settings.
         """
-        # Set default options if none are provided
         options = options or {}
-
-        # Retrieve subscription key and region from options
         self.subscription_key = options.get('subscription_key', 'your-default-subscription-key')
         self.region = options.get('region', 'your-default-region')
-
-        # Azure Translator endpoint
         self.endpoint = 'https://api.cognitive.microsofttranslator.com/translate?api-version=3.0'
+
+        # Debugging initialization
+        print(f"Initialized AzureTranslator with subscription_key: {self.subscription_key}")
+        print(f"Region: {self.region}")
+        print(f"Endpoint: {self.endpoint}")
 
     def translate(self, source_locale, target_locale, strings):
         """
@@ -36,41 +34,50 @@ class AzureTranslator(BaseMachineTranslator):
         Returns:
             A dictionary mapping source StringValue's to their translated values.
         """
+        print(f"Translating from {source_locale.language_code} to {target_locale.language_code}")
+        print(f"Strings to translate: {[string.render_text() for string in strings]}")
+
         headers = {
             'Ocp-Apim-Subscription-Key': self.subscription_key,
             'Ocp-Apim-Subscription-Region': self.region,
             'Content-Type': 'application/json',
         }
+        print(f"Request headers: {headers}")
 
-        # Prepare the data for Azure Translator API
         request_data = [{'Text': string.render_text()} for string in strings]
+        print(f"Request data: {request_data}")
 
-        # Define the target language for translation
         params = {'to': target_locale.language_code}
+        print(f"Request parameters: {params}")
 
-        # Make the request to the Azure Translator API
-        response = requests.post(
-            self.endpoint,
-            headers=headers,
-            params=params,
-            json=request_data,
-        )
+        try:
+            response = requests.post(
+                self.endpoint,
+                headers=headers,
+                params=params,
+                json=request_data,
+            )
+            print(f"Response status code: {response.status_code}")
+            print(f"Response text: {response.text}")
 
-        if response.status_code != 200:
-            # If the API call fails, log the error and return the original strings
-            print(f"Azure Translator error: {response.status_code}, {response.text}")
+            if response.status_code != 200:
+                print(f"Error in translation: {response.status_code} - {response.text}")
+                return {string: string for string in strings}
+
+            translations = response.json()
+            print(f"API translations response: {translations}")
+
+            translated_strings = {
+                string: StringValue.from_plaintext(translation['translations'][0]['text'])
+                for string, translation in zip(strings, translations)
+            }
+
+            print(f"Translated strings: {translated_strings}")
+            return translated_strings
+
+        except Exception as e:
+            print(f"Exception occurred: {e}")
             return {string: string for string in strings}
-
-        # Parse the response
-        translations = response.json()
-
-        # Create a mapping of source strings to their translations
-        translated_strings = {
-            string: StringValue.from_plaintext(translation['translations'][0]['text'])
-            for string, translation in zip(strings, translations)
-        }
-
-        return translated_strings
 
     def can_translate(self, source_locale, target_locale):
         """
@@ -83,5 +90,6 @@ class AzureTranslator(BaseMachineTranslator):
         Returns:
             Boolean indicating if translation can occur between the locales.
         """
-        # Allow translation between any different languages
-        return source_locale.language_code != target_locale.language_code
+        can_translate = source_locale.language_code != target_locale.language_code
+        print(f"Can translate from {source_locale.language_code} to {target_locale.language_code}: {can_translate}")
+        return can_translate

@@ -1,44 +1,40 @@
-{% load static i18n wagtailcore_tags language_switcher %}
-{% block content %}
-<div class="menu-overlay"></div>
-<div class="min-height-300 bg-primary position-absolute w-100"></div>
+{% load wagtailcore_tags wagtailimages_tags i18n static %}
+
 <div class="menu">
+    <!-- Hamburger Button with Current Language -->
     <div class="hamburger-menu-wrapper">
         <button class="hamburger-menu" id="hamburger-menu-button">
-            <img src="{% static 'home/img/icons/flags/' %}{{ LANGUAGE_CODE }}.svg" class="flag-button" width="48" alt="{{ LANGUAGE_CODE }}" class="flag-icon" id="current-language-flag">
-            <span>{% trans "language" %}</span>
+            <img src="{% static 'home/img/icons/flags/' %}{{ LANGUAGE_CODE }}.svg"
+                 alt="{{ LANGUAGE_CODE }}"
+                 class="flag-icon"
+                 width="48">
+            <span>{% trans "Language" %}</span>
         </button>
     </div>
-    <div class="menu-list" style="display:none;">
-        <!-- Language Switcher Links -->
-        <a href="{% language_switcher 'en' %}" class="flag-button-link">
-            <img src="{% static 'home/img/icons/flags/en.svg' %}" width="58" alt="English" {% if LANGUAGE_CODE == 'en' %} class="inactive-language" {% endif %}>
-        </a>
-        <br>
 
-        <a href="{% language_switcher 'fr' %}" class="flag-button-link">
-            <img src="{% static 'home/img/icons/flags/fr.svg' %}" width="58" alt="French" {% if LANGUAGE_CODE == 'fr' %} class="inactive-language" {% endif %}>
-        </a>
-        <br>
+    <!-- Dynamic Language Switcher Menu -->
+    <div class="menu-list" style="display: none;">
+        {% if page %}
+            {% for translation in page.get_translations.live %}
+                {% get_language_info for translation.locale.language_code as lang %}
+                <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}" class="flag-button-link">
+                    <img src="{% static 'home/img/icons/flags/' %}{{ lang.code }}.svg"
+                         alt="{{ lang.name_local }}"
+                         width="58"
+                         {% if LANGUAGE_CODE == lang.code %} class="current-language" {% endif %}>
+                </a>
+                <br>
+            {% endfor %}
+        {% endif %}
 
-        <a href="{% language_switcher 'tr' %}" class="flag-button-link">
-            <img src="{% static 'home/img/icons/flags/tr.svg' %}" width="58" alt="Turkish" {% if LANGUAGE_CODE == 'tr' %} class="inactive-language" {% endif %}>
-        </a>
-        <br>
-
-        <!-- Inactive Languages (Disabled) -->
+        <!-- Inactive Languages -->
         <img src="{% static 'home/img/icons/flags/de.svg' %}" width="58" alt="Inactive" class="inactive-language" disabled>
-        <br>
-        <!-- Repeat for other inactive languages as placeholders -->
     </div>
 </div>
-{% endblock content %}
 
-{% block javascript %}
-<script src="{% static 'home/js/animated-toggle-menu.js' %}"></script>
+<!-- Toggle Menu Script -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {
-        // Toggle the language menu
         const hamburgerButton = document.getElementById('hamburger-menu-button');
         const menuList = document.querySelector('.menu-list');
 
@@ -47,4 +43,5 @@
         });
     });
 </script>
-{% endblock javascript %}
+
+<!-- CSS -->

@@ -1,0 +1,2 @@
+coderedcms=={{coderedcms_release.0}}.{{coderedcms_release.1}}.*
+wagtail=={{wagtail_release.0}}.{{wagtail_release.1}}.*

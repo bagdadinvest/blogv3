@@ -1,37 +1,38 @@
-{% load wagtailcore_tags wagtailimages_tags coderedcms_tags i18n %}
+{% load wagtailcore_tags wagtailimages_tags coderedcms_tags i18n static %}
 {% wagtail_site as site %}
 {% django_setting "CRX_DISABLE_LAYOUT" as disable_layout %}
+<style>
 
+</style>
 <nav data-pgc-define="navigation" data-pgc-define-name="Navigation Bar" data-pgc-define-description="A responsive navigation bar with a logo and menu icon.">
     <div class="container{% if settings.coderedcms.LayoutSettings.navbar_content_fluid %}-fluid{% endif %}">
-        <!-- Dynamic Logo or Site Name -->
-        <div class="logo">
-            <a href="/">
-                            <!-- Language Switcher -->
+        <!-- Flex container for the navbar -->
+        <div class="navbar-row d-flex justify-content-between align-items-center">
+            <!-- Dynamic Logo or Site Name -->
+            <div class="logo">
+                <a href="/"
+                    {% if settings.coderedcms.LayoutSettings.logo %}
+                    {% image settings.coderedcms.LayoutSettings.logo original format-webp preserve-svg as logo %}
+                    img src="{{ logo.url }}" alt="{{ site.site_name }}">
+                    {% else %}
+                    >Denti<em>Delil</em>
+                    {% endif %}
+                </a>
+            </div>
 
+            <!-- Language Switcher -->
+            <div class="language-switcher">
+                {% include "coderedcms/pages/lang.html" %}
+            </div>
 
-
-                {% if settings.coderedcms.LayoutSettings.logo %}
-                {% image settings.coderedcms.LayoutSettings.logo original format-webp preserve-svg as logo %}
-                <img src="{{logo.url}}" alt="{{site.site_name}}">
-                {% else %}
-                DENT I DELIL CLINIC
-                {% endif %}
-            </a>
-        </div>
-{% if page %}
-    {% for translation in page.get_translations.live %}
-        {% get_language_info for translation.locale.language_code as lang %}
-        <a href="{% pageurl translation %}" rel="alternate" hreflang="{{ lang.code }}">
-            {{ lang.name_local }}
-        </a>
-    {% endfor %}
-{% endif %}
-        <!-- Menu Icon (Preserved from Original) -->
-        <div class="menu-icon">
-            <span></span>
+            <!-- Menu Icon -->
+            <div class="menu-icon">
+                <span></span>
+            </div>
         </div>
     </div>
+                </div>
+
 </nav>
 
 <section class="overlay-menu">
@@ -42,7 +43,7 @@
                     <!-- Dynamic Navbar using CodeRed CMS Variables -->
                     {% get_navbars as navbars %}
                     {% for navbar in navbars %}
-                    <ul class="navbar-nav {{navbar.custom_css_class}}" {% if navbar.custom_id %}id="{{navbar.custom_id}}" {% endif %}>
+                    <ul class="navbar-nav {{ navbar.custom_css_class }}" {% if navbar.custom_id %}id="{{ navbar.custom_id }}" {% endif %}>
                         {% for item in navbar.menu_items %}
                         <li><a href="{{ item.url }}" class="nav-link">{{ item.title }}</a></li>
                         {% endfor %}
@@ -65,8 +66,7 @@
                         <li><a href="{{ child_page.url }}">{{ child_page.title }}</a></li>
                         {% endif %}
                     {% endfor %}
-                <li> <a href="https://app.dentidelil-international.com/">{% trans "DASHBOARD LOGIN" %}</a></li>
-
+                    <li><a href="https://app.dentidelil-international.com/">{% trans "DASHBOARD LOGIN" %}</a></li>
                 </ul>
                 <p>{% trans "Your smile, our priority. Affordable dental care abroad." %}</p>
             </div>

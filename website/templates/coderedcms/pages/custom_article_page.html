@@ -3,26 +3,28 @@
 
 {% block content %}
 
-<div class="custom-article-entry">
+<div class="blog-entries">
     <div class="container">
+        <!-- Add a row to wrap both columns -->
         <div class="row">
-            <!-- Main Content Column -->
             <div class="col-md-9">
-                <div class="article-post">
-                    <div class="single-article-post">
+                <div class="blog-posts">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="single-blog-post">
 
                         <!-- Cover Image -->
-                        {% if page.cover_image %}
-                            {% image page.cover_image fill-765x325 as cover_image %}
-                            <img src="{{ cover_image.url }}" alt="{{ page.title }} Cover Image">
+                        {% if page.hero_image %}
+                            {% image page.hero_image fill-765x325 as hero_image %}
+                            <img src="{{ page.hero_image.file.url }}" alt="{{ page.hero_image.title }} Cover Image">
                         {% endif %}
 
                         <!-- Article Content -->
-                        <div class="article-text-content">
-                            <h1>{{ page.title }}</h1>
+                        <div class="text-content">
+                            <h1>{{ self.title }}</h1>
                             <span>
                                 <a href="#">DentiDelil Editorials</a> /
-                                <a href="#">{{ page.first_published_at|date:"F d, Y" }}</a> /
+                                <a href="#">{{ self.seo_published_at }}</a> /
                                 <a href="#">{{ page.author_display }}</a>
                             </span>
 

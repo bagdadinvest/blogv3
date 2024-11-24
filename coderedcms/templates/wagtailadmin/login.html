@@ -1,0 +1,6 @@
+{% extends "wagtailadmin/login.html" %}
+{% load coderedcms_tags i18n %}
+{% block branding_login %}
+{% django_setting "WAGTAIL_SITE_NAME" as wagtail_site_name %}
+{% trans 'Sign in to' %} {{ wagtail_site_name }}
+{% endblock %}

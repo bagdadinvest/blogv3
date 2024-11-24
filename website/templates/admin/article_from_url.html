@@ -1,0 +1,19 @@
+{% extends "wagtailadmin/base.html" %}
+
+{% block content %}
+    <h1>Import Article from URL</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="field">
+            <label for="article_url">Article URL</label>
+            <input
+                type="url"
+                name="article_url"
+                id="article_url"
+                placeholder="Enter the URL of the article"
+                required
+            >
+        </div>
+        <button type="submit" class="button button--primary">Import Article</button>
+    </form>
+{% endblock %}

@@ -1,5 +1,5 @@
 from django import template
-from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet, Doctor
+from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet, Hoca
 
 register = template.Library()
 
@@ -29,7 +29,7 @@ def get_pricing_items():
     return PricingSnippet.objects.all()
 
 @register.simple_tag
-def get_doctors():
+def get_hocas():
     """Returns all doctor snippets ordered by number"""
-    return Doctor.objects.all().order_by('number')
+    return Hoca.objects.all().order_by('number')
 

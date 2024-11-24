@@ -344,6 +344,83 @@ class doctorspage(CoderedWebPage):
         FieldPanel("scroll_link"),
         FieldPanel("scroll_icon_url"),
     ]
+#################################################################
+from coderedcms.models import CoderedArticlePage
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel
+import uuid
+from wagtail.models import TranslatableMixin, Locale
+from wagtail.snippets.models import register_snippet
+from wagtail.admin.panels import FieldPanel
+from django.db import models
+
+from wagtail.snippets.models import register_snippet
+from wagtail.admin.panels import FieldPanel
+from django.db import models
+
+from wagtail.models import TranslatableMixin
+from wagtail.admin.panels import FieldPanel
+from wagtail.snippets.models import register_snippet
+from django.db import models
+from wagtail.snippets.blocks import SnippetChooserBlock
+
+class HocaPage(CoderedWebPage):
+    """
+    A page model to display Hoca snippets.
+    """
+    hoca_section = CoderedStreamField(
+        [
+            ('hoca', SnippetChooserBlock(target_model='website.Hoca')),  # Replace 'app_name' with your app's name
+        ],
+        blank=True,
+        use_json_field=True,
+    )
+
+    content_panels = CoderedWebPage.content_panels + [
+        FieldPanel('hoca_section'),
+    ]
+    
+    template = "coderedcms/pages/doctors.html"  # Update with your template path
+
+    class Meta:
+        verbose_name = "Hoca Page"
+
+@register_snippet
+class Hoca(TranslatableMixin, models.Model):
+    number = models.IntegerField("Order Number", help_text="Number to control the order of display")
+    name = models.CharField(max_length=255)
+    specialty = models.CharField(max_length=255)
+    description = models.TextField(blank=True, null=True)
+    photo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+
+    panels = [
+        FieldPanel('number'),
+        FieldPanel('name'),
+        FieldPanel('specialty'),
+        FieldPanel('description'),
+        FieldPanel('photo'),
+    ]
+
+    def __str__(self):
+        return f"{self.number} - {self.name}"
+
+
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel, InlinePanel
+from wagtail.models import Page
+from django.db import models
+from modelcluster.fields import ParentalKey
+from modelcluster.models import ClusterableModel
+from wagtail.snippets.models import register_snippet
+
+
+
 
 @register_snippet
 class PortfolioSnippet(models.Model):
@@ -368,40 +445,10 @@ class PortfolioSnippet(models.Model):
         verbose_name = "Portfolio Item"
         verbose_name_plural = "Portfolio Items"
 
-import uuid
-from wagtail.models import TranslatableMixin, Locale
-from wagtail.snippets.models import register_snippet
-from wagtail.admin.panels import FieldPanel
-from django.db import models
 
-from wagtail.snippets.models import register_snippet
-from wagtail.admin.panels import FieldPanel
-from django.db import models
 
-@register_snippet
-class Doctor(models.Model):
-    number = models.IntegerField("Order Number", help_text="Number to control the order of display")
-    name = models.CharField(max_length=255)
-    specialty = models.CharField(max_length=255)
-    description = models.TextField(blank=True, null=True)
-    photo = models.ForeignKey(
-        'wagtailimages.Image',
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+'
-    )
 
-    panels = [
-        FieldPanel('number'),
-        FieldPanel('name'),
-        FieldPanel('specialty'),
-        FieldPanel('description'),
-        FieldPanel('photo'),
-    ]
 
-    def __str__(self):
-        return f"{self.number} - {self.name}"
 from coderedcms.models import CoderedArticlePage
 from wagtail.fields import RichTextField
 from wagtail.admin.panels import FieldPanel
@@ -421,10 +468,19 @@ class CustomArticlePage(CoderedArticlePage):
             "hr", "ai"  # Custom AI feature
         ]
     )
+    hero_image = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+    )
 
     # Custom panels to be shown in the admin
     content_panels = CoderedArticlePage.content_panels + [
+        FieldPanel('hero_image'),
         FieldPanel('content_body'),
+
     ]
 
     class Meta:
@@ -491,3 +547,5 @@ class CustomLocationIndexPage(CoderedWebPage):
         Returns all published CustomLocationPage instances beneath this index page.
         """
         return self.get_children().specific().live().order_by('-first_published_at')
+
+

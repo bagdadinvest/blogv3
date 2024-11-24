@@ -6,7 +6,6 @@ from django.contrib import admin
 from django.urls import include, path
 from wagtail.documents import urls as wagtaildocs_urls
 from django.conf.urls.i18n import i18n_patterns
-from website.views import canva_callback
 
 # Define the initial urlpatterns
 urlpatterns = [

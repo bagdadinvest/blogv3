@@ -1,0 +1,13 @@
+{% load i18n wagtailcore_tags %}
+<form method="GET" action="{% pageurl page %}#{{formid}}" class="{{formclass}}" id="{{formid}}">
+  {% for classifier in page.index_classifiers.all %}
+  <select class="form-select d-inline w-auto m-1" name="{{classifier.slug}}">
+    <option value="">{% trans "Filter by" %} {{classifier.name}}</option>
+    {% for term in classifier.terms.all %}
+    <option value="{{term.slug}}" {% if term in selected_terms %}selected{% endif %}>{{term.name}}</option>
+    {% endfor %}
+  </select>
+  {% endfor %}
+  <button type="submit" class="btn btn-primary m-1">{% trans "Filter" %}</button>
+  <a href="{% pageurl page %}#{{formid}}" class="btn btn-secondary m-1">{% trans "All" %}</a>
+</form>
