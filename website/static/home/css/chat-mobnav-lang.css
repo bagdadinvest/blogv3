@@ -1,0 +1,443 @@
+.chat-bubble {
+    margin-bottom: 40px;
+}
+
+
+/* Flag Button Styles */
+.flag-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+.flag-button img {
+    display: block;
+}
+.language-toggle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .flag-button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .flag-button:hover {
+    transform: rotate(360deg);
+  }
+
+  @keyframes rolling {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+
+  .flag-button.active {
+    animation: rolling 1s forwards;
+  }
+
+  .flag-button.active:hover {
+    transform: none; /* Disable hover effect while animating */
+  }
+
+
+/* MENU */
+.hamburger-menu-wrapper {
+    margin-top: 10px;
+    background: transparent;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px; /* Optional: adds a slight rounding to the wrapper */
+ }
+
+.hamburger-menu-wrapper.bounce-effect {
+    animation: bounce 0.3s ease 1;
+}
+
+.menu-overlay {
+    transition: margin 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+    display: none;
+    position: fixed; /* Fixed position to cover the entire viewport */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    z-index: 1111;
+}
+
+.menu {
+    position: relative;
+    min-width: 220px;
+    text-align: center;
+}
+
+.hamburger-menu {
+    border: none;
+    margin: 0; /* Reset margin */
+    display: block;
+    position: relative;
+    overflow: visible;
+    padding: 0;
+    width: 28px; /* Set width to fit the flag icon */
+    height: 28px; /* Set height to fit the flag icon */
+    font-size: 0;
+    cursor: pointer;
+    background: transparent;
+    z-index: 1010;
+    text-align: center;}
+
+.hamburger-menu:focus {
+    outline: none;
+}
+
+.hamburger-menu .flag-icon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%; /* Optional: round flag icon */
+    overflow: visible;
+}
+
+.menu-list {
+    display: none;
+    position: absolute;
+    top: calc(100% + 40px);
+    width: 100%;
+    text-align: center;
+    z-index: 9999;
+}
+
+.menu-list a {
+    color: #C6D2D6;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    margin: 15px 0;
+    transition: all 0.5s ease;
+}
+
+.menu-list a:hover {
+    color: #02D5FD;
+}
+
+.hamburger-menu span {
+    display: block; /* Hide the span used for the icon animation */
+}
+
+.hamburger-menu.active .flag-icon {
+    /* Additional styles if needed when the menu is active */
+}
+
+@keyframes bounce {
+    0% {
+        transform: rotate(0);
+    }
+    45% {
+        transform: rotate(15deg);
+    }
+    90% {
+        transform: rotate(-7deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ffffff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+    height: 70px;
+    transition: transform 0.5s ease; /* For sliding animation */
+}
+
+/* Initially visible */
+.mobile-bottom-nav.show {
+    transform: translateY(0); /* Slide into view */
+}
+
+/* Hidden state */
+.mobile-bottom-nav.hide {
+    transform: translateY(100%); /* Slide out of view */
+}
+
+/* Arrow to show navigation */
+/* Mobile Bottom Navigation */
+.mobile-bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #2E2E2E; /* Soft, distinct grey */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px 0;
+    z-index: 1000;
+    height: 50px;
+    border-radius: 12px 12px 0 0; /* Subtle rounded top corners */
+    transition: transform 0.5s ease;
+}
+
+/* Show/Hide Animation */
+.mobile-bottom-nav.show {
+    transform: translateY(0); /* Slide into view */
+}
+.mobile-bottom-nav.hide {
+    transform: translateY(100%); /* Slide out of view */
+}
+
+
+/* Company Logo in the Center */
+/* Logo Centered with Flexible Size */
+.mobile-bottom-nav .nav-logo {
+    width: 50px;
+    height: auto;
+    max-height: 50px;
+    object-fit: contain;
+}
+
+/* Icon styling */
+.mobile-bottom-nav i {
+    font-size: 24px;
+    display: block;
+    margin-bottom: 5px;
+    color: #DDD; /* Light grey for icons */
+}
+
+/* Ensure flex behavior of the links */
+.mobile-bottom-nav a {
+    flex: 1;
+    text-align: center;
+    color: #f0f0f0; /* Light text for readability */
+    font-size: 12px;
+    text-decoration: none;
+}
+
+/* Media query to hide the nav on larger screens */
+@media (min-width: 769px) {
+    .mobile-bottom-nav, .mobile-nav-arrow {
+        display: none;
+    }
+}
+
+
+.modal-content {
+    background-color: #000000 !important;
+}
+
+/* Nav Bar */
+nav .logo {
+    float: left;
+    margin-left: 30px;
+}
+
+nav .logo a {
+    font-size: 28px;
+    line-height: 80px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+nav .logo em {
+    font-style: normal;
+    font-weight: 200;
+}
+
+nav {
+    background: rgba(250,250,250,0.2);
+    height: 80px;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    box-shadow: 0px 2px 10px 0px rgba(0,0,0,0.5);
+}
+
+.menu-icon {
+    background: transparent;
+    border: 1px solid #fff;
+    width: 50px;
+    height: 50px;
+    margin: 15px 39px 0 auto;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.5s;
+    border-radius: 5px;
+}
+
+.menu-icon span,
+
+.menu-icon span:before,
+
+.menu-icon span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 2px;
+    width: 35px;
+    background: white;
+    position: absolute;
+    left: 15%;
+    top: 50%;
+    display: block;
+    content: '';
+    transition: all 0.5s ease-in-out;
+}
+
+.menu-icon span:before {
+    left: 0;
+    top: -10px;
+}
+
+.menu-icon span:after {
+    left: 0;
+    top: 10px;
+}
+
+.menu-icon.active {
+    background: rgba(250,250,250,0.2);
+}
+
+.menu-icon.active span {
+    background-color: transparent;
+}
+
+.menu-icon.active span:before,
+
+.menu-icon.active span:after {
+    top: 0;
+}
+
+.menu-icon.active span:before {
+    transform: rotate(135deg);
+}
+
+.menu-icon.active span:after {
+    transform: rotate(-135deg);
+}
+
+/* Menu */
+.overlay-menu {
+    background: rgba(0, 0, 0, 0.95);
+    color: #ffffff;
+    position: fixed;
+    z-index: 10000000;
+    left: 0;
+    top: 0;
+    height: 100%;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    padding: 50px 0;
+    opacity: 0;
+    text-align: center;
+    transform: translateY(-100%);
+    transition: all 0.5s;
+}
+
+.overlay-menu.open {
+    opacity: 1;
+    transform: translateY(0%);
+    padding: 3em;
+}
+
+.overlay-menu .main-menu {
+    transform: translateY(50%);
+    opacity: 0;
+    transition: all 0.3s;
+    transition-delay: 0s;
+}
+
+.overlay-menu.open .main-menu {
+    transition: all 0.7s;
+    transition-delay: 0.7s;
+    opacity: 1;
+    transform: translateY(0%);
+}
+
+.overlay-menu .main-menu:nth-child(2) {
+    transition-delay: 0s;
+}
+
+.overlay-menu.open .main-menu:nth-child(2) {
+    transition-delay: 1.25s;
+}
+
+.overlay-menu {
+    overflow: scroll;
+}
+
+.overlay-menu::-webkit-scrollbar {
+    display: none;
+}
+
+.overlay-menu ul {
+    list-style: none;
+    margin-top: 50px; /* Reduced margin for a cleaner look */
+    padding: 0;
+    text-align: center; /* Center align the navigation items */
+}
+
+.overlay-menu ul li {
+    padding: 15px 0; /* Keep consistent spacing between items */
+}
+
+.overlay-menu ul li a {
+    font-size: 22px; /* Slightly reduced font size */
+    font-weight: 400; /* Slightly increased font weight for better readability */
+    color: #f0f0f0; /* Lighter color for better contrast */
+    text-decoration: none;
+    transition: all 0.3s ease; /* Smoother transition on hover */
+    text-transform: capitalize; /* Capitalize each word for a more polished look */
+}
+
+.overlay-menu ul li a:hover {
+    color: rgba(250, 250, 250, 0.7); /* Subtle color change on hover */
+    transform: scale(1.05); /* Slight enlargement on hover */
+    letter-spacing: 0.5px; /* Slight letter spacing on hover */
+}
+
+.overlay-menu p {
+    margin-top: 50px;
+    font-size: 14px; /* Increased font size for readability */
+    text-transform: uppercase;
+    color: #e0e0e0; /* Slightly lighter color for text */
+    font-weight: 300; /* Made font weight consistent */
+    letter-spacing: 0.8px; /* Slightly increased letter-spacing */
+    text-align: center;
+}
+
+/* Additional styling for navigation bar (optional) */
+.overlay-menu {
+    background-color: rgba(0, 0, 0, 0.85); /* Semi-transparent background for overlay */
+    padding: 30px; /* Add padding around the content */
+}
+
+.overlay-menu ul li a.active {
+    border-bottom: 2px solid #fff; /* Underline for active menu items */
+}

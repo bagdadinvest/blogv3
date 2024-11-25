@@ -18,135 +18,137 @@
         <source src="{{ self.background_video.url }}" type="video/mp4"/>
     </video>
 </div>
-       <div class="grid-portfolio" id="portfolio">
-            <div class="container">
-            {% get_portfolio_items as portfolio_items %}
-        {% for portfolio_item in portfolio_items %}
-            <div class="col-md-4 col-sm-6">
-                <div class="portfolio-item">
-                    <a href="{{ portfolio_item.link }}">
-                        <div class="thumb">
-                            <div class="hover-effect">
-                                <div class="hover-content">
-                                    <h1>{{ portfolio_item.title }}</h1>
-                                    <p>{{ portfolio_item.description }}</p>
-                                </div>
-                            </div>
-                            <div class="image">
-                              <img src="{% if portfolio_item.image %}{{ portfolio_item.image.file.url }}{% else %}/static/img/default-portfolio.jpg{% endif %}" alt="{{ portfolio_item.title }}">
-                              </div>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
 
-
-        {% get_about_us as about_us_snippets %}
-    {% for snippet in about_us_snippets %}
-<div class="page-heading-snippet" style="background-image: url('{% if snippet.background_image %}{{ snippet.background_image.file.url }}{% endif %}');   background-repeat: no-repeat;
-    background-size: fill;
-    background-position: center center;
-    width: 100%;
-    text-align: center;>
-    <div class="container">
-        <div class="heading-content ">
-            <div class="container">
-                <h2>{{ snippet.heading }}</h2>
-            </div>
-        </div>
-    {% endfor %}
-    </div>
-</div>
-
-<div class="services">
-    <div class="container">
-        {% get_services as services %}
-        {% for service in services %}
-            <div class="col-md-4 col-sm-6">
-                <div class="service-item">
-                    <div class="icon">
-                        <img src="{{ service.icon_url }}" alt="">
-                    </div>
-                    <div class="text">
-                        <h4>{{ service.title }}</h4>
-                        <p>{{ service.description }}</p>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
-
-<div class="more-about-us-container">
-    {% get_patient_journeys as patient_journeys %}
-    {% for journey in patient_journeys %}
-        <div class="more-about-us" style="background-image: url('{% if journey.background_image %}{{ journey.background_image.file.url }}{% else %}{{ journey.image_url_fallback }}{% endif %}'); background-size: cover; background-position: center; padding: 50px 0; color: #fff;">
-            <div class="container">
-                <div class="col-md-5 col-md-offset-7 col-sm-3 col-sm-offset-3">
-                    <div class="content">
-                        <h2 style="display: inline;">{{ journey.name }}</h2><h2 style="display: inline;">{{ journey.journey_title }}</h2>
-                        <span>{{ journey.journey_subtitle }}</span>
-                        <p>{{ journey.story }}</p>
-                        <br>
-                        <div class="simple-btn">
-                            <a href="{{ journey.stories_link }}">{{ journey.read_more_text }}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    {% endfor %}
-</div>
-
-
-
-
-<div class="pricing-tables">
-    <div class="container">
-        {% get_pricing_items as pricing_items %}
-        {% for pricing in pricing_items %}
-            <div class="col-md-4 col-sm-6">
-                <div class="table-item {% if pricing.is_premium %}premium-item{% endif %}">
-                    <h4>{{ pricing.price }}</h4>
-                    <span>{{ pricing.title }}</span>
-                    <ul>
-                        {% for feature in pricing.get_features_list %}
-                            <li>{{ feature }}</li>
-                        {% endfor %}
-                    </ul>
-                    <div class="simple-btn">
-                        <a href="{{ pricing.details_link }}">click for more Detail</a>
-                    </div>
-                </div>
-            </div>
-        {% endfor %}
-    </div>
-</div>
 <div class="grid-portfolio" id="portfolio">
     <div class="container">
-        <div class="row">
-            {% get_portfolio_items as portfolio_items %}
-            {% for portfolio_item in portfolio_items %}
-            <div class="col-md-4 col-sm-6">
-                <div class="portfolio-item">
-                    <div class="thumb">
-                        <a href="{{ portfolio_item.big_image.url }}" data-lightbox="image-{{ forloop.counter }}">
-                            <div class="hover-effect">
-                                <div class="hover-content">
-                                    <h1>{{ portfolio_item.title }} <em>{{ portfolio_item.subtitle }}</em></h1>
-                                    <p>{{ portfolio_item.description }}</p>
+        {% for block in self.portfolio_section %}
+            {% if block.block_type == 'portfolio_item' %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="portfolio-item">
+                        <a href="{{ block.value.link }}">
+                            <div class="thumb">
+                                <div class="hover-effect">
+                                    <div class="hover-content">
+                                        <h1>{{ block.value.title }}</h1>
+                                        <p>{{ block.value.description }}</p>
+                                    </div>
+                                </div>
+                                <div class="image">
+                                  <img src="{% if block.value.image %}{{ block.value.image.file.url }}{% else %}/static/img/default-portfolio.jpg{% endif %}" alt="{{ block.value.title }}">
                                 </div>
                             </div>
                         </a>
-                        <div class="image">
-                            <img src="{% if portfolio_item.image %}{{ portfolio_item.image.file.url }}{% else %}/static/img/default-portfolio.jpg{% endif %}" alt="{{ portfolio_item.title }}">
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<!-- About Us Section -->
+{% for block in self.about_us_section %}
+    {% if block.block_type == 'about_us' %}
+        <div class="page-heading-snippet" style="background-image: url('{% if block.value.background_image %}{{ block.value.background_image.file.url }}{% endif %}'); background-repeat: no-repeat; background-size: fill; background-position: center center; width: 100%; text-align: center;">
+            <div class="container">
+                <div class="heading-content">
+                    <h2>{{ block.value.heading }}</h2>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endfor %}
+
+<!-- Services Section -->
+<div class="services">
+    <div class="container">
+        {% for block in self.services_section %}
+            {% if block.block_type == 'service' %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="service-item">
+                        <div class="icon">
+                            <img src="{{ block.value.icon_url }}" alt="">
+                        </div>
+                        <div class="text">
+                            <h4>{{ block.value.title }}</h4>
+                            <p>{{ block.value.description }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Patient Journey Section -->
+<div class="more-about-us-container">
+    {% for block in self.patient_journey_section %}
+        {% if block.block_type == 'patient_journey' %}
+            <div class="more-about-us" style="background-image: url('{% if block.value.background_image %}{{ block.value.background_image.file.url }}{% else %}{{ block.value.image_url_fallback }}{% endif %}'); background-size: cover; background-position: center; padding: 50px 0; color: #fff;">
+                <div class="container">
+                    <div class="col-md-5 col-md-offset-7 col-sm-3 col-sm-offset-3">
+                        <div class="content">
+                            <h2>{{ block.value.name }} <em>{{ block.value.journey_title }}</em></h2>
+                            <span>{{ block.value.journey_subtitle }}</span>
+                            <p>{{ block.value.story }}</p>
+                            <div class="simple-btn">
+                                <a href="{{ block.value.stories_link }}">{{ block.value.read_more_text }}</a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        {% endif %}
+    {% endfor %}
+</div>
+
+<!-- Pricing Tables Section -->
+<div class="pricing-tables">
+    <div class="container">
+        {% for block in self.pricing_section %}
+            {% if block.block_type == 'pricing_item' %}
+                <div class="col-md-4 col-sm-6">
+                    <div class="table-item {% if block.value.is_premium %}premium-item{% endif %}">
+                        <h4>{{ block.value.price }}</h4>
+                        <span>{{ block.value.title }}</span>
+                        <ul>
+                            {% for feature in block.value.get_features_list %}
+                                <li>{{ feature }}</li>
+                            {% endfor %}
+                        </ul>
+                        <div class="simple-btn">
+                            <a href="{{ block.value.details_link }}">click for more Detail</a>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
+<!-- Portfolio Grid Section -->
+<div class="grid-portfolio" id="portfolio">
+    <div class="container">
+        <div class="row">
+            {% for block in self.portfolio_section %}
+                {% if block.block_type == 'portfolio_item' %}
+                    <div class="col-md-4 col-sm-6">
+                        <div class="portfolio-item">
+                            <div class="thumb">
+                                <a href="{{ block.value.big_image.url }}" data-lightbox="image-{{ forloop.counter }}">
+                                    <div class="hover-effect">
+                                        <div class="hover-content">
+                                            <h1>{{ block.value.title }} <em>{{ block.value.subtitle }}</em></h1>
+                                            <p>{{ block.value.description }}</p>
+                                        </div>
+                                    </div>
+                                </a>
+                                <div class="image">
+                                    <img src="{% if block.value.image %}{{ block.value.image.file.url }}{% else %}/static/img/default-portfolio.jpg{% endif %}" alt="{{ block.value.title }}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
         <div class="row">
@@ -158,7 +160,5 @@
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

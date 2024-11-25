@@ -56,7 +56,6 @@ INSTALLED_APPS = [
     'django_extensions',
     'wagtailmedia',
     'wagtail_word',
-    'wagtail_unsplash',
     "wagtail_jotform",
     "wagtail.contrib.routable_page",
     # Django

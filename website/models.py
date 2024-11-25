@@ -282,38 +282,6 @@ class PricingSnippet(models.Model):
         """Returns the features as a list of strings."""
         return self.features.split(',') if self.features else []
 
-# Modifying the CustomHomePage model to use snippets for the relevant sections
-class CustomHomePage(CoderedWebPage):
-    """
-    Custom model for the homepage that includes a background video
-    selected from uploaded media using the Wagtail media extension.
-    """
-
-    class Meta:
-        verbose_name = "Custom Home Page"
-        abstract = False
-
-    template = "coderedcms/pages/home_page.html"
-
-    # Video-related fields
-    background_video = models.ForeignKey(
-        Media,
-        null=True,
-        blank=True,
-        on_delete=models.SET_NULL,
-        related_name='+',
-        help_text="Background video to be displayed in the video container."
-    )
-    scroll_link = models.URLField(null=True, blank=True, help_text="Link for the scroll icon.")
-    scroll_icon_url = models.URLField(null=True, blank=True, help_text="URL for the scroll icon image.")
-
-    # Panels for video-related fields
-    content_panels = CoderedWebPage.content_panels + [
-        FieldPanel("background_video"),
-        FieldPanel("scroll_link"),
-        FieldPanel("scroll_icon_url"),
-    ]
-
 class doctorspage(CoderedWebPage):
     """
     Custom model for the homepage that includes a background video
@@ -409,6 +377,85 @@ class Hoca(TranslatableMixin, models.Model):
 
     def __str__(self):
         return f"{self.number} - {self.name}"
+
+# Modifying the CustomHomePage model to use snippets for the relevant sections
+class CustomHomePage(CoderedWebPage):
+    """
+    Custom model for the homepage that includes a background video
+    selected from uploaded media using the Wagtail media extension.
+    """
+
+    class Meta:
+        verbose_name = "Custom Home Page"
+        abstract = False
+
+    template = "coderedcms/pages/home_page.html"
+
+    # Video-related fields
+    background_video = models.ForeignKey(
+        Media,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text="Background video to be displayed in the video container."
+    )
+    scroll_link = models.URLField(null=True, blank=True, help_text="Link for the scroll icon.")
+    scroll_icon_url = models.URLField(null=True, blank=True, help_text="URL for the scroll icon image.")
+
+    about_us_section = CoderedStreamField(
+        [
+            ('about_us', SnippetChooserBlock(target_model='website.AboutUsSnippet')),
+        ],
+        blank=True,
+        use_json_field=True,
+    )
+
+    services_section = CoderedStreamField(
+        [
+            ('service', SnippetChooserBlock(target_model='website.ServiceSnippet')),
+        ],
+        blank=True,
+        use_json_field=True,
+    )
+
+    patient_journey_section = CoderedStreamField(
+        [
+            ('patient_journey', SnippetChooserBlock(target_model='website.PatientJourneySnippet')),
+        ],
+        blank=True,
+        use_json_field=True,
+    )
+
+    pricing_section = CoderedStreamField(
+        [
+            ('pricing_item', SnippetChooserBlock(target_model='website.PricingSnippet')),
+        ],
+        blank=True,
+        use_json_field=True,
+    )
+
+    portfolio_section = CoderedStreamField(
+        [
+            ('portfolio_item', SnippetChooserBlock(target_model='website.PortfolioSnippet')),
+        ],
+        blank=True,
+        use_json_field=True,
+    )
+
+
+    # Panels for video-related fields
+    content_panels = CoderedWebPage.content_panels + [
+        FieldPanel("background_video"),
+        FieldPanel("scroll_link"),
+        FieldPanel("scroll_icon_url"),
+        FieldPanel("about_us_section"),
+        FieldPanel("services_section"),
+        FieldPanel("patient_journey_section"),
+        FieldPanel("pricing_section"),
+        FieldPanel("portfolio_section"),
+
+    ]
 
 
 from wagtail.fields import RichTextField
@@ -548,4 +595,84 @@ class CustomLocationIndexPage(CoderedWebPage):
         """
         return self.get_children().specific().live().order_by('-first_published_at')
 
+from coderedcms.models import CoderedWebPage
+from wagtail.fields import StreamField, RichTextField
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.blocks import CharBlock, TextBlock, StructBlock, RichTextBlock
+from wagtail.admin.panels import FieldPanel
+from coderedcms.blocks import CONTENT_STREAMBLOCKS
 
+
+class CustomDynamicPage(CoderedWebPage):
+    """
+    Page model to represent the dynamic content for the given HTML template.
+    """
+
+    class Meta:
+        verbose_name = "Services Page"
+
+    template = "coderedcms/pages/service.html"
+
+
+    # Vegas Slide Section
+    vegas_slides = StreamField(
+        [
+            ("slide_image", ImageChooserBlock(label="Slide Image")),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Vegas Slides",
+        help_text="Upload images for the Vegas slider background.",
+    )
+
+    # Home Section
+    home_content = StreamField(
+        [
+            ("title", CharBlock(label="Home Title", required=True)),
+            ("subtitle", TextBlock(label="Home Subtitle", required=False)),
+            ("button_text", CharBlock(label="Button Text", required=False)),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Home Section Content",
+    )
+
+    # About Section
+    about_section = StreamField(
+        [
+            ("image", ImageChooserBlock(label="About Section Image")),
+            ("title", CharBlock(label="About Title", required=True)),
+            ("subtitle", CharBlock(label="About Subtitle", required=False)),
+            ("text", RichTextBlock(label="About Text", required=False)),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="About Section Content",
+    )
+
+    # Feature Section
+    features = StreamField(
+        [
+            (
+                "feature",
+                StructBlock(
+                    [
+                        ("icon", CharBlock(label="Feature Icon", required=False)),
+                        ("heading", CharBlock(label="Feature Heading", required=False)),
+                        ("text", TextBlock(label="Feature Text", required=False)),
+                    ],
+                    label="Feature Block",
+                ),
+            ),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Features",
+    )
+
+    content_panels = CoderedWebPage.content_panels + [
+        FieldPanel("vegas_slides"),
+        FieldPanel("home_content"),
+        FieldPanel("about_section"),
+        FieldPanel("features"),
+    ]
