@@ -676,3 +676,171 @@ class CustomDynamicPage(CoderedWebPage):
         FieldPanel("about_section"),
         FieldPanel("features"),
     ]
+
+from coderedcms.models import CoderedWebPage
+from wagtail.fields import StreamField
+from wagtail.blocks import CharBlock, TextBlock, StructBlock, RichTextBlock, URLBlock
+from wagtail.images.blocks import ImageChooserBlock
+from wagtail.admin.panels import FieldPanel
+from wagtail.blocks import ListBlock
+
+class MedicalTourismPage(CoderedWebPage):
+    """
+    A landing page model for medical tourism services.
+    """
+
+    class Meta:
+        verbose_name = "Medical Tourism Landing Page"
+
+    template = "coderedcms/pages/service2.html"
+
+    # Hero Section
+    hero_section = StreamField(
+        [
+            ("background_image", ImageChooserBlock(label="Background Image")),
+            ("title", CharBlock(label="Hero Title", required=True)),
+            ("subtitle", TextBlock(label="Hero Subtitle", required=False)),
+            ("button_primary", StructBlock([
+                ("label", CharBlock(label="Button Label", required=True)),
+                ("url", URLBlock(label="Button URL", required=True)),
+            ], label="Primary Button", required=False)),
+            ("button_secondary", StructBlock([
+                ("label", CharBlock(label="Button Label", required=True)),
+                ("url", URLBlock(label="Button URL", required=True)),
+            ], label="Secondary Button", required=False)),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Hero Section",
+    )
+
+    # About Section
+    about_section = StreamField(
+        [
+            ("image", ImageChooserBlock(label="About Image")),
+            ("title", CharBlock(label="About Title", required=True)),
+            ("subtitle", CharBlock(label="About Subtitle", required=False)),
+            ("text", RichTextBlock(label="About Description", required=False)),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="About Section",
+    )
+
+    # Doctors/Specialists Section
+    doctors_section = StreamField(
+        [
+            ("doctor", StructBlock([
+                ("image", ImageChooserBlock(label="Doctor Image")),
+                ("name", CharBlock(label="Name", required=True)),
+                ("specialty", CharBlock(label="Specialty", required=True)),
+                ("description", TextBlock(label="Description", required=False)),
+                ("social_link", URLBlock(label="Social/Profile Link", required=False)),
+            ], label="Doctor")),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Doctors Section",
+    )
+
+    # Patient Journey Section
+    patient_journey_section = StreamField(
+        [
+            ("day", StructBlock([
+                ("day_label", CharBlock(label="Day Label", required=True)),
+                ("description", RichTextBlock(label="Description", required=True)),
+            ], label="Patient Journey Day")),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Patient Journey Section",
+    )
+
+    # Clinics/Hospitals Section
+    clinics_section = StreamField(
+        [
+            ("clinic", StructBlock([
+                ("image", ImageChooserBlock(label="Clinic Image")),
+                ("name", CharBlock(label="Clinic Name", required=True)),
+                ("location", CharBlock(label="Location", required=False)),
+                ("description", TextBlock(label="Description", required=False)),
+                ("map_link", URLBlock(label="Google Maps Link", required=False)),
+            ], label="Clinic")),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Clinics Section",
+    )
+
+    # Pricing Section
+    pricing_section = StreamField(
+        [
+            ("pricing_item", StructBlock([
+                ("title", CharBlock(label="Package Title", required=True)),
+                ("price", CharBlock(label="Price", required=True)),
+                ("features", ListBlock(CharBlock(label="Feature"), label="Features List")),
+                ("cta_label", CharBlock(label="Call to Action Label", required=True)),
+                ("cta_url", URLBlock(label="Call to Action URL", required=True)),
+            ], label="Pricing Item")),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Pricing Section",
+    )
+
+    # FAQ Section
+    faq_section = StreamField(
+        [
+            ("faq", StructBlock([
+                ("question", CharBlock(label="Question", required=True)),
+                ("answer", RichTextBlock(label="Answer", required=True)),
+            ], label="FAQ")),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="FAQ Section",
+    )
+
+    # Gallery Section
+    gallery_section = StreamField(
+        [
+            ("image", ImageChooserBlock(label="Gallery Image")),
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Gallery Section",
+    )
+
+    # Content Panels for Admin Interface
+    content_panels = CoderedWebPage.content_panels + [
+        FieldPanel("hero_section"),
+        FieldPanel("about_section"),
+        FieldPanel("doctors_section"),
+        FieldPanel("patient_journey_section"),
+        FieldPanel("clinics_section"),
+        FieldPanel("pricing_section"),
+        FieldPanel("faq_section"),
+        FieldPanel("gallery_section"),
+    ]
+
+
+@register_snippet
+class Sponsor(models.Model):
+    name = models.CharField(max_length=255)
+    logo = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    link = models.URLField(blank=True, null=True)
+
+    panels = [
+        FieldPanel('name'),
+        FieldPanel('logo'),
+        FieldPanel('link'),
+    ]
+
+    def __str__(self):
+        return self.name

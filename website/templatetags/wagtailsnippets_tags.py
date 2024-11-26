@@ -1,5 +1,5 @@
 from django import template
-from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet, Hoca
+from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet, Hoca,Sponsor
 
 register = template.Library()
 
@@ -33,3 +33,7 @@ def get_hocas():
     """Returns all doctor snippets ordered by number"""
     return Hoca.objects.all().order_by('number')
 
+@register.simple_tag
+def get_sponsors():
+    """Returns all sponsor snippets"""
+    return Sponsor.objects.all()
