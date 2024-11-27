@@ -1,0 +1,43 @@
+{% load wagtailcore_tags coderedcms_tags %}
+<pre>Footer: {{ footer }}</pre>
+<pre>Content: {{ footer.content }}</pre>
+
+<footer id="{{ footer.custom_id }}" class=" {{ footer.custom_css_class }}">
+    <div class="container">
+        {% for block in footer.content %}
+            <pre>Block Type: {{ block.block_type }}</pre>
+            <pre>Block Value: {{ block.value }}</pre>
+            
+            {% if block.block_type == "contact_info" %}
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h3>Contact Information</h3>
+                        <p><strong>Address:</strong> {{ block.value.address }}</p>
+                        <p><strong>Phone:</strong> {{ block.value.phone }}</p>
+                        <p><strong>Email:</strong> {{ block.value.email }}</p>
+                    </div>
+                </div>
+            {% elif block.block_type == "map" %}
+                <div class="map">
+                    {{ block.value|safe }}
+                </div>
+            {% elif block.block_type == "form" %}
+                <form method="post">
+                    {% csrf_token %}
+                    {% for field in block.value %}
+                        <div>
+                            {{ field }}
+                        </div>
+                    {% endfor %}
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+            {% elif block.block_type == "links" %}
+                <ul>
+                    {% for link in block.value %}
+                        <li><a href="{{ link.url }}">{{ link.text }}</a></li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endfor %}
+    </div>
+</footer>

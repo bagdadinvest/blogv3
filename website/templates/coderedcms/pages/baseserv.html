@@ -1,4 +1,4 @@
-{% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar %}
+{% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags %}
 {% get_settings %}
 {% get_current_language as LANGUAGE_CODE %}
 {% wagtail_site as site %}
@@ -54,12 +54,11 @@
   {% include "wagtailseo/meta.html" %}
 
   {% block frontend_assets %}
-  <link rel="apple-touch-icon" href="{% static 'home/apple-icon.png' %}">
+
 
   {% endblock %}
 
-
-  {% block custom_assets %}
+  <link rel="apple-touch-icon" href="{% static 'home/apple-icon.png' %}">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
@@ -73,6 +72,7 @@
   
   <!-- Main CSS File -->
   <link href="{% static 'service2/css/main.css' %}" rel="stylesheet">
+  {% block custom_assets %}
 
   {% endblock %}
 
@@ -175,9 +175,14 @@
     {% endblock %}
   </div>
 
+  {% include "coderedcms/snippets/f2.html" %}
 
 
-  {% block footer %}{% endblock %}
+
+
+  {% block footer %}
+
+  {% endblock %}
 
   {% block frontend_scripts %}
 

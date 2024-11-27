@@ -1,66 +1,65 @@
 {% extends "coderedcms/pages/baseserv.html" %}
 {% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags %}
+{% block custom_assets %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.css">
 
+{% endblock %}
+
+
+{% block extra_head %}
+<style>
+  .swiper-medical-tourism-container {
+    width: 80%; /* Adjust width to provide side margins */
+    max-width: 600px;
+    margin: 40px auto; /* Center horizontally and add vertical space */
+    padding: 20px; /* Optional: Add internal spacing */
+    border-radius: 15px; /* Optional: Round container edges */
+  }
+
+  .medical-tourism-slide {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: #fff; /* Ensure slides have a visible background */
+    overflow: hidden;
+    margin: 10px; /* Add space between slides in the stack */
+  }
+
+  /* Images Inside Swiper Slide */
+  .medical-tourism-slide img {
+    height: auto;
+    border-radius: 10px;
+  }
+
+  /* Navigation Buttons */
+  .medical-tourism-button-next,
+  .medical-tourism-button-prev {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Add hover effect to navigation buttons */
+  .medical-tourism-button-next:hover,
+  .medical-tourism-button-prev:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+</style>
+{% endblock %}
 
 {% block content %}
-<style>
-  .swiper-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
 
-  .swiper-slide {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
 
-  .swiper-slide img {
-    width: 100%;
-    height: auto; /* Ensure aspect ratio is preserved */
-    display: block;
-  }
-  .swiper-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.swiper-slide {
-    text-align: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.swiper-slide img {
-    width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    display: block;
-    border-radius: 15px; /* Add rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle shadow */
-    overflow: hidden; /* Ensure rounded corners work properly */
-}
-.sponsors-swiper .swiper-slide {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 10px;
-}
-
-.sponsors-swiper img {
-  max-width: 80%;
-  transition: transform 0.3s ease;
-}
-
-.sponsors-swiper img:hover {
-  transform: scale(1.05);
-}
-
-</style>
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
@@ -156,6 +155,8 @@
     </div>
 </section>
 {% endif %}
+
+
 
 <!-- Doctors Section -->
 {% if page.doctors_section %}
@@ -308,6 +309,38 @@
 </section>
 {% endif %}
 
+<div class="medical-tourism-hotels">
+  {% with hotels=self.get_medical_hotels %}
+  <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+    <h2>Our hotels</h2>
+
+    {% for hotel in hotels %}
+    <div class="hotel-card">
+      <h3>{{ hotel.title }}</h3>
+      <!-- Swiper Container -->
+      <div id="swiper-medical-tourism-{{ forloop.counter }}" class="swiper-medical-tourism-container">
+        <div class="swiper-wrapper">
+          {% for image_block in hotel.images %}
+          <div class="swiper-slide medical-tourism-slide">
+            {% image image_block.value fill-600x450 format-webp as img %}
+            <img src="{{ img.url }}" alt="{{ img.title }}">
+          </div>
+          {% endfor %}
+        </div>
+        <!-- Swiper Controls -->
+        <div class="swiper-button-next medical-tourism-button-next"></div>
+        <div class="swiper-button-prev medical-tourism-button-prev"></div>
+      </div>
+    </div>
+    {% empty %}
+    <p>No hotels found.</p>
+    {% endfor %}
+  {% endwith %}
+</div>
+
+
+
+
 <!-- Pricing Section -->
 <section id="buy-tickets" class="buy-tickets section dark-background">
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
@@ -364,6 +397,7 @@
 </section>
 {% endif %}
 
+
 <!-- Gallery Section -->
 {% if page.gallery_section %}
 <section id="gallery" class="gallery section">
@@ -387,8 +421,108 @@
     </div>
   </div>
 </section>
+
+
 {% endif %}
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+<section id="contact" class="contact section">
+
+  <!-- Section Title -->
+  <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+    <h2>Contact</h2>
+    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+  </div><!-- End Section Title -->
+
+  <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-6">
+        <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+          <i class="bi bi-geo-alt"></i>
+          <h3>Address</h3>
+          <p>A108 Adam Street, New York, NY 535022</p>
+        </div>
+      </div><!-- End Info Item -->
+
+      <div class="col-lg-3 col-md-6">
+        <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+          <i class="bi bi-telephone"></i>
+          <h3>Call Us</h3>
+          <p>+1 5589 55488 55</p>
+        </div>
+      </div><!-- End Info Item -->
+
+      <div class="col-lg-3 col-md-6">
+        <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+          <i class="bi bi-envelope"></i>
+          <h3>Email Us</h3>
+          <p>info@example.com</p>
+        </div>
+      </div><!-- End Info Item -->
+
+    </div>
+
+    <div class="row gy-4 mt-1">
+      <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2543.8015109751623!2d28.83575886506481!3d41.054409714483285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa541c60f960b%3A0xff53e79679b30e8b!2zRGVudGkgRGVsaWwgQcSfxLF6IHZlIERpxZ8gU2HEn2zEscSfxLEgUG9saWtsaW5pxJ9pIEJhxJ9jxLFsYXIgxZ91YmVzaQ!5e0!3m2!1sen!2str!4v1732614207990!5m2!1sen!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div><!-- End Google Maps -->
+
+      <div class="col-lg-6">
+        <form action="forms/contact.php" method="post" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+          <div class="row gy-4">
+
+            <div class="col-md-6">
+              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+            </div>
+
+            <div class="col-md-6 ">
+              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
+            </div>
+
+            <div class="col-md-12">
+              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+            </div>
+
+            <div class="col-md-12">
+              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
+            </div>
+
+            <div class="col-md-12 text-center">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">Your message has been sent. Thank you!</div>
+
+              <button type="submit">Send Message</button>
+            </div>
+
+          </div>
+        </form>
+      </div><!-- End Contact Form -->
+
+    </div>
+
+  </div>
+
+</section>
+{% endblock %}
+
+{% block custom_scripts %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Initialize Swiper for medical tourism hotels
+  document.querySelectorAll('.swiper-medical-tourism-container').forEach((swiperContainer) => {
+    new Swiper(swiperContainer, {
+      effect: 'cards', // Cards effect
+      grabCursor: true, // Enable grab cursor
+      navigation: {
+        nextEl: swiperContainer.querySelector('.medical-tourism-button-next'),
+        prevEl: swiperContainer.querySelector('.medical-tourism-button-prev'),
+      },
+    });
+  });
+});
+</script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     new Swiper('.sponsors-swiper', {
@@ -446,5 +580,5 @@
   });
 </script>
 
-
 {% endblock %}
+

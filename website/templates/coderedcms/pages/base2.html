@@ -60,13 +60,13 @@
 
 
   {% block custom_assets %}
+  <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
   <link rel="stylesheet" href="{% static 'home/css/fontAwesome.min.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/bootstrap.css' %}">
   <link rel="stylesheet" href="{% static 'home/css/bootstrap-theme.min.css' %}">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <link rel="stylesheet" href="{%  static 'home/css/new.css' %}">
   <link rel="stylesheet" href="{%  static 'home/css/chat-mobnav-lang.css' %}">
-    <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
 
   {% endblock %}
 
@@ -94,7 +94,6 @@
   {% wagtailuserbar %}
 {% block navbar %}
 {% include "coderedcms/snippets/navigation.html" %}
-
 {% endblock %}
 
     {% block content %}

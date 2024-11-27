@@ -1,5 +1,5 @@
 from django import template
-from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet, Hoca,Sponsor
+from ..models import PortfolioSnippet, AboutUsSnippet, ServiceSnippet, PatientJourneySnippet, PricingSnippet, Hoca,Sponsor, LocalizedFooter, FooterWithForm
 
 register = template.Library()
 
@@ -37,3 +37,16 @@ def get_hocas():
 def get_sponsors():
     """Returns all sponsor snippets"""
     return Sponsor.objects.all()
+
+register.simple_tag
+def get_footer():
+    """Returns the localized footer snippet"""
+    return LocalizedFooter.objects.first()
+
+
+@register.simple_tag
+def get_footer():
+    try:
+        return FooterWithForm.objects.first()  # Or filter for specific conditions
+    except FooterWithForm.DoesNotExist:
+        return None

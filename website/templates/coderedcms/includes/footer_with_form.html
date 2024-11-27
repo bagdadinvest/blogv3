@@ -1,0 +1,7 @@
+<!-- templates/includes/footer_with_form.html -->
+{% load wagtailcore_tags coderedcms_tags %}
+<div class="custom-footer {{ footer.custom_css_class }}">
+    {% if footer.content %}
+        {{ footer.content|richtext }}
+    {% endif %}
+</div>

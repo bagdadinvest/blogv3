@@ -693,6 +693,14 @@ class MedicalTourismPage(CoderedWebPage):
         verbose_name = "Medical Tourism Landing Page"
 
     template = "coderedcms/pages/service2.html"
+    
+    def get_medical_hotels(self):
+        """
+        Retrieves all CustomLocationPage instances to display on the page.
+        """
+        # Returns all live CustomLocationPage instances
+        current_locale = self.locale
+        return CustomLocationPage.objects.live().filter(locale=current_locale)
 
     # Hero Section
     hero_section = StreamField(
@@ -840,6 +848,106 @@ class Sponsor(models.Model):
         FieldPanel('name'),
         FieldPanel('logo'),
         FieldPanel('link'),
+    ]
+
+    def __str__(self):
+        return self.name
+
+
+from wagtail import blocks
+from wagtail.snippets.models import register_snippet
+from wagtail.models import TranslatableMixin
+from django.db import models
+from coderedcms.fields import CoderedStreamField
+from coderedcms.blocks import BaseBlock
+from django.utils.translation import gettext_lazy as _
+from coderedcms.blocks.stream_form_blocks import (
+    CoderedStreamFormCharFieldBlock,
+    CoderedStreamFormTextFieldBlock,
+    CoderedStreamFormCheckboxFieldBlock,
+    CoderedStreamFormRadioButtonsFieldBlock,
+    CoderedStreamFormDropdownFieldBlock,
+    CoderedStreamFormFileFieldBlock,
+    CoderedStreamFormImageFieldBlock,
+)
+
+from wagtail.snippets.models import register_snippet
+from wagtail.models import TranslatableMixin
+from wagtail import blocks
+from coderedcms.fields import CoderedStreamField
+from coderedcms.blocks import BaseBlock
+from coderedcms.blocks.stream_form_blocks import (
+    CoderedStreamFormCharFieldBlock,
+    CoderedStreamFormTextFieldBlock,
+    CoderedStreamFormCheckboxFieldBlock,
+    CoderedStreamFormRadioButtonsFieldBlock,
+    CoderedStreamFormDropdownFieldBlock,
+)
+
+@register_snippet
+class LocalizedFooter(TranslatableMixin, models.Model):
+    """
+    Localized footer snippet for managing the entire footer, including contact.
+    """
+    name = models.CharField(max_length=255, verbose_name="Name")
+    custom_css_class = models.CharField(max_length=255, blank=True, verbose_name="Custom CSS Class")
+    custom_id = models.CharField(max_length=255, blank=True, verbose_name="Custom ID")
+    template = "coderedcms/snippets/lfooter.html"  # Reference the template here
+
+    content = CoderedStreamField([
+        ("contact_info", blocks.StructBlock([
+            ("address", blocks.TextBlock(label="Address", required=False)),
+            ("phone", blocks.TextBlock(label="Phone", required=False)),
+            ("email", blocks.EmailBlock(label="Email", required=False)),
+        ], icon="placeholder", label="Contact Information")),
+
+        ("map", blocks.RawHTMLBlock(label="Google Map Embed", required=False)),
+
+        ("form", blocks.StreamBlock([
+            ("char_field", CoderedStreamFormCharFieldBlock()),
+            ("text_field", CoderedStreamFormTextFieldBlock()),
+            ("checkbox_field", CoderedStreamFormCheckboxFieldBlock()),
+            ("radio_buttons", CoderedStreamFormRadioButtonsFieldBlock()),
+            ("dropdown", CoderedStreamFormDropdownFieldBlock()),
+        ], verbose_name="Contact Form Fields", required=False)),
+
+        ("links", blocks.ListBlock(
+            blocks.StructBlock([
+                ("text", blocks.CharBlock(label="Link Text")),
+                ("url", blocks.URLBlock(label="Link URL")),
+            ]),
+            label="Useful Links"
+        )),
+    ], verbose_name="Footer Content", blank=True, use_json_field=True)
+
+    panels = [
+        FieldPanel("name"),
+        MultiFieldPanel([
+            FieldPanel("custom_css_class"),
+            FieldPanel("custom_id"),
+        ], heading="Attributes"),
+        FieldPanel("content"),
+    ]
+
+    def __str__(self):
+        return self.name
+
+
+from wagtail.snippets.models import register_snippet
+from wagtail.admin.panels import FieldPanel
+from coderedcms.fields import CoderedStreamField
+from coderedcms.blocks import STREAMFORM_BLOCKS
+
+@register_snippet
+class FooterWithForm(models.Model):
+    name = models.CharField(max_length=255, verbose_name="Footer Name")
+    content = CoderedStreamField(STREAMFORM_BLOCKS, verbose_name="Footer Content")
+    custom_css_class = models.CharField(max_length=255, blank=True, verbose_name="CSS Class")
+    
+    panels = [
+        FieldPanel("name"),
+        FieldPanel("content"),
+        FieldPanel("custom_css_class"),
     ]
 
     def __str__(self):
