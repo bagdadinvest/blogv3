@@ -159,20 +159,22 @@
 
 
 <!-- Doctors Section -->
-{% if page.doctors_section %}
+{% if page.dentists_section %}
 <section id="speakers" class="speakers section dark-background">
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>Our Specialists</h2>
+        <h2>Our Dentists</h2>
           </div>
                   <div class="container">
 
         <div class="row gy-4">
-            {% for block in page.doctors_section %}
+          {% for block in page.dentists_section %}
           <div class="col-xl-3 col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
                     <div class="member">
-                        <img src="{{ block.value.image.file.url }}" alt="{{ block.value.name }}" class="img-fluid">
-                                      <div class="member-info">
+                      {% if block.value.photo %}
+                      <img src="{{ block.value.photo.file.url }}" alt="{{ block.value.name }}" class="img-fluid">
+                      <div class="member-info">
                 <div class="member-info-content">
+                  {% endif %}
 
                            <h4><a href="{{ block.value.social_link }}">{{ block.value.name }}</a></h4>
                        <span>{{ block.value.specialty }}<span>
@@ -188,36 +190,12 @@
                         </div>
 
             {% endfor %}
+
     </div>
        </div>
+                          </section>
 
-            <div class="container">
 
-        <div class="row gy-4">
-    {% for hoca in get_hocas %}
-          <div class="col-xl-3 col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member">
-                        <img src="{{ hoca.photo.file.url }}" alt="{{ hoca.name }}" class="img-fluid">
-                                      <div class="member-info">
-                <div class="member-info-content">
-
-                           <h4><a href="{{ block.value.social_link }}">{{ hoca.name }}</a></h4>
-                       <span>{{ hoca.specialty }}<span>
-                       </div>
-                         <div class="social">
-                  <a href="" target="_blank" ><i class="bi bi-twitter-x"></i></a>
-                  <a href="" target="_blank" ><i class="bi bi-facebook"></i></a>
-                  <a href="" target="_blank" ><i class="bi bi-instagram"></i></a>
-                  <a href="" target="_blank" ><i class="bi bi-linkedin"></i></a>
-                </div>
-                    </div>
-                </div>
-                        </div>
-
-            {% endfor %}
-    </div>
-       </div>
-</section>
 {% endif %}
 
 <!-- Patient Journey Section -->
@@ -332,6 +310,8 @@
   <div class="container section-title aos-init aos-animate" data-aos="fade-up">
     <h2>Partner Hotels</h2>
   </div>
+          <div class="row gy-4">
+
     {% for hotel in hotels %}
     <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="card h-100">
@@ -353,16 +333,15 @@
         <div class="swiper-button-next medical-tourism-button-next"></div>
         <div class="swiper-button-prev medical-tourism-button-prev"></div>
       </div>
+                  </div>
               <h3><a href="#">{{ hotel.title }}</a></h3>
               <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
               <p>0.4 Mile from the Venue</p>
             </div>
                         </div>
+    {% endfor %}
 
     </div>
-    {% empty %}
-    <p>No hotels found.</p>
-    {% endfor %}
   {% endwith %}
 </div>
 </section>
@@ -371,8 +350,9 @@
 
 <!-- Pricing Section -->
 <section id="buy-tickets" class="buy-tickets section light-background">
-      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+<div class="container section-title aos-init aos-animate" data-aos="fade-up">
         <h2>Our Packages</h2>
+              </div>
       <div class="container">
             {% for block in page.pricing_section %}
         <div class="row gy-4 pricing-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
@@ -403,10 +383,17 @@
 <!-- FAQ Section -->
 {% if page.faq_section %}
 <section id="faq" class="faq-section">
-    <div class="container">
-        <h2 class="text-center">Frequently Asked Questions</h2>
+<div class="container section-title aos-init aos-animate" data-aos="fade-up">
+        <h2 class=>Frequently Asked Questions</h2>
+              </div>
+              <div class="container">
+                      <div class="row justify-content-center">
+          <div class="col-lg-10 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    {% for block in page.faq_section %}
+
+              <div class="faq-item">
+
         <div class="accordion" id="faqAccordion">
-            {% for block in page.faq_section %}
                 <div class="accordion-item">
                     <h2 class="accordion-header" id="heading{{ forloop.counter }}">
                         <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
@@ -469,7 +456,7 @@
         <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
           <i class="bi bi-geo-alt"></i>
           <h3>Address</h3>
-          <p>A108 Adam Street, New York, NY 535022</p>
+          <p>Denti Delil Ağız ve Diş Sağlığı Polikliniği</p>
         </div>
       </div><!-- End Info Item -->
 
@@ -477,7 +464,7 @@
         <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
           <i class="bi bi-telephone"></i>
           <h3>Call Us</h3>
-          <p>+1 5589 55488 55</p>
+    <a href="https://wa.me/905380546393" target="_blank">+90 538 054 6393</a>
         </div>
       </div><!-- End Info Item -->
 

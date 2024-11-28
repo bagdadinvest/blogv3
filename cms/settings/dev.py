@@ -8,7 +8,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
-CSRF_TRUSTED_ORIGINS = ['https://hpdev.beyond-board.me','http://127.0.0.1', 'http://192.168.1.107:3000','https://hpdev.beyond-board.me/en/','https://blog.dentidelil-international.com','https://dentidelil-international.com']
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000/','http://127.0.0.1', 'http://192.168.1.102:3000','https://hpdev.beyond-board.me/en/','https://blog.dentidelil-international.com','https://dentidelil-international.com']
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
