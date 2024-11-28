@@ -751,6 +751,16 @@ class MedicalTourismPage(CoderedWebPage):
         verbose_name="Doctors Section",
     )
 
+    dentists_section = CoderedStreamField(
+        [
+            ('hoca', SnippetChooserBlock(target_model='website.Hoca')),  # Replace 'app_name' with your app's name
+        ],
+        blank=True,
+        use_json_field=True,
+        verbose_name="Denrtists Section",
+    )
+
+
     # Patient Journey Section
     patient_journey_section = StreamField(
         [
@@ -824,6 +834,7 @@ class MedicalTourismPage(CoderedWebPage):
         FieldPanel("hero_section"),
         FieldPanel("about_section"),
         FieldPanel("doctors_section"),
+        FieldPanel('dentists_section'),
         FieldPanel("patient_journey_section"),
         FieldPanel("clinics_section"),
         FieldPanel("pricing_section"),
@@ -831,6 +842,39 @@ class MedicalTourismPage(CoderedWebPage):
         FieldPanel("gallery_section"),
     ]
 
+from wagtail.snippets.models import register_snippet
+from wagtail.fields import StreamField
+from wagtail.blocks import StructBlock, CharBlock, RichTextBlock
+from wagtail.admin.panels import FieldPanel
+
+@register_snippet
+class FAQ(models.Model):
+    """
+    Reusable FAQ Snippet
+    """
+    title = models.CharField(max_length=255, verbose_name="FAQ Title")
+    faqs = StreamField(
+        [
+            ("faq", StructBlock([
+                ("question", CharBlock(label="Question", required=True)),
+                ("answer", RichTextBlock(label="Answer", required=True)),
+            ], label="FAQ")),
+        ],
+        use_json_field=True,
+        verbose_name="FAQs",
+    )
+
+    panels = [
+        FieldPanel("title"),
+        FieldPanel("faqs"),
+    ]
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = "FAQ Snippet"
+        verbose_name_plural = "FAQ Snippets"
 
 @register_snippet
 class Sponsor(models.Model):

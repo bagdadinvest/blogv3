@@ -19,7 +19,7 @@
             </div>
           </div>
 
-          <div class="col-lg-2 col-md-3 footer-links">
+          <div class="col-lg-4 col-md-3 footer-links">
             <h4>Useful Links</h4>
             <ul>
                 <!-- CodeRed CMS Content with Nested Submenxus (Blogs Example) -->
@@ -36,16 +36,21 @@
                     {% else %}
                     <li><a href="{{ child_page.url }}">{{ child_page.title }}</a></li>
                     {% endif %}
-                {% endfor %}
-                <li><a href="https://app.dentidelil-international.com/">{% trans "DASHBOARD LOGIN" %}</a></li>
-            </ul>
-            <div class="col-lg-2 col-md-3 footer-links">
-                <h4>Our Services</h4>
+                {% endfor %}         
+              </ul>
+              {% if child_page.title == "Our Blogs" %}
+              {% endif %}
+            <div class="col-lg-4 col-md-3 footer-links">
+                <h4>Denti Board</h4>
                 <ul>
-            <h4>Useful Links</h4>
-            <li><a href="https://app.dentidelil-international.com/">{% trans "DASHBOARD LOGIN" %}</a></li>
-        </ul>      </div>
-    </div>
+                    <li><a href="https://app.dentidelil-international.com/">{% trans "Login" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/signup/">{% trans "Signup" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/TermsofService/">{% trans "Terms of Service" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/flight/">{% trans "Flight" %}</a></li>
+
+                </ul>     
+            </div>
+            </div>
 
     <div class="copyright text-center">
       <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">

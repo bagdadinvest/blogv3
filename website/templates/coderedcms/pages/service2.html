@@ -284,39 +284,60 @@
 </section>
 
 <!-- Clinics Section -->
+{% load wagtailimages_tags %}
+
 {% if page.clinics_section %}
 <section id="venue" class="venue section">
-      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
         <h2>Our Clinics</h2>
         <div class="row">
             {% for block in page.clinics_section %}
-      <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
-        <div class="row g-0">
-          <div class="col-lg-6 venue-map">
-           <iframe src="{{ block.value.map_link }}" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-           <img src="{{ block.value.image.file.url }}" alt="{{ block.value.name }}" class="img-fluid">
+            <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
+                <div class="row g-0">
+                    <div class="col-lg-6 venue-map">
+                        <!-- Map Link -->
+                        {% if block.value.map_link %}
+                        <iframe src="{{ block.value.map_link }}"
+                                width="300" height="300" style="border:0;"
+                                allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6">
+                        <!-- Resized Image -->
+                        {% if block.value.image %}
+                            {% image block.value.image width-500 as resized_image %}
+                            <img src="{{ resized_image.url }}" alt="{{ block.value.name }}" class="img-fluid">
+                        {% else %}
+                            <p>No image available.</p>
+                        {% endif %}
+
+                        <!-- Clinic Details -->
                         <h3>{{ block.value.name }}</h3>
                         <p>{{ block.value.location }}</p>
                         <p>{{ block.value.description }}</p>
-                        {% if block.value.map_link %}
-                        {% endif %}
                     </div>
                 </div>
+            </div>
             {% endfor %}
         </div>
     </div>
 </section>
 {% endif %}
 
+<section id="hotels" class="hotels section">
 <div class="medical-tourism-hotels">
   {% with hotels=self.get_medical_hotels %}
   <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>Our hotels</h2>
-
+    <h2>Partner Hotels</h2>
+  </div>
     {% for hotel in hotels %}
+    <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="card h-100">
+
     <div class="hotel-card">
-      <h3>{{ hotel.title }}</h3>
+
       <!-- Swiper Container -->
       <div id="swiper-medical-tourism-{{ forloop.counter }}" class="swiper-medical-tourism-container">
         <div class="swiper-wrapper">
@@ -325,24 +346,31 @@
             {% image image_block.value fill-600x450 format-webp as img %}
             <img src="{{ img.url }}" alt="{{ img.title }}">
           </div>
+          <hr>
           {% endfor %}
         </div>
         <!-- Swiper Controls -->
         <div class="swiper-button-next medical-tourism-button-next"></div>
         <div class="swiper-button-prev medical-tourism-button-prev"></div>
       </div>
+              <h3><a href="#">{{ hotel.title }}</a></h3>
+              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+              <p>0.4 Mile from the Venue</p>
+            </div>
+                        </div>
+
     </div>
     {% empty %}
     <p>No hotels found.</p>
     {% endfor %}
   {% endwith %}
 </div>
-
+</section>
 
 
 
 <!-- Pricing Section -->
-<section id="buy-tickets" class="buy-tickets section dark-background">
+<section id="buy-tickets" class="buy-tickets section light-background">
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
         <h2>Our Packages</h2>
       <div class="container">
