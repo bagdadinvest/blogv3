@@ -1,5 +1,6 @@
 {% extends "coderedcms/pages/baseserv.html" %}
-{% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags %}
+{% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags django_bootstrap5 %}
+
 {% block custom_assets %}
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.css">
@@ -482,38 +483,34 @@
       <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2543.8015109751623!2d28.83575886506481!3d41.054409714483285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa541c60f960b%3A0xff53e79679b30e8b!2zRGVudGkgRGVsaWwgQcSfxLF6IHZlIERpxZ8gU2HEn2zEscSfxLEgUG9saWtsaW5pxJ9pIEJhxJ9jxLFsYXIgxZ91YmVzaQ!5e0!3m2!1sen!2str!4v1732614207990!5m2!1sen!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div><!-- End Google Maps -->
 
+
+{% if page.form_live %}
       <div class="col-lg-6">
-        <form action="forms/contact.php" method="post" class="php-email-form aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+
+      <form class="{{ page.form_css_class }}" id="{{ page.form_id }}" action="{% pageurl self %}" method="POST" {% if form|is_file_form %}enctype="multipart/form-data"{% endif %} data-aos="fade-up" data-aos-delay="400">
+    {% csrf_token %}
+    {% bootstrap_form form layout="horizontal" %}
           <div class="row gy-4">
 
-            <div class="col-md-6">
-              <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
-            </div>
+    {% block captcha %}
+    {% if page.spam_protection %}
+    {% include "coderedcms/includes/form_honeypot.html" %}
+    {% endif %}
+    {% endblock %}
 
-            <div class="col-md-6 ">
-              <input type="email" class="form-control" name="email" placeholder="Your Email" required="">
-            </div>
+      <div class="{{'horizontal_label_class'|bootstrap_settings}}"></div>
+      <div class="{{'horizontal_field_class'|bootstrap_settings}}">
 
-            <div class="col-md-12">
-              <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
-            </div>
+                  <div class="col-md-12 text-center">
 
-            <div class="col-md-12">
-              <textarea class="form-control" name="message" rows="6" placeholder="Message" required=""></textarea>
-            </div>
-
-            <div class="col-md-12 text-center">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-
-              <button type="submit">Send Message</button>
-            </div>
-
-          </div>
-        </form>
-      </div><!-- End Contact Form -->
-
+        <button type="submit" class="btn {{page.button_size}} {{page.button_style}} {{page.button_css_class}}">
+          {{ page.button_text }}
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+{% endif %}
     </div>
 
   </div>
