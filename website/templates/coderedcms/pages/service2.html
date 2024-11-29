@@ -4,9 +4,7 @@
 {% block custom_assets %}
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.css">
-
 {% endblock %}
-
 
 {% block extra_head %}
 <style>
@@ -59,8 +57,6 @@
 {% endblock %}
 
 {% block content %}
-
-
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
@@ -72,35 +68,35 @@
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home<br></a></li>
-          <li><a href="#speakers">Speakers</a></li>
-          <li><a href="#schedule">Schedule</a></li>
-          <li><a href="#venue">Venue</a></li>
-          <li><a href="#hotels">Hotels</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+          <li><a href="#hero" class="active">{% trans "Home" %}<br></a></li>
+          <li><a href="#speakers">{% trans "Speakers" %}</a></li>
+          <li><a href="#schedule">{% trans "Schedule" %}</a></li>
+          <li><a href="#venue">{% trans "Venue" %}</a></li>
+          <li><a href="#hotels">{% trans "Hotels" %}</a></li>
+          <li><a href="#gallery">{% trans "Gallery" %}</a></li>
+          <li class="dropdown"><a href="#"><span>{% trans "Dropdown" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+              <li><a href="#">{% trans "Dropdown 1" %}</a></li>
+              <li class="dropdown"><a href="#"><span>{% trans "Deep Dropdown" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                 <ul>
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
+                  <li><a href="#">{% trans "Deep Dropdown 1" %}</a></li>
+                  <li><a href="#">{% trans "Deep Dropdown 2" %}</a></li>
+                  <li><a href="#">{% trans "Deep Dropdown 3" %}</a></li>
+                  <li><a href="#">{% trans "Deep Dropdown 4" %}</a></li>
+                  <li><a href="#">{% trans "Deep Dropdown 5" %}</a></li>
                 </ul>
               </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+              <li><a href="#">{% trans "Dropdown 2" %}</a></li>
+              <li><a href="#">{% trans "Dropdown 3" %}</a></li>
+              <li><a href="#">{% trans "Dropdown 4" %}</a></li>
             </ul>
           </li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">{% trans "Contact" %}</a></li>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="cta-btn d-none d-sm-block" href="#buy-tickets">Buy Tickets</a>
+      <a class="cta-btn d-none d-sm-block" href="#buy-tickets">{% trans "Buy Tickets" %}</a>
 
     </div>
   </header>
@@ -135,7 +131,7 @@
                     {% for block in page.about_section %}
                     {% if block.block_type == 'image' %}
                         <div class="col-md-6">
-                            <img src="{{ block.valuescripts.url }}" alt="About Us" class="img-fluid">
+                            <img src="{{ block.valuescripts.url }}" alt="{% trans 'About Us' %}" class="img-fluid">
                         </div>
                     {% elif block.block_type == 'title' %}
                     <div class="col-lg-6">
@@ -157,13 +153,11 @@
 </section>
 {% endif %}
 
-
-
 <!-- Doctors Section -->
 {% if page.dentists_section %}
 <section id="speakers" class="speakers section dark-background">
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>Our Dentists</h2>
+        <h2>{% trans "Our Dentists" %}</h2>
           </div>
                   <div class="container">
 
@@ -196,14 +190,13 @@
        </div>
                           </section>
 
-
 {% endif %}
 
 <!-- Patient Journey Section -->
 {% if page.patient_journey_section %}
 <section id="schedule" class="schedule section">
     <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>Patient Journey</h2>
+        <h2>{% trans "Patient Journey" %}</h2>
             </div>
 
          <div class="container">
@@ -229,12 +222,11 @@
 </section>
 {% endif %}
 
-
     <!-- Sponsors Section -->
 <section id="sponsors" class="sponsors section light-background">
   <!-- Section Title -->
       <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>Partner Brands</h2>
+    <h2>{% trans "Partner Brands" %}</h2>
   </div>
   <!-- Swiper Container -->
       <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
@@ -268,7 +260,7 @@
 {% if page.clinics_section %}
 <section id="venue" class="venue section">
     <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>Our Clinics</h2>
+        <h2>{% trans "Our Clinics" %}</h2>
         <div class="row">
             {% for block in page.clinics_section %}
             <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
@@ -289,7 +281,7 @@
                             {% image block.value.image width-500 as resized_image %}
                             <img src="{{ resized_image.url }}" alt="{{ block.value.name }}" class="img-fluid">
                         {% else %}
-                            <p>No image available.</p>
+                            <p>{% trans "No image available." %}</p>
                         {% endif %}
 
                         <!-- Clinic Details -->
@@ -309,7 +301,7 @@
 <div class="medical-tourism-hotels">
   {% with hotels=self.get_medical_hotels %}
   <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>Partner Hotels</h2>
+    <h2>{% trans "Partner Hotels" %}</h2>
   </div>
           <div class="row gy-4">
 
@@ -337,7 +329,7 @@
                   </div>
               <h3><a href="#">{{ hotel.title }}</a></h3>
               <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-              <p>0.4 Mile from the Venue</p>
+              <p>{% trans "0.4 Mile from the Venue" %}</p>
             </div>
                         </div>
     {% endfor %}
@@ -347,12 +339,10 @@
 </div>
 </section>
 
-
-
 <!-- Pricing Section -->
 <section id="buy-tickets" class="buy-tickets section light-background">
 <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>Our Packages</h2>
+        <h2>{% trans "Our Packages" %}</h2>
               </div>
       <div class="container">
             {% for block in page.pricing_section %}
@@ -385,7 +375,7 @@
 {% if page.faq_section %}
 <section id="faq" class="faq-section">
 <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2 class=>Frequently Asked Questions</h2>
+        <h2 class=>{% trans "Frequently Asked Questions" %}</h2>
               </div>
               <div class="container">
                       <div class="row justify-content-center">
@@ -413,19 +403,18 @@
 </section>
 {% endif %}
 
-
 <!-- Gallery Section -->
 {% if page.gallery_section %}
 <section id="gallery" class="gallery section">
   <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>Gallery</h2>
+    <h2>{% trans "Gallery" %}</h2>
     <!-- Swiper container -->
     <div class="swiper-container">
       <!-- Swiper wrapper -->
       <div class="swiper-wrapper">
         {% for block in page.gallery_section %}
         <div class="swiper-slide">
-          <img src="{{ block.value.file.url }}" alt="Gallery Image" class="img-fluid">
+          <img src="{{ block.value.file.url }}" alt="{% trans 'Gallery Image' %}" class="img-fluid">
         </div>
         {% endfor %}
       </div>
@@ -437,16 +426,14 @@
     </div>
   </div>
 </section>
-
-
 {% endif %}
 
 <section id="contact" class="contact section">
 
   <!-- Section Title -->
   <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>Contact</h2>
-    <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+    <h2>{% trans "Contact" %}</h2>
+    <p>{% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit" %}</p>
   </div><!-- End Section Title -->
 
   <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
@@ -456,15 +443,15 @@
       <div class="col-lg-6">
         <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
           <i class="bi bi-geo-alt"></i>
-          <h3>Address</h3>
-          <p>Denti Delil Ağız ve Diş Sağlığı Polikliniği</p>
+          <h3>{% trans "Address" %}</h3>
+          <p>{% trans "Denti Delil Ağız ve Diş Sağlığı Polikliniği" %}</p>
         </div>
       </div><!-- End Info Item -->
 
       <div class="col-lg-3 col-md-6">
         <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
           <i class="bi bi-telephone"></i>
-          <h3>Call Us</h3>
+          <h3>{% trans "Call Us" %}</h3>
     <a href="https://wa.me/905380546393" target="_blank">+90 538 054 6393</a>
         </div>
       </div><!-- End Info Item -->
@@ -472,7 +459,7 @@
       <div class="col-lg-3 col-md-6">
         <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
           <i class="bi bi-envelope"></i>
-          <h3>Email Us</h3>
+          <h3>{% trans "Email Us" %}</h3>
           <p>info@example.com</p>
         </div>
       </div><!-- End Info Item -->
@@ -483,10 +470,8 @@
       <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2543.8015109751623!2d28.83575886506481!3d41.054409714483285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa541c60f960b%3A0xff53e79679b30e8b!2zRGVudGkgRGVsaWwgQcSfxLF6IHZlIERpxZ8gU2HEn2zEscSfxLEgUG9saWtsaW5pxJ9pIEJhxJ9jxLFsYXIgxZ91YmVzaQ!5e0!3m2!1sen!2str!4v1732614207990!5m2!1sen!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div><!-- End Google Maps -->
 
-
 {% if page.form_live %}
       <div class="col-lg-6">
-
       <form class="{{ page.form_css_class }}" id="{{ page.form_id }}" action="{% pageurl self %}" method="POST" {% if form|is_file_form %}enctype="multipart/form-data"{% endif %} data-aos="fade-up" data-aos-delay="400">
     {% csrf_token %}
     {% bootstrap_form form layout="horizontal" %}
@@ -519,7 +504,6 @@
 {% endblock %}
 
 {% block custom_scripts %}
-
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Swiper for medical tourism hotels
@@ -557,7 +541,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
-
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const swiper = new Swiper('.swiper-container', {
@@ -591,6 +574,4 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 </script>
-
 {% endblock %}
-

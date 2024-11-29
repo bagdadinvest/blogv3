@@ -1,0 +1,2228 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-28 23:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+#: coderedcms/blocks/__init__.py:72 coderedcms/blocks/__init__.py:106
+#: coderedcms/blocks/__init__.py:128 coderedcms/blocks/__init__.py:146
+msgid "HTML"
+msgstr ""
+
+#: coderedcms/blocks/__init__.py:152 coderedcms/blocks/__init__.py:153
+#: coderedcms/blocks/__init__.py:154 coderedcms/blocks/__init__.py:155
+#: coderedcms/blocks/__init__.py:156 coderedcms/blocks/__init__.py:157
+#: coderedcms/blocks/__init__.py:158 coderedcms/blocks/__init__.py:159
+#: coderedcms/blocks/__init__.py:160 coderedcms/blocks/__init__.py:161
+#: coderedcms/blocks/__init__.py:162 coderedcms/blocks/__init__.py:163
+#: coderedcms/wagtail_flexible_forms/blocks.py:255
+#: coderedcms/wagtail_flexible_forms/blocks.py:256
+#: coderedcms/wagtail_flexible_forms/blocks.py:257
+#: coderedcms/wagtail_flexible_forms/blocks.py:258
+#: coderedcms/wagtail_flexible_forms/blocks.py:259
+#: coderedcms/wagtail_flexible_forms/blocks.py:260
+#: coderedcms/wagtail_flexible_forms/blocks.py:261
+#: coderedcms/wagtail_flexible_forms/blocks.py:262
+#: coderedcms/wagtail_flexible_forms/blocks.py:263
+#: coderedcms/wagtail_flexible_forms/blocks.py:264
+#: coderedcms/wagtail_flexible_forms/blocks.py:265
+#: coderedcms/wagtail_flexible_forms/blocks.py:266
+msgid "Fields"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:122
+msgid "Button Style"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:128 coderedcms/models/page_models.py:1324
+msgid "Button Size"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:144 coderedcms/models/snippet_models.py:320
+#: coderedcms/models/snippet_models.py:366
+msgid "Custom CSS Class"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:149 coderedcms/models/snippet_models.py:120
+#: coderedcms/models/snippet_models.py:286
+#: coderedcms/models/snippet_models.py:325
+#: coderedcms/models/snippet_models.py:371
+#: coderedcms/models/snippet_models.py:478
+msgid "Custom ID"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:156
+msgid "Advanced Settings"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:169 coderedcms/models/page_models.py:274
+msgid "Template"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:185
+msgid "Tracking Event Category"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:190
+msgid "Tracking Event Label"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:203
+msgid "Column Breakpoint"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:205
+msgid ""
+"Screen size at which the column will expand horizontally or stack vertically."
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:271 coderedcms/models/page_models.py:411
+#: coderedcms/models/snippet_models.py:375
+#: coderedcms/models/snippet_models.py:504
+msgid "Content"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:324
+msgid "Page link"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:328 coderedcms/blocks/html_blocks.py:49
+msgid "Document link"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:333
+msgid "Other link"
+msgstr ""
+
+#: coderedcms/blocks/base_blocks.py:338 coderedcms/blocks/content_blocks.py:45
+msgid "Title"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:40
+#: coderedcms/blocks/content_blocks.py:154
+#: coderedcms/blocks/content_blocks.py:260 coderedcms/blocks/html_blocks.py:183
+#: coderedcms/blocks/html_blocks.py:189 coderedcms/blocks/html_blocks.py:198
+#: coderedcms/models/snippet_models.py:104
+msgid "Image"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:50
+msgid "Subtitle"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:54
+#: coderedcms/models/snippet_models.py:582
+msgid "Body"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:60
+msgid "Links"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:66
+msgid "Card"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:78
+#: coderedcms/models/snippet_models.py:45
+#: coderedcms/models/snippet_models.py:96
+msgid "Carousel"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:91
+#: coderedcms/models/snippet_models.py:233
+msgid "Film Strip"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:103
+msgid "Image Collection"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:109
+msgid "Image Gallery"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:120
+msgid "Modal heading"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:124
+msgid "Modal content"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:131
+msgid "Simple Text"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:137
+msgid "Modal footer"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:143
+msgid "Modal"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:150
+msgid "Display text"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:165 coderedcms/blocks/html_blocks.py:108
+#: coderedcms/forms.py:32 coderedcms/wagtail_flexible_forms/blocks.py:61
+msgid "URL"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:170
+msgid "External Link"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:179
+#: coderedcms/templates/coderedcms/includes/pagination.html:12
+msgid "Page"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:184
+msgid "Page Link"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:193
+msgid "Document"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:198
+msgid "Document Link"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:213
+msgid "Sub-links"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:223
+msgid "External link with sub-links"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:234
+msgid "Show child pages"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:236
+msgid "Automatically show a link to the Page’s child pages as a dropdown menu."
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:241
+msgid "Page link with sub-links"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:250
+msgid "Document link with sub-links"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:265
+#: coderedcms/models/snippet_models.py:49
+#: coderedcms/models/snippet_models.py:157
+#: coderedcms/models/snippet_models.py:205
+#: coderedcms/models/snippet_models.py:237
+#: coderedcms/models/snippet_models.py:315
+#: coderedcms/models/snippet_models.py:361
+#: coderedcms/models/snippet_models.py:408
+#: coderedcms/models/snippet_models.py:433
+#: coderedcms/models/snippet_models.py:461
+#: coderedcms/models/snippet_models.py:500
+#: coderedcms/wagtail_flexible_forms/blocks.py:274
+msgid "Name"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:270
+msgid "Description"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:274
+msgid "Price"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:275
+msgid "Any text here. Include currency sign if desired."
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:281
+msgid "Price List Item"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:292
+msgid "Heading"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:298
+msgid "Items"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:304
+msgid "Price List"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:316
+msgid "Show content walls on children pages?"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:318
+msgid ""
+"If this is checked, the content walls will be displayed on all children "
+"pages of this page."
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:325
+#: coderedcms/models/snippet_models.py:496
+#: coderedcms/models/snippet_models.py:527
+msgid "Content Wall"
+msgstr ""
+
+#: coderedcms/blocks/content_blocks.py:338
+#: coderedcms/models/snippet_models.py:403
+#: coderedcms/models/snippet_models.py:404
+msgid "Reusable Content"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:38
+msgid "Button Link"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:57
+msgid "Download"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:68
+msgid "Search query"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:70
+msgid "Address or search term used to find your location on the map."
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:76
+msgid "Map title"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:77
+msgid "Map title for screen readers, ex: \"Map to Goodale Park\""
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:82
+msgid "Google place ID"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:83
+msgid "Requires API key to use place ID."
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:88
+msgid "Map zoom level"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:90 coderedcms/models/page_models.py:2180
+msgid ""
+"Requires API key to use zoom. 1: World, 5: Landmass/continent, 10: City, 15: "
+"Streets, 20: Buildings"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:98
+msgid "Google Map"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:110
+msgid "Link to a YouTube/Vimeo video, tweet, facebook post, etc."
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:117
+msgid "Embed Media"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:127 coderedcms/blocks/html_blocks.py:143
+#: coderedcms/blocks/html_blocks.py:159 coderedcms/forms.py:26
+msgid "Text"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:133
+msgid "Heading 1"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:149
+msgid "Heading 2"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:165
+msgid "Heading 3"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:203
+msgid "Alternate text to show if the image doesn’t load"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:209
+msgid "Image Link"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:220
+msgid "Parent page"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:222
+msgid ""
+"Show a preview of pages that are children of the selected page. Uses "
+"ordering specified in the page’s LAYOUT tab."
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:228
+msgid "Classified as"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:229
+msgid "Only show pages that are classified with this term."
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:235
+msgid "Show body preview"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:239
+msgid "Number of pages to show"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:245
+msgid "Latest Pages"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:287
+msgid "Page to preview"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:288
+msgid "Show a mini preview of the selected page."
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:294
+msgid "Page Preview"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:305
+msgid "Quote Text"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:310 coderedcms/models/page_models.py:739
+msgid "Author"
+msgstr ""
+
+#: coderedcms/blocks/html_blocks.py:316
+msgid "Quote"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:28
+msgid "Column size"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:46 coderedcms/blocks/layout_blocks.py:65
+#: coderedcms/blocks/layout_blocks.py:82
+msgid "Full width"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:52
+msgid "Responsive Grid Row"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:71
+msgid "Card Grid"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:86
+msgid "Parallax Effect"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:88
+msgid ""
+"Background images scroll slower than foreground images, creating an illusion "
+"of depth."
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:95
+msgid "Tile background image"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:100
+#: coderedcms/models/snippet_models.py:109
+#: coderedcms/models/snippet_models.py:269
+msgid "Background color"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:101
+#: coderedcms/blocks/layout_blocks.py:107
+#: coderedcms/models/snippet_models.py:110
+#: coderedcms/models/snippet_models.py:270
+#: coderedcms/models/snippet_models.py:276
+msgid "Hexadecimal, rgba, or CSS color notation (e.g. #ff0011)"
+msgstr ""
+
+#: coderedcms/blocks/layout_blocks.py:106
+#: coderedcms/models/snippet_models.py:275
+msgid "Text color"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:20
+msgid "Condition Trigger ID"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:22
+msgid ""
+"The \"Custom ID\" of another field that that will trigger this field to be "
+"shown/hidden."
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:29
+msgid "Condition Trigger Value"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:31
+msgid ""
+"The value of the field in \"Condition Trigger ID\" that will trigger this "
+"field to be shown."
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:54
+msgid "Text or Email input"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:62 coderedcms/forms.py:29
+msgid "Multi-line text"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:70
+msgid "Numbers only"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:78
+msgid "Single Checkbox"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:86
+msgid "Radios"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:94
+#: website/templates/coderedcms/pages/service2.html:77
+msgid "Dropdown"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:102 coderedcms/forms.py:38
+msgid "Checkboxes"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:110 coderedcms/forms.py:48
+msgid "Date"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:121 coderedcms/forms.py:49
+msgid "Time"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:132
+msgid "Date and Time"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:143
+msgid "Image Upload"
+msgstr ""
+
+#: coderedcms/blocks/stream_form_blocks.py:151
+msgid "Secure File Upload"
+msgstr ""
+
+#: coderedcms/forms.py:28
+msgid "Single line text"
+msgstr ""
+
+#: coderedcms/forms.py:30 coderedcms/wagtail_flexible_forms/blocks.py:60
+msgid "Email"
+msgstr ""
+
+#: coderedcms/forms.py:31
+msgid "Number - only allows integers"
+msgstr ""
+
+#: coderedcms/forms.py:36 coderedcms/wagtail_flexible_forms/blocks.py:120
+msgid "Choice"
+msgstr ""
+
+#: coderedcms/forms.py:39
+msgid "Drop down"
+msgstr ""
+
+#: coderedcms/forms.py:40 coderedcms/wagtail_flexible_forms/blocks.py:126
+msgid "Radio buttons"
+msgstr ""
+
+#: coderedcms/forms.py:41
+msgid "Multiple select"
+msgstr ""
+
+#: coderedcms/forms.py:42
+msgid "Single checkbox"
+msgstr ""
+
+#: coderedcms/forms.py:46
+msgid "Date & Time"
+msgstr ""
+
+#: coderedcms/forms.py:50
+msgid "Date and time"
+msgstr ""
+
+#: coderedcms/forms.py:54
+msgid "File Upload"
+msgstr ""
+
+#: coderedcms/forms.py:55
+msgid "Secure File - login required to access uploaded files"
+msgstr ""
+
+#: coderedcms/forms.py:58 coderedcms/wagtail_flexible_forms/blocks.py:267
+msgid "Other"
+msgstr ""
+
+#: coderedcms/forms.py:59
+msgid "Hidden field"
+msgstr ""
+
+#: coderedcms/forms.py:69 coderedcms/forms.py:70
+msgid "Submitted file is not allowed."
+msgstr ""
+
+#: coderedcms/forms.py:185
+msgid "field type"
+msgstr ""
+
+#: coderedcms/forms.py:197 coderedcms/templates/coderedcms/pages/search.html:7
+#: coderedcms/templates/coderedcms/pages/search.html:14
+#: coderedcms/templates/coderedcms/pages/search.html:32
+#: coderedcms/templates/coderedcms/snippets/navbar.html:37
+#: website/templates/coderedcms/pages/search.html:7
+#: website/templates/coderedcms/pages/search.html:14
+#: website/templates/coderedcms/pages/search.html:32
+#: website/templates/coderedcms/snippets/navbar.html:37
+msgid "Search"
+msgstr ""
+
+#: coderedcms/forms.py:203
+msgid "Page type"
+msgstr ""
+
+#: coderedcms/importexport.py:36
+msgid "File to import"
+msgstr ""
+
+#: coderedcms/importexport.py:41
+msgid "Destination parent page"
+msgstr ""
+
+#: coderedcms/importexport.py:42
+msgid "Imported pages will be created as children of this page."
+msgstr ""
+
+#: coderedcms/models/integration_models.py:124
+msgid "List"
+msgstr ""
+
+#: coderedcms/models/page_models.py:131
+msgid "CodeRed Tag"
+msgstr ""
+
+#: coderedcms/models/page_models.py:145
+msgid "CodeRed Page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:173
+msgid "Cover image"
+msgstr ""
+
+#: coderedcms/models/page_models.py:191
+msgid "Default Ordering"
+msgstr ""
+
+#: coderedcms/models/page_models.py:192
+msgid "Date first published, newest to oldest"
+msgstr ""
+
+#: coderedcms/models/page_models.py:193
+msgid "Date first published, oldest to newest"
+msgstr ""
+
+#: coderedcms/models/page_models.py:194
+msgid "Date updated, newest to oldest"
+msgstr ""
+
+#: coderedcms/models/page_models.py:195
+msgid "Date updated, oldest to newest"
+msgstr ""
+
+#: coderedcms/models/page_models.py:196
+msgid "Title, alphabetical"
+msgstr ""
+
+#: coderedcms/models/page_models.py:197
+msgid "Title, reverse alphabetical"
+msgstr ""
+
+#: coderedcms/models/page_models.py:201
+msgid "Show list of child pages"
+msgstr ""
+
+#: coderedcms/models/page_models.py:209
+msgid "Order child pages by classifier"
+msgstr ""
+
+#: coderedcms/models/page_models.py:211
+msgid ""
+"Child pages will first be sorted following the order of this classifier’s "
+"terms (from Snippets > Classifiers)."
+msgstr ""
+
+#: coderedcms/models/page_models.py:220
+msgid "Order child pages by"
+msgstr ""
+
+#: coderedcms/models/page_models.py:221
+msgid "Child pages will then be sorted by this attribute."
+msgstr ""
+
+#: coderedcms/models/page_models.py:225
+msgid "Number per page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:230
+msgid "Filter child pages by"
+msgstr ""
+
+#: coderedcms/models/page_models.py:231
+msgid "Enable filtering child pages by these classifiers."
+msgstr ""
+
+#: coderedcms/models/page_models.py:247
+msgid "Show list of related pages"
+msgstr ""
+
+#: coderedcms/models/page_models.py:252
+msgid "Number of related pages to show"
+msgstr ""
+
+#: coderedcms/models/page_models.py:261
+msgid "Preferred related classifier term"
+msgstr ""
+
+#: coderedcms/models/page_models.py:263
+msgid ""
+"When getting related pages, pages with this term will be weighted over other "
+"classifier terms. By default, pages with the greatest number of classifiers "
+"in common are ranked highest."
+msgstr ""
+
+#: coderedcms/models/page_models.py:293 coderedcms/models/snippet_models.py:146
+msgid "Classifiers"
+msgstr ""
+
+#: coderedcms/models/page_models.py:295
+msgid ""
+"Categorize and group pages together with classifiers. Used to organize and "
+"filter pages across the site."
+msgstr ""
+
+#: coderedcms/models/page_models.py:302
+msgid "Tags"
+msgstr ""
+
+#: coderedcms/models/page_models.py:303
+msgid "Used to organize pages across the site."
+msgstr ""
+
+#: coderedcms/models/page_models.py:314
+msgid "Content Walls"
+msgstr ""
+
+#: coderedcms/models/page_models.py:349
+msgid "Visual Design"
+msgstr ""
+
+#: coderedcms/models/page_models.py:361
+msgid "Show Child Pages"
+msgstr ""
+
+#: coderedcms/models/page_models.py:369
+msgid "Related Pages"
+msgstr ""
+
+#: coderedcms/models/page_models.py:413
+msgid "Classify"
+msgstr ""
+
+#: coderedcms/models/page_models.py:414
+msgid "Layout"
+msgstr ""
+
+#: coderedcms/models/page_models.py:415
+msgid "SEO"
+msgstr ""
+
+#: coderedcms/models/page_models.py:417 wagtail_word/models.py:47
+msgid "Settings"
+msgstr ""
+
+#: coderedcms/models/page_models.py:670
+msgid "CodeRed Web Page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:712
+msgid "CodeRed Article"
+msgstr ""
+
+#: coderedcms/models/page_models.py:731
+msgid "Caption"
+msgstr ""
+
+#: coderedcms/models/page_models.py:744
+msgid "Display author as"
+msgstr ""
+
+#: coderedcms/models/page_models.py:745
+msgid "Override how the author’s name displays on this article."
+msgstr ""
+
+#: coderedcms/models/page_models.py:750
+msgid "Display publish date"
+msgstr ""
+
+#: coderedcms/models/page_models.py:836
+msgid "Publication Info"
+msgstr ""
+
+#: coderedcms/models/page_models.py:847
+msgid "CodeRed Article Index Page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:861
+msgid "Show images"
+msgstr ""
+
+#: coderedcms/models/page_models.py:868
+msgid "Show author and date info"
+msgstr ""
+
+#: coderedcms/models/page_models.py:872
+msgid "Show preview text"
+msgstr ""
+
+#: coderedcms/models/page_models.py:883
+msgid "Child page display"
+msgstr ""
+
+#: coderedcms/models/page_models.py:890
+msgid "CodeRed Event"
+msgstr ""
+
+#: coderedcms/models/page_models.py:896
+msgid "The color that the event will use when displayed on a calendar."
+msgstr ""
+
+#: coderedcms/models/page_models.py:899 coderedcms/models/page_models.py:2022
+#: website/templates/coderedcms/pages/service2.html:446
+msgid "Address"
+msgstr ""
+
+#: coderedcms/models/page_models.py:906
+msgid "Event information"
+msgstr ""
+
+#: coderedcms/models/page_models.py:911
+msgid "Dates and times"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1047
+msgid "Details"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1117
+msgid "CodeRed Event Index Page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1121
+msgid "No calendar"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1122
+msgid "Month"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1123
+msgid "Week"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1124
+msgid "Day"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1125
+msgid "List of events"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1128
+msgid "Default"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1129
+msgid "Solid rectangles"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1130
+msgid "Dots with labels"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1146 coderedcms/models/page_models.py:1164
+msgid "Calendar Style"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1147
+msgid "The default look of the calendar on this page."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1154
+msgid "Event Style"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1155
+msgid "How events look on the calendar."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1253
+msgid "CodeRed Event Occurrence"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1268
+msgid "Email form submissions to"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1270
+msgid ""
+"Optional - email form submissions to this address. Separate multiple "
+"addresses by comma."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1277
+msgid "Reply-to address"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1279
+msgid ""
+"Optional - to reply to the submitter, specify the email field here. For "
+"example, if a form field above is labeled \"Your Email\", enter: "
+"{{ your_email }}"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1287
+#: coderedcms/models/snippet_models.py:580
+msgid "Subject"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1291
+msgid "Save form submissions"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1293
+msgid "Submissions are saved to database and can be exported at any time."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1302 coderedcms/models/page_models.py:1616
+msgid "Thank you page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1304
+msgid "The page users are redirected to after submitting the form."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1309
+msgid "Submit"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1310
+msgid "Button text"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1317
+msgid "Button style"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1329
+msgid "Button CSS class"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1330
+msgid "Custom CSS class applied to the submit button."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1335
+msgid "Form CSS Class"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1336
+msgid "Custom CSS class applied to <form> element."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1341
+msgid "Form ID"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1342
+msgid "Custom ID applied to <form> element."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1347
+msgid "Form go live date/time"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1348
+msgid "Date and time when the FORM goes live on the page."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1353
+msgid "Form expiry date/time"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1355
+msgid "Date and time when the FORM will no longer be available on the page."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1360
+msgid "Spam Protection"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1362
+msgid ""
+"When enabled, the CMS will filter out spam form submissions for this page."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1377
+msgid "Form Settings"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1386
+msgid "Form Submissions"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1401
+msgid "Form Scheduled Publishing"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1615
+msgid "Form"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1668
+msgid "There was an error while processing your submission.  Please try again."
+msgstr ""
+
+#: coderedcms/models/page_models.py:1717
+msgid "CodeRed Form Page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1736 coderedcms/models/page_models.py:1971
+msgid "Confirmation Emails"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1765
+msgid "Submission date"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1801
+#: coderedcms/wagtail_flexible_forms/models.py:313
+msgid "Not submitted"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1802
+msgid "Complete"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1803
+#: coderedcms/wagtail_flexible_forms/models.py:315
+msgid "Under consideration"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1804
+#: coderedcms/wagtail_flexible_forms/models.py:316
+msgid "Approved"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1805
+#: coderedcms/wagtail_flexible_forms/models.py:317
+msgid "Rejected"
+msgstr ""
+
+#: coderedcms/models/page_models.py:1955
+msgid "CodeRed Advanced Form Page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2009
+msgid "CodeRed Location"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2024
+msgid "Latitude"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2027
+msgid "Longitude"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2031
+msgid "Auto Update Latitude and Longitude"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2033
+msgid ""
+"If checked, automatically update the latitude and longitude when the address "
+"is updated."
+msgstr ""
+
+#: coderedcms/models/page_models.py:2040
+msgid "Map Title"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2042
+msgid "If this is filled out, this is the title that will be used on the map."
+msgstr ""
+
+#: coderedcms/models/page_models.py:2048
+msgid "Map Description"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2050
+msgid ""
+"If this is filled out, this is the description that will be used on the map."
+msgstr ""
+
+#: coderedcms/models/page_models.py:2053
+msgid "Website"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2055
+msgid "Phone Number"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2070
+msgid "Map Layout"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2081
+msgid "Location Settings"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2154
+msgid "CodeRed Location Index Page"
+msgstr ""
+
+#: coderedcms/models/page_models.py:2164
+msgid "The default latitude you want the map set to."
+msgstr ""
+
+#: coderedcms/models/page_models.py:2170
+msgid "The default longitude you want the map set to."
+msgstr ""
+
+#: coderedcms/models/page_models.py:2192
+msgid "Map Display"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:53
+msgid "Show controls"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:55
+msgid ""
+"Shows arrows on the left and right of the carousel to advance next or "
+"previous slides."
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:61
+msgid "Show indicators"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:63
+msgid ""
+"Shows small indicators at the bottom of the carousel based on the number of "
+"slides."
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:70
+msgid "Slider"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:77
+msgid "Slides"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:91
+msgid "Carousel Slide"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:115
+#: coderedcms/models/snippet_models.py:281
+#: coderedcms/models/snippet_models.py:473
+msgid "Custom CSS class"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:145
+#: coderedcms/models/snippet_models.py:195
+msgid "Classifier"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:152
+#: coderedcms/models/snippet_models.py:200
+msgid "Slug"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:162
+#: coderedcms/models/snippet_models.py:190
+msgid "Classifier Terms"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:189
+msgid "Classifier Term"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:242
+#: coderedcms/models/snippet_models.py:443
+msgid "Panels"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:251
+#: coderedcms/models/snippet_models.py:256
+msgid "Film Panel"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:264
+msgid "Background image"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:311
+msgid "Navigation Bar"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:329
+msgid "Navigation links"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:341
+#: coderedcms/models/snippet_models.py:387
+msgid "Attributes"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:357
+msgid "Footer"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:412
+msgid "content"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:428
+#: coderedcms/models/snippet_models.py:438
+#: coderedcms/models/snippet_models.py:456
+msgid "Accordion"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:429
+msgid "Accordions"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:510
+msgid "Dismissible"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:514
+msgid "Show once"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:516
+msgid ""
+"Do not show the content wall to the same user again after it has been closed."
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:544
+msgid "CodeRed Email"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:549
+msgid "To Addresses"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:550
+#: coderedcms/models/snippet_models.py:565
+#: coderedcms/models/snippet_models.py:571
+#: coderedcms/models/snippet_models.py:577
+msgid "Separate multiple email addresses with commas."
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:555
+msgid "From Address"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:557
+msgid ""
+"For example: \"sender@example.com\" or \"Sender Name <sender@example.com>"
+"\" (without quotes)."
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:564
+msgid "Reply-To Address"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:570
+msgid "CC"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:576
+msgid "BCC"
+msgstr ""
+
+#: coderedcms/models/snippet_models.py:594
+msgid "Email Message"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:45
+msgid "CRX Settings"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:53
+msgid "Logo"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:54
+msgid "Brand logo used in the navbar and throughout the site"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:62
+msgid "Favicon"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:69
+msgid "Navbar color scheme"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:71
+msgid ""
+"Optimizes text and other navbar elements for use with light or dark "
+"backgrounds."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:79
+msgid "Navbar CSS class"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:81
+msgid ""
+"Custom classes applied to navbar e.g. \"bg-light\", \"bg-dark\", \"bg-primary"
+"\"."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:86
+msgid "Fixed navbar"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:88
+msgid "Fixed navbar will remain at the top of the page when scrolling."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:93
+msgid "Full width navbar contents"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:94
+msgid "Content within the navbar will fill edge to edge."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:101
+msgid "Collapse navbar menu"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:103
+msgid ""
+"Control on what screen sizes to show and collapse the navbar menu links."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:111
+msgid "Navbar format"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:115
+msgid "Search box"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:116
+msgid "Show search box in navbar"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:121
+msgid "From email address"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:123
+msgid ""
+"The default email address this site appears to send from. For example: "
+"\"sender@example.com\" or \"Sender Name <sender@example.com>\" (without "
+"quotes)"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:130
+msgid "Number of results per page"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:133
+msgid "Open all external links in new tab"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:138
+msgid "Google Maps API Key"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:139
+msgid "The API Key used for Google Maps."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:144
+msgid "Mailchimp API Key"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:145
+msgid "The API Key used for Mailchimp."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:159
+msgid "Site Navbar Layout"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:163
+msgid "Choose one or more navbars for your site."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:164
+#: coderedcms/models/wagtailsettings_models.py:237
+msgid "Site Navbars"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:171
+msgid "Choose one or more footers for your site."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:172
+#: coderedcms/models/wagtailsettings_models.py:253
+msgid "Site Footers"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:182
+msgid "Branding"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:190
+msgid "General"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:197
+msgid "API Keys"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:272
+msgid "Tracking"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:277
+msgid "G Tracking ID"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:278
+msgid "Your Google Analytics 4 tracking ID (begins with \"G-\")"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:282
+msgid "Track button clicks"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:284
+msgid ""
+"Track all button clicks using Google Analytics event tracking. Event "
+"tracking details can be specified in each button’s advanced settings options."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:292
+msgid "Google Tag Manager ID"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:293
+msgid "Begins with \"GTM-\""
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:298
+msgid "<head> tracking scripts"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:299
+msgid "Add tracking scripts between the <head> tags."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:304
+msgid "<body> tracking scripts"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:305
+msgid "Add tracking scripts toward closing <body> tag."
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:310
+msgid "Know your tracking"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:312
+msgid ""
+"<h2>Which tracking IDs do I need?</h2><p>Before adding tracking to your "
+"site, <a href=\"https://docs.coderedcorp.com/wagtail-crx/how_to/"
+"add_tracking_scripts.html\" target=\"_blank\">read about the difference "
+"between G, UA, GTM, and other tracking IDs</a>.</p>"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:324
+msgid "Google Analytics"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:330
+msgid "Google Tag Manager"
+msgstr ""
+
+#: coderedcms/models/wagtailsettings_models.py:337
+msgid "Other Tracking Scripts"
+msgstr ""
+
+#: coderedcms/project_template/pro/custom_user/admin.py:21
+msgid "Personal info"
+msgstr ""
+
+#: coderedcms/project_template/pro/custom_user/admin.py:30
+msgid "Permissions"
+msgstr ""
+
+#: coderedcms/project_template/pro/custom_user/admin.py:41
+msgid "Important dates"
+msgstr ""
+
+#: coderedcms/project_template/pro/custom_user/models.py:50
+msgid "email address"
+msgstr ""
+
+#: coderedcms/project_template/pro/custom_user/models.py:53
+msgid "A user with that username already exists."
+msgstr ""
+
+#: coderedcms/templates/coderedcms/blocks/film_strip_block.html:28
+#: coderedcms/templates/coderedcms/includes/pagination.html:8
+#: website/templates/coderedcms/blocks/film_strip_block.html:28
+msgid "Previous"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/blocks/film_strip_block.html:31
+#: coderedcms/templates/coderedcms/includes/pagination.html:16
+#: website/templates/coderedcms/blocks/film_strip_block.html:31
+msgid "Next"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/includes/classifier_dropdowns.html:5
+#: website/templates/coderedcms/includes/classifier_dropdowns.html:5
+msgid "Filter by"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/includes/classifier_dropdowns.html:11
+#: website/templates/coderedcms/includes/classifier_dropdowns.html:11
+msgid "Filter"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/includes/classifier_dropdowns.html:12
+#: coderedcms/templates/coderedcms/includes/classifier_nav.html:6
+#: website/templates/coderedcms/includes/classifier_dropdowns.html:12
+#: website/templates/coderedcms/includes/classifier_nav.html:6
+msgid "All"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/includes/form_honeypot.html:3
+#: website/templates/coderedcms/includes/form_honeypot.html:3
+msgid "Leave this blank if you are a human"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/includes/iframe_gmap.html:5
+#: website/templates/coderedcms/includes/iframe_gmap.html:5
+msgid "Map of"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/includes/pagination.html:12
+msgid "of"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/pages/base.html:149
+#: website/templates/coderedcms/pages/base.html:151
+#: website/templates/coderedcms/pages/base2.html:145
+#: website/templates/coderedcms/pages/basedoc.html:151
+#: website/templates/coderedcms/pages/baseserv.html:155
+#: website/templates/coderedcms/pages/servicebase.html:150
+msgid "Related"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/pages/form_page_landing.html:5
+#: website/templates/coderedcms/pages/form_page_landing.html:8
+msgid "Thank You"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/pages/form_page_landing.html:6
+#: website/templates/coderedcms/pages/form_page_landing.html:9
+msgid "We have successfully received your submission."
+msgstr ""
+
+#: coderedcms/templates/coderedcms/pages/search.html:7
+#: coderedcms/templates/coderedcms/pages/search.html:16
+#: website/templates/coderedcms/pages/search.html:7
+#: website/templates/coderedcms/pages/search.html:16
+msgid "Search for"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/pages/search.html:45
+#: website/templates/coderedcms/pages/search.html:45
+msgid "All Results"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/pages/search.html:80
+#: website/templates/coderedcms/pages/search.html:80
+msgid "No results found."
+msgstr ""
+
+#: coderedcms/templates/coderedcms/widgets/checkbox_classifiers.html:31
+#: website/templates/coderedcms/widgets/checkbox_classifiers.html:31
+msgid "Organize Pages with Classifiers"
+msgstr ""
+
+#: coderedcms/templates/coderedcms/widgets/checkbox_classifiers.html:33
+#: website/templates/coderedcms/widgets/checkbox_classifiers.html:33
+msgid "Use Classifiers to create custom categories and filters."
+msgstr ""
+
+#: coderedcms/templates/coderedcms/widgets/checkbox_classifiers.html:37
+#: website/templates/coderedcms/widgets/checkbox_classifiers.html:37
+msgid "Add Classifier"
+msgstr ""
+
+#: coderedcms/templates/wagtailadmin/login.html:5
+msgid "Sign in to"
+msgstr ""
+
+#: coderedcms/templates/wagtailcore/password_required.html:8
+msgid "Password Required"
+msgstr ""
+
+#: coderedcms/templates/wagtailcore/password_required.html:10
+msgid "You need a password to access this page."
+msgstr ""
+
+#: coderedcms/templates/wagtailcore/password_required.html:15
+msgid "Continue"
+msgstr ""
+
+#: coderedcms/templates/wagtailforms/list_submissions.html:11
+msgid "Delete selected submissions"
+msgstr ""
+
+#: coderedcms/templates/wagtailimportexport/import_from_csv.html:3
+#: coderedcms/templates/wagtailimportexport/import_from_csv.html:13
+#: coderedcms/templates/wagtailimportexport/index.html:5
+#: website/templates/wagtailimportexport/import_from_csv.html:3
+#: website/templates/wagtailimportexport/import_from_csv.html:13
+#: website/templates/wagtailimportexport/index.html:5
+msgid "Import pages"
+msgstr ""
+
+#: coderedcms/templates/wagtailimportexport/import_from_csv.html:27
+#: website/templates/wagtailimportexport/import_from_csv.html:29
+msgid "IMPORTANT:"
+msgstr ""
+
+#: coderedcms/templates/wagtailimportexport/import_from_csv.html:28
+#: website/templates/wagtailimportexport/import_from_csv.html:30
+msgid "CSV file must be in the correct format before importing."
+msgstr ""
+
+#: coderedcms/templates/wagtailimportexport/import_from_csv.html:30
+#: website/templates/wagtailimportexport/import_from_csv.html:32
+msgid "Read the importing guide."
+msgstr ""
+
+#: coderedcms/templates/wagtailimportexport/import_from_csv.html:35
+#: coderedcms/wagtail_hooks.py:131
+#: website/templates/wagtailimportexport/import_from_csv.html:37
+msgid "Import"
+msgstr ""
+
+#: coderedcms/templates/wagtailimportexport/index.html:3
+#: website/templates/wagtailimportexport/index.html:3
+msgid "Import / export pages"
+msgstr ""
+
+#: coderedcms/templates/wagtailimportexport/index.html:10
+#: website/templates/wagtailimportexport/index.html:10
+msgid "Import from CSV file"
+msgstr ""
+
+#: coderedcms/views.py:332
+#, python-format
+msgid "Import failed: %(reason)s"
+msgstr ""
+
+#: coderedcms/views.py:338
+#, python-format
+msgid "%(count)s page imported."
+msgid_plural "%(count)s pages imported."
+msgstr[0] ""
+msgstr[1] ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:21
+msgid "Label"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:22
+msgid "Help text"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:56
+msgid "Required"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:68
+msgid "Phone"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:73
+msgid "Format"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:75
+#: coderedcms/wagtail_flexible_forms/blocks.py:92
+#: coderedcms/wagtail_flexible_forms/blocks.py:101
+msgid "Default value"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:78
+msgid "Text field (single line)"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:97
+msgid "Text field (multi line)"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:106
+msgid "Number field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:115
+msgid "Checkbox field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:141
+msgid "Dropdown field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:151
+msgid "Checkbox"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:157
+msgid "Multiple checkboxes field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:192
+msgid "Date field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:207
+msgid "Time field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:234
+msgid "Date+time field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:242
+msgid "Image field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:250
+msgid "File field"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:270
+msgid "Form fields"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:278
+msgid "Form step"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/blocks.py:285
+msgid "Form steps"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/edit_handlers.py:13
+msgid "{} submissions"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:100
+#, python-format
+msgid "Step %s"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:306
+msgid "last modification"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:314
+msgid "In progress"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:322
+msgid "form submission"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:323
+msgid "form submissions"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:566
+msgid "Created"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:567
+msgid "Changed"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:568
+msgid "Deleted"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:616
+#, python-format
+msgid "“%s” set."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:618
+#, python-format
+msgid "“%s” set to “%s”."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:622
+#, python-format
+msgid "“%s” unset."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:626
+#, python-format
+msgid "“%s” changed."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:629
+#, python-format
+msgid "“%s” changed from “%s” to “%s”."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:651
+msgid "Submission created."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:653
+msgid "Submission deleted."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:783
+msgid "Successfully submitted the form."
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:811
+msgid "Status"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:812
+msgid "User"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:813
+msgid "First modification"
+msgstr ""
+
+#: coderedcms/wagtail_flexible_forms/models.py:814
+msgid "Last modification"
+msgstr ""
+
+#: wagtail_ai/forms.py:11
+msgid "No text provided - please enter some text before using AI features."
+msgstr ""
+
+#: wagtail_ai/forms.py:18 wagtail_ai/forms.py:19 wagtail_ai/views.py:117
+msgid "Invalid prompt provided."
+msgstr ""
+
+#: wagtail_ai/forms.py:58
+msgid "Describe image using AI"
+msgstr ""
+
+#: wagtail_ai/models.py:12
+msgid "Replace content"
+msgstr ""
+
+#: wagtail_ai/models.py:13
+msgid "Append after existing content"
+msgstr ""
+
+#: wagtail_ai/models.py:22
+msgid ""
+"The prompt description, displayed alongside its label on the settings "
+"listing."
+msgstr ""
+
+#: wagtail_ai/models.py:29
+msgid ""
+"The prompt text sent to the Large Language Model (e.g. ChatGPT) to generate "
+"content."
+msgstr ""
+
+#: wagtail_ai/models.py:35
+msgid "The method used for processing the responses to the prompt."
+msgstr ""
+
+#: wagtail_ai/views.py:133
+msgid "An unexpected error occurred."
+msgstr ""
+
+#: wagtail_word/forms.py:355
+msgid "Word Document"
+msgstr ""
+
+#: wagtail_word/forms.py:356
+msgid "Upload a word document"
+msgstr ""
+
+#: wagtail_word/forms.py:373
+msgid "Invalid file extension"
+msgstr ""
+
+#: wagtail_word/forms.py:380
+msgid "Invalid .docx file"
+msgstr ""
+
+#: wagtail_word/models.py:44
+msgid "Upload"
+msgstr ""
+
+#: wagtail_word/models.py:45
+msgid "Edit"
+msgstr ""
+
+#: wagtail_word/models.py:46
+msgid "Promote"
+msgstr ""
+
+#: wagtail_word/models.py:51
+msgid "Word Document Article"
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:55
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:62
+#: website/templates/coderedcms/pages/article_page.html:99
+#: website/templates/coderedcms/pages/article_pagemk.html:69
+#: website/templates/coderedcms/pages/custom_article_page.html:74
+#: website/templates/coderedcms/pages/custom_location_page.html:110
+msgid "Search..."
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:60
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:67
+#: website/templates/coderedcms/pages/article_page.html:104
+#: website/templates/coderedcms/pages/article_pagemk.html:74
+#: website/templates/coderedcms/pages/custom_article_page.html:81
+#: website/templates/coderedcms/pages/custom_location_page.html:115
+msgid "Quick Links"
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:63
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:70
+#: website/templates/coderedcms/pages/article_page.html:107
+#: website/templates/coderedcms/pages/article_pagemk.html:77
+#: website/templates/coderedcms/pages/custom_article_page.html:84
+#: website/templates/coderedcms/pages/custom_location_page.html:118
+#: website/templates/coderedcms/pages/service2.html:71
+msgid "Home"
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:64
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:71
+#: website/templates/coderedcms/pages/article_page.html:108
+#: website/templates/coderedcms/pages/article_pagemk.html:78
+#: website/templates/coderedcms/pages/custom_article_page.html:85
+#: website/templates/coderedcms/pages/custom_location_page.html:119
+#: website/templates/coderedcms/pages/service2.html:134
+msgid "About Us"
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:65
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:72
+#: website/templates/coderedcms/pages/article_page.html:109
+#: website/templates/coderedcms/pages/article_pagemk.html:79
+#: website/templates/coderedcms/pages/custom_article_page.html:86
+#: website/templates/coderedcms/pages/custom_location_page.html:120
+msgid "Denti-Board"
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:66
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:73
+#: website/templates/coderedcms/pages/article_page.html:110
+#: website/templates/coderedcms/pages/article_pagemk.html:80
+#: website/templates/coderedcms/pages/custom_article_page.html:87
+msgid "Top Blogs"
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:71
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:78
+#: website/templates/coderedcms/pages/article_page.html:115
+#: website/templates/coderedcms/pages/article_pagemk.html:85
+#: website/templates/coderedcms/pages/custom_article_page.html:94
+msgid "Recent Posts"
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:92
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:99
+#: website/templates/coderedcms/pages/article_page.html:136
+#: website/templates/coderedcms/pages/article_pagemk.html:106
+#: website/templates/coderedcms/pages/custom_article_page.html:115
+msgid "No recent posts available."
+msgstr ""
+
+#: wagtail_word/templates/base_word_document_page.html:99
+#: wagtail_word/templates/wagtail_word/base_word_document_page.html:106
+#: website/templates/coderedcms/pages/article_page.html:143
+#: website/templates/coderedcms/pages/article_pagemk.html:113
+msgid "Latest Gallery"
+msgstr ""
+
+#: website/templates/coderedcms/pages/article_page.html:19
+#: website/templates/coderedcms/pages/article_pagemk.html:19
+msgid "Blog Image"
+msgstr ""
+
+#: website/templates/coderedcms/pages/article_page.html:34
+#: website/templates/coderedcms/pages/article_pagemk.html:37
+#: website/templates/coderedcms/pages/custom_article_page.html:40
+msgid "Back to Blog"
+msgstr ""
+
+#: website/templates/coderedcms/pages/article_page.html:46
+#: website/templates/coderedcms/pages/article_pagemk.html:47
+#: website/templates/coderedcms/pages/custom_article_page.html:52
+#: website/templates/coderedcms/pages/custom_location_page.html:57
+msgid "Tags:"
+msgstr ""
+
+#: website/templates/coderedcms/pages/base.html:212
+#: website/templates/coderedcms/pages/base2.html:201
+#: website/templates/coderedcms/pages/basedoc.html:208
+#: website/templates/coderedcms/pages/service.html:286
+#: website/templates/coderedcms/pages/servicebase.html:211
+msgid "hello i would like to have a free consultation"
+msgstr ""
+
+#: website/templates/coderedcms/pages/custom_location_page.html:38
+msgid "Location Image"
+msgstr ""
+
+#: website/templates/coderedcms/pages/custom_location_page.html:121
+msgid "Top Locations"
+msgstr ""
+
+#: website/templates/coderedcms/pages/custom_location_page.html:126
+msgid "Recent Locations"
+msgstr ""
+
+#: website/templates/coderedcms/pages/lang.html:11
+msgid "Language"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:72
+msgid "Speakers"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:73
+msgid "Schedule"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:74
+msgid "Venue"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:75
+msgid "Hotels"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:76
+#: website/templates/coderedcms/pages/service2.html:410
+msgid "Gallery"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:79
+msgid "Dropdown 1"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:80
+msgid "Deep Dropdown"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:82
+msgid "Deep Dropdown 1"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:83
+msgid "Deep Dropdown 2"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:84
+msgid "Deep Dropdown 3"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:85
+msgid "Deep Dropdown 4"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:86
+msgid "Deep Dropdown 5"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:89
+msgid "Dropdown 2"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:90
+msgid "Dropdown 3"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:91
+msgid "Dropdown 4"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:94
+#: website/templates/coderedcms/pages/service2.html:435
+msgid "Contact"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:99
+msgid "Buy Tickets"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:160
+msgid "Our Dentists"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:199
+msgid "Patient Journey"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:229
+msgid "Partner Brands"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:263
+msgid "Our Clinics"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:284
+msgid "No image available."
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:304
+msgid "Partner Hotels"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:332
+msgid "0.4 Mile from the Venue"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:345
+msgid "Our Packages"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:378
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:417
+msgid "Gallery Image"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:436
+msgid ""
+"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
+"velit"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:447
+msgid "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:454
+msgid "Call Us"
+msgstr ""
+
+#: website/templates/coderedcms/pages/service2.html:462
+msgid "Email Us"
+msgstr ""
+
+#: website/templates/coderedcms/snippets/f2.html:49
+msgid "Login"
+msgstr ""
+
+#: website/templates/coderedcms/snippets/f2.html:50
+msgid "Signup"
+msgstr ""
+
+#: website/templates/coderedcms/snippets/f2.html:51
+msgid "Terms of Service"
+msgstr ""
+
+#: website/templates/coderedcms/snippets/f2.html:52
+msgid "Flight"
+msgstr ""
+
+#: website/templates/coderedcms/snippets/navigation.html:69
+msgid "DASHBOARD LOGIN"
+msgstr ""
+
+#: website/templates/coderedcms/snippets/navigation.html:71
+msgid "Your smile, our priority. Affordable dental care abroad."
+msgstr ""
+
+#: website/wagtail_hooks.py:22
+msgid "Article from URL"
+msgstr ""

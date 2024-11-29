@@ -16,6 +16,8 @@ urlpatterns = [
     path("docs/", include(wagtaildocs_urls)),
     # Search view placeholder if needed
     path("search/", include(crx_search_urls)),
+    path('rosetta/', include('rosetta.urls')),  # Add Rosetta
+
 ]
 
 # Add i18n patterns

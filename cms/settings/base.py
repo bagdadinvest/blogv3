@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'wagtail_word',
     "wagtail_jotform",
     "wagtail.contrib.routable_page",
+    'rosetta',
     # Django
     "django.contrib.admin",
     "django.contrib.auth",
@@ -260,3 +261,8 @@ LOCALE_PATHS = (
 )
 
 
+
+ROSETTA_ENABLE_TRANSLATION_SUGGESTIONS = True
+AZURE_CLIENT_SECRET = "DyKiBjFhkd79pVIavqRKuguK8gEf43LoCoKGFKLyVhol0O0U1KnhJQQJ99AKACF24PCXJ3w3AAAbACOGWjz4"
+ROSETTA_SHOW_AT_ADMIN_PANEL = True
+ROSETTA_MESSAGES_PER_PAGE = 500

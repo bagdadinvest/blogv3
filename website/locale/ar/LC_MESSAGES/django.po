@@ -1,0 +1,392 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-11-28 23:23+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+#: templates/coderedcms/blocks/film_strip_block.html:28
+msgid "Previous"
+msgstr ""
+
+#: templates/coderedcms/blocks/film_strip_block.html:31
+msgid "Next"
+msgstr ""
+
+#: templates/coderedcms/includes/classifier_dropdowns.html:5
+msgid "Filter by"
+msgstr ""
+
+#: templates/coderedcms/includes/classifier_dropdowns.html:11
+msgid "Filter"
+msgstr ""
+
+#: templates/coderedcms/includes/classifier_dropdowns.html:12
+#: templates/coderedcms/includes/classifier_nav.html:6
+msgid "All"
+msgstr ""
+
+#: templates/coderedcms/includes/form_honeypot.html:3
+msgid "Leave this blank if you are a human"
+msgstr ""
+
+#: templates/coderedcms/includes/iframe_gmap.html:5
+msgid "Map of"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:19
+#: templates/coderedcms/pages/article_pagemk.html:19
+msgid "Blog Image"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:34
+#: templates/coderedcms/pages/article_pagemk.html:37
+#: templates/coderedcms/pages/custom_article_page.html:40
+msgid "Back to Blog"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:46
+#: templates/coderedcms/pages/article_pagemk.html:47
+#: templates/coderedcms/pages/custom_article_page.html:52
+#: templates/coderedcms/pages/custom_location_page.html:57
+msgid "Tags:"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:99
+#: templates/coderedcms/pages/article_pagemk.html:69
+#: templates/coderedcms/pages/custom_article_page.html:74
+#: templates/coderedcms/pages/custom_location_page.html:110
+msgid "Search..."
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:104
+#: templates/coderedcms/pages/article_pagemk.html:74
+#: templates/coderedcms/pages/custom_article_page.html:81
+#: templates/coderedcms/pages/custom_location_page.html:115
+msgid "Quick Links"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:107
+#: templates/coderedcms/pages/article_pagemk.html:77
+#: templates/coderedcms/pages/custom_article_page.html:84
+#: templates/coderedcms/pages/custom_location_page.html:118
+#: templates/coderedcms/pages/service2.html:71
+msgid "Home"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:108
+#: templates/coderedcms/pages/article_pagemk.html:78
+#: templates/coderedcms/pages/custom_article_page.html:85
+#: templates/coderedcms/pages/custom_location_page.html:119
+#: templates/coderedcms/pages/service2.html:134
+msgid "About Us"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:109
+#: templates/coderedcms/pages/article_pagemk.html:79
+#: templates/coderedcms/pages/custom_article_page.html:86
+#: templates/coderedcms/pages/custom_location_page.html:120
+msgid "Denti-Board"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:110
+#: templates/coderedcms/pages/article_pagemk.html:80
+#: templates/coderedcms/pages/custom_article_page.html:87
+msgid "Top Blogs"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:115
+#: templates/coderedcms/pages/article_pagemk.html:85
+#: templates/coderedcms/pages/custom_article_page.html:94
+msgid "Recent Posts"
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:136
+#: templates/coderedcms/pages/article_pagemk.html:106
+#: templates/coderedcms/pages/custom_article_page.html:115
+msgid "No recent posts available."
+msgstr ""
+
+#: templates/coderedcms/pages/article_page.html:143
+#: templates/coderedcms/pages/article_pagemk.html:113
+msgid "Latest Gallery"
+msgstr ""
+
+#: templates/coderedcms/pages/base.html:151
+#: templates/coderedcms/pages/base2.html:145
+#: templates/coderedcms/pages/basedoc.html:151
+#: templates/coderedcms/pages/baseserv.html:155
+#: templates/coderedcms/pages/servicebase.html:150
+msgid "Related"
+msgstr ""
+
+#: templates/coderedcms/pages/base.html:212
+#: templates/coderedcms/pages/base2.html:201
+#: templates/coderedcms/pages/basedoc.html:208
+#: templates/coderedcms/pages/service.html:286
+#: templates/coderedcms/pages/servicebase.html:211
+msgid "hello i would like to have a free consultation"
+msgstr ""
+
+#: templates/coderedcms/pages/custom_location_page.html:38
+msgid "Location Image"
+msgstr ""
+
+#: templates/coderedcms/pages/custom_location_page.html:121
+msgid "Top Locations"
+msgstr ""
+
+#: templates/coderedcms/pages/custom_location_page.html:126
+msgid "Recent Locations"
+msgstr ""
+
+#: templates/coderedcms/pages/form_page_landing.html:8
+msgid "Thank You"
+msgstr ""
+
+#: templates/coderedcms/pages/form_page_landing.html:9
+msgid "We have successfully received your submission."
+msgstr ""
+
+#: templates/coderedcms/pages/lang.html:11
+msgid "Language"
+msgstr ""
+
+#: templates/coderedcms/pages/search.html:7
+#: templates/coderedcms/pages/search.html:14
+#: templates/coderedcms/pages/search.html:32
+#: templates/coderedcms/snippets/navbar.html:37
+msgid "Search"
+msgstr ""
+
+#: templates/coderedcms/pages/search.html:7
+#: templates/coderedcms/pages/search.html:16
+msgid "Search for"
+msgstr ""
+
+#: templates/coderedcms/pages/search.html:45
+msgid "All Results"
+msgstr ""
+
+#: templates/coderedcms/pages/search.html:80
+msgid "No results found."
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:72
+msgid "Speakers"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:73
+msgid "Schedule"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:74
+msgid "Venue"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:75
+msgid "Hotels"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:76
+#: templates/coderedcms/pages/service2.html:410
+msgid "Gallery"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:77
+msgid "Dropdown"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:79
+msgid "Dropdown 1"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:80
+msgid "Deep Dropdown"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:82
+msgid "Deep Dropdown 1"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:83
+msgid "Deep Dropdown 2"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:84
+msgid "Deep Dropdown 3"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:85
+msgid "Deep Dropdown 4"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:86
+msgid "Deep Dropdown 5"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:89
+msgid "Dropdown 2"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:90
+msgid "Dropdown 3"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:91
+msgid "Dropdown 4"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:94
+#: templates/coderedcms/pages/service2.html:435
+msgid "Contact"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:99
+msgid "Buy Tickets"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:160
+msgid "Our Dentists"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:199
+msgid "Patient Journey"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:229
+msgid "Partner Brands"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:263
+msgid "Our Clinics"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:284
+msgid "No image available."
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:304
+msgid "Partner Hotels"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:332
+msgid "0.4 Mile from the Venue"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:345
+msgid "Our Packages"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:378
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:417
+msgid "Gallery Image"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:436
+msgid ""
+"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
+"velit"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:446
+msgid "Address"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:447
+msgid "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:454
+msgid "Call Us"
+msgstr ""
+
+#: templates/coderedcms/pages/service2.html:462
+msgid "Email Us"
+msgstr ""
+
+#: templates/coderedcms/snippets/f2.html:49
+msgid "Login"
+msgstr ""
+
+#: templates/coderedcms/snippets/f2.html:50
+msgid "Signup"
+msgstr ""
+
+#: templates/coderedcms/snippets/f2.html:51
+msgid "Terms of Service"
+msgstr ""
+
+#: templates/coderedcms/snippets/f2.html:52
+msgid "Flight"
+msgstr ""
+
+#: templates/coderedcms/snippets/navigation.html:69
+msgid "DASHBOARD LOGIN"
+msgstr ""
+
+#: templates/coderedcms/snippets/navigation.html:71
+msgid "Your smile, our priority. Affordable dental care abroad."
+msgstr ""
+
+#: templates/coderedcms/widgets/checkbox_classifiers.html:31
+msgid "Organize Pages with Classifiers"
+msgstr ""
+
+#: templates/coderedcms/widgets/checkbox_classifiers.html:33
+msgid "Use Classifiers to create custom categories and filters."
+msgstr ""
+
+#: templates/coderedcms/widgets/checkbox_classifiers.html:37
+msgid "Add Classifier"
+msgstr ""
+
+#: templates/wagtailimportexport/import_from_csv.html:3
+#: templates/wagtailimportexport/import_from_csv.html:13
+#: templates/wagtailimportexport/index.html:5
+msgid "Import pages"
+msgstr ""
+
+#: templates/wagtailimportexport/import_from_csv.html:29
+msgid "IMPORTANT:"
+msgstr ""
+
+#: templates/wagtailimportexport/import_from_csv.html:30
+msgid "CSV file must be in the correct format before importing."
+msgstr ""
+
+#: templates/wagtailimportexport/import_from_csv.html:32
+msgid "Read the importing guide."
+msgstr ""
+
+#: templates/wagtailimportexport/import_from_csv.html:37
+msgid "Import"
+msgstr ""
+
+#: templates/wagtailimportexport/index.html:3
+msgid "Import / export pages"
+msgstr ""
+
+#: templates/wagtailimportexport/index.html:10
+msgid "Import from CSV file"
+msgstr ""
+
+#: wagtail_hooks.py:22
+msgid "Article from URL"
+msgstr ""
