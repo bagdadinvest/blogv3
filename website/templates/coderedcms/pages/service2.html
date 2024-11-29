@@ -419,6 +419,8 @@
   {% with hotels=self.get_medical_hotels %}
   <div class="container section-title aos-init aos-animate" data-aos="fade-up">
     <h2>{% trans "Partner Hotels" %}</h2>
+            <p>{% trans "Hotel accomodation is included in most of our packages(*). all you have to do is pick your spot! " %} </p>
+
   </div>
           <div class="row gy-4">
 
@@ -446,7 +448,7 @@
                   </div>
               <h3><a href="#">{{ hotel.title }}</a></h3>
               <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-              <p>{% trans "0.4 Mile from the Venue" %}</p>
+              <p>{% trans "0.4 Mile from the the Grand Bazaar" %}</p>
             </div>
                         </div>
     {% endfor %}
@@ -625,7 +627,10 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOM<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+ContentLoaded', function () {
         const dropdownButton = document.getElementById('languageDropdown'); // Button for toggling dropdown
         const dropdownMenu = dropdownButton.nextElementSibling; // The associated dropdown menu
 
