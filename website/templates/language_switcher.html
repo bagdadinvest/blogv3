@@ -1,0 +1,21 @@
+{% load coderedcms_tags i18n static language_switcher wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags django_bootstrap5 %}
+
+<div class="language-switcher">
+    <button class="dropdown-toggle" id="languageDropdown" aria-haspopup="true" aria-expanded="false">
+        <img src="{% static 'images/flags/'|add:current_lang.language_code|add:'.svg' %}"
+             alt="{{ current_lang.language_name }}" class="lang-icon">
+        {{ current_lang.language_code }}
+        <span class="arrow-down">▼</span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="languageDropdown">
+        {% for lang in language_links %}
+            <li>
+                <a href="{{ lang.url }}">
+                    <img src="{% static 'images/flags/'|add:lang.language_code|add:'.svg' %}"
+                         alt="{{ lang.language_name }}" class="lang-icon">
+                    {{ lang.language_code }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>

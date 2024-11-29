@@ -1,5 +1,6 @@
 {% extends "coderedcms/pages/baseserv.html" %}
-{% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags django_bootstrap5 %}
+{% load coderedcms_tags i18n static language_switcher wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags django_bootstrap5 %}
+{% wagtail_site as site %}
 
 {% block custom_assets %}
 <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
@@ -53,53 +54,169 @@
   .medical-tourism-button-prev:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
+
+.language-switcher {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px;
+    color: #333;
+}
+
+.dropdown-toggle img.lang-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.dropdown-toggle .arrow-down {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background: none;
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+    display: none;
+    box-shadow: none;
+    width: max-content;
+}
+
+.dropdown-menu li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu li a img.lang-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.language-switcher:hover .dropdown-menu {
+    display: block;
+}
+#snow-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks through the snow animation */
+    z-index: 9999; /* Ensure it stays on top */
+}
+
+.snowflake {
+    position: absolute;
+    top: -10px;
+    width: 10px;
+    height: 10px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+}
+
+
 </style>
 {% endblock %}
 
 {% block content %}
+<div id="snow-container"></div>
 <header id="header" class="header d-flex align-items-center fixed-top">
     <div class="container-fluid container-xl position-relative d-flex align-items-center">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto">
-        <img src="assets/img/logo.png" alt="">
-        <!-- Uncomment the line below if you also wish to use an text logo -->
-        <!-- <h1 class="sitename">TheEvent</h1>  -->
-      </a>
+        <!-- Logo Section -->
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+            {% if settings.coderedcms.LayoutSettings.logo %}
+                {% image settings.coderedcms.LayoutSettings.logo original format-webp as logo %}
+                <img src="{{ logo.url }}" alt="{{ site.site_name }}">
+            {% else %}
+                {{ site.site_name }}
+            {% endif %}
+        </a>
 
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="#hero" class="active">{% trans "Home" %}<br></a></li>
-          <li><a href="#speakers">{% trans "Speakers" %}</a></li>
-          <li><a href="#schedule">{% trans "Schedule" %}</a></li>
-          <li><a href="#venue">{% trans "Venue" %}</a></li>
-          <li><a href="#hotels">{% trans "Hotels" %}</a></li>
-          <li><a href="#gallery">{% trans "Gallery" %}</a></li>
-          <li class="dropdown"><a href="#"><span>{% trans "Dropdown" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+{% language_switcher %}
+
+
+        <!-- Navigation Menu -->
+        <nav id="navmenu" class="navmenu">
             <ul>
-              <li><a href="#">{% trans "Dropdown 1" %}</a></li>
-              <li class="dropdown"><a href="#"><span>{% trans "Deep Dropdown" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                <ul>
-                  <li><a href="#">{% trans "Deep Dropdown 1" %}</a></li>
-                  <li><a href="#">{% trans "Deep Dropdown 2" %}</a></li>
-                  <li><a href="#">{% trans "Deep Dropdown 3" %}</a></li>
-                  <li><a href="#">{% trans "Deep Dropdown 4" %}</a></li>
-                  <li><a href="#">{% trans "Deep Dropdown 5" %}</a></li>
-                </ul>
-              </li>
-              <li><a href="#">{% trans "Dropdown 2" %}</a></li>
-              <li><a href="#">{% trans "Dropdown 3" %}</a></li>
-              <li><a href="#">{% trans "Dropdown 4" %}</a></li>
+                <li><a href="#hero" class="active">{% trans "Home" %}</a></li>
+                <li><a href="#speakers">{% trans "Dentists" %}</a></li>
+                <li><a href="#schedule">{% trans "Schedule" %}</a></li>
+                <li><a href="#venue">{% trans "Clinic" %}</a></li>
+                <li><a href="#hotels">{% trans "Hotels" %}</a></li>
+                <li><a href="#gallery">{% trans "Gallery" %}</a></li>
+
+                <!-- Dropdown Menu -->
+                <li class="dropdown">
+                    <a href="#"><span>{% trans "Our Website" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                        {% for child_page in site.root_page.get_children.live %}
+                            {% if child_page.title == "Our Blogs" %}
+                                <li>
+                                    <button class="accordion-toggle">{% trans "Our Blogs" %}</button>
+                                    <ul class="collapsed-list">
+                                        {% for blog in child_page.get_children.live %}
+                                            <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li><a href="{{ child_page.url }}">{{ child_page.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <!-- Nested Dropdown Example -->
+                        <li class="dropdown">
+                            <a href="#"><span>{% trans "Dentiboard" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                    <li><a href="https://app.dentidelil-international.com/">{% trans "Login" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/signup/">{% trans "Signup" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/TermsofService/">{% trans "Terms of Service" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/flight/">{% trans "Flight" %}</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Additional Dropdown Links -->
+                        <li><a href="https://dentidelil-international.com/en/say-hello-to-denti/">{% trans "Say Hello to Denti" %}</a></li>
+                        <li><a href="#">{% trans "Dropdown 3" %}</a></li>
+                        <li><a href="#">{% trans "Dropdown 4" %}</a></li>
+                    </ul>
+                </li>
+
+                <!-- Contact Link -->
+                <li><a href="#contact">{% trans "Contact" %}</a></li>
             </ul>
-          </li>
-          <li><a href="#contact">{% trans "Contact" %}</a></li>
-        </ul>
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
 
-      <a class="cta-btn d-none d-sm-block" href="#buy-tickets">{% trans "Buy Tickets" %}</a>
+            <!-- Mobile Navigation Toggle -->
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
 
+        <!-- Call-to-Action Button -->
+        <a class="cta-btn d-none d-sm-block" href="#buy-tickets">{% trans "Buy Tickets" %}</a>
     </div>
-  </header>
+</header>
 
   <main class="main">
 
@@ -175,10 +292,10 @@
                        <span>{{ block.value.specialty }}<span>
                        </div>
                          <div class="social">
-                  <a href="" target="_blank" ><i class="bi bi-twitter-x"></i></a>
-                  <a href="" target="_blank" ><i class="bi bi-facebook"></i></a>
-                  <a href="" target="_blank" ><i class="bi bi-instagram"></i></a>
-                  <a href="" target="_blank" ><i class="bi bi-linkedin"></i></a>
+                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-twitter-x"></i></a>
+                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-facebook"></i></a>
+                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-instagram"></i></a>
+                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-linkedin"></i></a>
                 </div>
                     </div>
                 </div>
@@ -504,6 +621,75 @@
 {% endblock %}
 
 {% block custom_scripts %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const dropdownButton = document.getElementById('languageDropdown'); // Button for toggling dropdown
+        const dropdownMenu = dropdownButton.nextElementSibling; // The associated dropdown menu
+
+        // Toggle dropdown visibility on button click
+        dropdownButton.addEventListener('click', function (e) {
+            e.stopPropagation(); // Prevent click from propagating to document
+            dropdownMenu.classList.toggle('show'); // Toggle "show" class to control visibility
+        });
+
+        // Hide dropdown when clicking outside of it
+        document.addEventListener('click', function () {
+            dropdownMenu.classList.remove('show'); // Remove "show" class
+        });
+    });
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const snowContainer = document.getElementById('snow-container');
+
+    function createSnowflake() {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+
+        // Set random size and position
+        const size = Math.random() * 8 + 2; // Random size between 2px and 10px
+        snowflake.style.width = `${size}px`;
+        snowflake.style.height = `${size}px`;
+        snowflake.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+
+        snowContainer.appendChild(snowflake);
+
+        // Animate with GSAP
+        gsap.to(snowflake, {
+            y: '100vh', // Fall down the entire height of the viewport
+            x: `+=${Math.random() * 50 - 25}`, // Slight horizontal drift
+            opacity: 0, // Fade out at the end
+            duration: Math.random() * 3 + 2, // Random fall duration between 2 and 5 seconds
+            ease: 'power1.out',
+            onComplete: () => snowflake.remove(), // Remove snowflake after animation
+        });
+    }
+
+    // Generate snowflakes continuously
+    setInterval(createSnowflake, 150); // Add a new snowflake every 150ms
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdown = document.querySelector('.dropdown');
+    dropdown.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const menu = this.querySelector('.dropdown-menu');
+        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    document.addEventListener('click', function () {
+        const menus = document.querySelectorAll('.dropdown-menu');
+        menus.forEach(menu => menu.style.display = 'none');
+    });
+});
+</script>
 <script>
 document.addEventListener("DOMContentLoaded", function () {
   // Initialize Swiper for medical tourism hotels

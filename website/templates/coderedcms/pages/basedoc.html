@@ -275,61 +275,6 @@
                 </div>
             </div>
         </div>
-          <script>
-// Get references to the navbar and arrow elements
-var mobileNavBar = document.getElementById('mobileNavBar');
-var mobileNavArrow = document.getElementById('mobileNavArrow');
-
-// Function to show the navbar
-function showNavBar() {
-    mobileNavBar.classList.add('show');
-    mobileNavBar.classList.remove('hide');
-    mobileNavArrow.classList.remove('show');
-    mobileNavArrow.classList.add('hide');
-}
-
-// Function to hide the navbar
-function hideNavBar() {
-    mobileNavBar.classList.add('hide');
-    mobileNavBar.classList.remove('show');
-    mobileNavArrow.classList.add('show');
-    mobileNavArrow.classList.remove('hide');
-}
-
-// Automatically hide navbar after 5 seconds of inactivity
-let inactivityTimeout;
-function resetInactivityTimer() {
-    clearTimeout(inactivityTimeout);
-    inactivityTimeout = setTimeout(hideNavBar, 100000); // 5 seconds of inactivity
-}
-
-// Show navbar when the arrow is clicked
-mobileNavArrow.addEventListener('click', showNavBar);
-
-// Listen for swipe-up gesture (touchstart and touchend events)
-let touchStartY = 0;
-let touchEndY = 0;
-
-document.addEventListener('touchstart', function(event) {
-    touchStartY = event.changedTouches[0].screenY;
-}, false);
-
-document.addEventListener('touchend', function(event) {
-    touchEndY = event.changedTouches[0].screenY;
-    if (touchStartY - touchEndY > 50) { // Detect swipe up
-        showNavBar();
-    }
-}, false);
-
-// Reset the inactivity timer whenever there is user interaction
-document.addEventListener('mousemove', resetInactivityTimer);
-document.addEventListener('keydown', resetInactivityTimer);
-document.addEventListener('touchstart', resetInactivityTimer);
-
-// Start the inactivity timer
-resetInactivityTimer();
-
-        </script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="{% static 'home/js/vendor/bootstrap.min.js' %}"></script>

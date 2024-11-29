@@ -1,29 +1,53 @@
 from django import template
 from wagtail.models import Locale
-from wagtail.models import Page
 
 register = template.Library()
 
-@register.simple_tag(takes_context=True)
-def language_switcher(context, lang_code):
+
+@register.inclusion_tag('language_switcher.html', takes_context=True)
+def language_switcher(context):
+    """
+    Generates a list of available languages with their URLs and identifies the current language.
+    """
     request = context['request']
-    current_page = context.get('page')  # Get the current page from context
+    current_page = context.get('page', None)
+    language_links = []
+    current_language = None
 
-    # Check if the page exists in the current context and if translated versions are available
-    if current_page and hasattr(current_page, 'get_translation'):
+    # Get all available locales
+    locales = Locale.objects.all()
+
+    for locale in locales:
         try:
-            # Try to get the translation of the current page for the desired locale
-            target_locale = Locale.objects.get(language_code=lang_code)
-            translated_page = current_page.get_translation(target_locale)
+            # Determine the URL for the translated page
+            if current_page and hasattr(current_page, 'get_translation'):
+                translated_page = current_page.get_translation(locale)
+                url = translated_page.get_url(request)
+            else:
+                url = request.path
 
-            # If the translated page exists, return its URL
-            return translated_page.get_url(request)
-        except Locale.DoesNotExist:
-            # If the target locale does not exist, return the current URL (fallback)
-            return request.path
-        except Page.DoesNotExist:
-            # If the translated page does not exist, return the current URL (fallback)
-            return request.path
+            # Add the language details to the list
+            language_links.append({
+                'language_code': locale.language_code,
+                'language_name': locale.get_display_name(),
+                'url': url
+            })
 
-    # If no page is found in the context or it's not translatable, return the current path
-    return request.path
+            # Identify the current language
+            if locale.language_code == context.get('LANGUAGE_CODE'):
+                current_language = {
+                    'language_code': locale.language_code,
+                    'language_name': locale.get_display_name(),
+                }
+        except Exception:
+            # Handle cases where translation or locale might not exist
+            language_links.append({
+                'language_code': locale.language_code,
+                'language_name': locale.get_display_name(),
+                'url': request.path
+            })
+
+    return {
+        'language_links': language_links,
+        'current_lang': current_language,
+    }
