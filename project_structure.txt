@@ -1,0 +1,800 @@
+.
+├── .editorconfig
+├── .env
+├── .gitattributes
+├── .gitignore
+├── README.md
+├── all_data.json
+├── bloger.py
+├── cc
+│   ├── 0003_delete_doctor.py
+│   ├── 0004_hoca.py
+│   ├── 0005_hocapage.py
+│   ├── 0006_customarticlepage_hero_image.py
+│   ├── 0007_hocapage_featured_hoca.py
+│   ├── 0008_alter_hocapage_options_remove_hocapage_body_and_more.py
+│   └── db.sqlite3
+├── cms
+│   ├── __init__.py
+│   ├── middleware.py
+│   ├── settings
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── dev.py
+│   │   ├── prod.py
+│   │   └── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+├── coderedcms
+│   ├── __init__.py
+│   ├── admin_urls.py
+│   ├── api
+│   │   └── mailchimp.py
+│   ├── apps.py
+│   ├── bin
+│   │   ├── __init__.py
+│   │   └── coderedcms.py
+│   ├── blocks
+│   │   ├── __init__.py
+│   │   ├── base_blocks.py
+│   │   ├── content_blocks.py
+│   │   ├── html_blocks.py
+│   │   ├── layout_blocks.py
+│   │   ├── stream_form_blocks.py
+│   │   └── tests
+│   │       ├── __init__.py
+│   │       └── test_blocks.py
+│   ├── fields.py
+│   ├── forms.py
+│   ├── importexport.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── integration_models.py
+│   │   ├── page_models.py
+│   │   ├── snippet_models.py
+│   │   ├── tests
+│   │   │   ├── __init__.py
+│   │   │   ├── test_navbars_and_footers.py
+│   │   │   ├── test_page_models.py
+│   │   │   └── test_wagtailsettings_models.py
+│   │   └── wagtailsettings_models.py
+│   ├── project_template
+│   │   ├── basic
+│   │   │   ├── .editorconfig
+│   │   │   ├── .gitattributes
+│   │   │   ├── .gitignore
+│   │   │   ├── README.md
+│   │   │   ├── manage.py
+│   │   │   ├── project_name
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── settings
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── base.py
+│   │   │   │   │   ├── dev.py
+│   │   │   │   │   └── prod.py
+│   │   │   │   ├── urls.py
+│   │   │   │   └── wsgi.py
+│   │   │   ├── pyproject.toml
+│   │   │   ├── requirements.txt
+│   │   │   └── website
+│   │   │       ├── __init__.py
+│   │   │       ├── apps.py
+│   │   │       ├── models.py
+│   │   │       └── templates
+│   │   │           └── coderedcms
+│   │   │               └── pages
+│   │   │                   └── base.html
+│   │   └── pro
+│   │       ├── .cr.ini
+│   │       ├── .editorconfig
+│   │       ├── .gitattributes
+│   │       ├── .gitignore
+│   │       ├── README.md
+│   │       ├── custom_media
+│   │       │   ├── __init__.py
+│   │       │   ├── admin.py
+│   │       │   ├── apps.py
+│   │       │   └── models.py
+│   │       ├── custom_user
+│   │       │   ├── __init__.py
+│   │       │   ├── admin.py
+│   │       │   ├── apps.py
+│   │       │   └── models.py
+│   │       ├── manage.py
+│   │       ├── project_name
+│   │       │   ├── __init__.py
+│   │       │   ├── settings
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── base.py
+│   │       │   │   ├── dev.py
+│   │       │   │   └── prod.py
+│   │       │   ├── urls.py
+│   │       │   └── wsgi.py
+│   │       ├── pyproject.toml
+│   │       ├── requirements-dev.txt
+│   │       ├── requirements.txt
+│   │       └── website
+│   │           ├── __init__.py
+│   │           ├── apps.py
+│   │           ├── models.py
+│   │           ├── templates
+│   │           │   ├── coderedcms
+│   │           │   │   ├── pages
+│   │           │   │   │   └── base.html
+│   │           │   │   └── snippets
+│   │           │   │       ├── footer.html
+│   │           │   │       └── navbar.html
+│   │           │   └── website
+│   │           │       └── blocks
+│   │           │           ├── navbar_dropdown.html
+│   │           │           └── navbar_link.html
+│   │           └── templatetags
+│   │               └── website_tags.py
+│   ├── search_urls.py
+│   ├── settings.py
+│   ├── templates
+│   │   ├── 404.html
+│   │   ├── 500.html
+│   │   ├── coderedcms
+│   │   │   ├── blocks
+│   │   │   │   ├── accordion_block.html
+│   │   │   │   ├── article_block_card.html
+│   │   │   │   ├── base_block.html
+│   │   │   │   ├── base_link_block.html
+│   │   │   │   ├── button_block.html
+│   │   │   │   ├── card_block.html
+│   │   │   │   ├── card_blurb.html
+│   │   │   │   ├── card_foot.html
+│   │   │   │   ├── card_head.html
+│   │   │   │   ├── card_head_foot.html
+│   │   │   │   ├── card_img.html
+│   │   │   │   ├── cardgrid_columns.html
+│   │   │   │   ├── cardgrid_deck.html
+│   │   │   │   ├── cardgrid_group.html
+│   │   │   │   ├── carousel_block.html
+│   │   │   │   ├── column_block.html
+│   │   │   │   ├── content_wall_block.html
+│   │   │   │   ├── document_link_block.html
+│   │   │   │   ├── download_block.html
+│   │   │   │   ├── embed_video_block.html
+│   │   │   │   ├── external_link_block.html
+│   │   │   │   ├── film_strip_block.html
+│   │   │   │   ├── google_map.html
+│   │   │   │   ├── grid_block.html
+│   │   │   │   ├── h1_block.html
+│   │   │   │   ├── h2_block.html
+│   │   │   │   ├── h3_block.html
+│   │   │   │   ├── hero_block.html
+│   │   │   │   ├── image_block.html
+│   │   │   │   ├── image_gallery_block.html
+│   │   │   │   ├── image_link_block.html
+│   │   │   │   ├── modal_block.html
+│   │   │   │   ├── page_link_block.html
+│   │   │   │   ├── pagelist_article_card_columns.html
+│   │   │   │   ├── pagelist_article_card_deck.html
+│   │   │   │   ├── pagelist_article_card_group.html
+│   │   │   │   ├── pagelist_article_media.html
+│   │   │   │   ├── pagelist_block.html
+│   │   │   │   ├── pagelist_list_group.html
+│   │   │   │   ├── pagepreview_block.html
+│   │   │   │   ├── pagepreview_card.html
+│   │   │   │   ├── pagepreview_form.html
+│   │   │   │   ├── pricelist_block.html
+│   │   │   │   ├── pricelistitem_block.html
+│   │   │   │   ├── quote_block.html
+│   │   │   │   ├── reusable_content_block.html
+│   │   │   │   ├── rich_text_block.html
+│   │   │   │   └── table_block.html
+│   │   │   ├── formfields
+│   │   │   │   ├── date.html
+│   │   │   │   ├── datetime.html
+│   │   │   │   ├── mailchimp
+│   │   │   │   │   ├── subscriber_integration_js.html
+│   │   │   │   │   └── subscriber_integration_widget.html
+│   │   │   │   └── time.html
+│   │   │   ├── icons
+│   │   │   │   ├── cr-align-left.svg
+│   │   │   │   ├── cr-check-square-o.svg
+│   │   │   │   ├── cr-columns.svg
+│   │   │   │   ├── cr-desktop.svg
+│   │   │   │   ├── cr-font.svg
+│   │   │   │   ├── cr-google.svg
+│   │   │   │   ├── cr-hand-pointer-o.svg
+│   │   │   │   ├── cr-hashtag.svg
+│   │   │   │   ├── cr-header.svg
+│   │   │   │   ├── cr-list-alt.svg
+│   │   │   │   ├── cr-map.svg
+│   │   │   │   ├── cr-newspaper-o.svg
+│   │   │   │   ├── cr-puzzle-piece.svg
+│   │   │   │   ├── cr-recycle.svg
+│   │   │   │   ├── cr-stop.svg
+│   │   │   │   ├── cr-th-large.svg
+│   │   │   │   ├── cr-universal-access.svg
+│   │   │   │   ├── cr-usd.svg
+│   │   │   │   ├── cr-window-maximize.svg
+│   │   │   │   └── cr-window-minimize.svg
+│   │   │   ├── includes
+│   │   │   │   ├── classifier_dropdowns.html
+│   │   │   │   ├── classifier_nav.html
+│   │   │   │   ├── crx_banner.html
+│   │   │   │   ├── form_honeypot.html
+│   │   │   │   ├── ical
+│   │   │   │   │   ├── calendar.html
+│   │   │   │   │   ├── calendar_ical_button.html
+│   │   │   │   │   ├── recurring_ical_button.html
+│   │   │   │   │   └── single_ical_button.html
+│   │   │   │   ├── iframe_gmap.html
+│   │   │   │   ├── map_list_description.html
+│   │   │   │   ├── map_pin_description.html
+│   │   │   │   ├── pagination.html
+│   │   │   │   └── stream_forms
+│   │   │   │       └── render_field.html
+│   │   │   ├── pages
+│   │   │   │   ├── article_index_page.html
+│   │   │   │   ├── article_page.html
+│   │   │   │   ├── article_page.search.html
+│   │   │   │   ├── base.html
+│   │   │   │   ├── event_index_page.html
+│   │   │   │   ├── event_page.html
+│   │   │   │   ├── form_page.html
+│   │   │   │   ├── form_page.mini.html
+│   │   │   │   ├── form_page_landing.html
+│   │   │   │   ├── home_page.html
+│   │   │   │   ├── location_index_page.html
+│   │   │   │   ├── location_page.html
+│   │   │   │   ├── page.mini.html
+│   │   │   │   ├── search.html
+│   │   │   │   ├── search_result.html
+│   │   │   │   ├── stream_form_page.html
+│   │   │   │   ├── web_page.html
+│   │   │   │   └── web_page_notitle.html
+│   │   │   ├── snippets
+│   │   │   │   ├── footer.html
+│   │   │   │   └── navbar.html
+│   │   │   └── widgets
+│   │   │       └── checkbox_classifiers.html
+│   │   ├── robots.txt
+│   │   ├── wagtailadmin
+│   │   │   ├── base.html
+│   │   │   ├── block_forms
+│   │   │   │   └── base_block_settings_struct.html
+│   │   │   ├── home.html
+│   │   │   └── login.html
+│   │   ├── wagtailcore
+│   │   │   └── password_required.html
+│   │   ├── wagtailembeds
+│   │   │   └── embed_frontend.html
+│   │   ├── wagtailforms
+│   │   │   └── list_submissions.html
+│   │   └── wagtailimportexport
+│   │       ├── import_from_csv.html
+│   │       └── index.html
+│   ├── templatetags
+│   │   └── coderedcms_tags.py
+│   ├── tests
+│   │   ├── settings.py
+│   │   ├── test_bin.py
+│   │   ├── test_templates.py
+│   │   ├── test_templatetags.py
+│   │   ├── test_urls.py
+│   │   ├── testapp
+│   │   │   └── models.py
+│   │   └── urls.py
+│   ├── urls.py
+│   ├── utils.py
+│   ├── views.py
+│   ├── wagtail_flexible_forms
+│   │   ├── LICENSE
+│   │   ├── blocks.py
+│   │   ├── edit_handlers.py
+│   │   └── models.py
+│   ├── wagtail_hooks.py
+│   └── widgets.py
+├── data.json
+├── db.sqlite3
+├── db.sqlite3.backup
+├── hocapage_data.csv
+├── locale
+│   └── ar
+│       └── LC_MESSAGES
+│           └── django.po
+├── manage.py
+├── medical_tourism_data.json
+├── models.txt
+├── project_structure.txt
+├── pyproject.toml
+├── r.txt
+├── requirements.txt
+├── rosetta
+│   ├── __init__.py
+│   ├── access.py
+│   ├── apps.py
+│   ├── conf
+│   │   └── __init__.py
+│   ├── locale
+│   │   ├── ar
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── az
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── cs
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── de
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── es
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── fa
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── fr
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── hu
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── it
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── ky
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── nl
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── pl
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── ru
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── tr
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── uk
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── xx
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   ├── zh_Hans
+│   │   │   └── LC_MESSAGES
+│   │   │       ├── django.mo
+│   │   │       └── django.po
+│   │   └── zh_hans
+│   │       └── LC_MESSAGES
+│   │           ├── django.mo
+│   │           └── django.po
+│   ├── poutil.py
+│   ├── signals.py
+│   ├── storage.py
+│   ├── templates
+│   │   └── rosetta
+│   │       ├── admin_index.html
+│   │       ├── base.html
+│   │       ├── css
+│   │       │   └── rosetta.css
+│   │       ├── file-list.html
+│   │       ├── form.html
+│   │       └── js
+│   │           └── rosetta.js
+│   ├── templatetags
+│   │   ├── __init__.py
+│   │   └── rosetta.py
+│   ├── tests
+│   │   ├── __init__.py
+│   │   ├── django.po.issue186.template
+│   │   ├── django.po.issue24gh.template
+│   │   ├── django.po.issue34gh.template
+│   │   ├── django.po.issue38gh.template
+│   │   ├── django.po.issue39gh.template
+│   │   ├── django.po.issue60.template
+│   │   ├── django.po.issue67.template
+│   │   ├── django.po.issue79.template
+│   │   ├── django.po.template
+│   │   ├── django.po.test44.template
+│   │   ├── pr44.po.template
+│   │   ├── test_app
+│   │   │   ├── __init__.py
+│   │   │   ├── apps.py
+│   │   │   └── locale
+│   │   │       └── xx
+│   │   │           └── LC_MESSAGES
+│   │   │               ├── django.mo
+│   │   │               └── django.po
+│   │   ├── tests.py
+│   │   ├── urls.py
+│   │   └── views.py
+│   ├── translate_utils.py
+│   ├── urls.py
+│   └── views.py
+├── scraper
+│   ├── db.sqlite3
+│   └── scraper.py
+├── supervisor
+│   └── db.sqlite3
+├── translations
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── azure.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── wagtail_ai
+│   ├── __init__.py
+│   ├── ai
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── echo.py
+│   │   ├── llm.py
+│   │   └── openai.py
+│   ├── apps.py
+│   ├── forms.py
+│   ├── models.py
+│   ├── prompts.py
+│   ├── templates
+│   │   └── wagtail_ai
+│   │       └── widgets
+│   │           └── image_title.html
+│   ├── text_splitters
+│   │   ├── __init__.py
+│   │   ├── dummy.py
+│   │   ├── langchain.py
+│   │   └── length.py
+│   ├── tokens.py
+│   ├── types.py
+│   ├── utils
+│   │   ├── __init__.py
+│   │   └── deprecation.py
+│   ├── views.py
+│   └── wagtail_hooks.py
+├── wagtail_word
+│   ├── __init__.py
+│   ├── apps.py
+│   ├── db.sqlite3
+│   ├── forms.py
+│   ├── models.py
+│   ├── signals.py
+│   ├── templates
+│   │   ├── base_word_document_page.html
+│   │   └── wagtail_word
+│   │       ├── base_word_document_page.html
+│   │       └── page.html
+│   ├── urlforms.py
+│   └── wagtail_hooks.py
+└── website
+    ├── TheEvent
+    │   ├── Readme.txt
+    │   ├── assets
+    │   │   ├── css
+    │   │   │   └── main.css
+    │   │   ├── img
+    │   │   │   ├── apple-touch-icon.png
+    │   │   │   ├── clients
+    │   │   │   │   ├── client-1.png
+    │   │   │   │   ├── client-2.png
+    │   │   │   │   ├── client-3.png
+    │   │   │   │   ├── client-4.png
+    │   │   │   │   ├── client-5.png
+    │   │   │   │   ├── client-6.png
+    │   │   │   │   ├── client-7.png
+    │   │   │   │   └── client-8.png
+    │   │   │   ├── event-gallery
+    │   │   │   │   ├── event-gallery-1.jpg
+    │   │   │   │   ├── event-gallery-2.jpg
+    │   │   │   │   ├── event-gallery-3.jpg
+    │   │   │   │   ├── event-gallery-4.jpg
+    │   │   │   │   ├── event-gallery-5.jpg
+    │   │   │   │   ├── event-gallery-6.jpg
+    │   │   │   │   ├── event-gallery-7.jpg
+    │   │   │   │   └── event-gallery-8.jpg
+    │   │   │   ├── favicon.png
+    │   │   │   ├── hero-bg.jpg
+    │   │   │   ├── hotels-1.jpg
+    │   │   │   ├── hotels-2.jpg
+    │   │   │   ├── hotels-3.jpg
+    │   │   │   ├── logo.png
+    │   │   │   ├── page-title-bg.webp
+    │   │   │   ├── speaker.jpg
+    │   │   │   ├── speakers
+    │   │   │   │   ├── speaker-1-2.jpg
+    │   │   │   │   ├── speaker-1.jpg
+    │   │   │   │   ├── speaker-2-2.jpg
+    │   │   │   │   ├── speaker-2.jpg
+    │   │   │   │   ├── speaker-3-2.jpg
+    │   │   │   │   ├── speaker-3.jpg
+    │   │   │   │   ├── speaker-4-2.jpg
+    │   │   │   │   ├── speaker-4.jpg
+    │   │   │   │   ├── speaker-5.jpg
+    │   │   │   │   └── speaker-6.jpg
+    │   │   │   ├── venue-gallery
+    │   │   │   │   ├── venue-gallery-1.jpg
+    │   │   │   │   ├── venue-gallery-2.jpg
+    │   │   │   │   ├── venue-gallery-3.jpg
+    │   │   │   │   ├── venue-gallery-4.jpg
+    │   │   │   │   ├── venue-gallery-5.jpg
+    │   │   │   │   ├── venue-gallery-6.jpg
+    │   │   │   │   ├── venue-gallery-7.jpg
+    │   │   │   │   └── venue-gallery-8.jpg
+    │   │   │   └── venue-info-bg.jpg
+    │   │   ├── js
+    │   │   │   └── main.js
+    │   │   ├── scss
+    │   │   │   └── Readme.txt
+    │   │   └── vendor
+    │   │       ├── aos
+    │   │       │   ├── aos.cjs.js
+    │   │       │   ├── aos.css
+    │   │       │   ├── aos.esm.js
+    │   │       │   ├── aos.js
+    │   │       │   └── aos.js.map
+    │   │       ├── bootstrap
+    │   │       │   ├── css
+    │   │       │   │   ├── bootstrap-grid.css
+    │   │       │   │   ├── bootstrap-grid.css.map
+    │   │       │   │   ├── bootstrap-grid.min.css
+    │   │       │   │   ├── bootstrap-grid.min.css.map
+    │   │       │   │   ├── bootstrap-grid.rtl.css
+    │   │       │   │   ├── bootstrap-grid.rtl.css.map
+    │   │       │   │   ├── bootstrap-grid.rtl.min.css
+    │   │       │   │   ├── bootstrap-grid.rtl.min.css.map
+    │   │       │   │   ├── bootstrap-reboot.css
+    │   │       │   │   ├── bootstrap-reboot.css.map
+    │   │       │   │   ├── bootstrap-reboot.min.css
+    │   │       │   │   ├── bootstrap-reboot.min.css.map
+    │   │       │   │   ├── bootstrap-reboot.rtl.css
+    │   │       │   │   ├── bootstrap-reboot.rtl.css.map
+    │   │       │   │   ├── bootstrap-reboot.rtl.min.css
+    │   │       │   │   ├── bootstrap-reboot.rtl.min.css.map
+    │   │       │   │   ├── bootstrap-utilities.css
+    │   │       │   │   ├── bootstrap-utilities.css.map
+    │   │       │   │   ├── bootstrap-utilities.min.css
+    │   │       │   │   ├── bootstrap-utilities.min.css.map
+    │   │       │   │   ├── bootstrap-utilities.rtl.css
+    │   │       │   │   ├── bootstrap-utilities.rtl.css.map
+    │   │       │   │   ├── bootstrap-utilities.rtl.min.css
+    │   │       │   │   ├── bootstrap-utilities.rtl.min.css.map
+    │   │       │   │   ├── bootstrap.css
+    │   │       │   │   ├── bootstrap.css.map
+    │   │       │   │   ├── bootstrap.min.css
+    │   │       │   │   ├── bootstrap.min.css.map
+    │   │       │   │   ├── bootstrap.rtl.css
+    │   │       │   │   ├── bootstrap.rtl.css.map
+    │   │       │   │   ├── bootstrap.rtl.min.css
+    │   │       │   │   ├── bootstrap.rtl.min.css.map
+    │   │       │   │   └── prb.txt
+    │   │       │   └── js
+    │   │       │       ├── bootstrap.bundle.js
+    │   │       │       ├── bootstrap.bundle.js.map
+    │   │       │       ├── bootstrap.bundle.min.js
+    │   │       │       ├── bootstrap.bundle.min.js.map
+    │   │       │       ├── bootstrap.esm.js
+    │   │       │       ├── bootstrap.esm.js.map
+    │   │       │       ├── bootstrap.esm.min.js
+    │   │       │       ├── bootstrap.esm.min.js.map
+    │   │       │       ├── bootstrap.js
+    │   │       │       ├── bootstrap.js.map
+    │   │       │       ├── bootstrap.min.js
+    │   │       │       └── bootstrap.min.js.map
+    │   │       ├── bootstrap-icons
+    │   │       │   ├── bootstrap-icons.css
+    │   │       │   ├── bootstrap-icons.json
+    │   │       │   ├── bootstrap-icons.min.css
+    │   │       │   ├── bootstrap-icons.scss
+    │   │       │   └── fonts
+    │   │       │       ├── bootstrap-icons.woff
+    │   │       │       └── bootstrap-icons.woff2
+    │   │       ├── glightbox
+    │   │       │   ├── css
+    │   │       │   │   ├── glightbox.css
+    │   │       │   │   └── glightbox.min.css
+    │   │       │   └── js
+    │   │       │       ├── glightbox.js
+    │   │       │       └── glightbox.min.js
+    │   │       ├── php-email-form
+    │   │       │   └── validate.js
+    │   │       └── swiper
+    │   │           ├── swiper-bundle.min.css
+    │   │           ├── swiper-bundle.min.js
+    │   │           └── swiper-bundle.min.js.map
+    │   ├── forms
+    │   │   ├── Readme.txt
+    │   │   └── contact.php
+    │   ├── index.html
+    │   ├── speaker-details.html
+    │   ├── starter-page.html
+    │   └── to-django.html
+    ├── __init__.py
+    ├── apps.py
+    ├── blocks.py
+    ├── locale
+    │   ├── ar
+    │   │   └── LC_MESSAGES
+    │   │       └── django.po
+    │   ├── fr
+    │   │   └── LC_MESSAGES
+    │   │       ├── django.mo
+    │   │       └── django.po
+    │   └── tr
+    │       └── LC_MESSAGES
+    │           ├── django.mo
+    │           └── django.po
+    ├── management
+    │   ├── __init__.py
+    │   └── commands
+    │       ├── __init__.py
+    │       └── browser_local.py
+    ├── models.py
+    ├── templates
+    │   ├── admin
+    │   │   └── article_from_url.html
+    │   ├── coderedcms
+    │   │   ├── blocks
+    │   │   │   ├── accordion_block.html
+    │   │   │   ├── article_block_card.html
+    │   │   │   ├── base_block.html
+    │   │   │   ├── base_link_block.html
+    │   │   │   ├── button_block.html
+    │   │   │   ├── card_block.html
+    │   │   │   ├── card_blurb.html
+    │   │   │   ├── card_foot.html
+    │   │   │   ├── card_head.html
+    │   │   │   ├── card_head_foot.html
+    │   │   │   ├── card_img.html
+    │   │   │   ├── cardgrid_columns.html
+    │   │   │   ├── cardgrid_deck.html
+    │   │   │   ├── cardgrid_group.html
+    │   │   │   ├── carousel_block.html
+    │   │   │   ├── column_block.html
+    │   │   │   ├── content_wall_block.html
+    │   │   │   ├── document_link_block.html
+    │   │   │   ├── download_block.html
+    │   │   │   ├── embed_video_block.html
+    │   │   │   ├── external_link_block.html
+    │   │   │   ├── film_strip_block.html
+    │   │   │   ├── google_map.html
+    │   │   │   ├── grid_block.html
+    │   │   │   ├── h1_block.html
+    │   │   │   ├── h2_block.html
+    │   │   │   ├── h3_block.html
+    │   │   │   ├── hero_block.html
+    │   │   │   ├── image_block.html
+    │   │   │   ├── image_gallery_block.html
+    │   │   │   ├── image_link_block.html
+    │   │   │   ├── modal_block.html
+    │   │   │   ├── page_link_block.html
+    │   │   │   ├── pagelist_article_card_columns.html
+    │   │   │   ├── pagelist_article_card_deck.html
+    │   │   │   ├── pagelist_article_card_group.html
+    │   │   │   ├── pagelist_article_media.html
+    │   │   │   ├── pagelist_block.html
+    │   │   │   ├── pagelist_list_group.html
+    │   │   │   ├── pagepreview_block.html
+    │   │   │   ├── pagepreview_card.html
+    │   │   │   ├── pagepreview_form.html
+    │   │   │   ├── pricelist_block.html
+    │   │   │   ├── pricelistitem_block.html
+    │   │   │   ├── quote_block.html
+    │   │   │   ├── reusable_content_block.html
+    │   │   │   ├── rich_text_block.html
+    │   │   │   └── table_block.html
+    │   │   ├── formfields
+    │   │   │   ├── date.html
+    │   │   │   ├── datetime.html
+    │   │   │   ├── mailchimp
+    │   │   │   │   ├── subscriber_integration_js.html
+    │   │   │   │   └── subscriber_integration_widget.html
+    │   │   │   └── time.html
+    │   │   ├── icons
+    │   │   │   ├── cr-align-left.svg
+    │   │   │   ├── cr-check-square-o.svg
+    │   │   │   ├── cr-columns.svg
+    │   │   │   ├── cr-desktop.svg
+    │   │   │   ├── cr-font.svg
+    │   │   │   ├── cr-google.svg
+    │   │   │   ├── cr-hand-pointer-o.svg
+    │   │   │   ├── cr-hashtag.svg
+    │   │   │   ├── cr-header.svg
+    │   │   │   ├── cr-list-alt.svg
+    │   │   │   ├── cr-map.svg
+    │   │   │   ├── cr-newspaper-o.svg
+    │   │   │   ├── cr-puzzle-piece.svg
+    │   │   │   ├── cr-recycle.svg
+    │   │   │   ├── cr-stop.svg
+    │   │   │   ├── cr-th-large.svg
+    │   │   │   ├── cr-universal-access.svg
+    │   │   │   ├── cr-usd.svg
+    │   │   │   ├── cr-window-maximize.svg
+    │   │   │   └── cr-window-minimize.svg
+    │   │   ├── includes
+    │   │   │   ├── classifier_dropdowns.html
+    │   │   │   ├── classifier_nav.html
+    │   │   │   ├── crx_banner.html
+    │   │   │   ├── footer_with_form.html
+    │   │   │   ├── form_honeypot.html
+    │   │   │   ├── ical
+    │   │   │   │   ├── calendar.html
+    │   │   │   │   ├── calendar_ical_button.html
+    │   │   │   │   ├── recurring_ical_button.html
+    │   │   │   │   └── single_ical_button.html
+    │   │   │   ├── iframe_gmap.html
+    │   │   │   ├── map_list_description.html
+    │   │   │   ├── map_pin_description.html
+    │   │   │   ├── pagination.html
+    │   │   │   └── stream_forms
+    │   │   │       └── render_field.html
+    │   │   ├── pages
+    │   │   │   ├── article_index_page.html
+    │   │   │   ├── article_page.html
+    │   │   │   ├── article_page.search.html
+    │   │   │   ├── article_pagemk.html
+    │   │   │   ├── base.html
+    │   │   │   ├── base2.html
+    │   │   │   ├── basedoc.html
+    │   │   │   ├── baseserv.html
+    │   │   │   ├── custom_article_page.html
+    │   │   │   ├── custom_location_index_page.html
+    │   │   │   ├── custom_location_page.html
+    │   │   │   ├── doctors.html
+    │   │   │   ├── event_index_page.html
+    │   │   │   ├── event_page.html
+    │   │   │   ├── form_page.html
+    │   │   │   ├── form_page.mini.html
+    │   │   │   ├── form_page_landing.html
+    │   │   │   ├── formframe.html
+    │   │   │   ├── home_page.html
+    │   │   │   ├── index.html
+    │   │   │   ├── lang.html
+    │   │   │   ├── location_index_page.html
+    │   │   │   ├── location_page.html
+    │   │   │   ├── page.mini.html
+    │   │   │   ├── search.html
+    │   │   │   ├── search_result.html
+    │   │   │   ├── service.html
+    │   │   │   ├── service2.html
+    │   │   │   ├── stream_form_page.html
+    │   │   │   ├── web_page.html
+    │   │   │   └── web_page_notitle.html
+    │   │   ├── snippets
+    │   │   │   ├── f2.html
+    │   │   │   ├── footer.html
+    │   │   │   ├── lfooter.html
+    │   │   │   ├── navbar.html
+    │   │   │   └── navigation.html
+    │   │   └── widgets
+    │   │       └── checkbox_classifiers.html
+    │   ├── language_switcher.html
+    │   └── wagtailimportexport
+    │       ├── .index.html.kate-swp
+    │       ├── import_from_csv.html
+    │       └── index.html
+    ├── templatetags
+    │   ├── __init__.py
+    │   ├── language_switcher.py
+    │   └── wagtailsnippets_tags.py
+    ├── translation.py
+    ├── utils.py
+    ├── views.py
+    └── wagtail_hooks.py
+
+166 directories, 631 files

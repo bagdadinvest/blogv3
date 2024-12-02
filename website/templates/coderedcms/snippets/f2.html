@@ -9,27 +9,27 @@
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6 footer-about">
             <a href="index.html" class="logo d-flex align-items-center">
-              <span class="sitename">DENTI DELIL</span>
+              <span class="sitename">{% trans "DENTI DELIL" %}</span>
             </a>
             <div class="footer-contact pt-3">
-              <p>Denti Delil Ağız ve Diş Sağlığı Polikliniği</p>
-              <p>Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul</p>
-<p class="mt-3">
-    <strong>Phone:</strong>
-    <a href="https://wa.me/905380546393" target="_blank">+90 538 054 6393</a>
-</p>
-              <p><strong>Email:</strong> <span>dentidelil-international.com</span></p>
+              <p>{% trans "Denti Delil Ağız ve Diş Sağlığı Polikliniği" %}</p>
+              <p>{% trans "Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul" %}</p>
+              <p class="mt-3">
+                <strong>{% trans "Phone:" %}</strong>
+                <a href="https://wa.me/905380546393" target="_blank">+90 538 054 6393</a>
+              </p>
+              <p><strong>{% trans "Email:" %}</strong> <span>dentidelil-international.com</span></p>
             </div>
           </div>
 
           <div class="col-lg-4 col-md-3 footer-links">
-            <h4>Useful Links</h4>
+            <h4>{% trans "Useful Links" %}</h4>
             <ul>
-                <!-- CodeRed CMS Content with Nested Submenxus (Blogs Example) -->
+                <!-- CodeRed CMS Content with Nested Submenus (Blogs Example) -->
                 {% for child_page in site.root_page.get_children.live %}
                     {% if child_page.title == "Our Blogs" %}
                     <li>
-                        <button class="accordion-toggle">Our Blogs</button>
+                        <button class="accordion-toggle">{% trans "Our Blogs" %}</button>
                         <ul class="collapsed-list">
                             {% for blog in child_page.get_children.live %}
                             <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
@@ -41,29 +41,25 @@
                     {% endif %}
                 {% endfor %}
               </ul>
-              {% if child_page.title == "Our Blogs" %}
-              {% endif %}
             <div class="col-lg-4 col-md-3 footer-links">
-                <h4>Denti Board</h4>
+                <h4>{% trans "Denti Board" %}</h4>
                 <ul>
                     <li><a href="https://app.dentidelil-international.com/">{% trans "Login" %}</a></li>
                     <li><a href="https://app.dentidelil-international.com/signup/">{% trans "Signup" %}</a></li>
                     <li><a href="https://app.dentidelil-international.com/TermsofService/">{% trans "Terms of Service" %}</a></li>
                     <li><a href="https://app.dentidelil-international.com/flight/">{% trans "Flight" %}</a></li>
-
                 </ul>
             </div>
-            </div>
+          </div>
 
     <div class="copyright text-center">
       <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
 
         <div class="d-flex flex-column align-items-center align-items-lg-start">
           <div>
-            © Copyright <strong><span> Denti Delil 2024</span></strong>. All Rights Reserved
+            © {% trans "Copyright" %} <strong><span>{% trans "Denti Delil 2024" %}</span></strong>. {% trans "All Rights Reserved" %}
           </div>
           <div class="credits">
->
           </div>
         </div>
 

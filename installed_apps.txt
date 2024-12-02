@@ -1,0 +1,4 @@
+./cms/settings/base.py:INSTALLED_APPS = [
+./cms/settings/settings.py:INSTALLED_APPS = [
+./cms/settings/settings.py:    INSTALLED_APPS.append('livereload')
+./cms/settings/settings.py:    INSTALLED_APPS.append('debug_toolbar')  # Add debug_toolbar when DEBUG is True

@@ -270,6 +270,30 @@
 </section>
 {% endif %}
 
+<!-- Gallery Section -->
+{% if page.gallery_section %}
+<section id="gallery" class="gallery section">
+  <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+    <h2>{% trans "Gallery" %}</h2>
+    <!-- Swiper container -->
+    <div class="swiper-container">
+      <!-- Swiper wrapper -->
+      <div class="swiper-wrapper">
+        {% for block in page.gallery_section %}
+        <div class="swiper-slide">
+          <img src="{{ block.value.file.url }}" alt="{% trans 'Gallery Image' %}" class="img-fluid">
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Swiper navigation buttons -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <!-- Swiper pagination -->
+      <div class="swiper-pagination"></div>
+    </div>
+  </div>
+</section>
+{% endif %}
 <!-- Doctors Section -->
 {% if page.dentists_section %}
 <section id="speakers" class="speakers section dark-background">
@@ -522,30 +546,7 @@
 </section>
 {% endif %}
 
-<!-- Gallery Section -->
-{% if page.gallery_section %}
-<section id="gallery" class="gallery section">
-  <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>{% trans "Gallery" %}</h2>
-    <!-- Swiper container -->
-    <div class="swiper-container">
-      <!-- Swiper wrapper -->
-      <div class="swiper-wrapper">
-        {% for block in page.gallery_section %}
-        <div class="swiper-slide">
-          <img src="{{ block.value.file.url }}" alt="{% trans 'Gallery Image' %}" class="img-fluid">
-        </div>
-        {% endfor %}
-      </div>
-      <!-- Swiper navigation buttons -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <!-- Swiper pagination -->
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-{% endif %}
+
 
 <section id="contact" class="contact section">
 

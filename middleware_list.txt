@@ -1,0 +1,2 @@
+./cms/settings/base.py:MIDDLEWARE = [
+./cms/settings/settings.py:MIDDLEWARE = [
