@@ -1,0 +1,11 @@
+[0;1;31m●[0m postgresql@15-main.service - PostgreSQL Cluster 15-main
+     Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled; vendor preset: enabled)
+     Active: [0;1;31mfailed[0m (Result: protocol) since Wed 2024-12-04 02:33:51 UTC; 8s ago
+    Process: 18710 ExecStart=/usr/bin/pg_ctlcluster --skip-systemctl-redirect 15-main start [0;1;31m(code=exited, status=2)[0m
+
+Dec 04 02:33:51 denti systemd[1]: Starting PostgreSQL Cluster 15-main...
+Dec 04 02:33:51 denti postgresql@15-main[18710]: Cluster is already running.
+Dec 04 02:33:51 denti systemd[1]: [0;1;31m[0;1;39m[0;1;31mpostgresql@15-main.service: New main PID 1082 does not belong to service, and PID file is not owned by root. Refusing.[0m
+Dec 04 02:33:51 denti systemd[1]: [0;1;31m[0;1;39m[0;1;31mpostgresql@15-main.service: New main PID 1082 does not belong to service, and PID file is not owned by root. Refusing.[0m
+Dec 04 02:33:51 denti systemd[1]: [0;1;38;5;185m[0;1;39m[0;1;38;5;185mpostgresql@15-main.service: Failed with result 'protocol'.[0m
+Dec 04 02:33:51 denti systemd[1]: [0;1;31m[0;1;39m[0;1;31mFailed to start PostgreSQL Cluster 15-main.[0m

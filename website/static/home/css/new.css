@@ -5,12 +5,12 @@ body {
 body::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: #ffffff;
 }
 
 /* Add a thumb */
 body::-webkit-scrollbar-thumb {
-    background: rgba(250, 250, 250, 0.5);
+    background: #ffffff;
 }
 
 body,
@@ -32,9 +32,9 @@ html {
 .page-heading .heading-content h2 {
     font-size: 32px;
     text-transform: uppercase;
-    color: #fff;
+    color: #0e1b4d;
     letter-spacing: 1px;
-    background-color: rgba(250,250,250,0.1);
+    background-color: #ffffff;
     display: inline-block;
     margin-bottom: 0;
     margin-top: 220px;
@@ -80,9 +80,9 @@ nav {
 .menu-icon {
     background: transparent;
     border: 1px solid #fff;
-    width: 50px;
-    height: 50px;
-    margin: 15px 39px 0 auto;
+    width: 25px;
+    height: 25px;
+    margin: 15px 30px 0 auto;
     position: relative;
     cursor: pointer;
     transition: background 0.5s;

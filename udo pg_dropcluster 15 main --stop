@@ -1,0 +1,17 @@
+[0;1;32m●[0m postgresql@15-main.service - PostgreSQL Cluster 15-main
+     Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled-runtime; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Wed 2024-12-04 01:15:19 UTC; 1min 21s ago
+    Process: 377096 ExecStart=/usr/bin/pg_ctlcluster --skip-systemctl-redirect 15-main start (code=exited, status=0/SUCCESS)
+   Main PID: 377101 (postgres)
+      Tasks: 6 (limit: 9456)
+     Memory: 18.1M
+     CGroup: /system.slice/system-postgresql.slice/postgresql@15-main.service
+             ├─377101 /usr/lib/postgresql/15/bin/postgres -D /var/lib/postgresql/15/main -c config_file=/etc/postgresql/15/main/postgresql.conf
+             ├─377102 postgres: 15/main: checkpointer
+             ├─377103 postgres: 15/main: background writer
+             ├─377105 postgres: 15/main: walwriter
+             ├─377106 postgres: 15/main: autovacuum launcher
+             └─377107 postgres: 15/main: logical replication launcher
+
+Dec 04 01:15:17 denti systemd[1]: Starting PostgreSQL Cluster 15-main...
+Dec 04 01:15:19 denti systemd[1]: Started PostgreSQL Cluster 15-main.

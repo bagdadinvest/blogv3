@@ -68,6 +68,8 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     'debug_toolbar',
+    'dbbackup',
+
 ]
 
 MIDDLEWARE = [
@@ -124,8 +126,18 @@ DATABASES = {
         "NAME": BASE_DIR / "db.sqlite3",
     }
 }
-
-
+'''
+DATABASES = {
+    "default": {
+        "ENGINE": os.getenv("DATABASE_ENGINE", "django.db.backends.postgresql"),
+        "NAME": os.getenv("DATABASE_NAME", "dentidelil"),
+        "USER": os.getenv("DATABASE_USER", "lotfikan"),
+        "PASSWORD": os.getenv("DATABASE_PASSWORD", ""),
+        "HOST": os.getenv("DATABASE_HOST", "localhost"),
+        "PORT": os.getenv("DATABASE_PORT", "5432"),
+}
+}
+'''
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

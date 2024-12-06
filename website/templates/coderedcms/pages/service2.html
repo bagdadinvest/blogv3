@@ -338,29 +338,40 @@
 <section id="schedule" class="schedule section">
     <div class="container section-title aos-init aos-animate" data-aos="fade-up">
         <h2>{% trans "Patient Journey" %}</h2>
-            </div>
-
-         <div class="container">
-        <ul class="nav nav-tabs aos-init aos-animate" role="tablist" data-aos="fade-up" data-aos-delay="100">
-                   {% for block in page.patient_journey_section %}
-          <li class="nav-item" role="presentation">
-            <a class="nav-link active" href="#{{ block.value.day_label }}" role="tab" data-bs-toggle="tab" >{{ block.value.day_label }}</a>
-          </li>
-              {% endfor %}
-                                 {% for block in page.patient_journey_section %}
-                              <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-
-          <div role="tabpanel" class="col-lg-9 tab-pane fade show active" id="{{ block.value.day_label }}">
-            <div class="row schedule-item">
-              <div class="col-md-2">
-
-                    <p>{{ block.value.description|richtext }}</p>
-                </li>
-            {% endfor %}
     </div>
-            </ul>
 
+    <div class="container">
+        <!-- Navigation Tabs -->
+        <ul class="nav nav-tabs aos-init aos-animate" role="tablist" data-aos="fade-up" data-aos-delay="100">
+            {% for block in page.patient_journey_section %}
+            <li class="nav-item" role="presentation">
+                <a class="nav-link {% if forloop.first %}active{% endif %}"
+                   href="#{{ block.value.day_label|slugify }}"
+                   role="tab"
+                   data-bs-toggle="tab">
+                    {{ block.value.day_label }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Tab Content -->
+        <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+            {% for block in page.patient_journey_section %}
+            <div role="tabpanel"
+                 class="col-lg-9 tab-pane fade {% if forloop.first %}show active{% endif %}"
+                 id="{{ block.value.day_label|slugify }}">
+                <div class="row schedule-item justify-content-center">
+                    <div class="col-md-9">
+                        <p>{{ block.value.description|richtext }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
 </section>
+
 {% endif %}
 
     <!-- Sponsors Section -->

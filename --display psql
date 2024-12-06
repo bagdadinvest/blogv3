@@ -1,0 +1,16 @@
+[0;1;32m●[0m postgresql@15-main.service - PostgreSQL Cluster 15-main
+     Loaded: loaded (/lib/systemd/system/postgresql@.service; enabled-runtime; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Wed 2024-12-04 00:56:22 UTC; 7min ago
+   Main PID: 369910 (postgres)
+      Tasks: 6 (limit: 9456)
+     Memory: 19.4M
+     CGroup: /system.slice/system-postgresql.slice/postgresql@15-main.service
+             ├─369910 /usr/lib/postgresql/15/bin/postgres -D /var/lib/postgresql/15/main -c config_file=/etc/postgresql/15/main/postgresql.conf
+             ├─369911 postgres: 15/main: checkpointer
+             ├─369912 postgres: 15/main: background writer
+             ├─369914 postgres: 15/main: walwriter
+             ├─369915 postgres: 15/main: autovacuum launcher
+             └─369916 postgres: 15/main: logical replication launcher
+
+Dec 04 00:56:20 denti systemd[1]: Starting PostgreSQL Cluster 15-main...
+Dec 04 00:56:22 denti systemd[1]: Started PostgreSQL Cluster 15-main.
