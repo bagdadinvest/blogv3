@@ -5,7 +5,7 @@
         <img src="{% static 'images/flags/'|add:current_lang.language_code|add:'.svg' %}"
              alt="{{ current_lang.language_name }}" class="lang-icon">
         {{ current_lang.language_code }}
-        <span class="arrow-down">▼</span>
+        <span class="arrow-down"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="languageDropdown">
         {% for lang in language_links %}

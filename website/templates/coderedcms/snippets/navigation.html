@@ -1,8 +1,69 @@
-{% load wagtailcore_tags wagtailimages_tags coderedcms_tags i18n static %}
+{% load wagtailcore_tags language_switcher wagtailimages_tags coderedcms_tags i18n static %}
 {% wagtail_site as site %}
 {% django_setting "CRX_DISABLE_LAYOUT" as disable_layout %}
 <style>
-
+        .language-switcher {
+            position: relative;
+            display: inline-block;
+            font-family: Arial, sans-serif;
+        }
+        
+        .dropdown-toggle {
+            background: none;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 14px;
+            padding: 5px;
+            color: #333;
+        }
+        
+        .dropdown-toggle img.lang-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+        
+        .dropdown-toggle .arrow-down {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            background: none;
+            list-style: none;
+            margin: 0;
+            padding: 5px 0;
+            display: none;
+            box-shadow: none;
+            width: max-content;
+        }
+        
+        .dropdown-menu li {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .dropdown-menu li a {
+            text-decoration: none;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        
+        .dropdown-menu li a img.lang-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        
+        .language-switcher:hover .dropdown-menu {
+            display: block;
+        }
+        
+        
 </style>
 <nav data-pgc-define="navigation" data-pgc-define-name="Navigation Bar" data-pgc-define-description="A responsive navigation bar with a logo and menu icon.">
     <div class="container{% if settings.coderedcms.LayoutSettings.navbar_content_fluid %}-fluid{% endif %}">
@@ -18,12 +79,10 @@
                     >Denti<em>Delil</em>
                     {% endif %}
                 </a>
+                {% language_switcher %}
+
             </div>
 
-            <!-- Language Switcher -->
-            <div class="language-switcher">
-                {% include "coderedcms/pages/lang.html" %}
-            </div>
 
             <!-- Menu Icon -->
             <div class="menu-icon">

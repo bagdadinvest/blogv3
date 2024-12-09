@@ -68,6 +68,7 @@
   <link rel="stylesheet" href="{%  static 'home/css/new.css' %}">
   <link rel="stylesheet" href="{%  static 'home/css/chat-mobnav-lang.css' %}">
 
+
   {% endblock %}
 
   {% block favicon %}
@@ -93,7 +94,7 @@
 <body>
   {% wagtailuserbar %}
 {% block navbar %}
-{% include "coderedcms/snippets/navigation.html" %}
+  {% include "coderedcms/snippets/navigation.html" %}
 {% endblock %}
 
     {% block content %}
@@ -165,7 +166,9 @@
     {% endblock %}
   </div>
 
-  {% block footer %}{% endblock %}
+  {% block footer %}
+  {% include "coderedcms/snippets/f2.html" %}
+{% endblock %}
 
   {% block frontend_scripts %}
 
@@ -175,8 +178,6 @@
 
   {% endblock %}
 
-  {% block custom_scripts %}
-  {% endblock %}
 
   {% block struct_seo %}
     {% include "wagtailseo/struct_data.html" %}
@@ -270,29 +271,17 @@
        <script>
 
         </script>
-        <script>
-  (function(d,t) {
-    var BASE_URL="https://app.chatwoot.com";
-    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=BASE_URL+"/packs/js/sdk.js";
-    g.defer = true;
-    g.async = true;
-    s.parentNode.insertBefore(g,s);
-    g.onload=function(){
-      window.chatwootSDK.run({
-        websiteToken: 'dfLzTxVSkiKneqjnBvjrfNLk',
-        baseUrl: BASE_URL
-      })
-    }
-  })(document,"script");
-</script>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
 <script src="{% static 'home/js/vendor/bootstrap.min.js' %}"></script>
 <script src="{% static 'home/js/plugins.js' %}"></script>
 <script src="{% static 'home/js/main.js' %}"></script>
+<script src="{% static 'home/js/header-navbar.js' %}"></script>
+
 <script src="https://app.stammer.ai/static/chatbot/js/chatbubble.js" data-id="505b8b87-4725-4335-bddb-35618a2dfa61" data-domain="https://app.stammer.ai" ></script>
+  {% block custom_scripts %}
+  {% endblock %}
+
 </body>
 
 </html>

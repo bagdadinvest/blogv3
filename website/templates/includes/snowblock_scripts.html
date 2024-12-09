@@ -1,0 +1,76 @@
+{# templates/includes/snowblock_scripts.html #}
+
+<!-- Snowflake Animation Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Function to create a single snowflake
+        function createSnowflake(snowContainer) {
+            const snowflake = document.createElement('div');
+            snowflake.classList.add('snowflake');
+
+            // Random size between 2px and 10px
+            const size = Math.random() * 8 + 2;
+            snowflake.style.width = `${size}px`;
+            snowflake.style.height = `${size}px`;
+
+            // Random horizontal position
+            snowflake.style.left = `${Math.random() * 100}%`;
+
+            snowContainer.appendChild(snowflake);
+
+            // Animate snowflake with GSAP
+            gsap.to(snowflake, {
+                y: '100%', // Move to the bottom of the container
+                x: `+=${Math.random() * 50 - 25}`, // Slight horizontal drift
+                opacity: 0, // Fade out
+                duration: Math.random() * 3 + 2, // Between 2 and 5 seconds
+                ease: 'power1.out',
+                onComplete: () => snowflake.remove(), // Remove after animation
+            });
+        }
+
+        // Function to start generating snowflakes
+        function startSnowflakeAnimation(snowContainer) {
+            // Generate a snowflake every 150ms
+            snowContainer.snowflakeInterval = setInterval(() => {
+                createSnowflake(snowContainer);
+            }, 150);
+        }
+
+        // Function to stop generating snowflakes
+        function stopSnowflakeAnimation(snowContainer) {
+            clearInterval(snowContainer.snowflakeInterval);
+            snowContainer.innerHTML = ''; // Remove existing snowflakes
+        }
+
+        // Select all snow-container elements
+        const snowContainers = document.querySelectorAll('.snow-container');
+
+        // Intersection Observer options
+        const observerOptions = {
+            root: null, // Viewport
+            rootMargin: '0px',
+            threshold: 0.1 // 10% visibility
+        };
+
+        // Callback for Intersection Observer
+        const observerCallback = (entries, observer) => {
+            entries.forEach(entry => {
+                const snowContainer = entry.target;
+                if (entry.isIntersecting) {
+                    startSnowflakeAnimation(snowContainer);
+                } else {
+                    stopSnowflakeAnimation(snowContainer);
+                }
+            });
+        };
+
+        // Create Intersection Observer
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+        // Observe each snow-container
+        snowContainers.forEach(container => {
+            observer.observe(container);
+        });
+    });
+</script>

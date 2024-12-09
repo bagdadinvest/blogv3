@@ -1,0 +1,76 @@
+{% load wagtailcore_tags wagtailimages_tags coderedcms_tags i18n static %}
+{% wagtail_site as site %}
+{% django_setting "CRX_DISABLE_LAYOUT" as disable_layout %}
+
+<footer id="footer" class="footer dark-background">
+
+    <div class="footer-top">
+      <div class="container">
+        <div class="row gy-4">
+          <div class="col-lg-4 col-md-6 footer-about">
+            <a href="index.html" class="logo d-flex align-items-center">
+              <span class="sitename">{% trans "DENTI DELIL" %}</span>
+            </a>
+            <div class="footer-contact pt-3">
+              <p>{% trans "Denti Delil Ağız ve Diş Sağlığı Polikliniği" %}</p>
+              <p>{% trans "Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul" %}</p>
+              <p class="mt-3">
+                <strong>{% trans "Phone:" %}</strong>
+                <a href="https://wa.me/905380546393" target="_blank">+90 538 054 6393</a>
+              </p>
+              <p><strong>{% trans "Email:" %}</strong> <span>dentidelil-international.com</span></p>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-3 footer-links">
+            <h4>{% trans "Useful Links" %}</h4>
+            <ul>
+                <!-- CodeRed CMS Content with Nested Submenus (Blogs Example) -->
+                {% for child_page in site.root_page.get_children.live %}
+                    {% if child_page.title == "Our Blogs" %}
+                    <li>
+                        <button class="accordion-toggle">{% trans "Our Blogs" %}</button>
+                        <ul class="collapsed-list">
+                            {% for blog in child_page.get_children.live %}
+                            <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ child_page.url }}">{{ child_page.title }}</a></li>
+                    {% endif %}
+                {% endfor %}
+              </ul>
+            <div class="col-lg-4 col-md-3 footer-links">
+                <h4>{% trans "Denti Board" %}</h4>
+                <ul>
+                    <li><a href="https://app.dentidelil-international.com/">{% trans "Login" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/signup/">{% trans "Signup" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/TermsofService/">{% trans "Terms of Service" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/flight/">{% trans "Flight" %}</a></li>
+                </ul>
+            </div>
+          </div>
+
+    <div class="copyright text-center">
+      <div class="container d-flex flex-column flex-lg-row justify-content-center justify-content-lg-between align-items-center">
+
+        <div class="d-flex flex-column align-items-center align-items-lg-start">
+          <div>
+            © {% trans "Copyright" %} <strong><span>{% trans "Denti Delil 2024" %}</span></strong>. {% trans "All Rights Reserved" %}
+          </div>
+          <div class="credits">
+          </div>
+        </div>
+
+        <div class="social-links order-first order-lg-last mb-3 mb-lg-0">
+          <a href=""><i class="bi bi-twitter-x"></i></a>
+          <a href=""><i class="bi bi-facebook"></i></a>
+          <a href=""><i class="bi bi-instagram"></i></a>
+          <a href=""><i class="bi bi-linkedin"></i></a>
+        </div>
+
+      </div>
+    </div>
+
+  </footer>

@@ -3,12 +3,13 @@
 {% wagtail_site as site %}
 
 {% block custom_assets %}
-<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.css">
+    {{ block.super }}
+    {# Include Snowflake Styles Once #}
+    {% include 'includes/snowblock_styles.html' %}
 {% endblock %}
-
 {% block extra_head %}
 <style>
+  /* Swiper Medical Tourism Container */
   .swiper-medical-tourism-container {
     width: 80%; /* Adjust width to provide side margins */
     max-width: 600px;
@@ -55,726 +56,653 @@
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-.language-switcher {
-    position: relative;
-    display: inline-block;
-    font-family: Arial, sans-serif;
-}
+  /* Language Switcher */
+  .language-switcher {
+      position: relative;
+      display: inline-block;
+  }
 
-.dropdown-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 14px;
-    padding: 5px;
-    color: #333;
-}
+  .dropdown-toggle {
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      padding: 5px;
+      color: white;
+  }
 
-.dropdown-toggle img.lang-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 5px;
-}
+  .dropdown-toggle img.lang-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+  }
 
-.dropdown-toggle .arrow-down {
-    margin-left: 5px;
-    font-size: 12px;
-}
+  .dropdown-toggle .arrow-down {
+      margin-left: 5px;
+      font-size: 12px;
+  }
 
-.dropdown-menu {
-    position: absolute;
-    background: none;
-    list-style: none;
-    margin: 0;
-    padding: 5px 0;
-    display: none;
-    box-shadow: none;
-    width: max-content;
-}
+  .dropdown-menu {
+      position: absolute;
+      background: white;
+      list-style: none;
+      margin: 0;
+      padding: 5px 0;
+      display: none;
+      box-shadow: none;
+      width: max-content;
+  }
 
-.dropdown-menu li {
-    padding: 5px 10px;
-    cursor: pointer;
-}
+  .dropdown-menu li {
+      padding: 5px 10px;
+      cursor: pointer;
+  }
 
-.dropdown-menu li a {
-    text-decoration: none;
-    color: #333;
-    display: flex;
-    align-items: center;
-}
+  .dropdown-menu li a {
+      text-decoration: none;
+      color: #333;
+      display: flex;
+      align-items: center;
+  }
 
-.dropdown-menu li a img.lang-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-}
+  .dropdown-menu li a img.lang-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+  }
 
-.language-switcher:hover .dropdown-menu {
-    display: block;
-}
-#snow-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none; /* Allow clicks through the snow animation */
-    z-index: 9999; /* Ensure it stays on top */
-}
-
-.snowflake {
-    position: absolute;
-    top: -10px;
-    width: 10px;
-    height: 10px;
-    background: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-}
+  .language-switcher:hover .dropdown-menu {
+      display: block;
+  }
 
 
+  /* Holiday Banner Styling with Fredericka the Great */
+  @import url('https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap');
+
+  .holiday-banner {
+      display: flex;
+      overflow: hidden;
+      background: linear-gradient(90deg, #b22222, #008000);
+      padding: 10px 0;
+      white-space: nowrap;
+      position: relative;
+  }
+
+  .scrolling-content {
+      display: flex;
+      align-items: center;
+      animation: infiniteScroll 20s linear infinite;
+  }
+
+  .banner-text {
+      color: #fff;
+      font-size: 2.5rem;
+      font-family: 'Fredericka the Great', cursive;
+      margin: 0 20px;
+      text-transform: uppercase;
+      animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  @keyframes infiniteScroll {
+      from {
+          transform: translateX(0%);
+      }
+      to {
+          transform: translateX(-100%);
+      }
+  }
+
+  @keyframes glow {
+      from {
+          text-shadow: 0 0 5px #fff, 0 0 10px #ffd700, 0 0 20px #ff6347;
+      }
+      to {
+          text-shadow: 0 0 10px #fff, 0 0 20px #ffd700, 0 0 30px #ff4500;
+      }
+  }
 </style>
 {% endblock %}
 
 {% block content %}
-<div id="snow-container"></div>
-<header id="header" class="header d-flex align-items-center fixed-top">
-    <div class="container-fluid container-xl position-relative d-flex align-items-center">
-
-        <!-- Logo Section -->
-        <a href="index.html" class="logo d-flex align-items-center me-auto">
-            {% if settings.coderedcms.LayoutSettings.logo %}
-                {% image settings.coderedcms.LayoutSettings.logo original format-webp as logo %}
-                <img src="{{ logo.url }}" alt="{{ site.site_name }}">
-            {% else %}
-                {{ site.site_name }}
-            {% endif %}
-        </a>
-
-{% language_switcher %}
-
-
-        <!-- Navigation Menu -->
-        <nav id="navmenu" class="navmenu">
-            <ul>
-                <li><a href="#hero" class="active">{% trans "Home" %}</a></li>
-                <li><a href="#speakers">{% trans "Dentists" %}</a></li>
-                <li><a href="#schedule">{% trans "Schedule" %}</a></li>
-                <li><a href="#venue">{% trans "Clinic" %}</a></li>
-                <li><a href="#hotels">{% trans "Hotels" %}</a></li>
-                <li><a href="#gallery">{% trans "Gallery" %}</a></li>
-
-                <!-- Dropdown Menu -->
-                <li class="dropdown">
-                    <a href="#"><span>{% trans "Our Website" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                    <ul>
-                        {% for child_page in site.root_page.get_children.live %}
-                            {% if child_page.title == "Our Blogs" %}
-                                <li>
-                                    <button class="accordion-toggle">{% trans "Our Blogs" %}</button>
-                                    <ul class="collapsed-list">
-                                        {% for blog in child_page.get_children.live %}
-                                            <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
-                                        {% endfor %}
-                                    </ul>
-                                </li>
-                            {% else %}
-                                <li><a href="{{ child_page.url }}">{{ child_page.title }}</a></li>
-                            {% endif %}
-                        {% endfor %}
-
-                        <!-- Nested Dropdown Example -->
-                        <li class="dropdown">
-                            <a href="#"><span>{% trans "Dentiboard" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
-                            <ul>
-                    <li><a href="https://app.dentidelil-international.com/">{% trans "Login" %}</a></li>
-                    <li><a href="https://app.dentidelil-international.com/signup/">{% trans "Signup" %}</a></li>
-                    <li><a href="https://app.dentidelil-international.com/TermsofService/">{% trans "Terms of Service" %}</a></li>
-                    <li><a href="https://app.dentidelil-international.com/flight/">{% trans "Flight" %}</a></li>
-                            </ul>
-                        </li>
-
-                        <!-- Additional Dropdown Links -->
-                        <li><a href="https://dentidelil-international.com/en/say-hello-to-denti/">{% trans "Say Hello to Denti" %}</a></li>
-                        <li><a href="#">{% trans "Dropdown 3" %}</a></li>
-                        <li><a href="#">{% trans "Dropdown 4" %}</a></li>
-                    </ul>
-                </li>
-
-                <!-- Contact Link -->
-                <li><a href="#contact">{% trans "Contact" %}</a></li>
-            </ul>
-
-            <!-- Mobile Navigation Toggle -->
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-        </nav>
-
-        <!-- Call-to-Action Button -->
-        <a class="cta-btn d-none d-sm-block" href="#buy-tickets">{% trans "Buy Tickets" %}</a>
-    </div>
-</header>
-
-  <main class="main">
-
 <!-- Hero Section -->
 {% if page.hero_section %}
-  <section id="hero" class="hero section dark-background">
-    <img src="{{ page.hero_section.0.value.file.url }}" alt="{{ page.hero_section.0.value.file.url }}" data-aos="fade-in" class="aos-init aos-animate">
+<section id="hero" class="hero section dark-background">
+    {% if page.hero_section.0.value.file %}
+        <img src="{{ page.hero_section.0.value.file.url }}" alt="{% trans 'Hero Image' %}" data-aos="fade-in" class="aos-init aos-animate">
+    {% endif %}
+
+
 
     <div class="container d-flex flex-column align-items-center text-center mt-auto">
         {% for block in page.hero_section %}
             {% if block.block_type == 'title' %}
-            <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">{{ block.value }}</h2>
+                <h2 data-aos="fade-up" data-aos-delay="100" class="aos-init aos-animate">{{ block.value }}</h2>
             {% elif block.block_type == 'subtitle' %}
-            <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate">{{ block.value }}</p>
+                <p data-aos="fade-up" data-aos-delay="200" class="aos-init aos-animate">{{ block.value }}</p>
             {% elif block.block_type == 'button_primary' %}
-            <div data-aos="fade-up" data-aos-delay="300" class="aos-init aos-animate">
-                <a href="{{ block.value.url }}" class="glightbox pulsating-play-btn mt-3">{{ block.value.label }}</a>
+                <div data-aos="fade-up" data-aos-delay="300" class="aos-init aos-animate">
+                    <a href="{{ block.value.url }}" class="glightbox pulsating-play-btn mt-3">{{ block.value.label }}</a>
+                </div>
             {% elif block.block_type == 'button_secondary' %}
                 <a href="{{ block.value.url }}" class="btn btn-secondary">{{ block.value.label }}</a>
             {% endif %}
         {% endfor %}
-
     </div>
-        <!-- About Section -->
-        {% if page.about_section %}
-        <div class="about-info mt-auto position-relative">
-            <div class="container position-relative aos-init aos-animate" data-aos="fade-up">
-                <div class="row">
-                    {% for block in page.about_section %}
+
+    <!-- About Section -->
+    {% if page.about_section %}
+    <div class="about-info mt-auto position-relative">
+        <div class="container position-relative aos-init aos-animate" data-aos="fade-up">
+            <div class="row">
+                {% for block in page.about_section %}
                     {% if block.block_type == 'image' %}
                         <div class="col-md-6">
-                            <img src="{{ block.valuescripts.url }}" alt="{% trans 'About Us' %}" class="img-fluid">
+                            <img src="{{ block.value.image.file.url }}" alt="{% trans 'About Us Image' %}" class="img-fluid">
                         </div>
                     {% elif block.block_type == 'title' %}
-                    <div class="col-lg-6">
+                        <div class="col-lg-6">
                             <h2>{{ block.value }}</h2>
-                              </div>
+                        </div>
                     {% elif block.block_type == 'subtitle' %}
-                    <div class="col-lg-6">
+                        <div class="col-lg-6">
                             <h3>{{ block.value }}</h3>
-                              </div>
+                        </div>
                     {% elif block.block_type == 'text' %}
+                        <div class="col-lg-12">
                             <p>{{ block.value|richtext }}</p>
                         </div>
                     {% endif %}
                 {% endfor %}
-                    {% endif %}
-
-        </div>
-    </div>
-</section>
-{% endif %}
-
-<!-- Gallery Section -->
-{% if page.gallery_section %}
-<section id="gallery" class="gallery section">
-  <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>{% trans "Gallery" %}</h2>
-    <!-- Swiper container -->
-    <div class="swiper-container">
-      <!-- Swiper wrapper -->
-      <div class="swiper-wrapper">
-        {% for block in page.gallery_section %}
-        <div class="swiper-slide">
-          <img src="{{ block.value.file.url }}" alt="{% trans 'Gallery Image' %}" class="img-fluid">
-        </div>
-        {% endfor %}
-      </div>
-      <!-- Swiper navigation buttons -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <!-- Swiper pagination -->
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-{% endif %}
-<!-- Doctors Section -->
-{% if page.dentists_section %}
-<section id="speakers" class="speakers section dark-background">
-      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>{% trans "Our Dentists" %}</h2>
-          </div>
-                  <div class="container">
-
-        <div class="row gy-4">
-          {% for block in page.dentists_section %}
-          <div class="col-xl-3 col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    <div class="member">
-                      {% if block.value.photo %}
-                      <img src="{{ block.value.photo.file.url }}" alt="{{ block.value.name }}" class="img-fluid">
-                      <div class="member-info">
-                <div class="member-info-content">
-                  {% endif %}
-
-                           <h4><a href="{{ block.value.social_link }}">{{ block.value.name }}</a></h4>
-                       <span>{{ block.value.specialty }}<span>
-                       </div>
-                         <div class="social">
-                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-twitter-x"></i></a>
-                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-facebook"></i></a>
-                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-instagram"></i></a>
-                  <a href="https://dentidelil-international.com/en/doctors/" target="_blank" ><i class="bi bi-linkedin"></i></a>
-                </div>
-                    </div>
-                </div>
-                        </div>
-
-            {% endfor %}
-
-    </div>
-       </div>
-                          </section>
-
-{% endif %}
-
-<!-- Patient Journey Section -->
-{% if page.patient_journey_section %}
-<section id="schedule" class="schedule section">
-    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>{% trans "Patient Journey" %}</h2>
-    </div>
-
-    <div class="container">
-        <!-- Navigation Tabs -->
-        <ul class="nav nav-tabs aos-init aos-animate" role="tablist" data-aos="fade-up" data-aos-delay="100">
-            {% for block in page.patient_journey_section %}
-            <li class="nav-item" role="presentation">
-                <a class="nav-link {% if forloop.first %}active{% endif %}"
-                   href="#{{ block.value.day_label|slugify }}"
-                   role="tab"
-                   data-bs-toggle="tab">
-                    {{ block.value.day_label }}
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
-
-        <!-- Tab Content -->
-        <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-            {% for block in page.patient_journey_section %}
-            <div role="tabpanel"
-                 class="col-lg-9 tab-pane fade {% if forloop.first %}show active{% endif %}"
-                 id="{{ block.value.day_label|slugify }}">
-                <div class="row schedule-item justify-content-center">
-                    <div class="col-md-9">
-                        <p>{{ block.value.description|richtext }}</p>
-                    </div>
-                </div>
             </div>
-            {% endfor %}
+
         </div>
     </div>
+    {% endif %}
 </section>
-
 {% endif %}
+
+    <!-- Gallery Section -->
+    {% if page.gallery_section %}
+    <section id="gallery" class="gallery section">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Gallery" %}</h2>
+            <!-- Swiper container -->
+            <div class="swiper-container">
+                <!-- Swiper wrapper -->
+                <div class="swiper-wrapper">
+                    {% for block in page.gallery_section %}
+                        <div class="swiper-slide">
+                            <img src="{{ block.value.file.url }}" alt="{% trans 'Gallery Image' %}" class="img-fluid" loading="lazy">
+                        </div>
+                    {% endfor %}
+                </div>
+                <!-- Swiper navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Swiper pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Doctors Section -->
+    {% if page.dentists_section %}
+    <section id="speakers" class="speakers section dark-background">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Our Dentists" %}</h2>
+        </div>
+        <div class="container">
+            <div class="row gy-4">
+                {% for block in page.dentists_section %}
+                    <div class="col-xl-3 col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                        <div class="member">
+                            {% if block.value.photo %}
+                                <img src="{{ block.value.photo.file.url }}" alt="{{ block.value.name }}" class="img-fluid">
+                            {% endif %}
+                            <div class="member-info">
+                                <div class="member-info-content">
+                                    <h4><a href="{{ block.value.social_link }}">{{ block.value.name }}</a></h4>
+                                    <span>{{ block.value.specialty }}</span>
+                                </div>
+                                <div class="social">
+                                    {% if block.value.twitter %}
+                                        <a href="{{ block.value.twitter }}" target="_blank"><i class="bi bi-twitter"></i></a>
+                                    {% endif %}
+                                    {% if block.value.facebook %}
+                                        <a href="{{ block.value.facebook }}" target="_blank"><i class="bi bi-facebook"></i></a>
+                                    {% endif %}
+                                    {% if block.value.instagram %}
+                                        <a href="{{ block.value.instagram }}" target="_blank"><i class="bi bi-instagram"></i></a>
+                                    {% endif %}
+                                    {% if block.value.linkedin %}
+                                        <a href="{{ block.value.linkedin }}" target="_blank"><i class="bi bi-linkedin"></i></a>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Patient Journey Section -->
+    {% if page.patient_journey_section %}
+    <section id="schedule" class="schedule section">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Patient Journey" %}</h2>
+        </div>
+
+        <div class="container">
+            <ul class="nav nav-tabs aos-init aos-animate" role="tablist" data-aos="fade-up" data-aos-delay="100">
+                {% for block in page.patient_journey_section %}
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.counter }}" data-bs-toggle="tab" data-bs-target="#{{ block.value.day_label|slugify }}" type="button" role="tab" aria-controls="{{ block.value.day_label|slugify }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}">
+                            {{ block.value.day_label }}
+                        </button>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <div class="tab-content row justify-content-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                {% for block in page.patient_journey_section %}
+                    <div class="tab-pane fade {% if forloop.first %}show active{% endif %}" id="{{ block.value.day_label|slugify }}" role="tabpanel" aria-labelledby="tab-{{ forloop.counter }}">
+                        <div class="row schedule-item">
+                            <div class="col-md-12">
+                                <p>{{ block.value.description|richtext }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
 
     <!-- Sponsors Section -->
-<section id="sponsors" class="sponsors section light-background">
-  <!-- Section Title -->
-      <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>{% trans "Partner Brands" %}</h2>
-  </div>
-  <!-- Swiper Container -->
-      <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-    <div class="swiper-container sponsors-swiper">
-      <div class="swiper-wrapper">
-        {% get_sponsors as sponsors %}
-        {% for sponsor in sponsors %}
-        <div class="swiper-slide">
-          {% if sponsor.link %}
-          <a href="{{ sponsor.link }}" target="_blank">
-            <img src="{{ sponsor.logo.file.url }}" class="img-fluid" alt="{{ sponsor.name }}">
-          </a>
-          {% else %}
-          <img src="{{ sponsor.logo.file.url }}" class="img-fluid" alt="{{ sponsor.name }}">
-          {% endif %}
+    <section id="sponsors" class="sponsors section light-background">
+        <!-- Section Title -->
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Partner Brands" %}</h2>
         </div>
-        {% endfor %}
-      </div>
-      <!-- Add Navigation -->
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <!-- Add Pagination -->
-      <div class="swiper-pagination"></div>
-    </div>
-  </div>
-</section>
-
-<!-- Clinics Section -->
-{% load wagtailimages_tags %}
-
-{% if page.clinics_section %}
-<section id="venue" class="venue section">
-    <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>{% trans "Our Clinics" %}</h2>
-        <div class="row">
-            {% for block in page.clinics_section %}
-            <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
-                <div class="row g-0">
-                    <div class="col-lg-6 venue-map">
-                        <!-- Map Link -->
-                        {% if block.value.map_link %}
-                        <iframe src="{{ block.value.map_link }}"
-                                width="300" height="300" style="border:0;"
-                                allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade">
-                        </iframe>
-                        {% endif %}
-                    </div>
-                    <div class="col-lg-6">
-                        <!-- Resized Image -->
-                        {% if block.value.image %}
-                            {% image block.value.image width-500 as resized_image %}
-                            <img src="{{ resized_image.url }}" alt="{{ block.value.name }}" class="img-fluid">
-                        {% else %}
-                            <p>{% trans "No image available." %}</p>
-                        {% endif %}
-
-                        <!-- Clinic Details -->
-                        <h3>{{ block.value.name }}</h3>
-                        <p>{{ block.value.location }}</p>
-                        <p>{{ block.value.description }}</p>
-                    </div>
-                </div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-{% endif %}
-
-<section id="hotels" class="hotels section">
-<div class="medical-tourism-hotels">
-  {% with hotels=self.get_medical_hotels %}
-  <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>{% trans "Partner Hotels" %}</h2>
-            <p>{% trans "Hotel accomodation is included in most of our packages(*). all you have to do is pick your spot! " %} </p>
-
-  </div>
-          <div class="row gy-4">
-
-    {% for hotel in hotels %}
-    <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-            <div class="card h-100">
-
-    <div class="hotel-card">
-
-      <!-- Swiper Container -->
-      <div id="swiper-medical-tourism-{{ forloop.counter }}" class="swiper-medical-tourism-container">
-        <div class="swiper-wrapper">
-          {% for image_block in hotel.images %}
-          <div class="swiper-slide medical-tourism-slide">
-            {% image image_block.value fill-600x450 format-webp as img %}
-            <img src="{{ img.url }}" alt="{{ img.title }}">
-          </div>
-          <hr>
-          {% endfor %}
-        </div>
-        <!-- Swiper Controls -->
-        <div class="swiper-button-next medical-tourism-button-next"></div>
-        <div class="swiper-button-prev medical-tourism-button-prev"></div>
-      </div>
-                  </div>
-              <h3><a href="#">{{ hotel.title }}</a></h3>
-              <div class="stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
-              <p>{% trans "0.4 Mile from the the Grand Bazaar" %}</p>
-            </div>
+        <!-- Swiper Container -->
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="swiper-container sponsors-swiper">
+                <div class="swiper-wrapper">
+                    {% get_sponsors as sponsors %}
+                    {% for sponsor in sponsors %}
+                        <div class="swiper-slide">
+                            {% if sponsor.link %}
+                                <a href="{{ sponsor.link }}" target="_blank">
+                                    <img src="{{ sponsor.logo.file.url }}" class="img-fluid" alt="{{ sponsor.name }}" loading="lazy">
+                                </a>
+                            {% else %}
+                                <img src="{{ sponsor.logo.file.url }}" class="img-fluid" alt="{{ sponsor.name }}" loading="lazy">
+                            {% endif %}
                         </div>
-    {% endfor %}
+                    {% endfor %}
+                </div>
+                <!-- Add Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
 
-    </div>
-  {% endwith %}
-</div>
-</section>
+    <!-- Clinics Section -->
+    {% if page.clinics_section %}
+    <section id="venue" class="venue section">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Our Clinics" %}</h2>
+        </div>
+        <div class="container">
+            <div class="row">
+                {% for block in page.clinics_section %}
+                    <div class="container-fluid aos-init aos-animate" data-aos="fade-up">
+                        <div class="row g-0">
+                            <div class="col-lg-6 venue-map">
+                                <!-- Map Link -->
+                                {% if block.value.map_link %}
+                                    <iframe src="{{ block.value.map_link }}"
+                                            width="300" height="300" style="border:0;"
+                                            allowfullscreen="" loading="lazy"
+                                            referrerpolicy="no-referrer-when-downgrade">
+                                    </iframe>
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-6">
+                                <!-- Resized Image -->
+                                {% if block.value.image %}
+                                    {% image block.value.image width-500 as resized_image %}
+                                    <img src="{{ resized_image.url }}" alt="{{ block.value.name }}" class="img-fluid" loading="lazy">
+                                {% else %}
+                                    <p>{% trans "No image available." %}</p>
+                                {% endif %}
 
-<!-- Pricing Section -->
-<section id="buy-tickets" class="buy-tickets section light-background">
-<div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2>{% trans "Our Packages" %}</h2>
-              </div>
-      <div class="container">
-            {% for block in page.pricing_section %}
-        <div class="row gy-4 pricing-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-          <div class="col-lg-3 d-flex align-items-center justify-content-center">
-                        <h3>{{ block.value.title }}</h3>
+                                <!-- Clinic Details -->
+                                <h3>{{ block.value.name }}</h3>
+                                <p>{{ block.value.location }}</p>
+                                <p>{{ block.value.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Hotels Section -->
+    <section id="hotels" class="hotels section">
+        <div class="medical-tourism-hotels">
+            {% with hotels=self.get_medical_hotels %}
+                <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+                    <h2>{% trans "Partner Hotels" %}</h2>
+                    <p>{% trans "Hotel accommodation is included in most of our packages(*). All you have to do is pick your spot!" %}</p>
+                </div>
+                <div class="row gy-4">
+                    {% for hotel in hotels %}
+                        <div class="col-lg-4 col-md-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                            <div class="card h-100">
+                                <div class="hotel-card">
+                                    <!-- Swiper Container -->
+                                    <div id="swiper-medical-tourism-{{ forloop.counter }}" class="swiper-medical-tourism-container">
+                                        <div class="swiper-wrapper">
+                                            {% for image_block in hotel.images %}
+                                                <div class="swiper-slide medical-tourism-slide">
+                                                    {% image image_block.value fill-600x450 format-webp as img %}
+                                                    <img src="{{ img.url }}" alt="{{ img.title }}" loading="lazy">
+                                                </div>
+                                            {% endfor %}
                                         </div>
-          <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                                        <!-- Swiper Controls -->
+                                        <div class="swiper-button-next medical-tourism-button-next"></div>
+                                        <div class="swiper-button-prev medical-tourism-button-prev"></div>
+                                    </div>
+                                </div>
+                                <h3><a href="#">{{ hotel.title }}</a></h3>
+                                <div class="stars">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <p>{% trans "0.4 Mile from the Grand Bazaar" %}</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endwith %}
+        </div>
+    </section>
 
+    <!-- Pricing Section -->
+    <section id="buy-tickets" class="buy-tickets section light-background">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Our Packages" %}</h2>
+        </div>
+        <div class="container">
+            {% for block in page.pricing_section %}
+                <div class="row gy-4 pricing-item aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="col-lg-3 d-flex align-items-center justify-content-center">
+                        <h3>{{ block.value.title }}</h3>
+                    </div>
+                    <div class="col-lg-3 d-flex align-items-center justify-content-center">
                         <h4>{{ block.value.price }}</h4>
-                                  </div>
-          <div class="col-lg-3 d-flex align-items-center justify-content-center">
-
+                    </div>
+                    <div class="col-lg-3 d-flex align-items-center justify-content-center">
                         <ul>
                             {% for feature in block.value.features %}
-                                <li> <li><i class="bi bi-check"></i>{{ feature }}</li>
+                                <li><i class="bi bi-check"></i> {{ feature }}</li>
                             {% endfor %}
                         </ul>
                     </div>
                     <div class="col-lg-3 d-flex align-items-center justify-content-center">
-            <div class="text-center"><a href="{{ block.value.cta_url }}" class="buy-btn">{{ block.value.cta_label }}</a></div>
-          </div>
-                </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<!-- FAQ Section -->
-{% if page.faq_section %}
-<section id="faq" class="faq-section">
-<div class="container section-title aos-init aos-animate" data-aos="fade-up">
-        <h2 class=>{% trans "Frequently Asked Questions" %}</h2>
-              </div>
-              <div class="container">
-                      <div class="row justify-content-center">
-          <div class="col-lg-10 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-                    {% for block in page.faq_section %}
-
-              <div class="faq-item">
-
-        <div class="accordion" id="faqAccordion">
-                <div class="accordion-item">
-                    <h2 class="accordion-header" id="heading{{ forloop.counter }}">
-                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="false" aria-controls="collapse{{ forloop.counter }}">
-                            {{ block.value.question }}
-                        </button>
-                    </h2>
-                    <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
-                        <div class="accordion-body">
-                            {{ block.value.answer|richtext }}
+                        <div class="text-center">
+                            <a href="{{ block.value.cta_url }}" class="buy-btn">{{ block.value.cta_label }}</a>
                         </div>
                     </div>
                 </div>
             {% endfor %}
         </div>
-    </div>
-</section>
-{% endif %}
+    </section>
 
-
-
-<section id="contact" class="contact section">
-
-  <!-- Section Title -->
-  <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-    <h2>{% trans "Contact" %}</h2>
-    <p>{% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit" %}</p>
-  </div><!-- End Section Title -->
-
-  <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
-
-    <div class="row gy-4">
-
-      <div class="col-lg-6">
-        <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
-          <i class="bi bi-geo-alt"></i>
-          <h3>{% trans "Address" %}</h3>
-          <p>{% trans "Denti Delil Ağız ve Diş Sağlığı Polikliniği" %}</p>
+    <!-- FAQ Section -->
+    {% if page.faq_section %}
+    <section id="faq" class="faq-section">
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Frequently Asked Questions" %}</h2>
         </div>
-      </div><!-- End Info Item -->
-
-      <div class="col-lg-3 col-md-6">
-        <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-          <i class="bi bi-telephone"></i>
-          <h3>{% trans "Call Us" %}</h3>
-    <a href="https://wa.me/905380546393" target="_blank">+90 538 054 6393</a>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="accordion" id="faqAccordion">
+                        {% for block in page.faq_section %}
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                                    <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="collapse{{ forloop.counter }}">
+                                        {{ block.value.question }}
+                                    </button>
+                                </h2>
+                                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
+                                    <div class="accordion-body">
+                                        {{ block.value.answer|richtext }}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
         </div>
-      </div><!-- End Info Item -->
-
-      <div class="col-lg-3 col-md-6">
-        <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
-          <i class="bi bi-envelope"></i>
-          <h3>{% trans "Email Us" %}</h3>
-          <p>info@example.com</p>
-        </div>
-      </div><!-- End Info Item -->
-
-    </div>
-
-    <div class="row gy-4 mt-1">
-      <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2543.8015109751623!2d28.83575886506481!3d41.054409714483285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa541c60f960b%3A0xff53e79679b30e8b!2zRGVudGkgRGVsaWwgQcSfxLF6IHZlIERpxZ8gU2HEn2zEscSfxLEgUG9saWtsaW5pxJ9pIEJhxJ9jxLFsYXIgxZ91YmVzaQ!5e0!3m2!1sen!2str!4v1732614207990!5m2!1sen!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>      </div><!-- End Google Maps -->
-
-{% if page.form_live %}
-      <div class="col-lg-6">
-      <form class="{{ page.form_css_class }}" id="{{ page.form_id }}" action="{% pageurl self %}" method="POST" {% if form|is_file_form %}enctype="multipart/form-data"{% endif %} data-aos="fade-up" data-aos-delay="400">
-    {% csrf_token %}
-    {% bootstrap_form form layout="horizontal" %}
-          <div class="row gy-4">
-
-    {% block captcha %}
-    {% if page.spam_protection %}
-    {% include "coderedcms/includes/form_honeypot.html" %}
+    </section>
     {% endif %}
-    {% endblock %}
 
-      <div class="{{'horizontal_label_class'|bootstrap_settings}}"></div>
-      <div class="{{'horizontal_field_class'|bootstrap_settings}}">
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+        <!-- Section Title -->
+        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
+            <h2>{% trans "Contact" %}</h2>
+            <p>{% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit" %}</p>
+        </div><!-- End Section Title -->
 
-                  <div class="col-md-12 text-center">
+        <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
+            <div class="row gy-4">
+                <div class="col-lg-6">
+                    <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="200">
+                        <i class="bi bi-geo-alt"></i>
+                        <h3>{% trans "Address" %}</h3>
+                        <p>{% trans "Denti Delil Ağız ve Diş Sağlığı Polikliniği" %}</p>
+                    </div>
+                </div><!-- End Info Item -->
 
-        <button type="submit" class="btn {{page.button_size}} {{page.button_style}} {{page.button_css_class}}">
-          {{ page.button_text }}
-        </button>
-      </div>
-    </div>
-  </form>
-</div>
-{% endif %}
-    </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                        <i class="bi bi-telephone"></i>
+                        <h3>{% trans "Call Us" %}</h3>
+                        <a href="https://wa.me/905380546393" target="_blank">+90 538 054 6393</a>
+                    </div>
+                </div><!-- End Info Item -->
 
-  </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="info-item d-flex flex-column justify-content-center align-items-center aos-init aos-animate" data-aos="fade-up" data-aos-delay="400">
+                        <i class="bi bi-envelope"></i>
+                        <h3>{% trans "Email Us" %}</h3>
+                        <p>info@example.com</p>
+                    </div>
+                </div><!-- End Info Item -->
+            </div>
 
-</section>
+            <div class="row gy-4 mt-1">
+                <div class="col-lg-6 aos-init aos-animate" data-aos="fade-up" data-aos-delay="300">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2543.8015109751623!2d28.83575886506481!3d41.054409714483285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa541c60f960b%3A0xff53e79679b30e8b!2zRGVudGkgRGVsaWwgQcSfxLF6IHZlIERpxZ8gU2HEn2zEscSfxLEgUG9saWtsaW5pxJ9pIEJhxJ9jxLFsYXIgxZ91YmVzaQ!5e0!3m2!1sen!2str!4v1732614207990!5m2!1sen!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div><!-- End Google Maps -->
+
+                {% if page.form_live %}
+                <div class="col-lg-6">
+                    <form class="{{ page.form_css_class }}" id="{{ page.form_id }}" action="{% pageurl self %}" method="POST" {% if form|is_file_form %}enctype="multipart/form-data"{% endif %} data-aos="fade-up" data-aos-delay="400">
+                        {% csrf_token %}
+                        {% bootstrap_form form layout="horizontal" %}
+                        <div class="row gy-4">
+                            {% block captcha %}
+                                {% if page.spam_protection %}
+                                    {% include "coderedcms/includes/form_honeypot.html" %}
+                                {% endif %}
+                            {% endblock %}
+                            <div class="{{'horizontal_label_class'|bootstrap_settings}}"></div>
+                            <div class="{{'horizontal_field_class'|bootstrap_settings}}">
+                                <div class="col-md-12 text-center">
+                                    <button type="submit" class="btn {{page.button_size}} {{page.button_style}} {{page.button_css_class}}">
+                                        {{ page.button_text }}
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+</main>
 {% endblock %}
 
 {% block custom_scripts %}
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-<script>
-    document.addEventListener('DOM<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- Swiper Library -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
-ContentLoaded', function () {
-        const dropdownButton = document.getElementById('languageDropdown'); // Button for toggling dropdown
-        const dropdownMenu = dropdownButton.nextElementSibling; // The associated dropdown menu
+    <!-- Dropdown Functionality for Language Selector -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownButton = document.getElementById('languageDropdown'); // Button for toggling dropdown
+            if (dropdownButton) { // Ensure the element exists
+                const dropdownMenu = dropdownButton.nextElementSibling; // The associated dropdown menu
 
-        // Toggle dropdown visibility on button click
-        dropdownButton.addEventListener('click', function (e) {
-            e.stopPropagation(); // Prevent click from propagating to document
-            dropdownMenu.classList.toggle('show'); // Toggle "show" class to control visibility
+                // Toggle dropdown visibility on button click
+                dropdownButton.addEventListener('click', function (e) {
+                    e.stopPropagation(); // Prevent click from propagating to document
+                    dropdownMenu.classList.toggle('show'); // Toggle "show" class to control visibility
+                });
+
+                // Hide dropdown when clicking outside of it
+                document.addEventListener('click', function () {
+                    dropdownMenu.classList.remove('show'); // Remove "show" class
+                });
+            }
         });
+    </script>
 
-        // Hide dropdown when clicking outside of it
-        document.addEventListener('click', function () {
-            dropdownMenu.classList.remove('show'); // Remove "show" class
+
+
+    <!-- Dropdown Functionality for Other Dropdowns -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(function(dropdown) {
+                const toggleButton = dropdown.querySelector('.dropdown-toggle');
+                const menu = dropdown.querySelector('.dropdown-menu');
+
+                if (toggleButton && menu) {
+                    toggleButton.addEventListener('click', function (e) {
+                        e.stopPropagation();
+                        dropdown.classList.toggle('show');
+                    });
+                }
+            });
+
+            document.addEventListener('click', function () {
+                dropdowns.forEach(function(dropdown) {
+                    dropdown.classList.remove('show');
+                });
+            });
         });
-    });
-</script>
+    </script>
 
-
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const snowContainer = document.getElementById('snow-container');
-
-    function createSnowflake() {
-        const snowflake = document.createElement('div');
-        snowflake.classList.add('snowflake');
-
-        // Set random size and position
-        const size = Math.random() * 8 + 2; // Random size between 2px and 10px
-        snowflake.style.width = `${size}px`;
-        snowflake.style.height = `${size}px`;
-        snowflake.style.left = `${Math.random() * 100}vw`; // Random horizontal position
-
-        snowContainer.appendChild(snowflake);
-
-        // Animate with GSAP
-        gsap.to(snowflake, {
-            y: '100vh', // Fall down the entire height of the viewport
-            x: `+=${Math.random() * 50 - 25}`, // Slight horizontal drift
-            opacity: 0, // Fade out at the end
-            duration: Math.random() * 3 + 2, // Random fall duration between 2 and 5 seconds
-            ease: 'power1.out',
-            onComplete: () => snowflake.remove(), // Remove snowflake after animation
+    <!-- Swiper Initialization for Medical Tourism Hotels -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const swiperContainers = document.querySelectorAll('.swiper-medical-tourism-container');
+            swiperContainers.forEach((swiperContainer) => {
+                new Swiper(swiperContainer, {
+                    effect: 'cards', // Ensure this effect is supported
+                    grabCursor: true, // Enable grab cursor
+                    navigation: {
+                        nextEl: swiperContainer.querySelector('.medical-tourism-button-next'),
+                        prevEl: swiperContainer.querySelector('.medical-tourism-button-prev'),
+                    },
+                    // Additional configurations if needed
+                });
+            });
         });
-    }
+    </script>
 
-    // Generate snowflakes continuously
-    setInterval(createSnowflake, 150); // Add a new snowflake every 150ms
-});
-</script>
+    <!-- Swiper Initialization for Sponsors -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            new Swiper('.sponsors-swiper', {
+                slidesPerView: 3,
+                spaceBetween: 30,
+                loop: true,
+                navigation: {
+                    nextEl: '.sponsors-swiper .swiper-button-next',
+                    prevEl: '.sponsors-swiper .swiper-button-prev',
+                },
+                pagination: {
+                    el: '.sponsors-swiper .swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 1, spaceBetween: 20 },
+                    768: { slidesPerView: 2, spaceBetween: 30 },
+                    1024: { slidesPerView: 3, spaceBetween: 40 },
+                },
+            });
+        });
+    </script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdown = document.querySelector('.dropdown');
-    dropdown.addEventListener('click', function (e) {
-        e.stopPropagation();
-        const menu = this.querySelector('.dropdown-menu');
-        menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
-    });
+    <!-- Swiper Initialization for Generic Swiper Containers -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const swipers = document.querySelectorAll('.swiper-container');
+            swipers.forEach((swiperElement) => {
+                new Swiper(swiperElement, {
+                    // Enable automatic height adjustment
+                    autoHeight: true,
 
-    document.addEventListener('click', function () {
-        const menus = document.querySelectorAll('.dropdown-menu');
-        menus.forEach(menu => menu.style.display = 'none');
-    });
-});
-</script>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-  // Initialize Swiper for medical tourism hotels
-  document.querySelectorAll('.swiper-medical-tourism-container').forEach((swiperContainer) => {
-    new Swiper(swiperContainer, {
-      effect: 'cards', // Cards effect
-      grabCursor: true, // Enable grab cursor
-      navigation: {
-        nextEl: swiperContainer.querySelector('.medical-tourism-button-next'),
-        prevEl: swiperContainer.querySelector('.medical-tourism-button-prev'),
-      },
-    });
-  });
-});
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    new Swiper('.sponsors-swiper', {
-      slidesPerView: 3,
-      spaceBetween: 30,
-      loop: true,
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      breakpoints: {
-        640: { slidesPerView: 1, spaceBetween: 20 },
-        768: { slidesPerView: 2, spaceBetween: 30 },
-        1024: { slidesPerView: 3, spaceBetween: 40 },
-      },
-    });
-  });
-</script>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const swiper = new Swiper('.swiper-container', {
-      // Enable automatic height adjustment
-      autoHeight: true,
-
-      // Additional Swiper configuration
-      loop: true,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      slidesPerView: 1, // Display one slide at a time
-      spaceBetween: 10,
-      breakpoints: {
-        768: {
-          slidesPerView: 2,
-        },
-        480: {
-          slidesPerView: 1,
-        },
-      },
-    });
-  });
-</script>
+                    // Additional Swiper configuration
+                    loop: true,
+                    pagination: {
+                        el: swiperElement.querySelector('.swiper-pagination'),
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: swiperElement.querySelector('.swiper-button-next'),
+                        prevEl: swiperElement.querySelector('.swiper-button-prev'),
+                    },
+                    autoplay: {
+                        delay: 3000,
+                        disableOnInteraction: false,
+                    },
+                    slidesPerView: 1, // Display one slide at a time
+                    spaceBetween: 10,
+                    breakpoints: {
+                        480: {
+                            slidesPerView: 1,
+                        },
+                        768: {
+                            slidesPerView: 2,
+                        },
+                        // Add more breakpoints as needed
+                    },
+                });
+            });
+        });
+    </script>
 {% endblock %}

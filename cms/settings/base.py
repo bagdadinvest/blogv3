@@ -181,9 +181,12 @@ WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ('pt', 'Portuguese'),
     ('hu', 'Hungarian'),
     ('ru', 'Russian'),
-
-
+    ('ar', 'Arabic'),        # Added Arabic
+    ('de', 'German'),        # Added German
+    ('bg', 'Bulgarian'),     # Added Bulgarian
+    ('nl', 'Dutch'),         # Added Dutch
 ]
+
 
 
 # Static files (CSS, JavaScript, Images)
@@ -200,7 +203,7 @@ STATIC_URL = "/static/"
 MEDIA_ROOT = BASE_DIR / "media"
 MEDIA_URL = "/media/"
 
-
+WAGTAIL_CACHE = True
 # Login
 
 LOGIN_URL = "wagtailadmin_login"

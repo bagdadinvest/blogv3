@@ -1,3 +1,4 @@
+
 {% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags %}
 {% get_settings %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -5,7 +6,7 @@
 {% django_setting "CRX_DISABLE_ANALYTICS" as disable_analytics %}
 {% django_setting "CRX_DISABLE_LAYOUT" as disable_layout %}
 <!doctype html>
-<html prefix="og: http://ogp.me/ns#" lang="{{ LANGUAGE_CODE }}">
+<html prefix="og: http://ogp.me/ns#" lang="{{ LANGUAGE_CODE }}" dir="{% if LANGUAGE_CODE == 'ar' %}rtl{% else %}ltr{% endif %}">
 
 <head>
   {% block tracking %}
@@ -55,27 +56,27 @@
 
   {% block frontend_assets %}
 
-
-  {% endblock %}
-
   <link rel="apple-touch-icon" href="{% static 'home/apple-icon.png' %}">
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
-  
+
   <!-- Vendor CSS Files -->
   <link href="{% static 'service2/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
   <link href="{% static 'service2/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
   <link href="{% static 'service2/vendor/aos/aos.css' %}" rel="stylesheet">
   <link href="{% static 'service2/vendor/glightbox/css/glightbox.min.css' %}" rel="stylesheet">
   <link href="{% static 'service2/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
-  
+
   <!-- Main CSS File -->
 
 
   <link href="{% static 'service2/css/main.css' %}" rel="stylesheet">
+  {% endblock %}
 
-  {% block custom_assets %} 
+
+
+  {% block custom_assets %}
 
   {% endblock %}
 
@@ -106,7 +107,9 @@
 
   {% wagtailuserbar %}
 
-  {% block navbar %}{% endblock %}
+  {% block navbar %}
+  {% include "coderedcms/snippets/n2.html" %}
+{% endblock %}
 
   <div id="content">
     {% block content %}
@@ -188,7 +191,19 @@
   {% endblock %}
 
   {% block frontend_scripts %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="js/service2/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+{% load static %}
 
+<!-- Vendor JS Files -->
+<script src="{% static 'service2/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'service2/vendor/php-email-form/validate.js' %}"></script>
+<script src="{% static 'service2/vendor/aos/aos.js' %}"></script>
+<script src="{% static 'service2/vendor/glightbox/js/glightbox.min.js' %}"></script>
+<script src="{% static 'service2/vendor/swiper/swiper-bundle.min.js' %}"></script>
+
+<!-- Main JS File -->
+<script src="{% static 'service2/js/main.js' %}"></script>
   {% endblock %}
 
 
@@ -220,37 +235,8 @@
   {% endif %}
   {% endblock %}
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="js/service2/vendor/jquery-1.11.2.min.js"><\/script>')</script>
-{% load static %}
 
-<!-- Vendor JS Files -->
-<script src="{% static 'service2/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'service2/vendor/php-email-form/validate.js' %}"></script>
-<script src="{% static 'service2/vendor/aos/aos.js' %}"></script>
-<script src="{% static 'service2/vendor/glightbox/js/glightbox.min.js' %}"></script>
-<script src="{% static 'service2/vendor/swiper/swiper-bundle.min.js' %}"></script>
-
-<!-- Main JS File -->
-<script src="{% static 'service2/js/main.js' %}"></script>
 <script src="https://app.stammer.ai/static/chatbot/js/chatbubble.js" data-id="505b8b87-4725-4335-bddb-35618a2dfa61" data-domain="https://app.stammer.ai" ></script>
-<script>
-  (function(d,t) {
-    var BASE_URL="https://app.chatwoot.com";
-    var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-    g.src=BASE_URL+"/packs/js/sdk.js";
-    g.defer = true;
-    g.async = true;
-    s.parentNode.insertBefore(g,s);
-    g.onload=function(){
-      window.chatwootSDK.run({
-        websiteToken: 'dfLzTxVSkiKneqjnBvjrfNLk',
-        baseUrl: BASE_URL
-      })
-    }
-  })(document,"script");
-</script>
-
 </body>
 
 </html>

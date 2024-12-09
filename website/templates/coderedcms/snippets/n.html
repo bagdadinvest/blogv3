@@ -1,0 +1,134 @@
+{% load coderedcms_tags i18n static language_switcher wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar wagtailsnippets_tags django_bootstrap5 %}
+{% wagtail_site as site %}
+
+
+<style>
+.language-switcher {
+    position: relative;
+    display: inline-block;
+    font-family: Arial, sans-serif;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 5px;
+    color: #333;
+}
+
+.dropdown-toggle img.lang-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.dropdown-toggle .arrow-down {
+    margin-left: 5px;
+    font-size: 12px;
+}
+
+.dropdown-menu {
+    position: absolute;
+    background: none;
+    list-style: none;
+    margin: 0;
+    padding: 5px 0;
+    display: none;
+    box-shadow: none;
+    width: max-content;
+}
+
+.dropdown-menu li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.dropdown-menu li a {
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu li a img.lang-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+}
+
+.language-switcher:hover .dropdown-menu {
+    display: block;
+}
+
+</style>
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center">
+
+        <!-- Logo Section -->
+        <a href="index.html" class="logo d-flex align-items-center me-auto">
+            {% if settings.coderedcms.LayoutSettings.logo %}
+                {% image settings.coderedcms.LayoutSettings.logo original format-webp as logo %}
+                <img src="{{ logo.url }}" alt="{{ site.site_name }}">
+            {% else %}
+                {{ site.site_name }}
+            {% endif %}
+        </a>
+
+{% language_switcher %}
+
+
+        <!-- Navigation Menu -->
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li>
+                    <a href="#"><span>{% trans "Our Website" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                        {% for child_page in site.root_page.get_children.live %}
+                            {% if child_page.title == "Our Blogs" %}
+                                <li>
+                                    <button class="accordion-toggle">{% trans "Our Blogs" %}</button>
+                                    <ul class="collapsed-list">
+                                        {% for blog in child_page.get_children.live %}
+                                            <li><a href="{{ blog.url }}">{{ blog.title }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                            {% else %}
+                                <li><a href="{{ child_page.url }}">{{ child_page.title }}</a></li>
+                            {% endif %}
+                        {% endfor %}
+
+                        <!-- Nested Dropdown Example -->
+                        <li class="dropdown">
+                            <a href="#"><span>{% trans "Dentiboard" %}</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <ul>
+                    <li><a href="https://app.dentidelil-international.com/">{% trans "Login" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/signup/">{% trans "Signup" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/TermsofService/">{% trans "Terms of Service" %}</a></li>
+                    <li><a href="https://app.dentidelil-international.com/flight/">{% trans "Flight" %}</a></li>
+                            </ul>
+                        </li>
+
+                        <!-- Additional Dropdown Links -->
+                        <li><a href="https://dentidelil-international.com/en/say-hello-to-denti/">{% trans "Say Hello to Denti" %}</a></li>
+                        <li><a href="#">{% trans "Dropdown 3" %}</a></li>
+                        <li><a href="#">{% trans "Dropdown 4" %}</a></li>
+                    </ul>
+                </li>
+
+                <!-- Contact Link -->
+                <li><a href="#contact">{% trans "Contact" %}</a></li>
+            </ul>
+
+            <!-- Mobile Navigation Toggle -->
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
+
+        <!-- Call-to-Action Button -->
+        <a class="cta-btn d-none d-sm-block" href="#buy-tickets">{% trans "Christmas Sale!" %}</a>
+    </div>
+</header>
