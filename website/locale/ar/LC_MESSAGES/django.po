@@ -8,385 +8,508 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 23:23+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2024-12-10 04:38+0000\n"
+"PO-Revision-Date: 2024-12-10 08:34+0300\n"
+"Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+"X-Translated-Using: django-rosetta 0.10.1\n"
+
 #: templates/coderedcms/blocks/film_strip_block.html:28
 msgid "Previous"
-msgstr ""
+msgstr "سابق"
 
 #: templates/coderedcms/blocks/film_strip_block.html:31
 msgid "Next"
-msgstr ""
+msgstr "مقبل"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:5
 msgid "Filter by"
-msgstr ""
+msgstr "تصفية حسب"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:11
 msgid "Filter"
-msgstr ""
+msgstr "راووق"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:12
 #: templates/coderedcms/includes/classifier_nav.html:6
 msgid "All"
-msgstr ""
+msgstr "كل"
 
 #: templates/coderedcms/includes/form_honeypot.html:3
 msgid "Leave this blank if you are a human"
-msgstr ""
+msgstr "اترك هذا فارغا إذا كنت إنسانا"
 
 #: templates/coderedcms/includes/iframe_gmap.html:5
 msgid "Map of"
-msgstr ""
+msgstr "خريطة"
 
 #: templates/coderedcms/pages/article_page.html:19
 #: templates/coderedcms/pages/article_pagemk.html:19
 msgid "Blog Image"
-msgstr ""
+msgstr "صورة المدونة"
 
 #: templates/coderedcms/pages/article_page.html:34
 #: templates/coderedcms/pages/article_pagemk.html:37
 #: templates/coderedcms/pages/custom_article_page.html:40
 msgid "Back to Blog"
-msgstr ""
+msgstr "العودة إلى المدونة"
 
 #: templates/coderedcms/pages/article_page.html:46
 #: templates/coderedcms/pages/article_pagemk.html:47
 #: templates/coderedcms/pages/custom_article_page.html:52
 #: templates/coderedcms/pages/custom_location_page.html:57
 msgid "Tags:"
-msgstr ""
+msgstr "العلامات:"
 
 #: templates/coderedcms/pages/article_page.html:99
 #: templates/coderedcms/pages/article_pagemk.html:69
 #: templates/coderedcms/pages/custom_article_page.html:74
 #: templates/coderedcms/pages/custom_location_page.html:110
 msgid "Search..."
-msgstr ""
+msgstr "بحث..."
 
 #: templates/coderedcms/pages/article_page.html:104
 #: templates/coderedcms/pages/article_pagemk.html:74
 #: templates/coderedcms/pages/custom_article_page.html:81
 #: templates/coderedcms/pages/custom_location_page.html:115
 msgid "Quick Links"
-msgstr ""
+msgstr "روابط سريعة"
 
 #: templates/coderedcms/pages/article_page.html:107
 #: templates/coderedcms/pages/article_pagemk.html:77
+#: templates/coderedcms/pages/bkp/service2.html:163
 #: templates/coderedcms/pages/custom_article_page.html:84
 #: templates/coderedcms/pages/custom_location_page.html:118
-#: templates/coderedcms/pages/service2.html:71
+#: templates/coderedcms/snippets/n2.html:24
 msgid "Home"
-msgstr ""
+msgstr "وطن"
 
 #: templates/coderedcms/pages/article_page.html:108
 #: templates/coderedcms/pages/article_pagemk.html:78
+#: templates/coderedcms/pages/bkp/service2.html:256
 #: templates/coderedcms/pages/custom_article_page.html:85
 #: templates/coderedcms/pages/custom_location_page.html:119
-#: templates/coderedcms/pages/service2.html:134
 msgid "About Us"
-msgstr ""
+msgstr "من نحن"
 
 #: templates/coderedcms/pages/article_page.html:109
 #: templates/coderedcms/pages/article_pagemk.html:79
 #: templates/coderedcms/pages/custom_article_page.html:86
 #: templates/coderedcms/pages/custom_location_page.html:120
 msgid "Denti-Board"
-msgstr ""
+msgstr "دينتي بورد"
 
 #: templates/coderedcms/pages/article_page.html:110
 #: templates/coderedcms/pages/article_pagemk.html:80
 #: templates/coderedcms/pages/custom_article_page.html:87
 msgid "Top Blogs"
-msgstr ""
+msgstr "أفضل المدونات"
 
 #: templates/coderedcms/pages/article_page.html:115
 #: templates/coderedcms/pages/article_pagemk.html:85
 #: templates/coderedcms/pages/custom_article_page.html:94
 msgid "Recent Posts"
-msgstr ""
+msgstr "المشاركات الاخيرة"
 
 #: templates/coderedcms/pages/article_page.html:136
 #: templates/coderedcms/pages/article_pagemk.html:106
 #: templates/coderedcms/pages/custom_article_page.html:115
 msgid "No recent posts available."
-msgstr ""
+msgstr "لا توجد مشاركات حديثة متاحة."
 
 #: templates/coderedcms/pages/article_page.html:143
 #: templates/coderedcms/pages/article_pagemk.html:113
 msgid "Latest Gallery"
-msgstr ""
+msgstr "أحدث معرض"
 
 #: templates/coderedcms/pages/base.html:151
-#: templates/coderedcms/pages/base2.html:145
+#: templates/coderedcms/pages/base2.html:146
 #: templates/coderedcms/pages/basedoc.html:151
-#: templates/coderedcms/pages/baseserv.html:155
-#: templates/coderedcms/pages/servicebase.html:150
+#: templates/coderedcms/pages/baseserv.html:161
+#: templates/coderedcms/pages/basestory.html:148
+#: templates/coderedcms/pages/bkp/base.html:151
+#: templates/coderedcms/pages/bkp/base2.html:145
+#: templates/coderedcms/pages/bkp/basedoc.html:151
+#: templates/coderedcms/pages/bkp/baseserv.html:158
 msgid "Related"
-msgstr ""
+msgstr "ذات الصله"
 
 #: templates/coderedcms/pages/base.html:212
-#: templates/coderedcms/pages/base2.html:201
+#: templates/coderedcms/pages/base2.html:202
 #: templates/coderedcms/pages/basedoc.html:208
+#: templates/coderedcms/pages/bkp/base.html:212
+#: templates/coderedcms/pages/bkp/base2.html:201
+#: templates/coderedcms/pages/bkp/basedoc.html:208
+#: templates/coderedcms/pages/bkp/service.html:286
 #: templates/coderedcms/pages/service.html:286
-#: templates/coderedcms/pages/servicebase.html:211
 msgid "hello i would like to have a free consultation"
-msgstr ""
+msgstr "مرحبا أرغب في الحصول على استشارة مجانية"
 
-#: templates/coderedcms/pages/custom_location_page.html:38
-msgid "Location Image"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:164
+#: templates/coderedcms/snippets/n2.html:25
+msgid "Dentists"
+msgstr "اطباء الاسنان"
 
-#: templates/coderedcms/pages/custom_location_page.html:121
-msgid "Top Locations"
-msgstr ""
-
-#: templates/coderedcms/pages/custom_location_page.html:126
-msgid "Recent Locations"
-msgstr ""
-
-#: templates/coderedcms/pages/form_page_landing.html:8
-msgid "Thank You"
-msgstr ""
-
-#: templates/coderedcms/pages/form_page_landing.html:9
-msgid "We have successfully received your submission."
-msgstr ""
-
-#: templates/coderedcms/pages/lang.html:11
-msgid "Language"
-msgstr ""
-
-#: templates/coderedcms/pages/search.html:7
-#: templates/coderedcms/pages/search.html:14
-#: templates/coderedcms/pages/search.html:32
-#: templates/coderedcms/snippets/navbar.html:37
-msgid "Search"
-msgstr ""
-
-#: templates/coderedcms/pages/search.html:7
-#: templates/coderedcms/pages/search.html:16
-msgid "Search for"
-msgstr ""
-
-#: templates/coderedcms/pages/search.html:45
-msgid "All Results"
-msgstr ""
-
-#: templates/coderedcms/pages/search.html:80
-msgid "No results found."
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:72
-msgid "Speakers"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:73
+#: templates/coderedcms/pages/bkp/service2.html:165
+#: templates/coderedcms/snippets/n2.html:26
 msgid "Schedule"
-msgstr ""
+msgstr "جدول"
 
-#: templates/coderedcms/pages/service2.html:74
-msgid "Venue"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:166
+#: templates/coderedcms/snippets/n2.html:27
+msgid "Clinic"
+msgstr "مستوصف"
 
-#: templates/coderedcms/pages/service2.html:75
+#: templates/coderedcms/pages/bkp/service2.html:167
+#: templates/coderedcms/snippets/n2.html:28
 msgid "Hotels"
-msgstr ""
+msgstr "الفنادق"
 
-#: templates/coderedcms/pages/service2.html:76
-#: templates/coderedcms/pages/service2.html:410
+#: templates/coderedcms/pages/bkp/service2.html:168
+#: templates/coderedcms/pages/bkp/service2.html:282
+#: templates/coderedcms/pages/service2.html:230
+#: templates/coderedcms/snippets/n2.html:29
 msgid "Gallery"
-msgstr ""
+msgstr "معرض"
 
-#: templates/coderedcms/pages/service2.html:77
-msgid "Dropdown"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:172
+#: templates/coderedcms/snippets/n.html:88
+#: templates/coderedcms/snippets/n2.html:33
+msgid "Our Website"
+msgstr "موقعنا الإلكتروني"
 
-#: templates/coderedcms/pages/service2.html:79
-msgid "Dropdown 1"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:177
+#: templates/coderedcms/snippets/bkp/f2.html:32
+#: templates/coderedcms/snippets/f2.html:33
+#: templates/coderedcms/snippets/n.html:93
+#: templates/coderedcms/snippets/n2.html:38
+msgid "Our Blogs"
+msgstr "مدوناتنا"
 
-#: templates/coderedcms/pages/service2.html:80
-msgid "Deep Dropdown"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:191
+#: templates/coderedcms/snippets/n.html:107
+#: templates/coderedcms/snippets/n2.html:52
+msgid "Dentiboard"
+msgstr "Dentiboard"
 
-#: templates/coderedcms/pages/service2.html:82
-msgid "Deep Dropdown 1"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:193
+#: templates/coderedcms/snippets/bkp/f2.html:47
+#: templates/coderedcms/snippets/f2.html:48
+#: templates/coderedcms/snippets/n.html:109
+#: templates/coderedcms/snippets/n2.html:54
+msgid "Login"
+msgstr "تسجيل الدخول"
 
-#: templates/coderedcms/pages/service2.html:83
-msgid "Deep Dropdown 2"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:194
+#: templates/coderedcms/snippets/bkp/f2.html:48
+#: templates/coderedcms/snippets/f2.html:49
+#: templates/coderedcms/snippets/n.html:110
+#: templates/coderedcms/snippets/n2.html:55
+msgid "Signup"
+msgstr "التسجيل"
 
-#: templates/coderedcms/pages/service2.html:84
-msgid "Deep Dropdown 3"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:195
+#: templates/coderedcms/snippets/bkp/f2.html:49
+#: templates/coderedcms/snippets/f2.html:50
+#: templates/coderedcms/snippets/n.html:111
+#: templates/coderedcms/snippets/n2.html:56
+msgid "Terms of Service"
+msgstr "شروط الخدمة"
 
-#: templates/coderedcms/pages/service2.html:85
-msgid "Deep Dropdown 4"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:196
+#: templates/coderedcms/snippets/bkp/f2.html:50
+#: templates/coderedcms/snippets/f2.html:51
+#: templates/coderedcms/snippets/n.html:112
+#: templates/coderedcms/snippets/n2.html:57
+msgid "Flight"
+msgstr "طيران"
 
-#: templates/coderedcms/pages/service2.html:86
-msgid "Deep Dropdown 5"
-msgstr ""
+#: templates/coderedcms/pages/bkp/service2.html:201
+#: templates/coderedcms/snippets/n.html:117
+#: templates/coderedcms/snippets/n2.html:62
+msgid "Say Hello to Denti"
+msgstr "قل مرحبا لدينتي"
 
-#: templates/coderedcms/pages/service2.html:89
-msgid "Dropdown 2"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:90
+#: templates/coderedcms/pages/bkp/service2.html:202
+#: templates/coderedcms/snippets/n.html:118
+#: templates/coderedcms/snippets/n2.html:63
 msgid "Dropdown 3"
-msgstr ""
+msgstr "القائمة المنسدلة 3"
 
-#: templates/coderedcms/pages/service2.html:91
+#: templates/coderedcms/pages/bkp/service2.html:203
+#: templates/coderedcms/snippets/n.html:119
+#: templates/coderedcms/snippets/n2.html:64
 msgid "Dropdown 4"
-msgstr ""
+msgstr "القائمة المنسدلة 4"
 
-#: templates/coderedcms/pages/service2.html:94
-#: templates/coderedcms/pages/service2.html:435
+#: templates/coderedcms/pages/bkp/service2.html:208
+#: templates/coderedcms/pages/bkp/service2.html:587
+#: templates/coderedcms/pages/service2.html:511
+#: templates/coderedcms/snippets/n.html:124
+#: templates/coderedcms/snippets/n2.html:69
 msgid "Contact"
-msgstr ""
+msgstr "الاتصال"
 
-#: templates/coderedcms/pages/service2.html:99
+#: templates/coderedcms/pages/bkp/service2.html:216
 msgid "Buy Tickets"
-msgstr ""
+msgstr "شراء التذاكر"
 
-#: templates/coderedcms/pages/service2.html:160
-msgid "Our Dentists"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:199
-msgid "Patient Journey"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:229
-msgid "Partner Brands"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:263
-msgid "Our Clinics"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:284
-msgid "No image available."
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:304
-msgid "Partner Hotels"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:332
-msgid "0.4 Mile from the Venue"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:345
-msgid "Our Packages"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:378
-msgid "Frequently Asked Questions"
-msgstr ""
-
-#: templates/coderedcms/pages/service2.html:417
+#: templates/coderedcms/pages/bkp/service2.html:289
+#: templates/coderedcms/pages/service2.html:237
 msgid "Gallery Image"
-msgstr ""
+msgstr "صورة المعرض"
 
-#: templates/coderedcms/pages/service2.html:436
+#: templates/coderedcms/pages/bkp/service2.html:322
+#: templates/coderedcms/pages/service2.html:255
+msgid "Our Dentists"
+msgstr "أطباء الأسنان لدينا"
+
+#: templates/coderedcms/pages/bkp/service2.html:361
+#: templates/coderedcms/pages/service2.html:297
+msgid "Patient Journey"
+msgstr "رحلة المريض"
+
+#: templates/coderedcms/pages/bkp/service2.html:402
+#: templates/coderedcms/pages/service2.html:330
+msgid "Partner Brands"
+msgstr "العلامات التجارية الشريكة"
+
+#: templates/coderedcms/pages/bkp/service2.html:436
+#: templates/coderedcms/pages/service2.html:362
+msgid "Our Clinics"
+msgstr "عياداتنا"
+
+#: templates/coderedcms/pages/bkp/service2.html:457
+#: templates/coderedcms/pages/service2.html:385
+msgid "No image available."
+msgstr "لا توجد صورة متاحة."
+
+#: templates/coderedcms/pages/bkp/service2.html:477
+#: templates/coderedcms/pages/service2.html:406
+msgid "Partner Hotels"
+msgstr "الفنادق الشريكة"
+
+#: templates/coderedcms/pages/bkp/service2.html:478
+msgid ""
+"Hotel accomodation is included in most of our packages(*). all you have to "
+"do is pick your spot! "
+msgstr ""
+"الإقامة الفندقية مشمولة في معظم باقاتنا (*). كل ما عليك فعله هو اختيار "
+"مكانك! "
+
+#: templates/coderedcms/pages/bkp/service2.html:507
+msgid "0.4 Mile from the the Grand Bazaar"
+msgstr "0.4 ميل من البازار الكبير"
+
+#: templates/coderedcms/pages/bkp/service2.html:520
+#: templates/coderedcms/pages/service2.html:448
+msgid "Our Packages"
+msgstr "باقاتنا"
+
+#: templates/coderedcms/pages/bkp/service2.html:553
+#: templates/coderedcms/pages/service2.html:480
+msgid "Frequently Asked Questions"
+msgstr "الأسئلة المتكررة"
+
+#: templates/coderedcms/pages/bkp/service2.html:588
+#: templates/coderedcms/pages/service2.html:512
 msgid ""
 "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
 "velit"
 msgstr ""
+"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
+"velit"
 
-#: templates/coderedcms/pages/service2.html:446
+#: templates/coderedcms/pages/bkp/service2.html:598
+#: templates/coderedcms/pages/service2.html:520
 msgid "Address"
-msgstr ""
+msgstr "عنوان"
 
-#: templates/coderedcms/pages/service2.html:447
+#: templates/coderedcms/pages/bkp/service2.html:599
+#: templates/coderedcms/pages/service2.html:521
+#: templates/coderedcms/snippets/bkp/f2.html:15
+#: templates/coderedcms/snippets/f2.html:16
 msgid "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
-msgstr ""
+msgstr "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
 
-#: templates/coderedcms/pages/service2.html:454
+#: templates/coderedcms/pages/bkp/service2.html:606
+#: templates/coderedcms/pages/service2.html:528
 msgid "Call Us"
-msgstr ""
+msgstr "اتصل بنا"
 
-#: templates/coderedcms/pages/service2.html:462
+#: templates/coderedcms/pages/bkp/service2.html:614
+#: templates/coderedcms/pages/service2.html:536
 msgid "Email Us"
-msgstr ""
+msgstr "راسلنا عبر البريد الإلكتروني"
 
-#: templates/coderedcms/snippets/f2.html:49
-msgid "Login"
-msgstr ""
+#: templates/coderedcms/pages/custom_location_page.html:38
+msgid "Location Image"
+msgstr "صورة الموقع"
 
-#: templates/coderedcms/snippets/f2.html:50
-msgid "Signup"
-msgstr ""
+#: templates/coderedcms/pages/custom_location_page.html:121
+msgid "Top Locations"
+msgstr "أفضل المواقع"
 
-#: templates/coderedcms/snippets/f2.html:51
-msgid "Terms of Service"
-msgstr ""
+#: templates/coderedcms/pages/custom_location_page.html:126
+msgid "Recent Locations"
+msgstr "المواقع الحديثة"
 
-#: templates/coderedcms/snippets/f2.html:52
-msgid "Flight"
-msgstr ""
+#: templates/coderedcms/pages/form_page_landing.html:8
+msgid "Thank You"
+msgstr "شكرا"
 
-#: templates/coderedcms/snippets/navigation.html:69
+#: templates/coderedcms/pages/form_page_landing.html:9
+msgid "We have successfully received your submission."
+msgstr "لقد تلقينا مشاركتك بنجاح."
+
+#: templates/coderedcms/pages/lang.html:11
+msgid "Language"
+msgstr "اللغة"
+
+#: templates/coderedcms/pages/search.html:7
+#: templates/coderedcms/pages/search.html:14
+#: templates/coderedcms/pages/search.html:32
+#: templates/coderedcms/snippets/bkp/navbar.html:37
+#: templates/coderedcms/snippets/navbar.html:37
+msgid "Search"
+msgstr "بحث"
+
+#: templates/coderedcms/pages/search.html:7
+#: templates/coderedcms/pages/search.html:16
+msgid "Search for"
+msgstr "بحث"
+
+#: templates/coderedcms/pages/search.html:45
+msgid "All Results"
+msgstr "جميع النتائج"
+
+#: templates/coderedcms/pages/search.html:80
+msgid "No results found."
+msgstr "لم يتم العثور على نتائج."
+
+#: templates/coderedcms/pages/service2.html:173
+msgid "Hero Image"
+msgstr "صورة البطل"
+
+#: templates/coderedcms/pages/service2.html:202
+msgid "About Us Image"
+msgstr "من نحن الصورة"
+
+#: templates/coderedcms/pages/service2.html:407
+msgid ""
+"Hotel accommodation is included in most of our packages(*). All you have to "
+"do is pick your spot!"
+msgstr ""
+"الإقامة الفندقية مشمولة في معظم باقاتنا (*). كل ما عليك فعله هو اختيار "
+"مكانك!"
+
+#: templates/coderedcms/pages/service2.html:436
+msgid "0.4 Mile from the Grand Bazaar"
+msgstr "0.4 ميل من البازار الكبير"
+
+#: templates/coderedcms/snippets/bkp/f2.html:12
+#: templates/coderedcms/snippets/f2.html:12
+msgid "DENTI DELIL"
+msgstr "دينتي ديليل"
+
+#: templates/coderedcms/snippets/bkp/f2.html:16
+#: templates/coderedcms/snippets/f2.html:17
+msgid "Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul"
+msgstr "جوزتيبه، 2341 Sk، 34214 باغجلار/اسطنبول"
+
+#: templates/coderedcms/snippets/bkp/f2.html:18
+#: templates/coderedcms/snippets/f2.html:19
+msgid "Phone:"
+msgstr "الهاتف:"
+
+#: templates/coderedcms/snippets/bkp/f2.html:21
+#: templates/coderedcms/snippets/f2.html:22
+msgid "Email:"
+msgstr "البريد الإلكتروني:"
+
+#: templates/coderedcms/snippets/bkp/f2.html:26
+#: templates/coderedcms/snippets/f2.html:27
+msgid "Useful Links"
+msgstr "روابط مفيدة"
+
+#: templates/coderedcms/snippets/bkp/f2.html:45
+#: templates/coderedcms/snippets/f2.html:46
+msgid "Denti Board"
+msgstr "دينتي بورد"
+
+#: templates/coderedcms/snippets/bkp/f2.html:60
+#: templates/coderedcms/snippets/f2.html:61
+msgid "Copyright"
+msgstr "حقوق النشر"
+
+#: templates/coderedcms/snippets/bkp/f2.html:60
+#: templates/coderedcms/snippets/f2.html:61
+msgid "Denti Delil 2024"
+msgstr "دينتي دليل 2024"
+
+#: templates/coderedcms/snippets/bkp/f2.html:60
+#: templates/coderedcms/snippets/f2.html:61
+msgid "All Rights Reserved"
+msgstr "جميع الحقوق محفوظة"
+
+#: templates/coderedcms/snippets/bkp/navigation.html:64
+#: templates/coderedcms/snippets/navigation.html:128
 msgid "DASHBOARD LOGIN"
-msgstr ""
+msgstr "تسجيل الدخول إلى لوحة القيادة"
 
-#: templates/coderedcms/snippets/navigation.html:71
+#: templates/coderedcms/snippets/bkp/navigation.html:66
+#: templates/coderedcms/snippets/navigation.html:130
 msgid "Your smile, our priority. Affordable dental care abroad."
-msgstr ""
+msgstr "ابتسامتك، أولويتنا. رعاية أسنان ميسورة التكلفة في الخارج."
+
+#: templates/coderedcms/snippets/n.html:132
+#: templates/coderedcms/snippets/n2.html:77
+msgid "Christmas Sale!"
+msgstr "تخفيضات عيد الميلاد!"
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:31
 msgid "Organize Pages with Classifiers"
-msgstr ""
+msgstr "تنظيم الصفحات باستخدام المصنفات"
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:33
 msgid "Use Classifiers to create custom categories and filters."
-msgstr ""
+msgstr "استخدم المصنفات لإنشاء فئات وفلاتر مخصصة."
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:37
 msgid "Add Classifier"
-msgstr ""
+msgstr "إضافة مصنف"
 
 #: templates/wagtailimportexport/import_from_csv.html:3
 #: templates/wagtailimportexport/import_from_csv.html:13
 #: templates/wagtailimportexport/index.html:5
 msgid "Import pages"
-msgstr ""
+msgstr "استيراد الصفحات"
 
 #: templates/wagtailimportexport/import_from_csv.html:29
 msgid "IMPORTANT:"
-msgstr ""
+msgstr "مهم:"
 
 #: templates/wagtailimportexport/import_from_csv.html:30
 msgid "CSV file must be in the correct format before importing."
-msgstr ""
+msgstr "يجب أن يكون ملف CSV بالتنسيق الصحيح قبل الاستيراد."
 
 #: templates/wagtailimportexport/import_from_csv.html:32
 msgid "Read the importing guide."
-msgstr ""
+msgstr "اقرأ دليل الاستيراد."
 
 #: templates/wagtailimportexport/import_from_csv.html:37
 msgid "Import"
-msgstr ""
+msgstr "استورد"
 
 #: templates/wagtailimportexport/index.html:3
 msgid "Import / export pages"
-msgstr ""
+msgstr "استيراد / تصدير الصفحات"
 
 #: templates/wagtailimportexport/index.html:10
 msgid "Import from CSV file"
-msgstr ""
-
-#: wagtail_hooks.py:22
-msgid "Article from URL"
-msgstr ""
+msgstr "الاستيراد من ملف CSV"

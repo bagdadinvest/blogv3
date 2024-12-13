@@ -9,27 +9,27 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-10 04:38+0000\n"
-"PO-Revision-Date: 2024-12-10 07:44+0300\n"
+"PO-Revision-Date: 2024-12-10 07:52+0300\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 : 2;\n"
 "X-Translated-Using: django-rosetta 0.10.1\n"
 
 #: templates/coderedcms/blocks/film_strip_block.html:28
 msgid "Previous"
-msgstr "Precedente"
+msgstr "Anterior"
 
 #: templates/coderedcms/blocks/film_strip_block.html:31
 msgid "Next"
-msgstr "Prossimo"
+msgstr "Próximo"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:5
 msgid "Filter by"
-msgstr "Filtra per"
+msgstr "Filtrar por"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:11
 msgid "Filter"
@@ -38,47 +38,47 @@ msgstr "Filtro"
 #: templates/coderedcms/includes/classifier_dropdowns.html:12
 #: templates/coderedcms/includes/classifier_nav.html:6
 msgid "All"
-msgstr "Tutto"
+msgstr "Todo"
 
 #: templates/coderedcms/includes/form_honeypot.html:3
 msgid "Leave this blank if you are a human"
-msgstr "Lascia questo vuoto se sei un essere umano"
+msgstr "Déjalo en blanco si eres un ser humano"
 
 #: templates/coderedcms/includes/iframe_gmap.html:5
 msgid "Map of"
-msgstr "Mappa di"
+msgstr "Mapa de"
 
 #: templates/coderedcms/pages/article_page.html:19
 #: templates/coderedcms/pages/article_pagemk.html:19
 msgid "Blog Image"
-msgstr "Immagine del blog"
+msgstr "Imagen del blog"
 
 #: templates/coderedcms/pages/article_page.html:34
 #: templates/coderedcms/pages/article_pagemk.html:37
 #: templates/coderedcms/pages/custom_article_page.html:40
 msgid "Back to Blog"
-msgstr "Torna al Blog"
+msgstr "Volver al Blog"
 
 #: templates/coderedcms/pages/article_page.html:46
 #: templates/coderedcms/pages/article_pagemk.html:47
 #: templates/coderedcms/pages/custom_article_page.html:52
 #: templates/coderedcms/pages/custom_location_page.html:57
 msgid "Tags:"
-msgstr "Tag:"
+msgstr "Etiquetas:"
 
 #: templates/coderedcms/pages/article_page.html:99
 #: templates/coderedcms/pages/article_pagemk.html:69
 #: templates/coderedcms/pages/custom_article_page.html:74
 #: templates/coderedcms/pages/custom_location_page.html:110
 msgid "Search..."
-msgstr "Ricerca..."
+msgstr "Buscar..."
 
 #: templates/coderedcms/pages/article_page.html:104
 #: templates/coderedcms/pages/article_pagemk.html:74
 #: templates/coderedcms/pages/custom_article_page.html:81
 #: templates/coderedcms/pages/custom_location_page.html:115
 msgid "Quick Links"
-msgstr "Collegamenti rapidi"
+msgstr "Enlaces rápidos"
 
 #: templates/coderedcms/pages/article_page.html:107
 #: templates/coderedcms/pages/article_pagemk.html:77
@@ -87,7 +87,7 @@ msgstr "Collegamenti rapidi"
 #: templates/coderedcms/pages/custom_location_page.html:118
 #: templates/coderedcms/snippets/n2.html:24
 msgid "Home"
-msgstr "Casa"
+msgstr "Hogar"
 
 #: templates/coderedcms/pages/article_page.html:108
 #: templates/coderedcms/pages/article_pagemk.html:78
@@ -95,7 +95,7 @@ msgstr "Casa"
 #: templates/coderedcms/pages/custom_article_page.html:85
 #: templates/coderedcms/pages/custom_location_page.html:119
 msgid "About Us"
-msgstr "Chi Siamo"
+msgstr "Sobre nosotros"
 
 #: templates/coderedcms/pages/article_page.html:109
 #: templates/coderedcms/pages/article_pagemk.html:79
@@ -108,24 +108,24 @@ msgstr "Denti-Board"
 #: templates/coderedcms/pages/article_pagemk.html:80
 #: templates/coderedcms/pages/custom_article_page.html:87
 msgid "Top Blogs"
-msgstr "I migliori blog"
+msgstr "Los mejores blogs"
 
 #: templates/coderedcms/pages/article_page.html:115
 #: templates/coderedcms/pages/article_pagemk.html:85
 #: templates/coderedcms/pages/custom_article_page.html:94
 msgid "Recent Posts"
-msgstr "Articoli recenti"
+msgstr "Publicaciones recientes"
 
 #: templates/coderedcms/pages/article_page.html:136
 #: templates/coderedcms/pages/article_pagemk.html:106
 #: templates/coderedcms/pages/custom_article_page.html:115
 msgid "No recent posts available."
-msgstr "Nessun post recente disponibile."
+msgstr "No hay publicaciones recientes disponibles."
 
 #: templates/coderedcms/pages/article_page.html:143
 #: templates/coderedcms/pages/article_pagemk.html:113
 msgid "Latest Gallery"
-msgstr "Ultima Galleria"
+msgstr "Última Galería"
 
 #: templates/coderedcms/pages/base.html:151
 #: templates/coderedcms/pages/base2.html:146
@@ -137,7 +137,7 @@ msgstr "Ultima Galleria"
 #: templates/coderedcms/pages/bkp/basedoc.html:151
 #: templates/coderedcms/pages/bkp/baseserv.html:158
 msgid "Related"
-msgstr "Imparentato"
+msgstr "Relacionado"
 
 #: templates/coderedcms/pages/base.html:212
 #: templates/coderedcms/pages/base2.html:202
@@ -148,40 +148,40 @@ msgstr "Imparentato"
 #: templates/coderedcms/pages/bkp/service.html:286
 #: templates/coderedcms/pages/service.html:286
 msgid "hello i would like to have a free consultation"
-msgstr "Ciao, vorrei avere una consulenza gratuita"
+msgstr "hola me gustaría tener una consulta gratuita"
 
 #: templates/coderedcms/pages/bkp/service2.html:164
 #: templates/coderedcms/snippets/n2.html:25
 msgid "Dentists"
-msgstr "Dentisti"
+msgstr "Dentistas"
 
 #: templates/coderedcms/pages/bkp/service2.html:165
 #: templates/coderedcms/snippets/n2.html:26
 msgid "Schedule"
-msgstr "Programma"
+msgstr "Horario"
 
 #: templates/coderedcms/pages/bkp/service2.html:166
 #: templates/coderedcms/snippets/n2.html:27
 msgid "Clinic"
-msgstr "Clinica"
+msgstr "Clínica"
 
 #: templates/coderedcms/pages/bkp/service2.html:167
 #: templates/coderedcms/snippets/n2.html:28
 msgid "Hotels"
-msgstr "Hotel"
+msgstr "Hoteles"
 
 #: templates/coderedcms/pages/bkp/service2.html:168
 #: templates/coderedcms/pages/bkp/service2.html:282
 #: templates/coderedcms/pages/service2.html:230
 #: templates/coderedcms/snippets/n2.html:29
 msgid "Gallery"
-msgstr "Galleria"
+msgstr "Galería"
 
 #: templates/coderedcms/pages/bkp/service2.html:172
 #: templates/coderedcms/snippets/n.html:88
 #: templates/coderedcms/snippets/n2.html:33
 msgid "Our Website"
-msgstr "Il nostro sito web"
+msgstr "Nuestro sitio web"
 
 #: templates/coderedcms/pages/bkp/service2.html:177
 #: templates/coderedcms/snippets/bkp/f2.html:32
@@ -189,13 +189,13 @@ msgstr "Il nostro sito web"
 #: templates/coderedcms/snippets/n.html:93
 #: templates/coderedcms/snippets/n2.html:38
 msgid "Our Blogs"
-msgstr "I nostri blog"
+msgstr "Nuestros Blogs"
 
 #: templates/coderedcms/pages/bkp/service2.html:191
 #: templates/coderedcms/snippets/n.html:107
 #: templates/coderedcms/snippets/n2.html:52
 msgid "Dentiboard"
-msgstr "Tavola dentaria"
+msgstr "Dentiboard"
 
 #: templates/coderedcms/pages/bkp/service2.html:193
 #: templates/coderedcms/snippets/bkp/f2.html:47
@@ -203,7 +203,7 @@ msgstr "Tavola dentaria"
 #: templates/coderedcms/snippets/n.html:109
 #: templates/coderedcms/snippets/n2.html:54
 msgid "Login"
-msgstr "Accesso"
+msgstr "Iniciar sesión"
 
 #: templates/coderedcms/pages/bkp/service2.html:194
 #: templates/coderedcms/snippets/bkp/f2.html:48
@@ -211,7 +211,7 @@ msgstr "Accesso"
 #: templates/coderedcms/snippets/n.html:110
 #: templates/coderedcms/snippets/n2.html:55
 msgid "Signup"
-msgstr "Registrati"
+msgstr "Regístrate"
 
 #: templates/coderedcms/pages/bkp/service2.html:195
 #: templates/coderedcms/snippets/bkp/f2.html:49
@@ -219,7 +219,7 @@ msgstr "Registrati"
 #: templates/coderedcms/snippets/n.html:111
 #: templates/coderedcms/snippets/n2.html:56
 msgid "Terms of Service"
-msgstr "Termini di servizio"
+msgstr "Términos de servicio"
 
 #: templates/coderedcms/pages/bkp/service2.html:196
 #: templates/coderedcms/snippets/bkp/f2.html:50
@@ -227,25 +227,25 @@ msgstr "Termini di servizio"
 #: templates/coderedcms/snippets/n.html:112
 #: templates/coderedcms/snippets/n2.html:57
 msgid "Flight"
-msgstr "Volo"
+msgstr "Vuelo"
 
 #: templates/coderedcms/pages/bkp/service2.html:201
 #: templates/coderedcms/snippets/n.html:117
 #: templates/coderedcms/snippets/n2.html:62
 msgid "Say Hello to Denti"
-msgstr "Saluta Denti"
+msgstr "Saluda a Denti"
 
 #: templates/coderedcms/pages/bkp/service2.html:202
 #: templates/coderedcms/snippets/n.html:118
 #: templates/coderedcms/snippets/n2.html:63
 msgid "Dropdown 3"
-msgstr "Elenco a discesa 3"
+msgstr "Menú desplegable 3"
 
 #: templates/coderedcms/pages/bkp/service2.html:203
 #: templates/coderedcms/snippets/n.html:119
 #: templates/coderedcms/snippets/n2.html:64
 msgid "Dropdown 4"
-msgstr "Elenco a discesa 4"
+msgstr "Menú desplegable 4"
 
 #: templates/coderedcms/pages/bkp/service2.html:208
 #: templates/coderedcms/pages/bkp/service2.html:587
@@ -253,68 +253,68 @@ msgstr "Elenco a discesa 4"
 #: templates/coderedcms/snippets/n.html:124
 #: templates/coderedcms/snippets/n2.html:69
 msgid "Contact"
-msgstr "Contatto"
+msgstr "Contacto"
 
 #: templates/coderedcms/pages/bkp/service2.html:216
 msgid "Buy Tickets"
-msgstr "Acquista il biglietto"
+msgstr "Comprar Entradas"
 
 #: templates/coderedcms/pages/bkp/service2.html:289
 #: templates/coderedcms/pages/service2.html:237
 msgid "Gallery Image"
-msgstr "Immagine della galleria"
+msgstr "Imagen de la galería"
 
 #: templates/coderedcms/pages/bkp/service2.html:322
 #: templates/coderedcms/pages/service2.html:255
 msgid "Our Dentists"
-msgstr "I nostri dentisti"
+msgstr "Nuestros Dentistas"
 
 #: templates/coderedcms/pages/bkp/service2.html:361
 #: templates/coderedcms/pages/service2.html:297
 msgid "Patient Journey"
-msgstr "Percorso del paziente"
+msgstr "Recorrido del paciente"
 
 #: templates/coderedcms/pages/bkp/service2.html:402
 #: templates/coderedcms/pages/service2.html:330
 msgid "Partner Brands"
-msgstr "Marchi partner"
+msgstr "Marcas asociadas"
 
 #: templates/coderedcms/pages/bkp/service2.html:436
 #: templates/coderedcms/pages/service2.html:362
 msgid "Our Clinics"
-msgstr "Le nostre cliniche"
+msgstr "Nuestras Clínicas"
 
 #: templates/coderedcms/pages/bkp/service2.html:457
 #: templates/coderedcms/pages/service2.html:385
 msgid "No image available."
-msgstr "Nessuna immagine disponibile."
+msgstr "No hay imagen disponible."
 
 #: templates/coderedcms/pages/bkp/service2.html:477
 #: templates/coderedcms/pages/service2.html:406
 msgid "Partner Hotels"
-msgstr "Hotel partner"
+msgstr "Hoteles asociados"
 
 #: templates/coderedcms/pages/bkp/service2.html:478
 msgid ""
 "Hotel accomodation is included in most of our packages(*). all you have to "
 "do is pick your spot! "
 msgstr ""
-"La sistemazione in hotel è inclusa nella maggior parte dei nostri "
-"pacchetti(*). Tutto quello che devi fare è scegliere il tuo posto! "
+"El alojamiento en hotel está incluido en la mayoría de nuestros paquetes(*)."
+" ¡Todo lo que tienes que hacer es elegir tu lugar! "
 
 #: templates/coderedcms/pages/bkp/service2.html:507
 msgid "0.4 Mile from the the Grand Bazaar"
-msgstr "0.4 km dal Grand Bazaar"
+msgstr "A 0.4 millas del Gran Bazar"
 
 #: templates/coderedcms/pages/bkp/service2.html:520
 #: templates/coderedcms/pages/service2.html:448
 msgid "Our Packages"
-msgstr "I nostri pacchetti"
+msgstr "Nuestros Paquetes"
 
 #: templates/coderedcms/pages/bkp/service2.html:553
 #: templates/coderedcms/pages/service2.html:480
 msgid "Frequently Asked Questions"
-msgstr "Domande frequenti"
+msgstr "Preguntas frecuentes"
 
 #: templates/coderedcms/pages/bkp/service2.html:588
 #: templates/coderedcms/pages/service2.html:512
@@ -328,7 +328,7 @@ msgstr ""
 #: templates/coderedcms/pages/bkp/service2.html:598
 #: templates/coderedcms/pages/service2.html:520
 msgid "Address"
-msgstr "Indirizzo"
+msgstr "Dirección"
 
 #: templates/coderedcms/pages/bkp/service2.html:599
 #: templates/coderedcms/pages/service2.html:521
@@ -340,36 +340,36 @@ msgstr "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
 #: templates/coderedcms/pages/bkp/service2.html:606
 #: templates/coderedcms/pages/service2.html:528
 msgid "Call Us"
-msgstr "Chiamaci"
+msgstr "Llámanos"
 
 #: templates/coderedcms/pages/bkp/service2.html:614
 #: templates/coderedcms/pages/service2.html:536
 msgid "Email Us"
-msgstr "Inviaci un'e-mail"
+msgstr "Envíenos un correo electrónico"
 
 #: templates/coderedcms/pages/custom_location_page.html:38
 msgid "Location Image"
-msgstr "Immagine della posizione"
+msgstr "Imagen de ubicación"
 
 #: templates/coderedcms/pages/custom_location_page.html:121
 msgid "Top Locations"
-msgstr "Posizioni principali"
+msgstr "Principales ubicaciones"
 
 #: templates/coderedcms/pages/custom_location_page.html:126
 msgid "Recent Locations"
-msgstr "Posizioni recenti"
+msgstr "Ubicaciones recientes"
 
 #: templates/coderedcms/pages/form_page_landing.html:8
 msgid "Thank You"
-msgstr "Grazie"
+msgstr "Gracias"
 
 #: templates/coderedcms/pages/form_page_landing.html:9
 msgid "We have successfully received your submission."
-msgstr "Abbiamo ricevuto con successo la tua proposta."
+msgstr "Hemos recibido con éxito su presentación."
 
 #: templates/coderedcms/pages/lang.html:11
 msgid "Language"
-msgstr "Lingua"
+msgstr "Idioma"
 
 #: templates/coderedcms/pages/search.html:7
 #: templates/coderedcms/pages/search.html:14
@@ -377,50 +377,40 @@ msgstr "Lingua"
 #: templates/coderedcms/snippets/bkp/navbar.html:37
 #: templates/coderedcms/snippets/navbar.html:37
 msgid "Search"
-msgstr "Ricerca"
+msgstr "Buscar"
 
 #: templates/coderedcms/pages/search.html:7
 #: templates/coderedcms/pages/search.html:16
 msgid "Search for"
-msgstr "Cercare"
+msgstr "Buscar"
 
 #: templates/coderedcms/pages/search.html:45
 msgid "All Results"
-msgstr "Tutti i risultati"
+msgstr "Todos los resultados"
 
 #: templates/coderedcms/pages/search.html:80
 msgid "No results found."
-msgstr "Nessun risultato trovato."
+msgstr "No se ha encontrado ningún artículo."
 
 #: templates/coderedcms/pages/service2.html:173
-#, fuzzy
-#| msgid "Blog Image"
 msgid "Hero Image"
-msgstr "Immagine del blog"
+msgstr "Imagen principal"
 
 #: templates/coderedcms/pages/service2.html:202
-#, fuzzy
-#| msgid "About Us"
 msgid "About Us Image"
-msgstr "Chi Siamo"
+msgstr "Sobre Nosotros Imagen"
 
 #: templates/coderedcms/pages/service2.html:407
-#, fuzzy
-#| msgid ""
-#| "Hotel accomodation is included in most of our packages(*). all you have to "
-#| "do is pick your spot! "
 msgid ""
 "Hotel accommodation is included in most of our packages(*). All you have to "
 "do is pick your spot!"
 msgstr ""
-"La sistemazione in hotel è inclusa nella maggior parte dei nostri "
-"pacchetti(*). Tutto quello che devi fare è scegliere il tuo posto! "
+"El alojamiento en hotel está incluido en la mayoría de nuestros paquetes(*)."
+" ¡Todo lo que tienes que hacer es elegir tu lugar!"
 
 #: templates/coderedcms/pages/service2.html:436
-#, fuzzy
-#| msgid "0.4 Mile from the the Grand Bazaar"
 msgid "0.4 Mile from the Grand Bazaar"
-msgstr "0.4 km dal Grand Bazaar"
+msgstr "A 0.4 millas del Gran Bazar"
 
 #: templates/coderedcms/snippets/bkp/f2.html:12
 #: templates/coderedcms/snippets/f2.html:12
@@ -435,33 +425,27 @@ msgstr "Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul"
 #: templates/coderedcms/snippets/bkp/f2.html:18
 #: templates/coderedcms/snippets/f2.html:19
 msgid "Phone:"
-msgstr "Telefono:"
+msgstr "Teléfono:"
 
 #: templates/coderedcms/snippets/bkp/f2.html:21
 #: templates/coderedcms/snippets/f2.html:22
-#, fuzzy
-#| msgid "Email Us"
 msgid "Email:"
-msgstr "Inviaci un'e-mail"
+msgstr "Correo electrónico:"
 
 #: templates/coderedcms/snippets/bkp/f2.html:26
 #: templates/coderedcms/snippets/f2.html:27
-#, fuzzy
-#| msgid "Quick Links"
 msgid "Useful Links"
-msgstr "Collegamenti rapidi"
+msgstr "Enlaces de interés"
 
 #: templates/coderedcms/snippets/bkp/f2.html:45
 #: templates/coderedcms/snippets/f2.html:46
-#, fuzzy
-#| msgid "Denti-Board"
 msgid "Denti Board"
-msgstr "Denti-Board"
+msgstr "Tablero Denti"
 
 #: templates/coderedcms/snippets/bkp/f2.html:60
 #: templates/coderedcms/snippets/f2.html:61
 msgid "Copyright"
-msgstr "Diritto d’autore"
+msgstr "Derechos de autor"
 
 #: templates/coderedcms/snippets/bkp/f2.html:60
 #: templates/coderedcms/snippets/f2.html:61
@@ -471,42 +455,42 @@ msgstr "Denti Delil 2024"
 #: templates/coderedcms/snippets/bkp/f2.html:60
 #: templates/coderedcms/snippets/f2.html:61
 msgid "All Rights Reserved"
-msgstr "Tutti i diritti riservati"
+msgstr "Todos los derechos reservados"
 
 #: templates/coderedcms/snippets/bkp/navigation.html:64
 #: templates/coderedcms/snippets/navigation.html:128
 msgid "DASHBOARD LOGIN"
-msgstr "ACCESSO ALLA DASHBOARD"
+msgstr "INICIO DE SESIÓN EN EL PANEL DE CONTROL"
 
 #: templates/coderedcms/snippets/bkp/navigation.html:66
 #: templates/coderedcms/snippets/navigation.html:130
 msgid "Your smile, our priority. Affordable dental care abroad."
 msgstr ""
-"Il tuo sorriso, la nostra priorità. Cure dentistiche convenienti all'estero."
+"Tu sonrisa, nuestra prioridad. Atención dental asequible en el extranjero."
 
 #: templates/coderedcms/snippets/n.html:132
 #: templates/coderedcms/snippets/n2.html:77
 msgid "Christmas Sale!"
-msgstr "Saldi di Natale!"
+msgstr "¡Venta de Navidad!"
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:31
 msgid "Organize Pages with Classifiers"
-msgstr "Organizzare le pagine con i classificatori"
+msgstr "Organizar páginas con clasificadores"
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:33
 msgid "Use Classifiers to create custom categories and filters."
 msgstr ""
-"Utilizza i classificatori per creare categorie e filtri personalizzati."
+"Utilice los clasificadores para crear categorías y filtros personalizados."
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:37
 msgid "Add Classifier"
-msgstr "Aggiungi classificatore"
+msgstr "Agregar clasificador"
 
 #: templates/wagtailimportexport/import_from_csv.html:3
 #: templates/wagtailimportexport/import_from_csv.html:13
 #: templates/wagtailimportexport/index.html:5
 msgid "Import pages"
-msgstr "Importare pagine"
+msgstr "Importar páginas"
 
 #: templates/wagtailimportexport/import_from_csv.html:29
 msgid "IMPORTANT:"
@@ -514,23 +498,20 @@ msgstr "IMPORTANTE:"
 
 #: templates/wagtailimportexport/import_from_csv.html:30
 msgid "CSV file must be in the correct format before importing."
-msgstr "Il file CSV deve essere nel formato corretto prima dell'importazione."
+msgstr "El archivo CSV debe estar en el formato correcto antes de importarlo."
 
 #: templates/wagtailimportexport/import_from_csv.html:32
 msgid "Read the importing guide."
-msgstr "Leggi la guida all'importazione."
+msgstr "Lea la guía de importación."
 
 #: templates/wagtailimportexport/import_from_csv.html:37
 msgid "Import"
-msgstr "Importazione"
+msgstr "Importación"
 
 #: templates/wagtailimportexport/index.html:3
 msgid "Import / export pages"
-msgstr "Importa/esporta pagine"
+msgstr "Importar / exportar páginas"
 
 #: templates/wagtailimportexport/index.html:10
 msgid "Import from CSV file"
-msgstr "Importazione da file CSV"
-
-#~ msgid "Article from URL"
-#~ msgstr "Articolo da URL"
+msgstr "Importar desde un archivo CSV"

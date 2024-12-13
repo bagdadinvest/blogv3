@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2024-12-10 04:38+0000\n"
-"PO-Revision-Date: 2024-12-10 07:44+0300\n"
+"PO-Revision-Date: 2024-12-10 08:00+0300\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -21,64 +21,64 @@ msgstr ""
 
 #: templates/coderedcms/blocks/film_strip_block.html:28
 msgid "Previous"
-msgstr "Precedente"
+msgstr "Előző"
 
 #: templates/coderedcms/blocks/film_strip_block.html:31
 msgid "Next"
-msgstr "Prossimo"
+msgstr "Következő"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:5
 msgid "Filter by"
-msgstr "Filtra per"
+msgstr "Szűrés alapja"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:11
 msgid "Filter"
-msgstr "Filtro"
+msgstr "Szűrő"
 
 #: templates/coderedcms/includes/classifier_dropdowns.html:12
 #: templates/coderedcms/includes/classifier_nav.html:6
 msgid "All"
-msgstr "Tutto"
+msgstr "Összes"
 
 #: templates/coderedcms/includes/form_honeypot.html:3
 msgid "Leave this blank if you are a human"
-msgstr "Lascia questo vuoto se sei un essere umano"
+msgstr "Hagyja üresen, ha ember vagy"
 
 #: templates/coderedcms/includes/iframe_gmap.html:5
 msgid "Map of"
-msgstr "Mappa di"
+msgstr "Térkép"
 
 #: templates/coderedcms/pages/article_page.html:19
 #: templates/coderedcms/pages/article_pagemk.html:19
 msgid "Blog Image"
-msgstr "Immagine del blog"
+msgstr "Blog kép"
 
 #: templates/coderedcms/pages/article_page.html:34
 #: templates/coderedcms/pages/article_pagemk.html:37
 #: templates/coderedcms/pages/custom_article_page.html:40
 msgid "Back to Blog"
-msgstr "Torna al Blog"
+msgstr "Vissza a bloghoz"
 
 #: templates/coderedcms/pages/article_page.html:46
 #: templates/coderedcms/pages/article_pagemk.html:47
 #: templates/coderedcms/pages/custom_article_page.html:52
 #: templates/coderedcms/pages/custom_location_page.html:57
 msgid "Tags:"
-msgstr "Tag:"
+msgstr "Címkék:"
 
 #: templates/coderedcms/pages/article_page.html:99
 #: templates/coderedcms/pages/article_pagemk.html:69
 #: templates/coderedcms/pages/custom_article_page.html:74
 #: templates/coderedcms/pages/custom_location_page.html:110
 msgid "Search..."
-msgstr "Ricerca..."
+msgstr "Keresés..."
 
 #: templates/coderedcms/pages/article_page.html:104
 #: templates/coderedcms/pages/article_pagemk.html:74
 #: templates/coderedcms/pages/custom_article_page.html:81
 #: templates/coderedcms/pages/custom_location_page.html:115
 msgid "Quick Links"
-msgstr "Collegamenti rapidi"
+msgstr "Gyors linkek"
 
 #: templates/coderedcms/pages/article_page.html:107
 #: templates/coderedcms/pages/article_pagemk.html:77
@@ -87,7 +87,7 @@ msgstr "Collegamenti rapidi"
 #: templates/coderedcms/pages/custom_location_page.html:118
 #: templates/coderedcms/snippets/n2.html:24
 msgid "Home"
-msgstr "Casa"
+msgstr "Otthon"
 
 #: templates/coderedcms/pages/article_page.html:108
 #: templates/coderedcms/pages/article_pagemk.html:78
@@ -95,7 +95,7 @@ msgstr "Casa"
 #: templates/coderedcms/pages/custom_article_page.html:85
 #: templates/coderedcms/pages/custom_location_page.html:119
 msgid "About Us"
-msgstr "Chi Siamo"
+msgstr "Rólunk"
 
 #: templates/coderedcms/pages/article_page.html:109
 #: templates/coderedcms/pages/article_pagemk.html:79
@@ -108,24 +108,24 @@ msgstr "Denti-Board"
 #: templates/coderedcms/pages/article_pagemk.html:80
 #: templates/coderedcms/pages/custom_article_page.html:87
 msgid "Top Blogs"
-msgstr "I migliori blog"
+msgstr "Top blogok"
 
 #: templates/coderedcms/pages/article_page.html:115
 #: templates/coderedcms/pages/article_pagemk.html:85
 #: templates/coderedcms/pages/custom_article_page.html:94
 msgid "Recent Posts"
-msgstr "Articoli recenti"
+msgstr "Legutóbbi hozzászólások"
 
 #: templates/coderedcms/pages/article_page.html:136
 #: templates/coderedcms/pages/article_pagemk.html:106
 #: templates/coderedcms/pages/custom_article_page.html:115
 msgid "No recent posts available."
-msgstr "Nessun post recente disponibile."
+msgstr "Nincsenek friss bejegyzések."
 
 #: templates/coderedcms/pages/article_page.html:143
 #: templates/coderedcms/pages/article_pagemk.html:113
 msgid "Latest Gallery"
-msgstr "Ultima Galleria"
+msgstr "Legújabb galéria"
 
 #: templates/coderedcms/pages/base.html:151
 #: templates/coderedcms/pages/base2.html:146
@@ -137,7 +137,7 @@ msgstr "Ultima Galleria"
 #: templates/coderedcms/pages/bkp/basedoc.html:151
 #: templates/coderedcms/pages/bkp/baseserv.html:158
 msgid "Related"
-msgstr "Imparentato"
+msgstr "Kapcsolódó"
 
 #: templates/coderedcms/pages/base.html:212
 #: templates/coderedcms/pages/base2.html:202
@@ -148,40 +148,40 @@ msgstr "Imparentato"
 #: templates/coderedcms/pages/bkp/service.html:286
 #: templates/coderedcms/pages/service.html:286
 msgid "hello i would like to have a free consultation"
-msgstr "Ciao, vorrei avere una consulenza gratuita"
+msgstr "Helló, szeretnék egy ingyenes konzultációt"
 
 #: templates/coderedcms/pages/bkp/service2.html:164
 #: templates/coderedcms/snippets/n2.html:25
 msgid "Dentists"
-msgstr "Dentisti"
+msgstr "Fogorvosok"
 
 #: templates/coderedcms/pages/bkp/service2.html:165
 #: templates/coderedcms/snippets/n2.html:26
 msgid "Schedule"
-msgstr "Programma"
+msgstr "Menetrend"
 
 #: templates/coderedcms/pages/bkp/service2.html:166
 #: templates/coderedcms/snippets/n2.html:27
 msgid "Clinic"
-msgstr "Clinica"
+msgstr "Rendelőintézet"
 
 #: templates/coderedcms/pages/bkp/service2.html:167
 #: templates/coderedcms/snippets/n2.html:28
 msgid "Hotels"
-msgstr "Hotel"
+msgstr "Szálláshely"
 
 #: templates/coderedcms/pages/bkp/service2.html:168
 #: templates/coderedcms/pages/bkp/service2.html:282
 #: templates/coderedcms/pages/service2.html:230
 #: templates/coderedcms/snippets/n2.html:29
 msgid "Gallery"
-msgstr "Galleria"
+msgstr "Galéria"
 
 #: templates/coderedcms/pages/bkp/service2.html:172
 #: templates/coderedcms/snippets/n.html:88
 #: templates/coderedcms/snippets/n2.html:33
 msgid "Our Website"
-msgstr "Il nostro sito web"
+msgstr "Weboldalunk"
 
 #: templates/coderedcms/pages/bkp/service2.html:177
 #: templates/coderedcms/snippets/bkp/f2.html:32
@@ -189,13 +189,13 @@ msgstr "Il nostro sito web"
 #: templates/coderedcms/snippets/n.html:93
 #: templates/coderedcms/snippets/n2.html:38
 msgid "Our Blogs"
-msgstr "I nostri blog"
+msgstr "Blogjaink"
 
 #: templates/coderedcms/pages/bkp/service2.html:191
 #: templates/coderedcms/snippets/n.html:107
 #: templates/coderedcms/snippets/n2.html:52
 msgid "Dentiboard"
-msgstr "Tavola dentaria"
+msgstr "Fogazat"
 
 #: templates/coderedcms/pages/bkp/service2.html:193
 #: templates/coderedcms/snippets/bkp/f2.html:47
@@ -203,7 +203,7 @@ msgstr "Tavola dentaria"
 #: templates/coderedcms/snippets/n.html:109
 #: templates/coderedcms/snippets/n2.html:54
 msgid "Login"
-msgstr "Accesso"
+msgstr "Bejelentkezés"
 
 #: templates/coderedcms/pages/bkp/service2.html:194
 #: templates/coderedcms/snippets/bkp/f2.html:48
@@ -211,7 +211,7 @@ msgstr "Accesso"
 #: templates/coderedcms/snippets/n.html:110
 #: templates/coderedcms/snippets/n2.html:55
 msgid "Signup"
-msgstr "Registrati"
+msgstr "Regisztráció"
 
 #: templates/coderedcms/pages/bkp/service2.html:195
 #: templates/coderedcms/snippets/bkp/f2.html:49
@@ -219,7 +219,7 @@ msgstr "Registrati"
 #: templates/coderedcms/snippets/n.html:111
 #: templates/coderedcms/snippets/n2.html:56
 msgid "Terms of Service"
-msgstr "Termini di servizio"
+msgstr "Felhasználási feltételek"
 
 #: templates/coderedcms/pages/bkp/service2.html:196
 #: templates/coderedcms/snippets/bkp/f2.html:50
@@ -227,25 +227,25 @@ msgstr "Termini di servizio"
 #: templates/coderedcms/snippets/n.html:112
 #: templates/coderedcms/snippets/n2.html:57
 msgid "Flight"
-msgstr "Volo"
+msgstr "Repülés"
 
 #: templates/coderedcms/pages/bkp/service2.html:201
 #: templates/coderedcms/snippets/n.html:117
 #: templates/coderedcms/snippets/n2.html:62
 msgid "Say Hello to Denti"
-msgstr "Saluta Denti"
+msgstr "Üdvözölje Denti-t"
 
 #: templates/coderedcms/pages/bkp/service2.html:202
 #: templates/coderedcms/snippets/n.html:118
 #: templates/coderedcms/snippets/n2.html:63
 msgid "Dropdown 3"
-msgstr "Elenco a discesa 3"
+msgstr "3. legördülő menü"
 
 #: templates/coderedcms/pages/bkp/service2.html:203
 #: templates/coderedcms/snippets/n.html:119
 #: templates/coderedcms/snippets/n2.html:64
 msgid "Dropdown 4"
-msgstr "Elenco a discesa 4"
+msgstr "4. legördülő menü"
 
 #: templates/coderedcms/pages/bkp/service2.html:208
 #: templates/coderedcms/pages/bkp/service2.html:587
@@ -253,68 +253,68 @@ msgstr "Elenco a discesa 4"
 #: templates/coderedcms/snippets/n.html:124
 #: templates/coderedcms/snippets/n2.html:69
 msgid "Contact"
-msgstr "Contatto"
+msgstr "Érintkezés"
 
 #: templates/coderedcms/pages/bkp/service2.html:216
 msgid "Buy Tickets"
-msgstr "Acquista il biglietto"
+msgstr "Jegyet vásárolni"
 
 #: templates/coderedcms/pages/bkp/service2.html:289
 #: templates/coderedcms/pages/service2.html:237
 msgid "Gallery Image"
-msgstr "Immagine della galleria"
+msgstr "Galéria képe"
 
 #: templates/coderedcms/pages/bkp/service2.html:322
 #: templates/coderedcms/pages/service2.html:255
 msgid "Our Dentists"
-msgstr "I nostri dentisti"
+msgstr "Fogorvosaink"
 
 #: templates/coderedcms/pages/bkp/service2.html:361
 #: templates/coderedcms/pages/service2.html:297
 msgid "Patient Journey"
-msgstr "Percorso del paziente"
+msgstr "Betegút"
 
 #: templates/coderedcms/pages/bkp/service2.html:402
 #: templates/coderedcms/pages/service2.html:330
 msgid "Partner Brands"
-msgstr "Marchi partner"
+msgstr "Partner márkák"
 
 #: templates/coderedcms/pages/bkp/service2.html:436
 #: templates/coderedcms/pages/service2.html:362
 msgid "Our Clinics"
-msgstr "Le nostre cliniche"
+msgstr "Klinikáink"
 
 #: templates/coderedcms/pages/bkp/service2.html:457
 #: templates/coderedcms/pages/service2.html:385
 msgid "No image available."
-msgstr "Nessuna immagine disponibile."
+msgstr "Nincs elérhető kép."
 
 #: templates/coderedcms/pages/bkp/service2.html:477
 #: templates/coderedcms/pages/service2.html:406
 msgid "Partner Hotels"
-msgstr "Hotel partner"
+msgstr "Partner szállodák"
 
 #: templates/coderedcms/pages/bkp/service2.html:478
 msgid ""
 "Hotel accomodation is included in most of our packages(*). all you have to "
 "do is pick your spot! "
 msgstr ""
-"La sistemazione in hotel è inclusa nella maggior parte dei nostri "
-"pacchetti(*). Tutto quello che devi fare è scegliere il tuo posto! "
+"A szállodai szállást a legtöbb csomagunk tartalmazza(*). Csak annyit kell "
+"tennie, hogy kiválasztja a helyét! "
 
 #: templates/coderedcms/pages/bkp/service2.html:507
 msgid "0.4 Mile from the the Grand Bazaar"
-msgstr "0.4 km dal Grand Bazaar"
+msgstr "0,4 mérföldre a Nagy Bazártól"
 
 #: templates/coderedcms/pages/bkp/service2.html:520
 #: templates/coderedcms/pages/service2.html:448
 msgid "Our Packages"
-msgstr "I nostri pacchetti"
+msgstr "Csomagjaink"
 
 #: templates/coderedcms/pages/bkp/service2.html:553
 #: templates/coderedcms/pages/service2.html:480
 msgid "Frequently Asked Questions"
-msgstr "Domande frequenti"
+msgstr "Gyakran Ismételt Kérdések"
 
 #: templates/coderedcms/pages/bkp/service2.html:588
 #: templates/coderedcms/pages/service2.html:512
@@ -328,7 +328,7 @@ msgstr ""
 #: templates/coderedcms/pages/bkp/service2.html:598
 #: templates/coderedcms/pages/service2.html:520
 msgid "Address"
-msgstr "Indirizzo"
+msgstr "Cím"
 
 #: templates/coderedcms/pages/bkp/service2.html:599
 #: templates/coderedcms/pages/service2.html:521
@@ -340,36 +340,36 @@ msgstr "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
 #: templates/coderedcms/pages/bkp/service2.html:606
 #: templates/coderedcms/pages/service2.html:528
 msgid "Call Us"
-msgstr "Chiamaci"
+msgstr "Hívjon minket"
 
 #: templates/coderedcms/pages/bkp/service2.html:614
 #: templates/coderedcms/pages/service2.html:536
 msgid "Email Us"
-msgstr "Inviaci un'e-mail"
+msgstr "Írjon nekünk e-mailt"
 
 #: templates/coderedcms/pages/custom_location_page.html:38
 msgid "Location Image"
-msgstr "Immagine della posizione"
+msgstr "Helyszín képe"
 
 #: templates/coderedcms/pages/custom_location_page.html:121
 msgid "Top Locations"
-msgstr "Posizioni principali"
+msgstr "Top helyszínek"
 
 #: templates/coderedcms/pages/custom_location_page.html:126
 msgid "Recent Locations"
-msgstr "Posizioni recenti"
+msgstr "Legutóbbi helyszínek"
 
 #: templates/coderedcms/pages/form_page_landing.html:8
 msgid "Thank You"
-msgstr "Grazie"
+msgstr "Köszönöm"
 
 #: templates/coderedcms/pages/form_page_landing.html:9
 msgid "We have successfully received your submission."
-msgstr "Abbiamo ricevuto con successo la tua proposta."
+msgstr "Sikeresen megkaptuk beadványát."
 
 #: templates/coderedcms/pages/lang.html:11
 msgid "Language"
-msgstr "Lingua"
+msgstr "Nyelv"
 
 #: templates/coderedcms/pages/search.html:7
 #: templates/coderedcms/pages/search.html:14
@@ -377,50 +377,40 @@ msgstr "Lingua"
 #: templates/coderedcms/snippets/bkp/navbar.html:37
 #: templates/coderedcms/snippets/navbar.html:37
 msgid "Search"
-msgstr "Ricerca"
+msgstr "Keresés"
 
 #: templates/coderedcms/pages/search.html:7
 #: templates/coderedcms/pages/search.html:16
 msgid "Search for"
-msgstr "Cercare"
+msgstr "Keres"
 
 #: templates/coderedcms/pages/search.html:45
 msgid "All Results"
-msgstr "Tutti i risultati"
+msgstr "Összes találat"
 
 #: templates/coderedcms/pages/search.html:80
 msgid "No results found."
-msgstr "Nessun risultato trovato."
+msgstr "Nincs találat."
 
 #: templates/coderedcms/pages/service2.html:173
-#, fuzzy
-#| msgid "Blog Image"
 msgid "Hero Image"
-msgstr "Immagine del blog"
+msgstr "Hős kép"
 
 #: templates/coderedcms/pages/service2.html:202
-#, fuzzy
-#| msgid "About Us"
 msgid "About Us Image"
-msgstr "Chi Siamo"
+msgstr "Rólunk Kép"
 
 #: templates/coderedcms/pages/service2.html:407
-#, fuzzy
-#| msgid ""
-#| "Hotel accomodation is included in most of our packages(*). all you have to "
-#| "do is pick your spot! "
 msgid ""
 "Hotel accommodation is included in most of our packages(*). All you have to "
 "do is pick your spot!"
 msgstr ""
-"La sistemazione in hotel è inclusa nella maggior parte dei nostri "
-"pacchetti(*). Tutto quello che devi fare è scegliere il tuo posto! "
+"A szállodai szállást a legtöbb csomagunk tartalmazza(*). Csak annyit kell "
+"tennie, hogy kiválasztja a helyét!"
 
 #: templates/coderedcms/pages/service2.html:436
-#, fuzzy
-#| msgid "0.4 Mile from the the Grand Bazaar"
 msgid "0.4 Mile from the Grand Bazaar"
-msgstr "0.4 km dal Grand Bazaar"
+msgstr "0,4 mérföldre a Nagy Bazártól"
 
 #: templates/coderedcms/snippets/bkp/f2.html:12
 #: templates/coderedcms/snippets/f2.html:12
@@ -435,33 +425,27 @@ msgstr "Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul"
 #: templates/coderedcms/snippets/bkp/f2.html:18
 #: templates/coderedcms/snippets/f2.html:19
 msgid "Phone:"
-msgstr "Telefono:"
+msgstr "Telefon:"
 
 #: templates/coderedcms/snippets/bkp/f2.html:21
 #: templates/coderedcms/snippets/f2.html:22
-#, fuzzy
-#| msgid "Email Us"
 msgid "Email:"
-msgstr "Inviaci un'e-mail"
+msgstr "E-mail:"
 
 #: templates/coderedcms/snippets/bkp/f2.html:26
 #: templates/coderedcms/snippets/f2.html:27
-#, fuzzy
-#| msgid "Quick Links"
 msgid "Useful Links"
-msgstr "Collegamenti rapidi"
+msgstr "Hasznos linkek"
 
 #: templates/coderedcms/snippets/bkp/f2.html:45
 #: templates/coderedcms/snippets/f2.html:46
-#, fuzzy
-#| msgid "Denti-Board"
 msgid "Denti Board"
-msgstr "Denti-Board"
+msgstr "Denti tábla"
 
 #: templates/coderedcms/snippets/bkp/f2.html:60
 #: templates/coderedcms/snippets/f2.html:61
 msgid "Copyright"
-msgstr "Diritto d’autore"
+msgstr "Szerzői jog"
 
 #: templates/coderedcms/snippets/bkp/f2.html:60
 #: templates/coderedcms/snippets/f2.html:61
@@ -471,66 +455,64 @@ msgstr "Denti Delil 2024"
 #: templates/coderedcms/snippets/bkp/f2.html:60
 #: templates/coderedcms/snippets/f2.html:61
 msgid "All Rights Reserved"
-msgstr "Tutti i diritti riservati"
+msgstr "Minden jog fenntartva"
 
 #: templates/coderedcms/snippets/bkp/navigation.html:64
 #: templates/coderedcms/snippets/navigation.html:128
 msgid "DASHBOARD LOGIN"
-msgstr "ACCESSO ALLA DASHBOARD"
+msgstr "BEJELENTKEZÉS IRÁNYÍTÓPULTRA"
 
 #: templates/coderedcms/snippets/bkp/navigation.html:66
 #: templates/coderedcms/snippets/navigation.html:130
 msgid "Your smile, our priority. Affordable dental care abroad."
 msgstr ""
-"Il tuo sorriso, la nostra priorità. Cure dentistiche convenienti all'estero."
+"Az Ön mosolya, a mi prioritásunk. Megfizethető fogászati ellátás külföldön."
 
 #: templates/coderedcms/snippets/n.html:132
 #: templates/coderedcms/snippets/n2.html:77
 msgid "Christmas Sale!"
-msgstr "Saldi di Natale!"
+msgstr "Karácsonyi akció!"
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:31
 msgid "Organize Pages with Classifiers"
-msgstr "Organizzare le pagine con i classificatori"
+msgstr "Oldalak rendszerezése osztályozókkal"
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:33
 msgid "Use Classifiers to create custom categories and filters."
 msgstr ""
-"Utilizza i classificatori per creare categorie e filtri personalizzati."
+"Az osztályozók segítségével egyéni kategóriákat és szűrőket hozhat létre."
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:37
 msgid "Add Classifier"
-msgstr "Aggiungi classificatore"
+msgstr "Osztályozó hozzáadása"
 
 #: templates/wagtailimportexport/import_from_csv.html:3
 #: templates/wagtailimportexport/import_from_csv.html:13
 #: templates/wagtailimportexport/index.html:5
 msgid "Import pages"
-msgstr "Importare pagine"
+msgstr "Oldalak importálása"
 
 #: templates/wagtailimportexport/import_from_csv.html:29
 msgid "IMPORTANT:"
-msgstr "IMPORTANTE:"
+msgstr "FONTOS:"
 
 #: templates/wagtailimportexport/import_from_csv.html:30
 msgid "CSV file must be in the correct format before importing."
-msgstr "Il file CSV deve essere nel formato corretto prima dell'importazione."
+msgstr ""
+"A CSV-fájlnak a megfelelő formátumban kell lennie az importálás előtt."
 
 #: templates/wagtailimportexport/import_from_csv.html:32
 msgid "Read the importing guide."
-msgstr "Leggi la guida all'importazione."
+msgstr "Olvassa el az importálási útmutatót."
 
 #: templates/wagtailimportexport/import_from_csv.html:37
 msgid "Import"
-msgstr "Importazione"
+msgstr "Importál"
 
 #: templates/wagtailimportexport/index.html:3
 msgid "Import / export pages"
-msgstr "Importa/esporta pagine"
+msgstr "Oldalak importálása / exportálása"
 
 #: templates/wagtailimportexport/index.html:10
 msgid "Import from CSV file"
-msgstr "Importazione da file CSV"
-
-#~ msgid "Article from URL"
-#~ msgstr "Articolo da URL"
+msgstr "Importálás CSV-fájlból"

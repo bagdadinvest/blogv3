@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-11-28 23:22+0000\n"
-"PO-Revision-Date: 2024-11-29 02:31+0300\n"
+"POT-Creation-Date: 2024-12-10 04:38+0000\n"
+"PO-Revision-Date: 2024-12-10 07:41+0300\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -82,17 +82,18 @@ msgstr "Hızlı Linkler"
 
 #: templates/coderedcms/pages/article_page.html:107
 #: templates/coderedcms/pages/article_pagemk.html:77
+#: templates/coderedcms/pages/bkp/service2.html:163
 #: templates/coderedcms/pages/custom_article_page.html:84
 #: templates/coderedcms/pages/custom_location_page.html:118
-#: templates/coderedcms/pages/service2.html:71
+#: templates/coderedcms/snippets/n2.html:24
 msgid "Home"
 msgstr "Ev"
 
 #: templates/coderedcms/pages/article_page.html:108
 #: templates/coderedcms/pages/article_pagemk.html:78
+#: templates/coderedcms/pages/bkp/service2.html:256
 #: templates/coderedcms/pages/custom_article_page.html:85
 #: templates/coderedcms/pages/custom_location_page.html:119
-#: templates/coderedcms/pages/service2.html:134
 msgid "About Us"
 msgstr "Hakkımızda"
 
@@ -127,20 +128,236 @@ msgid "Latest Gallery"
 msgstr "Son Galeri"
 
 #: templates/coderedcms/pages/base.html:151
-#: templates/coderedcms/pages/base2.html:145
+#: templates/coderedcms/pages/base2.html:146
 #: templates/coderedcms/pages/basedoc.html:151
-#: templates/coderedcms/pages/baseserv.html:155
-#: templates/coderedcms/pages/servicebase.html:150
+#: templates/coderedcms/pages/baseserv.html:161
+#: templates/coderedcms/pages/basestory.html:148
+#: templates/coderedcms/pages/bkp/base.html:151
+#: templates/coderedcms/pages/bkp/base2.html:145
+#: templates/coderedcms/pages/bkp/basedoc.html:151
+#: templates/coderedcms/pages/bkp/baseserv.html:158
 msgid "Related"
 msgstr "İlgili"
 
 #: templates/coderedcms/pages/base.html:212
-#: templates/coderedcms/pages/base2.html:201
+#: templates/coderedcms/pages/base2.html:202
 #: templates/coderedcms/pages/basedoc.html:208
+#: templates/coderedcms/pages/bkp/base.html:212
+#: templates/coderedcms/pages/bkp/base2.html:201
+#: templates/coderedcms/pages/bkp/basedoc.html:208
+#: templates/coderedcms/pages/bkp/service.html:286
 #: templates/coderedcms/pages/service.html:286
-#: templates/coderedcms/pages/servicebase.html:211
 msgid "hello i would like to have a free consultation"
 msgstr "merhaba ücretsiz danışmanlık almak istiyorum"
+
+#: templates/coderedcms/pages/bkp/service2.html:164
+#: templates/coderedcms/snippets/n2.html:25
+#, fuzzy
+#| msgid "Our Dentists"
+msgid "Dentists"
+msgstr "Diş Hekimlerimiz"
+
+#: templates/coderedcms/pages/bkp/service2.html:165
+#: templates/coderedcms/snippets/n2.html:26
+msgid "Schedule"
+msgstr "Tarife"
+
+#: templates/coderedcms/pages/bkp/service2.html:166
+#: templates/coderedcms/snippets/n2.html:27
+#, fuzzy
+#| msgid "Our Clinics"
+msgid "Clinic"
+msgstr "Kliniklerimiz"
+
+#: templates/coderedcms/pages/bkp/service2.html:167
+#: templates/coderedcms/snippets/n2.html:28
+msgid "Hotels"
+msgstr "Otel"
+
+#: templates/coderedcms/pages/bkp/service2.html:168
+#: templates/coderedcms/pages/bkp/service2.html:282
+#: templates/coderedcms/pages/service2.html:230
+#: templates/coderedcms/snippets/n2.html:29
+msgid "Gallery"
+msgstr "Galeri"
+
+#: templates/coderedcms/pages/bkp/service2.html:172
+#: templates/coderedcms/snippets/n.html:88
+#: templates/coderedcms/snippets/n2.html:33
+#, fuzzy
+#| msgid "Our Dentists"
+msgid "Our Website"
+msgstr "Diş Hekimlerimiz"
+
+#: templates/coderedcms/pages/bkp/service2.html:177
+#: templates/coderedcms/snippets/bkp/f2.html:32
+#: templates/coderedcms/snippets/f2.html:33
+#: templates/coderedcms/snippets/n.html:93
+#: templates/coderedcms/snippets/n2.html:38
+#, fuzzy
+#| msgid "Top Blogs"
+msgid "Our Blogs"
+msgstr "En İyi Bloglar"
+
+#: templates/coderedcms/pages/bkp/service2.html:191
+#: templates/coderedcms/snippets/n.html:107
+#: templates/coderedcms/snippets/n2.html:52
+#, fuzzy
+#| msgid "Denti-Board"
+msgid "Dentiboard"
+msgstr "Denti-Kurulu"
+
+#: templates/coderedcms/pages/bkp/service2.html:193
+#: templates/coderedcms/snippets/bkp/f2.html:47
+#: templates/coderedcms/snippets/f2.html:48
+#: templates/coderedcms/snippets/n.html:109
+#: templates/coderedcms/snippets/n2.html:54
+msgid "Login"
+msgstr "Oturum açma"
+
+#: templates/coderedcms/pages/bkp/service2.html:194
+#: templates/coderedcms/snippets/bkp/f2.html:48
+#: templates/coderedcms/snippets/f2.html:49
+#: templates/coderedcms/snippets/n.html:110
+#: templates/coderedcms/snippets/n2.html:55
+msgid "Signup"
+msgstr "Kayıt Ol"
+
+#: templates/coderedcms/pages/bkp/service2.html:195
+#: templates/coderedcms/snippets/bkp/f2.html:49
+#: templates/coderedcms/snippets/f2.html:50
+#: templates/coderedcms/snippets/n.html:111
+#: templates/coderedcms/snippets/n2.html:56
+msgid "Terms of Service"
+msgstr "Hizmet Şartları"
+
+#: templates/coderedcms/pages/bkp/service2.html:196
+#: templates/coderedcms/snippets/bkp/f2.html:50
+#: templates/coderedcms/snippets/f2.html:51
+#: templates/coderedcms/snippets/n.html:112
+#: templates/coderedcms/snippets/n2.html:57
+msgid "Flight"
+msgstr "Uçuş"
+
+#: templates/coderedcms/pages/bkp/service2.html:201
+#: templates/coderedcms/snippets/n.html:117
+#: templates/coderedcms/snippets/n2.html:62
+msgid "Say Hello to Denti"
+msgstr "Denti'ye Merhaba Deyin"
+
+#: templates/coderedcms/pages/bkp/service2.html:202
+#: templates/coderedcms/snippets/n.html:118
+#: templates/coderedcms/snippets/n2.html:63
+msgid "Dropdown 3"
+msgstr "Açılır Menü 3"
+
+#: templates/coderedcms/pages/bkp/service2.html:203
+#: templates/coderedcms/snippets/n.html:119
+#: templates/coderedcms/snippets/n2.html:64
+msgid "Dropdown 4"
+msgstr "Açılır Menü 4"
+
+#: templates/coderedcms/pages/bkp/service2.html:208
+#: templates/coderedcms/pages/bkp/service2.html:587
+#: templates/coderedcms/pages/service2.html:511
+#: templates/coderedcms/snippets/n.html:124
+#: templates/coderedcms/snippets/n2.html:69
+msgid "Contact"
+msgstr "Temas"
+
+#: templates/coderedcms/pages/bkp/service2.html:216
+msgid "Buy Tickets"
+msgstr "Biletlere Bak"
+
+#: templates/coderedcms/pages/bkp/service2.html:289
+#: templates/coderedcms/pages/service2.html:237
+msgid "Gallery Image"
+msgstr "Galeri Resmi"
+
+#: templates/coderedcms/pages/bkp/service2.html:322
+#: templates/coderedcms/pages/service2.html:255
+msgid "Our Dentists"
+msgstr "Diş Hekimlerimiz"
+
+#: templates/coderedcms/pages/bkp/service2.html:361
+#: templates/coderedcms/pages/service2.html:297
+msgid "Patient Journey"
+msgstr "Hasta Yolculuğu"
+
+#: templates/coderedcms/pages/bkp/service2.html:402
+#: templates/coderedcms/pages/service2.html:330
+msgid "Partner Brands"
+msgstr "İş Ortağı Markaları"
+
+#: templates/coderedcms/pages/bkp/service2.html:436
+#: templates/coderedcms/pages/service2.html:362
+msgid "Our Clinics"
+msgstr "Kliniklerimiz"
+
+#: templates/coderedcms/pages/bkp/service2.html:457
+#: templates/coderedcms/pages/service2.html:385
+msgid "No image available."
+msgstr "Görüntü yok."
+
+#: templates/coderedcms/pages/bkp/service2.html:477
+#: templates/coderedcms/pages/service2.html:406
+msgid "Partner Hotels"
+msgstr "Partner Oteller"
+
+#: templates/coderedcms/pages/bkp/service2.html:478
+msgid ""
+"Hotel accomodation is included in most of our packages(*). all you have to "
+"do is pick your spot! "
+msgstr ""
+"Otel konaklaması paketlerimizin çoğuna dahildir(*). Tek yapmanız gereken "
+"yerinizi seçmek! "
+
+#: templates/coderedcms/pages/bkp/service2.html:507
+#, fuzzy
+#| msgid "0.4 Mile from the Venue"
+msgid "0.4 Mile from the the Grand Bazaar"
+msgstr "Mekana olan mesafe: 0.4 Mil"
+
+#: templates/coderedcms/pages/bkp/service2.html:520
+#: templates/coderedcms/pages/service2.html:448
+msgid "Our Packages"
+msgstr "Paketlerimiz"
+
+#: templates/coderedcms/pages/bkp/service2.html:553
+#: templates/coderedcms/pages/service2.html:480
+msgid "Frequently Asked Questions"
+msgstr "Sıkça Sorulan Sorular"
+
+#: templates/coderedcms/pages/bkp/service2.html:588
+#: templates/coderedcms/pages/service2.html:512
+msgid ""
+"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
+"velit"
+msgstr ""
+"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
+"velit"
+
+#: templates/coderedcms/pages/bkp/service2.html:598
+#: templates/coderedcms/pages/service2.html:520
+msgid "Address"
+msgstr "Adres"
+
+#: templates/coderedcms/pages/bkp/service2.html:599
+#: templates/coderedcms/pages/service2.html:521
+#: templates/coderedcms/snippets/bkp/f2.html:15
+#: templates/coderedcms/snippets/f2.html:16
+msgid "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
+msgstr "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
+
+#: templates/coderedcms/pages/bkp/service2.html:606
+#: templates/coderedcms/pages/service2.html:528
+msgid "Call Us"
+msgstr "Bizi Arayın"
+
+#: templates/coderedcms/pages/bkp/service2.html:614
+#: templates/coderedcms/pages/service2.html:536
+msgid "Email Us"
+msgstr "Bize e-posta gönderin"
 
 #: templates/coderedcms/pages/custom_location_page.html:38
 msgid "Location Image"
@@ -169,6 +386,7 @@ msgstr "Dil"
 #: templates/coderedcms/pages/search.html:7
 #: templates/coderedcms/pages/search.html:14
 #: templates/coderedcms/pages/search.html:32
+#: templates/coderedcms/snippets/bkp/navbar.html:37
 #: templates/coderedcms/snippets/navbar.html:37
 msgid "Search"
 msgstr "Aramak"
@@ -186,167 +404,97 @@ msgstr "Tüm Sonuçlar"
 msgid "No results found."
 msgstr "Sonuç bulunamadı."
 
-#: templates/coderedcms/pages/service2.html:72
-msgid "Speakers"
-msgstr "Hoparlör"
+#: templates/coderedcms/pages/service2.html:173
+#, fuzzy
+#| msgid "Blog Image"
+msgid "Hero Image"
+msgstr "Blog Resmi"
 
-#: templates/coderedcms/pages/service2.html:73
-msgid "Schedule"
-msgstr "Tarife"
+#: templates/coderedcms/pages/service2.html:202
+#, fuzzy
+#| msgid "About Us"
+msgid "About Us Image"
+msgstr "Hakkımızda"
 
-#: templates/coderedcms/pages/service2.html:74
-msgid "Venue"
-msgstr "Mekan"
-
-#: templates/coderedcms/pages/service2.html:75
-msgid "Hotels"
-msgstr "Otel"
-
-#: templates/coderedcms/pages/service2.html:76
-#: templates/coderedcms/pages/service2.html:410
-msgid "Gallery"
-msgstr "Galeri"
-
-#: templates/coderedcms/pages/service2.html:77
-msgid "Dropdown"
-msgstr "Açılır Menü"
-
-#: templates/coderedcms/pages/service2.html:79
-msgid "Dropdown 1"
-msgstr "Açılır Menü 1"
-
-#: templates/coderedcms/pages/service2.html:80
-msgid "Deep Dropdown"
-msgstr "Derin Açılır Menü"
-
-#: templates/coderedcms/pages/service2.html:82
-msgid "Deep Dropdown 1"
-msgstr "Derin Açılır Menü 1"
-
-#: templates/coderedcms/pages/service2.html:83
-msgid "Deep Dropdown 2"
-msgstr "Derin Açılır Menü 2"
-
-#: templates/coderedcms/pages/service2.html:84
-msgid "Deep Dropdown 3"
-msgstr "Derin Açılır Menü 3"
-
-#: templates/coderedcms/pages/service2.html:85
-msgid "Deep Dropdown 4"
-msgstr "Derin Açılır Menü 4"
-
-#: templates/coderedcms/pages/service2.html:86
-msgid "Deep Dropdown 5"
-msgstr "Derin Açılır Menü 5"
-
-#: templates/coderedcms/pages/service2.html:89
-msgid "Dropdown 2"
-msgstr "Açılır Menü 2"
-
-#: templates/coderedcms/pages/service2.html:90
-msgid "Dropdown 3"
-msgstr "Açılır Menü 3"
-
-#: templates/coderedcms/pages/service2.html:91
-msgid "Dropdown 4"
-msgstr "Açılır Menü 4"
-
-#: templates/coderedcms/pages/service2.html:94
-#: templates/coderedcms/pages/service2.html:435
-msgid "Contact"
-msgstr "Temas"
-
-#: templates/coderedcms/pages/service2.html:99
-msgid "Buy Tickets"
-msgstr "Biletlere Bak"
-
-#: templates/coderedcms/pages/service2.html:160
-msgid "Our Dentists"
-msgstr "Diş Hekimlerimiz"
-
-#: templates/coderedcms/pages/service2.html:199
-msgid "Patient Journey"
-msgstr "Hasta Yolculuğu"
-
-#: templates/coderedcms/pages/service2.html:229
-msgid "Partner Brands"
-msgstr "İş Ortağı Markaları"
-
-#: templates/coderedcms/pages/service2.html:263
-msgid "Our Clinics"
-msgstr "Kliniklerimiz"
-
-#: templates/coderedcms/pages/service2.html:284
-msgid "No image available."
-msgstr "Görüntü yok."
-
-#: templates/coderedcms/pages/service2.html:304
-msgid "Partner Hotels"
-msgstr "Partner Oteller"
-
-#: templates/coderedcms/pages/service2.html:332
-msgid "0.4 Mile from the Venue"
-msgstr "Mekana olan mesafe: 0.4 Mil"
-
-#: templates/coderedcms/pages/service2.html:345
-msgid "Our Packages"
-msgstr "Paketlerimiz"
-
-#: templates/coderedcms/pages/service2.html:378
-msgid "Frequently Asked Questions"
-msgstr "Sıkça Sorulan Sorular"
-
-#: templates/coderedcms/pages/service2.html:417
-msgid "Gallery Image"
-msgstr "Galeri Resmi"
+#: templates/coderedcms/pages/service2.html:407
+msgid ""
+"Hotel accommodation is included in most of our packages(*). All you have to "
+"do is pick your spot!"
+msgstr ""
+"Otel konaklaması paketlerimizin çoğuna dahildir(*). Tek yapmanız gereken "
+"yerinizi seçmek!"
 
 #: templates/coderedcms/pages/service2.html:436
-msgid ""
-"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
-"velit"
-msgstr ""
-"Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur "
-"velit"
+#, fuzzy
+#| msgid "0.4 Mile from the Venue"
+msgid "0.4 Mile from the Grand Bazaar"
+msgstr "Mekana olan mesafe: 0.4 Mil"
 
-#: templates/coderedcms/pages/service2.html:446
-msgid "Address"
-msgstr "Adres"
+#: templates/coderedcms/snippets/bkp/f2.html:12
+#: templates/coderedcms/snippets/f2.html:12
+msgid "DENTI DELIL"
+msgstr "DENTI DELIL"
 
-#: templates/coderedcms/pages/service2.html:447
-msgid "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
-msgstr "Denti Delil Ağız ve Diş Sağlığı Polikliniği"
+#: templates/coderedcms/snippets/bkp/f2.html:16
+#: templates/coderedcms/snippets/f2.html:17
+msgid "Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul"
+msgstr "Göztepe, 2341 Sk, 34214 Bağcılar/İstanbul"
 
-#: templates/coderedcms/pages/service2.html:454
-msgid "Call Us"
-msgstr "Bizi Arayın"
+#: templates/coderedcms/snippets/bkp/f2.html:18
+#: templates/coderedcms/snippets/f2.html:19
+msgid "Phone:"
+msgstr "Telefon:"
 
-#: templates/coderedcms/pages/service2.html:462
-msgid "Email Us"
+#: templates/coderedcms/snippets/bkp/f2.html:21
+#: templates/coderedcms/snippets/f2.html:22
+#, fuzzy
+#| msgid "Email Us"
+msgid "Email:"
 msgstr "Bize e-posta gönderin"
 
-#: templates/coderedcms/snippets/f2.html:49
-msgid "Login"
-msgstr "Oturum açma"
+#: templates/coderedcms/snippets/bkp/f2.html:26
+#: templates/coderedcms/snippets/f2.html:27
+#, fuzzy
+#| msgid "Quick Links"
+msgid "Useful Links"
+msgstr "Hızlı Linkler"
 
-#: templates/coderedcms/snippets/f2.html:50
-msgid "Signup"
-msgstr "Kayıt Ol"
+#: templates/coderedcms/snippets/bkp/f2.html:45
+#: templates/coderedcms/snippets/f2.html:46
+#, fuzzy
+#| msgid "Denti-Board"
+msgid "Denti Board"
+msgstr "Denti-Kurulu"
 
-#: templates/coderedcms/snippets/f2.html:51
-msgid "Terms of Service"
-msgstr "Hizmet Şartları"
+#: templates/coderedcms/snippets/bkp/f2.html:60
+#: templates/coderedcms/snippets/f2.html:61
+msgid "Copyright"
+msgstr "Telif hakkı"
 
-#: templates/coderedcms/snippets/f2.html:52
-msgid "Flight"
-msgstr "Uçuş"
+#: templates/coderedcms/snippets/bkp/f2.html:60
+#: templates/coderedcms/snippets/f2.html:61
+msgid "Denti Delil 2024"
+msgstr "Denti Delil 2024"
 
-#: templates/coderedcms/snippets/navigation.html:69
+#: templates/coderedcms/snippets/bkp/f2.html:60
+#: templates/coderedcms/snippets/f2.html:61
+msgid "All Rights Reserved"
+msgstr "Tüm Hakları Saklıdır"
+
+#: templates/coderedcms/snippets/bkp/navigation.html:64
+#: templates/coderedcms/snippets/navigation.html:128
 msgid "DASHBOARD LOGIN"
 msgstr "DASHBOARD GİRİŞİ"
 
-#: templates/coderedcms/snippets/navigation.html:71
+#: templates/coderedcms/snippets/bkp/navigation.html:66
+#: templates/coderedcms/snippets/navigation.html:130
 msgid "Your smile, our priority. Affordable dental care abroad."
 msgstr "Gülüşünüz, önceliğimiz. Yurtdışında uygun fiyatlı diş bakımı."
+
+#: templates/coderedcms/snippets/n.html:132
+#: templates/coderedcms/snippets/n2.html:77
+msgid "Christmas Sale!"
+msgstr "Noel Kampanyasi!"
 
 #: templates/coderedcms/widgets/checkbox_classifiers.html:31
 msgid "Organize Pages with Classifiers"
@@ -391,6 +539,38 @@ msgstr "Sayfaları içe / dışa aktar"
 msgid "Import from CSV file"
 msgstr "CSV dosyasından içe aktar"
 
-#: wagtail_hooks.py:22
-msgid "Article from URL"
-msgstr "URL'den makale"
+#~ msgid "Speakers"
+#~ msgstr "Hoparlör"
+
+#~ msgid "Venue"
+#~ msgstr "Mekan"
+
+#~ msgid "Dropdown"
+#~ msgstr "Açılır Menü"
+
+#~ msgid "Dropdown 1"
+#~ msgstr "Açılır Menü 1"
+
+#~ msgid "Deep Dropdown"
+#~ msgstr "Derin Açılır Menü"
+
+#~ msgid "Deep Dropdown 1"
+#~ msgstr "Derin Açılır Menü 1"
+
+#~ msgid "Deep Dropdown 2"
+#~ msgstr "Derin Açılır Menü 2"
+
+#~ msgid "Deep Dropdown 3"
+#~ msgstr "Derin Açılır Menü 3"
+
+#~ msgid "Deep Dropdown 4"
+#~ msgstr "Derin Açılır Menü 4"
+
+#~ msgid "Deep Dropdown 5"
+#~ msgstr "Derin Açılır Menü 5"
+
+#~ msgid "Dropdown 2"
+#~ msgstr "Açılır Menü 2"
+
+#~ msgid "Article from URL"
+#~ msgstr "URL'den makale"
