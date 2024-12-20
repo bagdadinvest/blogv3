@@ -96,9 +96,99 @@
   <link rel="apple-touch-icon" sizes="167x167" href="{{ favicon_ipad_pro.url }}">
   {% endif %}
   {% endblock %}
-
+  <script src="https://cdn.rawgit.com/icons8/titanic/master/dist/js/titanic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/4.5.9/bodymovin.min.js"></script>
   {% block extra_head %}{% endblock %}
-</head>
+
+  <style>
+    /* Add Animation to Icons */
+    @keyframes iconAnimation {
+        0% {
+            transform: rotate(0deg);
+        }
+        50% {
+            transform: rotate(15deg);
+        }
+        100% {
+            transform: rotate(0deg);
+        }
+    }
+    
+    .nav-items i {
+        animation: iconAnimation 2s ease-in-out infinite;
+    }
+    
+    /* Optional Hover Animation */
+    .nav-items a:hover i {
+        animation: iconAnimation 1s ease-in-out infinite;
+    }
+    
+    /* Reset Browser Default Margins */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Initial Mobile Navigation Style */
+    .mobile-bottom-nav {
+        position: fixed;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 50%;
+        transition: all 0.5s ease;
+        z-index: 1000;
+        cursor: pointer;
+    }
+    
+    .nav-logo-circle {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .nav-logo-circle img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+    }
+    .nav-items {
+        display: none;
+        gap: 20px;
+        margin-left: 20px;
+    }
+    
+    .mobile-bottom-nav.expanded {
+        width: 60%;
+        height: 60px;
+        border-radius: 50px;
+        background: rgba(0, 0, 0, 0.8);
+        justify-content: space-around;
+    }
+    
+    .mobile-bottom-nav.expanded .nav-logo-circle {
+        display: none;
+    }
+    
+    .mobile-bottom-nav.expanded .nav-items {
+        display: flex;
+    }
+    
+    /* Optional: Hover Effects */
+    .mobile-bottom-nav:hover {
+        background: rgba(255, 255, 255, 1);
+    }
+    </style>
+    </head>
 
 <body>
 
@@ -197,7 +287,6 @@
 
 <!-- Vendor JS Files -->
 <script src="{% static 'service2/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-<script src="{% static 'service2/vendor/php-email-form/validate.js' %}"></script>
 <script src="{% static 'service2/vendor/aos/aos.js' %}"></script>
 <script src="{% static 'service2/vendor/glightbox/js/glightbox.min.js' %}"></script>
 <script src="{% static 'service2/vendor/swiper/swiper-bundle.min.js' %}"></script>
@@ -235,8 +324,99 @@
   {% endif %}
   {% endblock %}
 
+<nav class="mobile-bottom-nav" id="mobileNavBar">
+    <div class="nav-logo-circle" id="navTrigger">
+        <img src="{% static 'img/logo2.png' %}" alt="Logo" class="nav-logo">
+    </div>
+    <div class="nav-items">
+      <a href="https://wa.me/15149701751?text=Hello%20_______%20______" target="_blank" style="text-align: center; display: inline-block;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+          <g fill="none" stroke="#d7216b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+            <path fill="#d7216b" fill-opacity="0" stroke-dasharray="64" stroke-dashoffset="64" d="M8 3c0.5 0 2.5 4.5 2.5 5c0 1 -1.5 2 -2 3c-0.5 1 0.5 2 1.5 3c0.39 0.39 2 2 3 1.5c1 -0.5 2 -2 3 -2c0.5 0 5 2 5 2.5c0 2 -1.5 3.5 -3 4c-1.5 0.5 -2.5 0.5 -4.5 0c-2 -0.5 -3.5 -1 -6 -3.5c-2.5 -2.5 -3 -4 -3.5 -6c-0.5 -2 -0.5 -3 0 -4.5c0.5 -1.5 2 -3 4 -3Z">
+              <animate fill="freeze" attributeName="fill-opacity" begin="0.66s" dur="0.165s" values="0;0.1" />
+              <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.66s" values="64;0" />
+            </path>
+          </g>
+        </svg>
+        <div style="margin-top: 5px; font-size: 1em; color: #d7216b;">Call Us</div>
+      </a>
+      <a href="https://facebook.com" target="_blank" style="text-align: center; display: inline-block;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+          <g fill="none" stroke="#1877F2" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+            <path stroke-dasharray="24" stroke-dashoffset="24" d="M17 4l-2 0c-2.5 0 -4 1.5 -4 4v12">
+              <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.44s" values="24;0"/>
+            </path>
+            <path stroke-dasharray="8" stroke-dashoffset="8" d="M8 12h7">
+              <animate fill="freeze" attributeName="stroke-dashoffset" begin="0.55s" dur="0.22s" values="8;0"/>
+            </path>
+          </g>
+        </svg>
+        <div style="margin-top: 5px; font-size: 1em; color: #1877F2;">Facebook</div>
+      </a>
+      <a href="https://facebook.com" target="_blank" style="text-align: center; display: inline-block;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><g fill="none" stroke="#d7216b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="2 4" stroke-dashoffset="6" d="M12 3c4.97 0 9 4.03 9 9c0 4.97 -4.03 9 -9 9"><animate attributeName="stroke-dashoffset" dur="0.66s" repeatCount="indefinite" values="6;0"/></path><path stroke-dasharray="32" stroke-dashoffset="32" d="M12 21c-4.97 0 -9 -4.03 -9 -9c0 -4.97 4.03 -9 9 -9"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.11s" dur="0.44s" values="32;0"/></path><path stroke-dasharray="10" stroke-dashoffset="10" d="M12 8v7.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.55s" dur="0.22s" values="10;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 15.5l3.5 -3.5M12 15.5l-3.5 -3.5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.77s" dur="0.22s" values="6;0"/></path></g></svg>        <div style="margin-top: 5px; font-size: 1em; color: #d7216b;">Home</div>
+      </a>
+      <a href="https://facebook.com" target="_blank" style="text-align: center; display: inline-block;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><g fill="none" stroke="#d7216b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="72" stroke-dashoffset="72" d="M12 3h7v18h-14v-18h7Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.66s" values="72;0"/></path><path stroke-dasharray="12" stroke-dashoffset="12" stroke-width="1" d="M14.5 3.5v3h-5v-3"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.77s" dur="0.22s" values="12;0"/></path><path stroke-dasharray="4" stroke-dashoffset="4" d="M9 10h3"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.99s" dur="0.22s" values="4;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M9 13h5"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.21s" dur="0.22s" values="6;0"/></path><path stroke-dasharray="8" stroke-dashoffset="8" d="M9 16h6"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.43s" dur="0.22s" values="8;0"/></path></g></svg>
+
+        <div style="margin-top: 5px; font-size: 1em; color: #d7216b;">Contact Us</div>
+      </a>      
+          </a>
+            <a href="https://facebook.com" target="_blank" style="text-align: center; display: inline-block;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24"><rect width="24" height="24" fill="none"/><g fill="none" stroke="#d7216b" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="72" stroke-dashoffset="72" d="M3 19.5v-15.5c0 -0.55 0.45 -1 1 -1h16c0.55 0 1 0.45 1 1v12c0 0.55 -0.45 1 -1 1h-14.5Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.66s" values="72;0"/></path><path stroke-dasharray="10" stroke-dashoffset="10" d="M8 7h8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.77s" dur="0.22s" values="10;0"/></path><path stroke-dasharray="10" stroke-dashoffset="10" d="M8 10h8"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.1s" dur="0.22s" values="10;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M8 13h4"><animate fill="freeze" attributeName="stroke-dashoffset" begin="1.43s" dur="0.22s" values="6;0"/></path></g></svg>                <g fill="none" stroke="#1877F2" stroke-linecap="round" stroke-linejoin="round" stroke-width="4">
+              <div style="margin-top: 5px; font-size: 1em; color: #d7216b;">mzl</div>
+            </a>
+            
+
+    </div>
+</nav>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const navBar = document.getElementById('mobileNavBar');
+    const navTrigger = document.getElementById('navTrigger');
+
+    let idleTimeout;
+
+    function resetIdleTimer() {
+        clearTimeout(idleTimeout);
+        idleTimeout = setTimeout(closeNav, 5000); // Close after 5 seconds of inactivity
+    }
+
+    function openNav() {
+        navBar.classList.add('expanded');
+        resetIdleTimer();
+    }
+
+    function closeNav() {
+        navBar.classList.remove('expanded');
+    }
+
+    navTrigger.addEventListener('click', () => {
+        if (navBar.classList.contains('expanded')) {
+            closeNav();
+        } else {
+            openNav();
+        }
+    });
+
+    // Reset the idle timer on user activity
+    ['mousemove', 'keypress', 'touchstart', 'click'].forEach(event =>
+        window.addEventListener(event, resetIdleTimer)
+    );
+
+    resetIdleTimer(); // Start the timer on page load
+});
+
+</script>
 
 <script src="https://app.stammer.ai/static/chatbot/js/chatbubble.js" data-id="505b8b87-4725-4335-bddb-35618a2dfa61" data-domain="https://app.stammer.ai" ></script>
+<script>
+  var titanic = new Titanic({
+    hover: true, // auto animated on hover (default true)
+    click: true  // auto animated on click/tap (default false)
+  });
+</script>
+
 </body>
 
 </html>

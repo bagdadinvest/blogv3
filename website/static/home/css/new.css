@@ -248,7 +248,16 @@ nav {
     z-index: 1;
 }
 
-#video-container video,
+#video-container video {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%; /* Adjust width */
+    height: 100%; /* Adjust height */
+    object-fit: cover; /* Options: contain, cover, fill, scale-down, none */
+    object-position: center; /* Adjust video position */
+}
 
 .video-overlay {
     position: absolute;

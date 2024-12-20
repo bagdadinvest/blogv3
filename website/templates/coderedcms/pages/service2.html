@@ -505,12 +505,9 @@
     {% endif %}
 
     <!-- Contact Section -->
-    <section id="contact" class="contact section">
-        <!-- Section Title -->
-        <div class="container section-title aos-init aos-animate" data-aos="fade-up">
-            <h2>{% trans "Contact" %}</h2>
-            <p>{% trans "Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit" %}</p>
-        </div><!-- End Section Title -->
+<!-- Contact Section with Form -->
+
+
 
         <div class="container aos-init aos-animate" data-aos="fade-up" data-aos-delay="100">
             <div class="row gy-4">
@@ -546,25 +543,25 @@
 
                 {% if page.form_live %}
                 <div class="col-lg-6">
-                    <form class="{{ page.form_css_class }}" id="{{ page.form_id }}" action="{% pageurl self %}" method="POST" {% if form|is_file_form %}enctype="multipart/form-data"{% endif %} data-aos="fade-up" data-aos-delay="400">
-                        {% csrf_token %}
-                        {% bootstrap_form form layout="horizontal" %}
-                        <div class="row gy-4">
-                            {% block captcha %}
-                                {% if page.spam_protection %}
-                                    {% include "coderedcms/includes/form_honeypot.html" %}
-                                {% endif %}
-                            {% endblock %}
-                            <div class="{{'horizontal_label_class'|bootstrap_settings}}"></div>
-                            <div class="{{'horizontal_field_class'|bootstrap_settings}}">
-                                <div class="col-md-12 text-center">
-                                    <button type="submit" class="btn {{page.button_size}} {{page.button_style}} {{page.button_css_class}}">
-                                        {{ page.button_text }}
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
+                   <form class="{{ page.form_css_class }}" id="{{ page.form_id }}" action="{% pageurl self %}" method="POST" {% if form|is_file_form %}enctype="multipart/form-data"{% endif %}>
+    {% csrf_token %}
+    {% bootstrap_form form layout="horizontal" %}
+
+    {% block captcha %}
+    {% if page.spam_protection %}
+    {% include "coderedcms/includes/form_honeypot.html" %}
+    {% endif %}
+    {% endblock %}
+
+    <div class="row">
+      <div class="{{'horizontal_label_class'|bootstrap_settings}}"></div>
+      <div class="{{'horizontal_field_class'|bootstrap_settings}}">
+        <button type="submit" class="btn {{page.button_size}} {{page.button_style}} {{page.button_css_class}}">
+          {{ page.button_text }}
+        </button>
+      </div>
+    </div>
+  </form>
                 </div>
                 {% endif %}
             </div>

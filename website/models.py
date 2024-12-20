@@ -1156,3 +1156,13 @@ class FooterWithForm(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class WebGLGalleryPage(FormPage):
+    template = "webgl_gallery.html"
+
+    class Meta:
+        verbose_name = "webgl_gallery"
+
+
+

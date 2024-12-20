@@ -1,0 +1,46 @@
+/* merged.css */
+
+/* Define Theme Colors First */
+:root {
+    --background-color: #232323;
+    --text-color: #ffffff;
+    --heading-color: #f4dd5b;
+    --accent-color: #f4dd5b;
+    --contrast-color: #ffffff;
+}
+
+/* Import Both Files (New First) */
+@import url('new.css');
+@import url('main.css');
+
+/* Fix Critical Overrides After Import */
+body, html {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Kanit', sans-serif !important;
+}
+
+/* Ensure Navigation is Correct */
+nav .logo a {
+    color: var(--heading-color) !important;
+}
+
+/* Standard Link & Button Styles */
+a, button {
+    color: var(--accent-color) !important;
+}
+
+a:hover, button:hover {
+    color: color-mix(in srgb, var(--accent-color), transparent 20%) !important;
+}
+
+/* Footer Fix */
+footer {
+    background-color: #313131 !important;
+    color: var(--contrast-color) !important;
+}
+
+footer p {
+    text-transform: uppercase !important;
+    letter-spacing: 0.5px !important;
+}

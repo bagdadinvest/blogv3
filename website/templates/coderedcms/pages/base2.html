@@ -1,3 +1,4 @@
+
 {% load coderedcms_tags i18n static wagtailcore_tags wagtailimages_tags wagtailsettings_tags wagtailuserbar %}
 {% get_settings %}
 {% get_current_language as LANGUAGE_CODE %}
@@ -167,7 +168,7 @@
   </div>
 
   {% block footer %}
-  {% include "coderedcms/snippets/f2.html" %}
+  {% include "coderedcms/snippets/footer.html" %}
 {% endblock %}
 
   {% block frontend_scripts %}

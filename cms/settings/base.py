@@ -68,9 +68,20 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.sitemaps",
     'debug_toolbar',
+    'rest_framework',
+    'rest_framework.authtoken', 
+    'drf_yasg',  # Add OpenAPI support
     'dbbackup',
 
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [],
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.AllowAny',
+    ],
+}
+
 
 MIDDLEWARE = [
     # Save pages to cache. Must be FIRST.
@@ -173,18 +184,18 @@ WAGTAIL_I18N_ENABLED = True
 
 WAGTAIL_CONTENT_LANGUAGES = LANGUAGES = [
     ('en', 'English'),
-    ('tr', 'Turkish'),
-    ('fr', 'French'),
-    ('es', 'Spanish'),
-    ('it', 'Italian'),
-    ('pl', 'Polish'),
-    ('pt', 'Portuguese'),
-    ('hu', 'Hungarian'),
-    ('ru', 'Russian'),
-    ('ar', 'Arabic'),        # Added Arabic
-    ('de', 'German'),        # Added German
-    ('bg', 'Bulgarian'),     # Added Bulgarian
-    ('nl', 'Dutch'),         # Added Dutch
+    ('tr', 'Türkçe'),
+    ('fr', 'Français'),
+    ('es', 'Español'),
+    ('it', 'Italiano'),
+    ('pl', 'Polski'),
+    ('pt', 'Português'),
+    ('hu', 'Magyar'),
+    ('ru', 'Русский'),
+    ('ar', 'العربية'),
+    ('de', 'Deutsch'),        # German
+    ('bg', 'български'),      # Bulgarian
+    ('nl', 'Nederlands'),     # Dutch
 ]
 
 

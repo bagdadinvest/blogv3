@@ -6,6 +6,24 @@ from django.contrib import admin
 from django.urls import include, path
 from wagtail.documents import urls as wagtaildocs_urls
 from django.conf.urls.i18n import i18n_patterns
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+# OpenAPI schema view
+schema_view = get_schema_view(
+    openapi.Info(
+        title="Django API",
+        default_version="v1",
+        description="Interactive API Documentation for Django Shell API",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="support@dentidelil-international.com"),
+        license=openapi.License(name="MIT License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
+
 
 # Define the initial urlpatterns
 urlpatterns = [
@@ -17,6 +35,7 @@ urlpatterns = [
     # Search view placeholder if needed
     path("search/", include(crx_search_urls)),
     path('rosetta/', include('rosetta.urls')),  # Add Rosetta
+    path('api/', include('api.urls')),  # Include API routes
 
 ]
 
@@ -40,3 +59,8 @@ if settings.DEBUG:
     urlpatterns = [
         path("__debug__/", include(debug_toolbar.urls)),
     ] + urlpatterns
+
+urlpatterns += [
+    path("swagger/", schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
+    path("redoc/", schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+]
